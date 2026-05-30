@@ -27,16 +27,24 @@
 .service-image img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 14px 36px rgba(0,0,0,0.1); }
 
 /* Process Steps */
-.process-steps { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0; }
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
 
 .step {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     background: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 999px;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
     border: 2px solid #c41e3a;
+    text-align: center;
+    min-height: 48px;
 }
 
 .step-number {
@@ -50,20 +58,27 @@
     justify-content: center;
     font-weight: 700;
     font-size: 0.85rem;
+    flex-shrink: 0;
 }
 
-.step-text { color: #1f2937; font-weight: 600; font-size: 0.9rem; }
+.step-text { color: #1f2937; font-weight: 600; font-size: 0.88rem; line-height: 1.3; }
 
 /* Tech Stack */
-.tech-stack { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0; }
+.tech-stack {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
 
 .tech-badge {
     background: #c41e3a;
     color: white;
-    padding: 0.4rem 1.2rem;
-    border-radius: 999px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
     font-weight: 600;
     font-size: 0.88rem;
+    text-align: center;
 }
 
 /* Features Grid */
