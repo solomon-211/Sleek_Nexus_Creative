@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -309,8 +309,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section footer-brand">
-                    <h4>Sleek <span style="color:#ff8c42">Nexus</span> Creative</h4>
+                    <a href="index.html" class="footer-logo" aria-label="Sleek Nexus Creative Home">
+                        <span class="footer-logo-icon"><i class="fas fa-bolt" aria-hidden="true"></i></span>
+                        <span class="footer-logo-text">
+                            <span class="footer-logo-line1">Sleek <span class="footer-logo-nexus">Nexus</span> Creative</span>
+                            <span class="footer-logo-line2">Innovation That Solves Problems</span>
+                        </span>
+                    </a>
                     <p>We design and deliver dependable digital products that help organizations scale impact, improve operations, and serve communities better.</p>
+                    <a href="careers.html" class="footer-hiring-badge" aria-label="We are hiring"><i class="fas fa-circle-dot" aria-hidden="true"></i> We're Hiring <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     <ul class="footer-contact-list">
                         <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:info@SNC.ss">info@SNC.ss</a></li>
                         <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+211925277700">+211 925 277 700</a></li>
@@ -354,17 +361,18 @@
                         <button type="submit" class="footer-subscribe-btn">Subscribe</button>
                     </form>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/SNC" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="https://twitter.com/SNC" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com/company/SNC" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="contact.html" aria-label="Contact Sleek Nexus Creative"><i class="fas fa-paper-plane"></i></a>
+                        <a href="https://www.facebook.com/SNC" class="social-facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/SNC" class="social-twitter" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/SNC" class="social-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/211925277700" class="social-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="contact.html" class="social-contact" aria-label="Contact Sleek Nexus Creative"><i class="fas fa-paper-plane"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Sleek Nexus Creative. All rights reserved.</p>
+                <p>&copy; <span id="footer-year">2024</span> Sleek Nexus Creative. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="#mainNav">Back to Top</a>
+                    <a href="#mainNav" class="footer-back-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
                     <a href="admin.html" class="admin-link">Admin</a>
@@ -385,4 +393,8 @@
     <script src="../js/animations.js?v=2" defer></script>
 </body>
 </html>
+
+
+
+
 

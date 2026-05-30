@@ -29,7 +29,7 @@
 /* Process Steps */
 .process-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 0.75rem;
     margin: 1.5rem 0;
 }
@@ -45,6 +45,7 @@
     border: 2px solid #c41e3a;
     text-align: center;
     min-height: 48px;
+    width: 100%;
 }
 
 .step-number {
@@ -66,7 +67,7 @@
 /* Tech Stack */
 .tech-stack {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.75rem;
     margin: 1.5rem 0;
 }
@@ -79,6 +80,7 @@
     font-weight: 600;
     font-size: 0.88rem;
     text-align: center;
+    width: 100%;
 }
 
 /* Features Grid */
@@ -400,6 +402,14 @@
     .service-content, .service-content.reverse { grid-template-columns: 1fr; direction: ltr; }
     .pricing-grid { grid-template-columns: 1fr; }
     .features-grid { grid-template-columns: 1fr; }
-    .process-steps { flex-direction: column; }
+    .process-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tech-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .comparison-table th, .comparison-table td { padding: 0.75rem 0.5rem; font-size: 0.82rem; }
+}
+
+@media (max-width: 540px) {
+    .process-steps,
+    .tech-stack {
+        grid-template-columns: 1fr;
+    }
 }

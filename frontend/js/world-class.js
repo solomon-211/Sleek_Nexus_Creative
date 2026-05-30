@@ -360,6 +360,14 @@
         });
     }
 
+    // ---- Footer Year ----
+    function initFooterYear() {
+        const yearEl = document.getElementById('footer-year');
+        if (yearEl) {
+            yearEl.textContent = new Date().getFullYear();
+        }
+    }
+
     // ---- Join Us Section ----
     function initJoinUsSection() {
         if (document.querySelector('.join-us-section')) return;
@@ -440,6 +448,7 @@
         initBlogSearch();
         initEnrollLinks();
         initSectionDividers();
+        initFooterYear();
         initJoinUsSection();
     });
 
