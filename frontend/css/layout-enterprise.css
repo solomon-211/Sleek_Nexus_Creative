@@ -1,0 +1,65 @@
+/* Enterprise layout overrides — cleaner, corporate look */
+:root {
+    --primary-color: #0a58ca; /* Corporate blue */
+    --secondary-color: #073b6a;
+    --accent-color: #00b4d8;
+    --text-dark: #0b2540;
+    --text-light: #6b7280;
+    --bg-white: #ffffff;
+    --bg-light: #f6f9fc;
+    --border-color: #e6eef9;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Inter', 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+}
+
+.navbar {
+    background: linear-gradient(90deg, rgba(10,88,202,0.95), rgba(7,59,106,0.95));
+    color: #fff;
+    border-bottom: 0;
+}
+
+.logo-text {
+    color: #ffffff !important;
+}
+
+.nav-menu a {
+    color: rgba(255,255,255,0.92);
+}
+
+.nav-menu a.active { color: #fff; font-weight:700 }
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(10,88,202,0.12);
+}
+
+.hero {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, rgba(10,88,202,0.06), transparent 60%);
+}
+
+.hero-title { font-size: 2.8rem; color: var(--text-dark); }
+
+.footer {
+    background: #071728;
+    color: rgba(255,255,255,0.85);
+}
+
+.footer a { color: rgba(255,255,255,0.85); }
+
+/* Layout switcher small styling */
+.layout-switcher label { color: rgba(255,255,255,0.85); }
+.layout-switcher .layout-select { background: #fff; color: #0b2540; }
+
+/* Small responsive tweaks */
+@media (max-width: 768px) {
+    .logo-img { height: 64px }
+    .logo-text { font-size: 1.4rem }
+}

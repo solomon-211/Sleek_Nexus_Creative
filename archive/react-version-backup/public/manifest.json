@@ -1,0 +1,53 @@
+{
+  "name": "Sleek Nexus Creative",
+  "short_name": "SNC",
+  "description": "South Sudan's leading technology company — custom software, web & mobile apps, and EdTech solutions.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0284c7",
+  "orientation": "portrait-primary",
+  "categories": ["business", "technology", "education"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "images/Sleek_Axis.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/Sleek_Axis.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/hero-tech.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Sleek Nexus Creative homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Send us a project enquiry",
+      "url": "html/contact.html",
+      "icons": [{ "src": "images/Sleek_Axis.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Our Projects",
+      "short_name": "Projects",
+      "description": "View our portfolio",
+      "url": "html/projects.html",
+      "icons": [{ "src": "images/Sleek_Axis.png", "sizes": "96x96" }]
+    }
+  ]
+}

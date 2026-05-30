@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://SNC.ss/html/contact.html">
+    <meta name="description" content="Contact Sleek Nexus Creative - Get in touch for your technology needs">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://SNC.ss/html/contact.html">
+    <meta property="og:title" content="Contact Us - Sleek Nexus Creative">
+    <meta property="og:description" content="Get in touch with Sleek Nexus Creative for your technology needs in South Sudan.">
+    <meta property="og:image" content="https://SNC.ss/images/hero-tech.png">
+    <title>Contact Us - Sleek Nexus Creative</title>
+    <link rel="icon" type="image/png" href="../images/Sleek_Axis.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../css/style.css?v=5">
+    <link rel="stylesheet" href="../css/navbar.css?v=2">
+    <link rel="stylesheet" href="../css/consistency.css?v=2">
+    <link rel="stylesheet" href="../css/widgets.css?v=2">
+    <link rel="stylesheet" href="../css/no-scrollbar.css?v=2">
+    <link rel="stylesheet" href="../css/contact.css?v=3">
+    <link rel="stylesheet" href="../css/world-class.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+</head>
+<body class="page-shell">
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p><i class="fas fa-shield-alt"></i> We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept", you consent to our use of cookies. <a href="privacy.html">Learn more</a></p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn accept" id="cookie-accept-btn">Accept All</button>
+                <button class="cookie-btn decline" id="cookie-decline-btn">Decline</button>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar" id="mainNav">
+        <div class="nav-progress-line" id="navProgressLine"></div>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" aria-label="Sleek Nexus Creative Home">
+                    <span class="logo-icon"><i class="fas fa-bolt"></i></span>
+                    <span class="logo-text">
+                        <span class="logo-line1">Sleek <span class="logo-nexus">Nexus</span></span>
+                        <span class="logo-line2">Creative</span>
+                    </span>
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem"><span>Home</span></a></li>
+                <li role="none"><a href="about.html" role="menuitem"><span>About</span></a></li>
+                <li role="none"><a href="services.html" role="menuitem"><span>Services</span></a></li>
+                <li role="none"><a href="projects.html" role="menuitem"><span>Projects</span></a></li>
+                <li role="none"><a href="courses.html" role="menuitem"><span>Courses</span></a></li>
+                <li role="none"><a href="contact.html" class="active" role="menuitem"><span>Contact</span></a></li>
+            </ul>
+            <div class="nav-actions">
+                <ul class="nav-special">
+                    <li><a href="partners.html" class="special-link"><i class="fas fa-handshake"></i> Partner</a></li>
+                    <li><a href="donors.html" class="special-link donate-link"><i class="fas fa-heart"></i> Donate</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <section class="page-header" id="main-content">
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p class="tagline">"Let's Transform Your Vision Into Reality Together"</p>
+            <p class="header-description">
+                We're here to answer your questions, discuss your project requirements, and explore how our technology solutions can drive your business forward. Whether you're looking to build a custom application, modernize your systems, or need strategic technology guidance, our team of experts is ready to help you succeed. Reach out today and let's start the conversation.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- CONTACT FORM - Customize fields as needed -->
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                    
+                    <!-- FORM - Connect to your backend or email service -->
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                            <span class="error-message" id="name-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                            <span class="error-message" id="phone-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="software-dev">Software Development</option>
+                                <option value="web-mobile">Web & Mobile Apps</option>
+                                <option value="edtech">Educational Technology</option>
+                                <option value="consulting">IT Consulting</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <span class="error-message" id="message-error"></span>
+                        </div>
+
+                        <div class="form-message" id="form-message"></div>
+
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- CONTACT INFO - Update with your actual details -->
+                <div class="contact-info-container">
+                    <h2>Contact Information</h2>
+                    <p>Reach out to us through any of these channels</p>
+
+                    <div class="contact-info-list">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-text">
+                                <h4>Office Address</h4>
+                                <p>Juba, South Sudan<br>Central Equatoria State</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-text">
+                                <h4>Phone</h4>
+                                <p><a href="tel:+211925277700">+211 925 277 700</a><br>Mon-Fri, 9AM-6PM</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-text">
+                                <h4>Email</h4>
+                                <p><a href="mailto:info@SNC.ss">info@SNC.ss</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="info-text">
+                                <h4>WhatsApp</h4>
+                                <p><a href="https://wa.me/211925277700" target="_blank" rel="noopener noreferrer">Chat with us</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-text">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 9AM - 6PM<br>Saturday: 10AM - 4PM<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-connect">
+                        <h4>Connect With Us</h4>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/SNC" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="https://twitter.com/SNC" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com/company/SNC" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://wa.me/211925277700" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUPPORT SECTION -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">We're Here to Help</h2>
+            <p class="section-subtitle">Expert support and guidance for your technology journey</p>
+            
+            <div class="support-grid">
+                <div class="support-card">
+                    <i class="fas fa-headset support-icon"></i>
+                    <h3 class="support-title">24/7 Support</h3>
+                    <p class="support-text">Round-the-clock assistance for urgent technical issues and inquiries</p>
+                </div>
+                
+                <div class="support-card">
+                    <i class="fas fa-comments support-icon"></i>
+                    <h3 class="support-title">Free Consultation</h3>
+                    <p class="support-text">Schedule a complimentary session to discuss your project requirements</p>
+                </div>
+                
+                <div class="support-card">
+                    <i class="fas fa-rocket support-icon"></i>
+                    <h3 class="support-title">Fast Response</h3>
+                    <p class="support-text">We respond to all inquiries within 24 hours on business days</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION - Add common questions -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Find answers to common questions about our services and process</p>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>How long does a typical project take?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Project timelines vary based on complexity. Simple websites take 2-4 weeks, while complex applications may take 3-6 months. We provide detailed timelines during consultation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>What is your pricing structure?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-content">
+                        <p>We offer flexible pricing based on project scope. Contact us for a free consultation and custom quote tailored to your needs and budget.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>Do you provide ongoing support?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Yes! We offer maintenance packages and ongoing support to ensure your solution continues to perform optimally after launch.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>Can you work with our existing systems?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Absolutely. We specialize in integrations and can work with your existing infrastructure to create seamless solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Banner -->
+    <div class="footer-newsletter-banner">
+        <div class="container">
+            <i class="fas fa-envelope envelope-icon"></i>
+            <span class="banner-label">Don't Miss Out On Exciting Updates</span>
+            <h2 class="banner-heading">Subscribe to Our Monthly Newsletter</h2>
+            <form class="banner-form" id="newsletter-form" novalidate>
+                <input type="text" name="firstName" placeholder="First Name" required aria-label="First Name">
+                <input type="text" name="lastName" placeholder="Last Name" required aria-label="Last Name">
+                <input type="email" name="email" placeholder="Email" required aria-label="Email address">
+                <button type="submit" class="banner-subscribe-btn">Subscribe</button>
+            </form>
+            <div class="newsletter-message" id="newsletter-message"></div>
+        </div>
+    </div>
+
+    <!-- Footer Nav -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand">
+                    <h4>Sleek <span style="color:#ff8c42">Nexus</span> Creative</h4>
+                    <p>We design and deliver dependable digital products that help organizations scale impact, improve operations, and serve communities better.</p>
+                    <ul class="footer-contact-list">
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:info@SNC.ss">info@SNC.ss</a></li>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+211925277700">+211 925 277 700</a></li>
+                        <li><i class="fas fa-location-dot" aria-hidden="true"></i><span>Juba, South Sudan</span></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html#story">Our Story</a></li>
+                        <li><a href="about.html#team">Our Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#software-dev">Software Development</a></li>
+                        <li><a href="services.html#web-mobile">Web &amp; Mobile Apps</a></li>
+                        <li><a href="services.html#edtech">Educational Technology</a></li>
+                        <li><a href="services.html#consulting">IT Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="partners.html">Partner With Us</a></li>
+                        <li><a href="donors.html">Donate</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Monthly Newsletter</h4>
+                    <form class="footer-newsletter-form" id="footer-newsletter-form" novalidate>
+                        <div class="footer-name-row">
+                            <input type="text" placeholder="First Name" aria-label="First Name">
+                            <input type="text" placeholder="Last Name" aria-label="Last Name">
+                        </div>
+                        <input type="email" placeholder="Email Address" aria-label="Email address">
+                        <button type="submit" class="footer-subscribe-btn">Subscribe</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/SNC" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/SNC" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/SNC" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="contact.html" aria-label="Contact Sleek Nexus Creative"><i class="fas fa-paper-plane"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sleek Nexus Creative. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#mainNav">Back to Top</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="admin.html" class="admin-link">Admin</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/config.js?v=2"></script>
+    <script src="../js/sanitizer.js?v=2"></script>
+    <script src="../js/recaptcha.js?v=2"></script>
+    <script src="../js/toast.js?v=2"></script>
+    <script src="../js/api.js?v=2"></script>
+    <script src="../js/world-class.js?v=2" defer></script>
+    <script src="../js/widgets.js?v=2" defer></script>
+    <script src="../js/script.js?v=2" defer></script>
+    <script src="../js/contact-validation.js?v=2" defer></script>
+    <script src="../js/animations.js?v=2" defer></script>
+</body>
+</html>
+

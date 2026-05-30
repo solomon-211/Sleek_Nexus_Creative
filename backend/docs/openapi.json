@@ -1,0 +1,76 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "CodeBridge Backend API",
+    "version": "1.0.0",
+    "description": "Primary API for CodeBridge Bootcamp frontend, admin tools, and integrations."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000/api",
+      "description": "Local development"
+    },
+    {
+      "url": "https://codebridge.ss/api",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health check",
+        "responses": {
+          "200": {
+            "description": "Service is healthy"
+          }
+        }
+      }
+    },
+    "/ready": {
+      "get": {
+        "summary": "Readiness check",
+        "responses": {
+          "200": {
+            "description": "Service is ready"
+          },
+          "503": {
+            "description": "Service is not ready"
+          }
+        }
+      }
+    },
+    "/meta": {
+      "get": {
+        "summary": "Service metadata",
+        "responses": {
+          "200": {
+            "description": "Application metadata"
+          }
+        }
+      }
+    },
+    "/impact": {
+      "get": {
+        "summary": "List impact metrics",
+        "responses": {
+          "200": {
+            "description": "Impact metrics returned"
+          }
+        }
+      }
+    },
+    "/contact": {
+      "post": {
+        "summary": "Submit contact form",
+        "responses": {
+          "201": {
+            "description": "Contact submitted"
+          },
+          "400": {
+            "description": "Validation failed"
+          }
+        }
+      }
+    }
+  }
+}

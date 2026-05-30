@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Block admin and API paths from indexing
+Disallow: /api/
+Disallow: /html/admin.html
+Disallow: /uploads/
+
+# Crawl delay for polite bots
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://snc.ss/sitemap.xml

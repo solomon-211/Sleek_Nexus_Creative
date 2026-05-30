@@ -1,0 +1,112 @@
+/* Dark Mode Styles */
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 9998;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+.dark-mode-toggle .fa-sun {
+    display: none;
+}
+
+.dark-mode .dark-mode-toggle .fa-moon {
+    display: none;
+}
+
+.dark-mode .dark-mode-toggle .fa-sun {
+    display: block;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --bg-white: #1a1a1a;
+    --bg-light: #2d2d2d;
+    --text-dark: #ffffff;
+    --text-light: #b0b0b0;
+    --border-color: #404040;
+}
+
+/* Smooth Transitions */
+body, .navbar, .footer, .service-card, .project-card, .blog-card {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Specific Styles */
+body.dark-mode {
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+}
+
+body.dark-mode .navbar {
+    background: rgba(26, 26, 26, 0.95);
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+body.dark-mode .service-card,
+body.dark-mode .project-card,
+body.dark-mode .blog-card,
+body.dark-mode .team-card {
+    background: var(--bg-light);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .footer {
+    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .chatbot-window {
+    background: var(--bg-light);
+}
+
+body.dark-mode .chatbot-messages {
+    background: var(--bg-white);
+}
+
+body.dark-mode .message-content {
+    background: var(--bg-light);
+}
+
+body.dark-mode .user-message .message-content {
+    background: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dark-mode-toggle {
+        bottom: 90px;
+        left: 10px;
+        width: 45px;
+        height: 45px;
+    }
+}
