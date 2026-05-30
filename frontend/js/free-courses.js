@@ -194,11 +194,17 @@
     root = document.createElement('div');
     root.id = 'free-courses-root';
 
-    const footer = document.querySelector('footer.footer');
-    if (footer?.parentNode) {
-      footer.parentNode.insertBefore(root, footer);
+    // Insert before the CTA section so footer stays at the bottom
+    const cta = document.querySelector('section.cta');
+    if (cta?.parentNode) {
+      cta.parentNode.insertBefore(root, cta);
     } else {
-      document.body.appendChild(root);
+      const footer = document.querySelector('footer.footer');
+      if (footer?.parentNode) {
+        footer.parentNode.insertBefore(root, footer);
+      } else {
+        document.body.appendChild(root);
+      }
     }
 
     return root;
