@@ -69,23 +69,25 @@
     box-shadow: 0 6px 18px rgba(196,30,58,0.4);
 }
 
-.logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+.logo-text { display: flex; flex-direction: column; line-height: 1.15; }
 
 .logo-line1 {
-    font-size: 1.4rem;
+    font-size: 1.15rem;
     font-weight: 800;
     color: #c41e3a;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
 }
 
 .logo-nexus { color: #ff8c42; }
 
 .logo-line2 {
-    font-size: 0.72rem;
+    font-size: 0.6rem;
     font-weight: 600;
     color: #64748b;
-    letter-spacing: 4px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 /* NAV MENU */
@@ -301,7 +303,7 @@
 }
 
 @media (max-width: 480px) {
-    .logo-line1 { font-size: 1.2rem; }
-    .logo-line2 { font-size: 0.65rem; letter-spacing: 3px; }
+    .logo-line1 { font-size: 0.95rem; }
+    .logo-line2 { font-size: 0.55rem; letter-spacing: 1px; }
     .logo-icon { width: 32px; height: 32px; font-size: 0.85rem; }
 }

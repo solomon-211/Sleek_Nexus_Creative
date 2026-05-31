@@ -1551,9 +1551,10 @@ section {
 /* Footer logo */
 .footer-logo {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.55rem;
+    /* place logo and name inline */
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 0.9rem;
     text-decoration: none;
 }
@@ -1595,6 +1596,7 @@ section {
     color: #999;
     letter-spacing: 3px;
     text-transform: uppercase;
+    margin-top: 0.12rem;
 }
 
 /* We're Hiring badge */
