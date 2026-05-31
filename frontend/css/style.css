@@ -39,7 +39,6 @@ html {
 
 html, body {
     width: 100%;
-    padding-top: 72px;
     overflow-x: hidden !important;
     position: relative;
 }
@@ -1358,6 +1357,53 @@ section {
 }
 
 .footer-newsletter-banner .container { position: relative; z-index: 1; }
+
+/* --- Decorative Edge Dividers --- */
+.section-divider-edge {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.section-divider-edge--zigzag {
+    height: 20px;
+    background-color: transparent;
+}
+
+.section-divider-edge--zigzag::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(135deg, #f97316 25%, transparent 25%) -10px 0,
+        linear-gradient(225deg, #f97316 25%, transparent 25%) -10px 0;
+    background-size: 20px 20px;
+    background-repeat: repeat-x;
+}
+
+.section-divider-edge--triangle {
+    height: 20px;
+    background:
+        linear-gradient(135deg, #f97316 25%, transparent 25%) -10px 0,
+        linear-gradient(225deg, #f97316 25%, transparent 25%) -10px 0;
+    background-size: 20px 20px;
+    background-repeat: repeat-x;
+    background-color: transparent;
+}
+
+.section-divider-edge--notched {
+    height: 18px;
+    background:
+        radial-gradient(circle at 10px -2px, transparent 10px, #fff 10.5px) 0 0 / 20px 100% repeat-x,
+        linear-gradient(180deg, #fff 0%, #fff 100%);
+}
+
+body.dark-mode .section-divider-edge--notched {
+    background:
+        radial-gradient(circle at 10px -2px, transparent 10px, var(--dm-bg) 10.5px) 0 0 / 20px 100% repeat-x,
+        linear-gradient(180deg, var(--dm-bg) 0%, var(--dm-bg) 100%);
+}
 
 .footer-newsletter-banner .envelope-icon {
     font-size: 1.25rem;

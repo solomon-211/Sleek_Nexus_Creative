@@ -51,8 +51,26 @@ body.page-shell main#main-content { min-height: 60vh; }
 /* ---- Animated Stats Counter ---- */
 .stats-counter-section {
     background: #111827;
-    padding: 60px 0;
+    padding: 60px 0 80px;
     color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-counter-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background-image:
+        linear-gradient(135deg, #111827 25%, transparent 25%),
+        linear-gradient(225deg, #111827 25%, transparent 25%);
+    background-size: 28px 28px;
+    background-repeat: repeat-x;
+    background-position: 0 0, 14px 0;
+    pointer-events: none;
 }
 
 .stats-counter-grid {
@@ -292,6 +310,328 @@ body.dark-mode .page-header {
 }
 
 
+
+/* ============================================================
+   VISUAL ENHANCEMENTS — All 10 Effects
+   ============================================================ */
+
+/* 1. GRADIENT TEXT HIGHLIGHTS */
+.gradient-text {
+    background: linear-gradient(135deg, #c41e3a 0%, #ff8c42 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-title span,
+.story-text h2 span,
+.about-text h2 span {
+    background: linear-gradient(135deg, #c41e3a 0%, #ff8c42 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 2. FLOATING ORB / GLOW BLOBS */
+.about-preview,
+.how-it-works,
+.company-story {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-preview::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(196,30,58,.06), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-preview::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,140,66,.07), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-preview .container,
+.how-it-works .container {
+    position: relative;
+    z-index: 1;
+}
+
+.how-it-works::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(196,30,58,.05), transparent 65%);
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* 3. ANIMATED GRADIENT BORDER ON CARDS */
+@property --border-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes border-spin {
+    to { --border-angle: 360deg; }
+}
+
+.service-card:hover,
+.testimonial-card:hover,
+.mvv-card:hover,
+.why-card:hover {
+    --border-angle: 0deg;
+    animation: border-spin 3s linear infinite;
+    background-image: conic-gradient(
+        from var(--border-angle),
+        transparent 70%,
+        rgba(196,30,58,.15) 80%,
+        rgba(255,140,66,.2) 90%,
+        transparent 100%
+    );
+    background-origin: border-box;
+}
+
+/* 4. SECTION ACCENT LEFT BORDER */
+.about-text,
+.story-text {
+    position: relative;
+}
+
+.about-text > p:first-of-type,
+.story-text > p:first-of-type {
+    padding-left: 1.25rem;
+    border-left: 3px solid;
+    border-image: linear-gradient(to bottom, #c41e3a, #ff8c42) 1;
+    margin-left: 0;
+}
+
+/* 5. GLASSMORPHISM STAT CARDS */
+.stat-counter-item {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s, background .3s;
+}
+
+.stat-counter-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #c41e3a, #ff8c42);
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.stat-counter-item:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,.1);
+}
+
+.stat-counter-item:hover::before {
+    opacity: 1;
+}
+
+.stat-counter-number {
+    background: linear-gradient(135deg, #ffffff 40%, #ff8c42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 6. PROJECT CARD IMAGE ZOOM + OVERLAY */
+.project-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image img {
+    transition: transform .45s ease !important;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.08) !important;
+}
+
+.project-image::after {
+    content: 'View Details';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(196,30,58,.82), rgba(139,0,0,.75));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.project-card:hover .project-image::after {
+    opacity: 1;
+}
+
+/* 7. STAGGERED FADE-IN ANIMATION */
+@keyframes stagger-up {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.services-grid .service-card,
+.why-grid .why-card,
+.testimonials-grid .testimonial-card,
+.projects-grid .project-card,
+.mvv-grid .mvv-card,
+.approach-grid .approach-step {
+    opacity: 0;
+    animation: stagger-up .55s ease forwards;
+    animation-play-state: paused;
+}
+
+.services-grid.animated .service-card:nth-child(1),
+.why-grid.animated .why-card:nth-child(1),
+.testimonials-grid.animated .testimonial-card:nth-child(1),
+.projects-grid.animated .project-card:nth-child(1),
+.mvv-grid.animated .mvv-card:nth-child(1),
+.approach-grid.animated .approach-step:nth-child(1) { animation-delay: .05s; animation-play-state: running; }
+
+.services-grid.animated .service-card:nth-child(2),
+.why-grid.animated .why-card:nth-child(2),
+.testimonials-grid.animated .testimonial-card:nth-child(2),
+.projects-grid.animated .project-card:nth-child(2),
+.mvv-grid.animated .mvv-card:nth-child(2),
+.approach-grid.animated .approach-step:nth-child(2) { animation-delay: .15s; animation-play-state: running; }
+
+.services-grid.animated .service-card:nth-child(3),
+.why-grid.animated .why-card:nth-child(3),
+.testimonials-grid.animated .testimonial-card:nth-child(3),
+.projects-grid.animated .project-card:nth-child(3),
+.mvv-grid.animated .mvv-card:nth-child(3),
+.approach-grid.animated .approach-step:nth-child(3) { animation-delay: .25s; animation-play-state: running; }
+
+.services-grid.animated .service-card:nth-child(4),
+.why-grid.animated .why-card:nth-child(4),
+.projects-grid.animated .project-card:nth-child(4),
+.approach-grid.animated .approach-step:nth-child(4) { animation-delay: .35s; animation-play-state: running; }
+
+.services-grid.animated .service-card:nth-child(5),
+.why-grid.animated .why-card:nth-child(5),
+.approach-grid.animated .approach-step:nth-child(5) { animation-delay: .45s; animation-play-state: running; }
+
+.why-grid.animated .why-card:nth-child(6),
+.approach-grid.animated .approach-step:nth-child(6) { animation-delay: .55s; animation-play-state: running; }
+
+/* 8. DRAMATIC QUOTE MARK ON TESTIMONIALS */
+.testimonial-card::before {
+    content: '\201C' !important;
+    position: absolute !important;
+    top: -20px !important;
+    right: 1rem !important;
+    font-size: 10rem !important;
+    font-family: Georgia, serif !important;
+    background: linear-gradient(135deg, rgba(196,30,58,.12), rgba(255,140,66,.08)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    line-height: 1 !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+}
+
+.testimonial-text,
+.testimonial-stars,
+.testimonial-author {
+    position: relative;
+    z-index: 1;
+}
+
+/* 9. PILL SECTION LABELS WITH GLOW */
+.section-label {
+    position: relative;
+}
+
+.section-label::after {
+    content: '';
+    position: absolute;
+    inset: -4px -10px;
+    background: radial-gradient(ellipse, rgba(196,30,58,.12), transparent 70%);
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.cta-eyebrow,
+.hero-kicker,
+.join-us-eyebrow {
+    position: relative;
+}
+
+.cta-eyebrow::after,
+.hero-kicker::after,
+.join-us-eyebrow::after {
+    content: '';
+    position: absolute;
+    inset: -6px -14px;
+    background: radial-gradient(ellipse, rgba(255,140,66,.15), transparent 70%);
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 10. DOT GRID TEXTURE ON LIGHT SECTIONS */
+.about-preview,
+.how-it-works,
+.projects-preview,
+.company-story,
+.approach-section {
+    background-image: radial-gradient(circle, rgba(196,30,58,.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+.about-preview { background-color: #ffffff; }
+.how-it-works  { background-color: #ffffff; }
+.projects-preview { background-color: #fafafa; }
+.company-story { background-color: #ffffff; }
+.approach-section { background-color: #ffffff; }
+
+/* Reduced motion — disable stagger & spin for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .services-grid .service-card,
+    .why-grid .why-card,
+    .testimonials-grid .testimonial-card,
+    .projects-grid .project-card,
+    .mvv-grid .mvv-card,
+    .approach-grid .approach-step {
+        opacity: 1;
+        animation: none;
+    }
+}
 
 /* ---- Back to Top Improved ---- */
 .back-to-top { bottom: 85px; }
