@@ -1869,25 +1869,25 @@ body.dark-mode .section-divider-edge--notched {
     justify-content: center;
     width: 38px;
     height: 38px;
-    background: rgba(255,255,255,0.08);
     border-radius: 50%;
-    color: white;
     text-decoration: none;
     transition: all 0.25s;
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid transparent;
     font-size: 0.9rem;
 }
 
 .social-links a:hover {
-    transform: translateY(-3px);
-    border-color: transparent;
+    transform: translateY(-4px);
+    filter: brightness(1.15);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 
-.social-links .social-facebook:hover  { background: #1877f2; }
-.social-links .social-twitter:hover   { background: #000; }
-.social-links .social-linkedin:hover  { background: #0a66c2; }
-.social-links .social-whatsapp:hover  { background: #25d366; }
-.social-links .social-contact:hover   { background: var(--primary-color); }
+/* Real brand colors — default state */
+.social-links .social-facebook  { background: #1877f2; color: #fff; }
+.social-links .social-twitter   { background: #000000; color: #fff; }
+.social-links .social-linkedin  { background: #0a66c2; color: #fff; }
+.social-links .social-whatsapp  { background: #25d366; color: #fff; }
+.social-links .social-contact   { background: var(--primary-color); color: #fff; }
 
 /* Footer bottom bar */
 .footer-bottom {

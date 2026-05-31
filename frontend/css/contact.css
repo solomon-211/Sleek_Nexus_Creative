@@ -104,16 +104,21 @@
 .social-connect .social-links a {
     width: 40px;
     height: 40px;
-    background: #c41e3a;
-    color: white;
     border-radius: 50%;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s, transform 0.2s;
+    transition: transform 0.2s, filter 0.2s;
+    border: none;
 }
 
-.social-connect .social-links a:hover { background: #8b0000; transform: translateY(-3px); }
+.social-connect .social-links a:hover { transform: translateY(-3px); filter: brightness(1.15); }
+
+.social-connect .social-links a:nth-child(1) { background: #1877f2; } /* Facebook */
+.social-connect .social-links a:nth-child(2) { background: #000000; } /* Twitter/X */
+.social-connect .social-links a:nth-child(3) { background: #0a66c2; } /* LinkedIn */
+.social-connect .social-links a:nth-child(4) { background: #25d366; } /* WhatsApp */
 
 /* Support Cards */
 .map-section { padding: 60px 0 0; background: white; }
