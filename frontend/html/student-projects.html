@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://SNC.ss/html/student-projects.html">
+    <meta name="description" content="Real projects built by Sleek Nexus Creative students — showcasing South Sudan's rising generation of developers and designers.">
+    <title>Student Projects - Sleek Nexus Creative</title>
+    <link rel="icon" type="image/png" href="../images/SLEEK NEXUS CREATIVE.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/SLEEK NEXUS CREATIVE.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../css/style.css?v=5">
+    <link rel="stylesheet" href="../css/navbar.css?v=2">
+    <link rel="stylesheet" href="../css/consistency.css?v=2">
+    <link rel="stylesheet" href="../css/widgets.css?v=2">
+    <link rel="stylesheet" href="../css/world-class.css?v=2">
+    <link rel="stylesheet" href="../css/image-enhancements.css?v=2">
+    <link rel="stylesheet" href="../css/ui-enhancements.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+    <style>
+        .project-showcase-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+        .showcase-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(15,23,42,.08); border: 1px solid rgba(15,23,42,.06); transition: transform .25s, box-shadow .25s; }
+        .showcase-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(15,23,42,.13); }
+        .showcase-card img { width: 100%; height: 200px; object-fit: cover; }
+        .showcase-card-body { padding: 1.5rem; }
+        .showcase-student { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
+        .student-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #c41e3a, #ff8c42); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: .9rem; flex-shrink: 0; }
+        .student-info h5 { margin: 0; font-size: .88rem; font-weight: 700; color: #1e293b; }
+        .student-info span { font-size: .78rem; color: #64748b; }
+        .showcase-card-body h3 { font-size: 1.05rem; font-weight: 700; color: #1e293b; margin-bottom: .5rem; }
+        .showcase-card-body p { font-size: .86rem; color: #64748b; line-height: 1.65; margin-bottom: 1rem; }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+        .tech-tag { background: #f1f5f9; color: #475569; font-size: .75rem; font-weight: 600; padding: .25rem .65rem; border-radius: 6px; }
+        .apply-box { background: linear-gradient(135deg, rgba(196,30,58,.06), rgba(255,140,66,.06)); border: 1.5px solid rgba(196,30,58,.2); border-radius: 16px; padding: 2.5rem; text-align: center; margin-top: 3rem; }
+    </style>
+</head>
+<body class="page-shell">
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text"><p><i class="fas fa-shield-alt"></i> We use cookies to enhance your experience. <a href="privacy.html">Learn more</a></p></div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn accept" id="cookie-accept-btn">Accept All</button>
+                <button class="cookie-btn decline" id="cookie-decline-btn">Decline</button>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar" id="mainNav">
+        <div class="nav-progress-line" id="navProgressLine"></div>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" aria-label="Sleek Nexus Creative Home">
+                    <span class="logo-icon"><span>S</span><span>N</span><span>C</span></span>
+                    <span class="logo-text">
+                        <span class="logo-line1">Sleek <span class="logo-nexus">Nexus</span> Creative</span>
+                    </span></a>
+            </div>
+            <ul class="nav-menu" id="navMenu" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">About <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown">
+                        <li><a href="our-story.html"><i class="fas fa-book-open"></i> Our Story</a></li>
+                        <li><a href="team.html"><i class="fas fa-users"></i> Team</a></li>
+                        <li><a href="mission-vision.html"><i class="fas fa-bullseye"></i> Mission &amp; Vision</a></li>
+                        <li><a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+                    </ul>
+                </li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown">
+                        <li><a href="web-dev.html"><i class="fas fa-code"></i> Web Development</a></li>
+                        <li><a href="mobile-apps.html"><i class="fas fa-mobile-alt"></i> Mobile Apps</a></li>
+                        <li><a href="ui-ux.html"><i class="fas fa-pencil-ruler"></i> UI/UX Design</a></li>
+                        <li><a href="elearning.html"><i class="fas fa-graduation-cap"></i> E-Learning Solutions</a></li>
+                        <li><a href="branding.html"><i class="fas fa-palette"></i> Branding</a></li>
+                        <li><a href="digital-consulting.html"><i class="fas fa-laptop-code"></i> Digital Consulting</a></li>
+                    </ul>
+                </li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Projects <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown">
+                        <li><a href="portfolio.html"><i class="fas fa-th"></i> Portfolio</a></li>
+                        <li><a href="case-studies.html"><i class="fas fa-chart-bar"></i> Case Studies</a></li>
+                        <li><a href="client-success.html"><i class="fas fa-trophy"></i> Client Success Stories</a></li>
+                    </ul>
+                </li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Courses <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown">
+                        <li><a href="browse-courses.html"><i class="fas fa-search"></i> Browse Courses</a></li>
+                        <li><a href="free-resources.html"><i class="fas fa-gift"></i> Free Resources</a></li>
+                        <li><a href="certifications.html"><i class="fas fa-certificate"></i> Certifications</a></li>
+                        <li><a href="student-projects.html" class="active"><i class="fas fa-flask"></i> Student Projects</a></li>
+                    </ul>
+                </li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Resources <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown">
+                        <li><a href="blog.html"><i class="fas fa-rss"></i> Blog</a></li>
+                        <li><a href="guides.html"><i class="fas fa-map"></i> Guides</a></li>
+                        <li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                        <li><a href="downloads.html"><i class="fas fa-download"></i> Downloads</a></li>
+                    </ul>
+                </li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Contact <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown">
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                        <li><a href="quote.html"><i class="fas fa-file-invoice-dollar"></i> Get a Quote</a></li>
+                        <li><a href="book-consultation.html"><i class="fas fa-calendar-check"></i> Book Consultation</a></li>
+                    </ul>
+                </li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Join Us <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown">
+                        <li><a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+                        <li><a href="internships.html"><i class="fas fa-user-graduate"></i> Internships</a></li>
+                        <li><a href="volunteer.html"><i class="fas fa-hands-helping"></i> Volunteer Opportunities</a></li>
+                        <li><a href="trainer.html"><i class="fas fa-chalkboard-teacher"></i> Become a Trainer</a></li>
+                        <li><a href="mentor.html"><i class="fas fa-user-tie"></i> Become a Mentor</a></li>
+                        <li><a href="community.html"><i class="fas fa-users"></i> Join Our Community</a></li>
+                        <li><a href="open-positions.html"><i class="fas fa-door-open"></i> Open Positions</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <ul class="nav-special">
+                    <li><a href="partners.html" class="special-link">Partner</a></li>
+                    <li><a href="donors.html" class="special-link donate-link">Donate</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header" id="main-content">
+        <div class="container">
+            <p class="tagline">Education</p>
+            <h1>Student Projects</h1>
+            <p class="header-description">Real products built by our graduates — proof that local talent can build world-class digital solutions.</p>
+        </div>
+    </section>
+    <div class="section-divider-edge section-divider-edge--zigzag"></div>
+
+    <!-- INTRO -->
+    <section style="padding:5rem 0;background:#fff;">
+        <div class="container">
+            <div style="text-align:center;max-width:720px;margin:0 auto 3rem;">
+                <p class="section-label">Built by Students</p>
+                <h2 class="section-title" style="margin-bottom:.75rem;">From Classroom to Production</h2>
+                <p style="color:#475569;line-height:1.8;">Every student who completes a course at Sleek Nexus Creative builds a real, working project as their final assessment. These aren't toy examples — they're functional products that many students have gone on to use, deploy, or pitch to employers.</p>
+            </div>
+
+            <div class="project-showcase-grid">
+                <!-- PROJECT 1 -->
+                <div class="showcase-card">
+                    <img src="../images/project1.jpg" alt="Community Learning Portal" loading="lazy">
+                    <div class="showcase-card-body">
+                        <div class="showcase-student">
+                            <div class="student-avatar">AM</div>
+                            <div class="student-info"><h5>Akol M.</h5><span>Web Development Graduate · 2024</span></div>
+                        </div>
+                        <h3>Community Learning Portal</h3>
+                        <p>A full-stack web platform where community members can share learning resources, post questions, and track their skill development.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">REST API</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- PROJECT 2 -->
+                <div class="showcase-card">
+                    <img src="../images/project-student-system.jpg" alt="School Fee Management System" loading="lazy">
+                    <div class="showcase-card-body">
+                        <div class="showcase-student">
+                            <div class="student-avatar">PL</div>
+                            <div class="student-info"><h5>Pita L.</h5><span>Full-Stack Graduate · 2024</span></div>
+                        </div>
+                        <h3>School Fee Management System</h3>
+                        <p>A web application that helps school administrators track student fee payments, generate receipts, and manage outstanding balances.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- PROJECT 3 -->
+                <div class="showcase-card">
+                    <img src="../images/project2.jpg" alt="Market Price Tracker App" loading="lazy">
+                    <div class="showcase-card-body">
+                        <div class="showcase-student">
+                            <div class="student-avatar">NK</div>
+                            <div class="student-info"><h5>Nadia K.</h5><span>Mobile Dev Graduate · 2023</span></div>
+                        </div>
+                        <h3>Market Price Tracker App</h3>
+                        <p>An Android app that lets traders and consumers check and compare food market prices across different markets in Juba in real time.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Android</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- PROJECT 4 -->
+                <div class="showcase-card">
+                    <img src="../images/project3.jpg" alt="NGO Volunteer Tracker" loading="lazy">
+                    <div class="showcase-card-body">
+                        <div class="showcase-student">
+                            <div class="student-avatar">DJ</div>
+                            <div class="student-info"><h5>David J.</h5><span>Web Development Graduate · 2023</span></div>
+                        </div>
+                        <h3>NGO Volunteer Management System</h3>
+                        <p>A web portal for NGOs to recruit, schedule, and track volunteer activities, hours, and impact across multiple field programs.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- PROJECT 5 -->
+                <div class="showcase-card">
+                    <img src="../images/software-dev.jpg" alt="Clinic Appointment System" loading="lazy">
+                    <div class="showcase-card-body">
+                        <div class="showcase-student">
+                            <div class="student-avatar">GM</div>
+                            <div class="student-info"><h5>Grace M.</h5><span>Full-Stack Graduate · 2023</span></div>
+                        </div>
+                        <h3>Clinic Appointment Booking System</h3>
+                        <p>A simple web app allowing patients to book clinic appointments, receive SMS reminders, and view their appointment history.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">SMS API</span>
+                            <span class="tech-tag">SQLite</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- PROJECT 6 -->
+                <div class="showcase-card">
+                    <img src="../images/project-ecommerce.jpg" alt="Local Craft Marketplace" loading="lazy">
+                    <div class="showcase-card-body">
+                        <div class="showcase-student">
+                            <div class="student-avatar">SB</div>
+                            <div class="student-info"><h5>Samuel B.</h5><span>Web Dev Graduate · 2022</span></div>
+                        </div>
+                        <h3>Local Craft &amp; Goods Marketplace</h3>
+                        <p>An e-commerce platform specifically designed for South Sudanese artisans and small business owners to list and sell products online.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Stripe</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- APPLY TO SHOWCASE -->
+            <div class="apply-box">
+                <h3 style="font-size:1.5rem;color:#1e293b;margin-bottom:.75rem;">Built Something You're Proud Of?</h3>
+                <p style="color:#475569;max-width:540px;margin:0 auto 1.5rem;">If you completed a course with us and built a strong capstone project, apply to have it showcased here. We review all submissions and feature the best work.</p>
+                <a href="contact.html?subject=Student+Project+Showcase" class="btn btn-primary"><i class="fas fa-flask" style="margin-right:6px;"></i>Submit Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <p class="cta-eyebrow"><i class="fas fa-graduation-cap"></i> Start Learning</p>
+            <h2>Want to Build a Project Like These?</h2>
+            <p>Enroll in one of our courses and you'll graduate with a real, working project in your portfolio.</p>
+            <div class="cta-buttons">
+                <a href="browse-courses.html" class="btn btn-primary">Browse Courses</a>
+                <a href="enroll.html" class="btn btn-secondary">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; <span id="footer-year">2024</span> Sleek Nexus Creative. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#mainNav" class="footer-back-top"><i class="fas fa-arrow-up"></i></a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/config.js?v=2"></script>
+    <script src="../js/navbar.js?v=2" defer></script>
+    <script src="../js/script.js?v=3" defer></script>
+    <script src="../js/world-class.js?v=2" defer></script>
+</body>
+</html>

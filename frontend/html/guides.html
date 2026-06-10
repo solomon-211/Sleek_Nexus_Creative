@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://SNC.ss/html/guides.html">
+    <meta name="description" content="Free practical guides on web development, mobile apps, digital security, and technology strategy for organizations in South Sudan.">
+    <title>Guides - Sleek Nexus Creative</title>
+    <link rel="icon" type="image/png" href="../images/SLEEK NEXUS CREATIVE.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/SLEEK NEXUS CREATIVE.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../css/style.css?v=5">
+    <link rel="stylesheet" href="../css/navbar.css?v=2">
+    <link rel="stylesheet" href="../css/consistency.css?v=2">
+    <link rel="stylesheet" href="../css/widgets.css?v=2">
+    <link rel="stylesheet" href="../css/world-class.css?v=2">
+    <link rel="stylesheet" href="../css/image-enhancements.css?v=2">
+    <link rel="stylesheet" href="../css/ui-enhancements.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+    <style>
+        .guides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.75rem; margin-top: 2.5rem; }
+        .guide-card { background: #fff; border-radius: 14px; padding: 2rem; border: 1px solid rgba(15,23,42,.07); box-shadow: 0 2px 12px rgba(15,23,42,.06); transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; }
+        .guide-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(15,23,42,.11); }
+        .guide-icon-wrap { width: 52px; height: 52px; background: rgba(196,30,58,.1); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #c41e3a; font-size: 1.3rem; margin-bottom: 1.25rem; }
+        .guide-card h3 { font-size: 1.05rem; font-weight: 700; color: #1e293b; margin-bottom: .6rem; line-height: 1.4; }
+        .guide-card p { font-size: .88rem; color: #64748b; line-height: 1.7; flex: 1; margin-bottom: 1.25rem; }
+        .guide-meta { display: flex; gap: 1rem; font-size: .78rem; color: #94a3b8; margin-bottom: 1rem; }
+        .guide-meta span { display: flex; align-items: center; gap: .3rem; }
+        .guide-tag { display: inline-block; font-size: .72rem; font-weight: 700; padding: .25rem .7rem; border-radius: 999px; background: rgba(196,30,58,.07); color: #c41e3a; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .75rem; }
+    </style>
+</head>
+<body class="page-shell">
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text"><p><i class="fas fa-shield-alt"></i> We use cookies. <a href="privacy.html">Learn more</a></p></div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn accept" id="cookie-accept-btn">Accept All</button>
+                <button class="cookie-btn decline" id="cookie-decline-btn">Decline</button>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar" id="mainNav">
+        <div class="nav-progress-line" id="navProgressLine"></div>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" aria-label="Sleek Nexus Creative Home">
+                    <span class="logo-icon"><span>S</span><span>N</span><span>C</span></span>
+                    <span class="logo-text">
+                        <span class="logo-line1">Sleek <span class="logo-nexus">Nexus</span> Creative</span>
+                    </span></a>
+            </div>
+            <ul class="nav-menu" id="navMenu" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">About <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown"><li><a href="our-story.html"><i class="fas fa-book-open"></i> Our Story</a></li><li><a href="team.html"><i class="fas fa-users"></i> Team</a></li><li><a href="mission-vision.html"><i class="fas fa-bullseye"></i> Mission &amp; Vision</a></li><li><a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a></li></ul>
+                </li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown"><li><a href="web-dev.html"><i class="fas fa-code"></i> Web Development</a></li><li><a href="mobile-apps.html"><i class="fas fa-mobile-alt"></i> Mobile Apps</a></li><li><a href="ui-ux.html"><i class="fas fa-pencil-ruler"></i> UI/UX Design</a></li><li><a href="elearning.html"><i class="fas fa-graduation-cap"></i> E-Learning Solutions</a></li><li><a href="branding.html"><i class="fas fa-palette"></i> Branding</a></li><li><a href="digital-consulting.html"><i class="fas fa-laptop-code"></i> Digital Consulting</a></li></ul>
+                </li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Projects <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown"><li><a href="portfolio.html"><i class="fas fa-th"></i> Portfolio</a></li><li><a href="case-studies.html"><i class="fas fa-chart-bar"></i> Case Studies</a></li><li><a href="client-success.html"><i class="fas fa-trophy"></i> Client Success Stories</a></li></ul>
+                </li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Courses <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown"><li><a href="browse-courses.html"><i class="fas fa-search"></i> Browse Courses</a></li><li><a href="free-resources.html"><i class="fas fa-gift"></i> Free Resources</a></li><li><a href="certifications.html"><i class="fas fa-certificate"></i> Certifications</a></li><li><a href="student-projects.html"><i class="fas fa-flask"></i> Student Projects</a></li></ul>
+                </li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Resources <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown"><li><a href="blog.html"><i class="fas fa-rss"></i> Blog</a></li><li><a href="guides.html" class="active"><i class="fas fa-map"></i> Guides</a></li><li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li><li><a href="downloads.html"><i class="fas fa-download"></i> Downloads</a></li></ul>
+                </li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Contact <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown"><li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li><li><a href="quote.html"><i class="fas fa-file-invoice-dollar"></i> Get a Quote</a></li><li><a href="book-consultation.html"><i class="fas fa-calendar-check"></i> Book Consultation</a></li></ul>
+                </li>
+                <li role="none" class="has-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Join Us <i class="fas fa-chevron-down drop-arrow"></i></button>
+                    <ul class="dropdown"><li><a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a></li><li><a href="internships.html"><i class="fas fa-user-graduate"></i> Internships</a></li><li><a href="volunteer.html"><i class="fas fa-hands-helping"></i> Volunteer Opportunities</a></li><li><a href="trainer.html"><i class="fas fa-chalkboard-teacher"></i> Become a Trainer</a></li><li><a href="mentor.html"><i class="fas fa-user-tie"></i> Become a Mentor</a></li><li><a href="community.html"><i class="fas fa-users"></i> Join Our Community</a></li><li><a href="open-positions.html"><i class="fas fa-door-open"></i> Open Positions</a></li></ul>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <ul class="nav-special">
+                    <li><a href="partners.html" class="special-link">Partner</a></li>
+                    <li><a href="donors.html" class="special-link donate-link">Donate</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header" id="main-content">
+        <div class="container">
+            <p class="tagline">Resources</p>
+            <h1>Guides &amp; How-Tos</h1>
+            <p class="header-description">Free, practical guides to help organizations and individuals navigate technology in South Sudan — written by people who've done it.</p>
+        </div>
+    </section>
+    <div class="section-divider-edge section-divider-edge--zigzag"></div>
+
+    <section style="padding:5rem 0;background:#f8fafc;">
+        <div class="container">
+            <p class="section-label" style="text-align:center;">For Organizations</p>
+            <h2 class="section-title">Technology Guides</h2>
+            <p class="section-subtitle">Practical, no-jargon guidance for business owners, NGO leaders, and decision-makers.</p>
+            <div class="guides-grid">
+
+                <div class="guide-card">
+                    <div class="guide-icon-wrap"><i class="fas fa-handshake"></i></div>
+                    <span class="guide-tag">Procurement</span>
+                    <h3>How to Choose a Tech Partner in South Sudan</h3>
+                    <p>What questions to ask, what red flags to watch for, and how to evaluate proposals from software companies before you sign a contract.</p>
+                    <div class="guide-meta">
+                        <span><i class="fas fa-clock"></i> 8 min read</span>
+                        <span><i class="fas fa-tag"></i> Strategy</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-secondary" style="font-size:.85rem;padding:.55rem 1.2rem;">Read Guide</a>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-icon-wrap"><i class="fas fa-shield-alt"></i></div>
+                    <span class="guide-tag">Security</span>
+                    <h3>Digital Security Checklist for Small Businesses</h3>
+                    <p>Twelve practical steps any organization can implement this week to significantly reduce their cybersecurity risk — most of them free.</p>
+                    <div class="guide-meta">
+                        <span><i class="fas fa-clock"></i> 6 min read</span>
+                        <span><i class="fas fa-tag"></i> Cybersecurity</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-secondary" style="font-size:.85rem;padding:.55rem 1.2rem;">Read Guide</a>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-icon-wrap"><i class="fas fa-graduation-cap"></i></div>
+                    <span class="guide-tag">E-Learning</span>
+                    <h3>How to Plan an E-Learning Platform for Your Institution</h3>
+                    <p>A step-by-step framework for schools, training centers, and NGOs who want to move course delivery online without overwhelming their team.</p>
+                    <div class="guide-meta">
+                        <span><i class="fas fa-clock"></i> 10 min read</span>
+                        <span><i class="fas fa-tag"></i> EdTech</span>
+                    </div>
+                    <a href="elearning.html" class="btn btn-secondary" style="font-size:.85rem;padding:.55rem 1.2rem;">Read Guide</a>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-icon-wrap"><i class="fas fa-server"></i></div>
+                    <span class="guide-tag">Infrastructure</span>
+                    <h3>Setting Up Your Organization's Digital Infrastructure</h3>
+                    <p>From email and cloud storage to websites and internal systems — a practical guide to building a reliable digital foundation for any organization.</p>
+                    <div class="guide-meta">
+                        <span><i class="fas fa-clock"></i> 12 min read</span>
+                        <span><i class="fas fa-tag"></i> IT Strategy</span>
+                    </div>
+                    <a href="digital-consulting.html" class="btn btn-secondary" style="font-size:.85rem;padding:.55rem 1.2rem;">Read Guide</a>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-icon-wrap"><i class="fas fa-mobile-alt"></i></div>
+                    <span class="guide-tag">Development</span>
+                    <h3>Getting Your First App Built: A Step-by-Step Guide</h3>
+                    <p>Everything a non-technical founder needs to know — from defining requirements to reviewing a developer's work and launching your first mobile app.</p>
+                    <div class="guide-meta">
+                        <span><i class="fas fa-clock"></i> 9 min read</span>
+                        <span><i class="fas fa-tag"></i> Mobile Apps</span>
+                    </div>
+                    <a href="mobile-apps.html" class="btn btn-secondary" style="font-size:.85rem;padding:.55rem 1.2rem;">Read Guide</a>
+                </div>
+
+                <div class="guide-card">
+                    <div class="guide-icon-wrap"><i class="fas fa-book"></i></div>
+                    <span class="guide-tag">Beginner</span>
+                    <h3>Web Development Glossary for Non-Technical Leaders</h3>
+                    <p>Plain-English explanations of the technical terms you'll encounter when working with a web developer — so you can have informed conversations and make better decisions.</p>
+                    <div class="guide-meta">
+                        <span><i class="fas fa-clock"></i> 7 min read</span>
+                        <span><i class="fas fa-tag"></i> Web Development</span>
+                    </div>
+                    <a href="web-dev.html" class="btn btn-secondary" style="font-size:.85rem;padding:.55rem 1.2rem;">Read Guide</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOR LEARNERS -->
+    <section style="padding:3rem 0 5rem;background:#fff;">
+        <div class="container">
+            <p class="section-label" style="text-align:center;">For Learners</p>
+            <h2 class="section-title">Learning Guides</h2>
+            <p class="section-subtitle">Start your tech journey with these beginner-friendly learning roadmaps.</p>
+            <div class="guides-grid">
+                <div class="guide-card">
+                    <div class="guide-icon-wrap"><i class="fas fa-code"></i></div>
+                    <span class="guide-tag">Beginner</span>
+                    <h3>Your First 30 Days as a Web Developer</h3>
+                    <p>A daily learning plan for complete beginners — no prior experience needed. Covers HTML, CSS, and basic JavaScript in 30 structured days.</p>
+                    <div class="guide-meta">
+                        <span><i class="fas fa-clock"></i> 5 min read</span>
+                    </div>
+                    <a href="browse-courses.html" class="btn btn-secondary" style="font-size:.85rem;padding:.55rem 1.2rem;">Start Learning</a>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-icon-wrap"><i class="fab fa-python"></i></div>
+                    <span class="guide-tag">Beginner</span>
+                    <h3>The South Sudanese Beginner's Guide to Python</h3>
+                    <p>Why Python is the best first programming language, and a simple roadmap to go from zero to writing real programs in 8 weeks.</p>
+                    <div class="guide-meta">
+                        <span><i class="fas fa-clock"></i> 6 min read</span>
+                    </div>
+                    <a href="browse-courses.html" class="btn btn-secondary" style="font-size:.85rem;padding:.55rem 1.2rem;">Start Learning</a>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-icon-wrap"><i class="fas fa-pencil-ruler"></i></div>
+                    <span class="guide-tag">Design</span>
+                    <h3>Getting Started in UI/UX Design: A Career Roadmap</h3>
+                    <p>Tools, skills, and portfolio projects that will take you from design newcomer to job-ready UI/UX designer in under 6 months.</p>
+                    <div class="guide-meta">
+                        <span><i class="fas fa-clock"></i> 7 min read</span>
+                    </div>
+                    <a href="browse-courses.html" class="btn btn-secondary" style="font-size:.85rem;padding:.55rem 1.2rem;">Start Learning</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <p class="cta-eyebrow"><i class="fas fa-map"></i> Guides</p>
+            <h2>Want a Guide on a Specific Topic?</h2>
+            <p>Tell us what you're trying to figure out and we'll point you in the right direction — or write the guide.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Send a Request</a>
+                <a href="downloads.html" class="btn btn-secondary">Free Downloads</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; <span id="footer-year">2024</span> Sleek Nexus Creative. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#mainNav" class="footer-back-top"><i class="fas fa-arrow-up"></i></a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/config.js?v=2"></script>
+    <script src="../js/navbar.js?v=2" defer></script>
+    <script src="../js/script.js?v=3" defer></script>
+    <script src="../js/world-class.js?v=2" defer></script>
+</body>
+</html>

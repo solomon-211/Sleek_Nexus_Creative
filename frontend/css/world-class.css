@@ -20,7 +20,14 @@
 }
 
 /* ---- Smooth Page Transitions ---- */
-body {
+/*
+ * IMPORTANT: Do NOT apply transform or animation with transform to body/html.
+ * Transforms on body create a new stacking context that traps position:fixed
+ * elements (navbar, modals) behind page content.
+ * Instead, the fade-in is applied to main#main-content or a wrapper element.
+ */
+main#main-content,
+.page-wrapper {
     animation: pageFadeIn 0.3s ease-in;
 }
 
@@ -120,7 +127,7 @@ body.page-shell main#main-content { min-height: 60vh; }
 
 .section-orange-zigzag .container {
     position: relative;
-    z-index: 1;
+    z-index: 0;
     padding-top: 1.1rem;
 }
 
@@ -338,6 +345,7 @@ body.dark-mode .page-header {
 .company-story {
     position: relative;
     overflow: hidden;
+    z-index: 0;
 }
 
 .about-preview::before {
@@ -367,7 +375,7 @@ body.dark-mode .page-header {
 .about-preview .container,
 .how-it-works .container {
     position: relative;
-    z-index: 1;
+    z-index: 0;
 }
 
 .how-it-works::before {
@@ -380,6 +388,7 @@ body.dark-mode .page-header {
     background: radial-gradient(circle, rgba(196,30,58,.05), transparent 65%);
     transform: translateY(-50%);
     pointer-events: none;
+    z-index: 0;
 }
 
 /* 3. ANIMATED GRADIENT BORDER ON CARDS */
@@ -499,19 +508,40 @@ body.dark-mode .page-header {
 
 /* 7. STAGGERED FADE-IN ANIMATION */
 @keyframes stagger-up {
-    from { opacity: 0; transform: translateY(28px); }
+    from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Cards start visible by default — animation runs when .animated class is added by JS.
+   If JS never fires (slow load, disabled JS, etc.) cards are still fully visible. */
 .services-grid .service-card,
 .why-grid .why-card,
 .testimonials-grid .testimonial-card,
 .projects-grid .project-card,
 .mvv-grid .mvv-card,
 .approach-grid .approach-step {
+    opacity: 1; /* visible by default — JS will reset to 0 before animating */
+}
+
+/* When JS adds .will-animate, prepare the card for animation */
+.services-grid .service-card.will-animate,
+.why-grid .why-card.will-animate,
+.testimonials-grid .testimonial-card.will-animate,
+.projects-grid .project-card.will-animate,
+.mvv-grid .mvv-card.will-animate,
+.approach-grid .approach-step.will-animate {
     opacity: 0;
+    transform: translateY(24px);
+}
+
+/* When JS adds .animated class to the grid, run the animation on each child */
+.services-grid.animated .service-card,
+.why-grid.animated .why-card,
+.testimonials-grid.animated .testimonial-card,
+.projects-grid.animated .project-card,
+.mvv-grid.animated .mvv-card,
+.approach-grid.animated .approach-step {
     animation: stagger-up .55s ease forwards;
-    animation-play-state: paused;
 }
 
 .services-grid.animated .service-card:nth-child(1),
@@ -519,33 +549,33 @@ body.dark-mode .page-header {
 .testimonials-grid.animated .testimonial-card:nth-child(1),
 .projects-grid.animated .project-card:nth-child(1),
 .mvv-grid.animated .mvv-card:nth-child(1),
-.approach-grid.animated .approach-step:nth-child(1) { animation-delay: .05s; animation-play-state: running; }
+.approach-grid.animated .approach-step:nth-child(1) { animation-delay: .05s; }
 
 .services-grid.animated .service-card:nth-child(2),
 .why-grid.animated .why-card:nth-child(2),
 .testimonials-grid.animated .testimonial-card:nth-child(2),
 .projects-grid.animated .project-card:nth-child(2),
 .mvv-grid.animated .mvv-card:nth-child(2),
-.approach-grid.animated .approach-step:nth-child(2) { animation-delay: .15s; animation-play-state: running; }
+.approach-grid.animated .approach-step:nth-child(2) { animation-delay: .12s; }
 
 .services-grid.animated .service-card:nth-child(3),
 .why-grid.animated .why-card:nth-child(3),
 .testimonials-grid.animated .testimonial-card:nth-child(3),
 .projects-grid.animated .project-card:nth-child(3),
 .mvv-grid.animated .mvv-card:nth-child(3),
-.approach-grid.animated .approach-step:nth-child(3) { animation-delay: .25s; animation-play-state: running; }
+.approach-grid.animated .approach-step:nth-child(3) { animation-delay: .19s; }
 
 .services-grid.animated .service-card:nth-child(4),
 .why-grid.animated .why-card:nth-child(4),
 .projects-grid.animated .project-card:nth-child(4),
-.approach-grid.animated .approach-step:nth-child(4) { animation-delay: .35s; animation-play-state: running; }
+.approach-grid.animated .approach-step:nth-child(4) { animation-delay: .26s; }
 
 .services-grid.animated .service-card:nth-child(5),
 .why-grid.animated .why-card:nth-child(5),
-.approach-grid.animated .approach-step:nth-child(5) { animation-delay: .45s; animation-play-state: running; }
+.approach-grid.animated .approach-step:nth-child(5) { animation-delay: .33s; }
 
 .why-grid.animated .why-card:nth-child(6),
-.approach-grid.animated .approach-step:nth-child(6) { animation-delay: .55s; animation-play-state: running; }
+.approach-grid.animated .approach-step:nth-child(6) { animation-delay: .40s; }
 
 /* 8. DRAMATIC QUOTE MARK ON TESTIMONIALS */
 .testimonial-card::before {
