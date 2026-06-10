@@ -144,6 +144,7 @@ function mountRoutes() {
   app.use('/api/contact',    require('./routes/contact'));
   app.use('/api/newsletter', require('./routes/newsletter'));
   app.use('/api/jobs',       require('./routes/jobs'));
+  app.use('/api/alumni',     require('./routes/alumni'));
 
   // Auth
   app.use('/api/auth',       require('./routes/auth'));
