@@ -37,15 +37,36 @@
             hamburger.setAttribute('aria-expanded', 'false');
         }
 
+        function openMenu() {
+            if (!navMenu || !hamburger) return;
+            navMenu.classList.add('active');
+            hamburger.classList.add('active');
+            hamburger.setAttribute('aria-expanded', 'true');
+        }
+
+        function toggleMenu() {
+            if (!navMenu || !hamburger) return;
+            const isOpen = navMenu.classList.contains('active');
+            if (isOpen) { closeMenu(); } else { openMenu(); }
+        }
+
         if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                const isOpen = navMenu.classList.toggle('active');
-                hamburger.classList.toggle('active', isOpen);
-                hamburger.setAttribute('aria-expanded', String(isOpen));
+            // Handle both click and touchend for reliable mobile behaviour
+            hamburger.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMenu();
             });
 
+            // Touchend fallback — prevents 300ms delay on older mobile browsers
+            hamburger.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMenu();
+            }, { passive: false });
+
             hamburger.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hamburger.click(); }
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
                 if (e.key === 'Escape') closeMenu();
             });
 
@@ -87,7 +108,12 @@
         });
 
         // Close dropdowns when clicking outside
-        document.addEventListener('click', () => closeAllDropdowns());
+        document.addEventListener('click', (e) => {
+            if (!navbar || !navbar.contains(e.target)) {
+                closeAllDropdowns();
+                closeMenu();
+            }
+        });
         navbar && navbar.addEventListener('click', (e) => e.stopPropagation());
 
         // ── Active link highlight ─────────────────────────────────────────────

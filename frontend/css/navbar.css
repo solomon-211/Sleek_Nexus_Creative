@@ -355,8 +355,9 @@
     .navbar .container {
         flex-wrap: wrap;
         height: auto;
-        min-height: 68px;
-        padding: 0.75rem 0;
+        min-height: 64px;
+        padding: 0.6rem 1rem;
+        overflow: visible !important;
     }
 
     .logo { margin-right: auto; }
@@ -367,83 +368,116 @@
 
     .hamburger { display: flex !important; }
 
+    /* The nav-menu slides down from the navbar and overlaps page content */
     .nav-menu {
         flex-direction: column !important;
         width: 100%;
         order: 3;
         gap: 0 !important;
         max-height: 0;
-        overflow: hidden;
+        overflow-y: auto !important;   /* scrollable if menu is very long */
+        overflow-x: hidden;
         opacity: 0;
-        transition: max-height 0.35s ease, opacity 0.25s ease;
-        background: white;
-        border-top: 1px solid rgba(15,23,42,0.07);
-        border-radius: 0 0 14px 14px;
-        box-shadow: 0 12px 28px rgba(15,23,42,0.08);
+        pointer-events: none;
+        transition: max-height 0.4s ease, opacity 0.25s ease;
+        background: #fff;
+        border-top: 2px solid #c41e3a;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 16px 40px rgba(15,23,42,0.15);
         padding: 0;
         margin-top: 0;
+        /* Ensure it sits OVER page content, not clipped by it */
+        position: relative;
+        z-index: 9998;
     }
 
     .nav-menu.active {
-        max-height: 2000px;
+        max-height: calc(100vh - 64px);  /* never taller than viewport */
         opacity: 1;
-        padding: 0.5rem 0;
+        pointer-events: all;
+        padding: 0.5rem 0 1rem;
     }
 
-    .nav-menu li { width: 100%; }
+    .nav-menu li { width: 100%; list-style: none; }
 
     .nav-menu a {
         width: 100%;
-        padding: 0.85rem 1.5rem;
+        padding: 0.9rem 1.5rem;
         border-radius: 0;
         font-size: 1rem;
         border-bottom: 1px solid rgba(15,23,42,0.05);
         justify-content: flex-start;
+        color: #1e293b;
+        white-space: normal;
     }
 
     .nav-menu a::after { display: none; }
 
     .nav-menu a.active {
+        color: #c41e3a;
+        background: rgba(196,30,58,0.05);
         border-left: 3px solid #c41e3a;
         padding-left: calc(1.5rem - 3px);
+    }
+
+    .nav-menu a:hover {
+        background: rgba(196,30,58,0.06);
+        color: #c41e3a;
     }
 
     /* Mobile dropdown toggle */
     .nav-menu > li > .nav-dropdown-toggle {
         width: 100%;
-        padding: 0.85rem 1.5rem;
+        padding: 0.9rem 1.5rem;
         border-radius: 0;
         font-size: 1rem;
         border-bottom: 1px solid rgba(15,23,42,0.05);
         justify-content: space-between;
+        background: none;
+        color: #1e293b;
     }
 
-    /* Mobile dropdown panel */
+    .nav-menu > li > .nav-dropdown-toggle:hover,
+    .nav-menu > li.open > .nav-dropdown-toggle {
+        background: rgba(196,30,58,0.04);
+        color: #c41e3a;
+    }
+
+    /* Mobile dropdown sub-panel */
     .dropdown {
-        position: static;
-        box-shadow: none;
-        border: none;
-        border-radius: 0;
+        position: static !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
         background: rgba(196,30,58,0.03);
-        padding: 0;
-        animation: none;
+        padding: 0 !important;
+        animation: none !important;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
-        display: block !important;
+        display: block !important;  /* always in DOM flow; controlled by max-height */
+        width: 100%;
+        z-index: auto;
     }
 
     .nav-menu > li.open > .dropdown {
-        max-height: 600px;
+        max-height: 800px;
     }
 
     .dropdown a {
-        padding-left: 2.5rem;
+        padding: 0.75rem 1.5rem 0.75rem 3rem;
         border-bottom: 1px solid rgba(15,23,42,0.04);
         font-size: 0.92rem;
+        color: #475569;
+        white-space: normal;
     }
 
-    /* Show special links inside mobile menu */
+    .dropdown a:hover {
+        background: rgba(196,30,58,0.06);
+        color: #c41e3a;
+    }
+
+    /* Spacer at bottom of menu */
     .nav-menu::after {
         content: '';
         display: block;
