@@ -16,9 +16,9 @@ const partnerTypes = [
 ]
 
 const currentPartners = [
-  { img: '/images/partner-dxc-technology.jpg', name: 'DXC Technology', type: 'Technology', desc: 'Collaborating on educational technology initiatives, curriculum development, and comprehensive training programs that transform learning outcomes.' },
-  { img: '/images/partner-education.jpg', name: 'Education Partner', type: 'Education', desc: 'Providing cutting-edge platforms, tools, and technical expertise to accelerate our development initiatives and maximize project impact.' },
-  { img: '/images/partner-dxc-ferrari.jpg', name: 'DXC Technology Team Partner', type: 'Corporate', desc: 'Co-developing enterprise solutions, sharing market intelligence, and driving mutual business growth through strategic collaboration.' },
+  { img: '/images/partner-dxc-technology.jpg', name: 'Technology Partner', type: 'Technology', desc: 'Collaborating on educational technology initiatives, curriculum development, and training programs that transform learning outcomes.' },
+  { img: '/images/partner-education.jpg', name: 'Education Partner', type: 'Education', desc: 'Providing platforms, tools, and technical expertise to accelerate our development initiatives and maximize project impact.' },
+  { img: '/images/partner-dxc-ferrari.jpg', name: 'Corporate Partner', type: 'Corporate', desc: 'Co-developing solutions, sharing market intelligence, and driving mutual business growth through strategic collaboration.' },
 ]
 
 const partnerFAQs = [
@@ -144,8 +144,8 @@ export function Partners() {
       {/* CTA */}
       <section className="py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl font-heading font-bold mb-4">Become a Strategic Partner</h2>
-          <p className="text-gray-300 mb-8">Join us in pioneering South Sudan's digital transformation and creating lasting social impact through technology.</p>
+          <h2 className="text-3xl font-heading font-bold mb-4">Become Our First Strategic Partner</h2>
+          <p className="text-gray-300 mb-8">We are actively building our partner network. If your organization shares our vision for South Sudan's digital future, let's talk.</p>
           <Link to="/contact" className="btn-primary">Partner With Us</Link>
         </div>
       </section>
@@ -162,28 +162,24 @@ const donorCategories = [
 ]
 
 const impactStats = [
-  { icon: 'fa-users', value: '10,000+', label: 'Students Reached' },
-  { icon: 'fa-map-marker-alt', value: '50+', label: 'Communities Served' },
-  { icon: 'fa-project-diagram', value: '100+', label: 'Projects Completed' },
-  { icon: 'fa-briefcase', value: '200+', label: 'Jobs Created' },
+  { icon: 'fa-users', value: '50+', label: 'Students Reached' },
+  { icon: 'fa-map-marker-alt', value: '5+', label: 'Communities Served' },
+  { icon: 'fa-project-diagram', value: '10+', label: 'Projects Completed' },
+  { icon: 'fa-briefcase', value: '20+', label: 'Jobs Created' },
 ]
 
 const donorFAQs = [
   {
-    q: 'Is my donation tax deductible?',
-    a: 'Yes, Sleek Nexus Creative operates as a registered nonprofit organization. All charitable contributions are tax-deductible to the maximum extent permitted by applicable law. We provide official donation receipts and comprehensive documentation for all contributions.',
-  },
-  {
     q: 'How will my donation be used?',
-    a: 'Your contribution directly funds educational technology platforms, youth skills training initiatives, community development projects, and critical infrastructure improvements. We maintain rigorous financial transparency, allocating 85% of donations directly to program delivery.',
+    a: 'Your contribution directly funds educational technology programs, youth skills training, and community development projects. We are committed to full transparency on how every donation is used.',
   },
   {
     q: 'Can I designate my donation for a specific program?',
-    a: 'Absolutely! You can direct your contribution to Educational Technology, Youth Empowerment, Community Development, or Innovation Labs. Contact our donor relations team to discuss customized giving options aligned with your philanthropic priorities.',
+    a: 'Yes. You can direct your contribution toward a specific area such as education, youth training, or community tech programs. Contact us to discuss your preferred focus area.',
   },
   {
-    q: 'Do you provide impact reports?',
-    a: 'Yes. All donors receive detailed quarterly reports featuring project progress, beneficiary statistics, success stories, and financial accountability statements. Major donors ($10,000+) receive personalized briefings and exclusive site visit opportunities.',
+    q: 'Do you provide updates on how my donation was used?',
+    a: 'Yes. All donors receive updates on project progress and impact. We believe in being open and accountable to everyone who supports our mission.',
   },
 ]
 

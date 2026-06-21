@@ -9,12 +9,12 @@ const fadeUp = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }
 const filters = ['all', 'web', 'mobile', 'edtech', 'enterprise']
 
 const projects = [
-  { id: 1, category: 'edtech', img: '/images/project1.jpg', tags: ['EdTech', 'Web App'], title: 'E-Learning Platform', desc: 'Comprehensive online learning system serving 10,000+ students with video courses, assessments, and progress tracking.', year: '2023', client: 'Education Sector' },
-  { id: 2, category: 'enterprise', img: '/images/project2.jpg', tags: ['Enterprise', 'Web App'], title: 'Business Management System', desc: 'Integrated ERP solution streamlining operations, inventory, and customer management for growing enterprises.', year: '2023', client: 'Retail Business' },
-  { id: 3, category: 'mobile', img: '/images/project3.jpg', tags: ['Mobile', 'FinTech'], title: 'Mobile Banking App', desc: 'Secure and user-friendly mobile banking application with biometric authentication and real-time transactions.', year: '2024', client: 'Financial Services' },
-  { id: 4, category: 'web', img: '/images/project-ecommerce.jpg', tags: ['Web App', 'E-Commerce'], title: 'E-Commerce Platform', desc: 'Full-featured online marketplace with payment integration, inventory management, and analytics dashboard.', year: '2023', client: 'Retail' },
-  { id: 5, category: 'edtech', img: '/images/project-student-system.jpg', tags: ['EdTech', 'Portal'], title: 'Student Information System', desc: 'Comprehensive portal for managing student records, grades, attendance, and parent communication.', year: '2022', client: 'University' },
-  { id: 6, category: 'mobile', img: '/images/project6.jpg', tags: ['Mobile', 'Health'], title: 'Fitness Tracking App', desc: 'Mobile app for tracking workouts, nutrition, and health metrics with AI-powered recommendations.', year: '2024', client: 'Health & Wellness' },
+  { id: 1, category: 'edtech', img: '/images/project1.jpg', tags: ['EdTech', 'Web App'], title: 'E-Learning Platform', desc: 'Comprehensive online learning system serving 100+ students with video courses, assessments, and progress tracking.', year: '2024', client: 'Education Sector' },
+  { id: 2, category: 'enterprise', img: '/images/project2.jpg', tags: ['Enterprise', 'Web App'], title: 'Business Management System', desc: 'Integrated ERP solution streamlining operations, inventory, and customer management for growing enterprises.', year: '2024', client: 'Retail Business' },
+  { id: 3, category: 'mobile', img: '/images/project3.jpg', tags: ['Mobile', 'FinTech'], title: 'Mobile Banking App', desc: 'Secure and user-friendly mobile banking application with biometric authentication and real-time transactions.', year: '2025', client: 'Financial Services' },
+  { id: 4, category: 'web', img: '/images/project-ecommerce.jpg', tags: ['Web App', 'E-Commerce'], title: 'E-Commerce Platform', desc: 'Full-featured online marketplace with payment integration, inventory management, and analytics dashboard.', year: '2024', client: 'Retail' },
+  { id: 5, category: 'edtech', img: '/images/project-student-system.jpg', tags: ['EdTech', 'Portal'], title: 'Student Information System', desc: 'Comprehensive portal for managing student records, grades, attendance, and parent communication.', year: '2025', client: 'University' },
+  { id: 6, category: 'mobile', img: '/images/project6.jpg', tags: ['Mobile', 'Health'], title: 'Fitness Tracking App', desc: 'Mobile app for tracking workouts, nutrition, and health metrics with AI-powered recommendations.', year: '2025', client: 'Health & Wellness' },
 ]
 
 export default function Portfolio() {

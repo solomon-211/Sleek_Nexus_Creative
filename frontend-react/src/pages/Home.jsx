@@ -15,10 +15,10 @@ const services = [
 ]
 
 const counters = [
-  { icon: 'fa-project-diagram', value: 50, suffix: '+', label: 'Projects Delivered' },
-  { icon: 'fa-user-graduate', value: 10000, suffix: '+', label: 'Learners Supported' },
-  { icon: 'fa-handshake', value: 30, suffix: '+', label: 'Partner Organizations' },
-  { icon: 'fa-calendar-check', value: 5, suffix: '+', label: 'Years of Excellence' },
+  { icon: 'fa-project-diagram', value: 10, suffix: '+', label: 'Projects Delivered' },
+  { icon: 'fa-user-graduate', value: 50, suffix: '+', label: 'Learners Supported' },
+  { icon: 'fa-handshake', value: 5, suffix: '+', label: 'Partner Organizations' },
+  { icon: 'fa-calendar-check', value: 1, suffix: '+', label: 'Years of Excellence' },
 ]
 
 const processSteps = [
@@ -138,7 +138,7 @@ export default function Home() {
                 <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary"><i className="fas fa-eye" /> View Our Work</Link>
               </div>
               <div className="flex flex-wrap gap-8">
-                {[{ value: '50+', label: 'Projects Delivered' }, { value: '10K+', label: 'Learners Supported' }, { value: '5+', label: 'Years of Excellence' }].map(({ value, label }) => (
+                {[{ value: '10+', label: 'Projects Delivered' }, { value: '50+', label: 'Learners Supported' }, { value: '1+', label: 'Years of Excellence' }].map(({ value, label }) => (
                   <div key={label}>
                     <strong className="block text-3xl font-heading font-bold text-white">{value}</strong>
                     <span className="text-gray-400 text-sm">{label}</span>

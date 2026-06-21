@@ -14,9 +14,9 @@ const categories = [
 ]
 
 const featured = [
-  { duration: '12 Weeks', price: '$220', badge: 'Bestseller', title: 'Full-Stack Web Development Bootcamp', desc: 'Master both frontend and backend development. Build complete web applications from scratch using industry-standard tools.', instructor: 'James Maker', level: 'Beginner to Advanced', icon: 'fa-code' },
-  { duration: '10 Weeks', price: '$200', badge: 'Popular', title: 'Mobile App Development with React Native', desc: 'Build cross-platform mobile apps for iOS and Android with one codebase using React Native.', instructor: 'David Kim', level: 'Intermediate', icon: 'fa-mobile-alt' },
-  { duration: '10 Weeks', price: '$200', badge: 'Trending', title: 'Introduction to Machine Learning', desc: 'Build intelligent systems with machine learning algorithms and AI fundamentals.', instructor: 'Dr. Isaac Mayen', level: 'Intermediate to Advanced', icon: 'fa-brain' },
+  { duration: '12 Weeks', price: '$220', badge: 'Bestseller', title: 'Full-Stack Web Development Bootcamp', desc: 'Master both frontend and backend development. Build complete web applications from scratch using industry-standard tools.', instructor: 'Solomon Leek', level: 'Beginner to Advanced', icon: 'fa-code' },
+  { duration: '10 Weeks', price: '$200', badge: 'Popular', title: 'Mobile App Development with React Native', desc: 'Build cross-platform mobile apps for iOS and Android with one codebase using React Native.', instructor: 'Gideon Erioluwa', level: 'Intermediate', icon: 'fa-mobile-alt' },
+  { duration: '10 Weeks', price: '$200', badge: 'Trending', title: 'UI/UX Design Fundamentals', desc: 'Learn user research, wireframing, and high-fidelity design using Figma — built for beginners entering the design field.', instructor: 'Philip Bior', level: 'Beginner to Intermediate', icon: 'fa-pencil-ruler' },
 ]
 
 export default function Browse() {
@@ -98,7 +98,7 @@ export default function Browse() {
       <section className="py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Start Your Learning Journey Today</h2>
-          <p className="text-gray-300 mb-8">Join hundreds of students building tech careers in South Sudan.</p>
+          <p className="text-gray-300 mb-8">Join our growing community of students building tech careers in South Sudan.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/courses" className="btn-primary">See All Courses</Link>
             <Link to="/contact" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">Talk to an Advisor</Link>

@@ -15,15 +15,15 @@ const values = [
 ]
 
 const stats = [
-  { value: '500+', label: 'Youth Trained', color: 'text-primary' },
-  { value: '120+', label: 'Projects Built', color: 'text-accent' },
-  { value: '200+', label: 'Jobs Created', color: 'text-primary' },
-  { value: '10+', label: 'Partner Organizations', color: 'text-accent' },
+  { value: '50+', label: 'Youth Trained', color: 'text-primary' },
+  { value: '10+', label: 'Projects Built', color: 'text-accent' },
+  { value: '20+', label: 'Jobs Created', color: 'text-primary' },
+  { value: '5+', label: 'Partner Organizations', color: 'text-accent' },
 ]
 
 const impacts = [
   { title: 'Digital Inclusion', color: 'border-primary', desc: 'We\'ve built platforms that allow South Sudanese organizations to serve their communities digitally — from healthcare NGOs to schools to microfinance institutions.' },
-  { title: 'Youth Employment', color: 'border-accent', desc: 'Through our training programs, we\'ve helped place 200+ young South Sudanese into tech jobs, internships, and freelance careers. We\'re building the workforce South Sudan needs.' },
+  { title: 'Youth Employment', color: 'border-accent', desc: 'Through our training programs, we have helped place 20+ young South Sudanese into tech jobs, internships, and freelance careers. We\'re building the workforce South Sudan needs.' },
   { title: 'Organizational Capacity', color: 'border-primary', desc: 'From manual spreadsheets to automated systems — we\'ve helped dozens of NGOs, government offices, and businesses operate more efficiently with technology.' },
 ]
 

@@ -10,14 +10,14 @@ const testimonials = [
     quote: 'Sleek Nexus Creative transformed how we deliver education to our students. The platform they built has made it possible for us to reach learners in remote areas who previously had no access to quality digital learning resources.',
     name: 'Dr. Rebecca Akuei',
     role: 'Director, Education Institute Juba',
-    result: '10,000+ students reached',
+    result: '100+ students reached',
     img: '/images/team-member1.jpg',
   },
   {
     quote: "The mobile banking app they delivered was exactly what we needed — lightweight, secure, and it actually works on our customers' low-end phones. Our customers love how simple and reliable it is.",
     name: 'Michael Deng',
     role: 'CEO, Financial Services Company',
-    result: '5,000+ downloads in first month',
+    result: '500+ downloads in first month',
     img: '/images/team-member2.jpg',
   },
   {
@@ -37,7 +37,7 @@ const testimonials = [
 ]
 
 const stats = [
-  { value: '30+', label: 'Happy Clients' },
+  { value: '10+', label: 'Happy Clients' },
   { value: '95%', label: 'Client Retention Rate' },
   { value: '100%', label: 'On-Time Delivery' },
   { value: '24hr', label: 'Average Response Time' },
@@ -94,7 +94,7 @@ export default function ClientSuccess() {
       <section className="py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Ready to Add Your Success Story?</h2>
-          <p className="text-gray-300 mb-8">Join 30+ organizations that trust Sleek Nexus Creative to power their digital presence.</p>
+          <p className="text-gray-300 mb-8">Join 10+ organizations that trust Sleek Nexus Creative to power their digital presence.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/contact" className="btn-primary">Start a Project</Link>
             <Link to="/projects/case-studies" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">Read Case Studies</Link>

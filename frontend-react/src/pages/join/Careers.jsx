@@ -8,17 +8,10 @@ const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
 const benefits = [
   { icon: 'fa-rocket', title: 'Meaningful Projects', desc: 'Every project you work on at SNC has real users, real stakes, and real impact — from e-learning platforms to fintech apps serving underserved communities.' },
   { icon: 'fa-users', title: 'Collaborative Team', desc: 'Work alongside engineers, designers, trainers, and strategists who are passionate about technology and South Sudan.' },
-  { icon: 'fa-chart-line', title: 'Real Career Growth', desc: 'We invest in your development through mentorship, learning budgets, and a clear path from junior to senior to leadership.' },
-  { icon: 'fa-balance-scale', title: 'Work-Life Balance', desc: 'Flexible hours, remote work options, and a culture that respects your time outside of work. We build sustainably.' },
-  { icon: 'fa-hand-holding-usd', title: 'Competitive Pay', desc: 'Competitive salaries benchmarked to the local and regional market, plus performance bonuses and clear salary review timelines.' },
-  { icon: 'fa-heart', title: 'Health & Wellbeing', desc: 'Health coverage support, mental wellness resources, and an environment where asking for help is encouraged.' },
-]
-
-const openRoles = [
-  { title: 'Senior Frontend Developer', dept: 'Engineering', type: 'Full-Time', location: 'Juba / Remote', desc: 'Lead UI development for client projects using React.js. Build fast, accessible interfaces and collaborate with design and backend teams.' },
-  { title: 'Full-Stack Engineer (Node.js / React)', dept: 'Engineering', type: 'Full-Time', location: 'Juba / Remote', desc: 'Own features end-to-end from database schema to React UI. Work on varied client platforms including web apps and educational tools.' },
-  { title: 'UI/UX Designer', dept: 'Design', type: 'Full-Time', location: 'Juba / Remote', desc: 'Lead product design from wireframes to high-fidelity Figma mockups. Conduct user research and collaborate with developers.' },
-  { title: 'Education Program Manager', dept: 'Training & Education', type: 'Full-Time', location: 'Juba', desc: 'Manage our training programs — overseeing curriculum, trainer coordination, student cohorts, and employer partnerships.' },
+  { icon: 'fa-chart-line', title: 'Real Career Growth', desc: 'We invest in your development through mentorship and a clear path from junior to senior roles as the company grows.' },
+  { icon: 'fa-balance-scale', title: 'Flexible Working', desc: 'We offer flexible hours and remote work options where the role allows. We build sustainably and respect your time.' },
+  { icon: 'fa-hand-holding-usd', title: 'Fair Compensation', desc: 'Competitive pay benchmarked to the local market with transparent salary review timelines as the company grows.' },
+  { icon: 'fa-heart', title: 'Positive Environment', desc: 'A respectful, honest culture where your ideas are heard, your work is valued, and you are treated as a professional.' },
 ]
 
 const process = [
@@ -57,30 +50,22 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Open Roles */}
+      {/* Growing CTA instead of open roles */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-12">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Currently Hiring</p>
-            <h2 className="section-title">Open Positions</h2>
-          </div>
-          <div className="max-w-3xl mx-auto space-y-4">
-            {openRoles.map(({ title, dept, type, location, desc }) => (
-              <motion.div key={title} className="card p-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4 }}>
-                <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-                  <div>
-                    <h3 className="font-heading font-bold text-dark">{title}</h3>
-                    <span className="text-primary text-xs font-semibold">{dept}</span>
-                  </div>
-                  <div className="flex gap-2 flex-wrap">
-                    <span className="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full">{type}</span>
-                    <span className="bg-gray-100 text-muted text-xs font-semibold px-3 py-1 rounded-full">{location}</span>
-                  </div>
-                </div>
-                <p className="text-muted text-sm leading-relaxed mb-4">{desc}</p>
-                <Link to="/contact" className="btn-primary text-sm px-4 py-2">View & Apply</Link>
-              </motion.div>
-            ))}
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="card p-10">
+            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
+              <i className="fas fa-seedling text-primary text-2xl" />
+            </div>
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">We're Growing</p>
+            <h2 className="text-2xl font-heading font-bold text-dark mb-4">No Specific Roles Listed Yet</h2>
+            <p className="text-muted leading-relaxed mb-4">
+              We are a young company building our team carefully. We don't have fixed open positions right now — but we are always interested in hearing from talented people who share our passion for technology and South Sudan.
+            </p>
+            <p className="text-muted leading-relaxed mb-8">
+              If you are a developer, designer, educator, or digital professional who wants to be part of something meaningful, send us your CV and tell us what you can bring to the team.
+            </p>
+            <Link to="/contact" className="btn-primary">Send Your CV</Link>
           </div>
         </div>
       </section>

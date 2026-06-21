@@ -13,7 +13,8 @@ import Courses from './pages/Courses'
 import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
-import { Partners, Donors, NotFound } from './pages/index.jsx'
+import GetStarted from './pages/GetStarted'
+import { NotFound } from './pages/index.jsx'
 
 // About dropdown
 import OurStory from './pages/about/OurStory'
@@ -77,8 +78,7 @@ export default function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/partners" element={<Partners />} />
-                <Route path="/donors" element={<Donors />} />
+                <Route path="/get-started" element={<GetStarted />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
 

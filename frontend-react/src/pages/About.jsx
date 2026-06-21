@@ -22,10 +22,10 @@ const steps = [
 ]
 
 const stats = [
-  { value: '50+', label: 'Projects Completed' },
-  { value: '30+', label: 'Happy Clients' },
-  { value: '5+', label: 'Years Experience' },
-  { value: '15+', label: 'Team Members' },
+  { value: '10+', label: 'Projects Completed' },
+  { value: '10+', label: 'Happy Clients' },
+  { value: '1+', label: 'Years Experience' },
+  { value: '8+', label: 'Team Members' },
 ]
 
 const team = [
@@ -73,7 +73,7 @@ export default function About() {
               <p className="text-muted leading-relaxed mb-4">Our work focuses on building reliable digital infrastructure, developing custom software systems, and providing transformative tech services that improve efficiency, transparency, and access to opportunities.</p>
               <p className="text-muted leading-relaxed mb-8">Driven by a mission to bridge the digital divide, Sleek Nexus Creative is committed to nurturing local talent, supporting entrepreneurship, and enabling sustainable development through innovation.</p>
               <div className="flex flex-wrap gap-3">
-                {['5+ Years Experience', '50+ Projects Delivered', '30+ Happy Clients', 'South Sudan Based'].map(b => (
+                {['1+ Year Experience', '10+ Projects Delivered', '10+ Happy Clients', 'South Sudan Based'].map(b => (
                   <span key={b} className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full">
                     <i className="fas fa-check text-[0.65rem]" /> {b}
                   </span>

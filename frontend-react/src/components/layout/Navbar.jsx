@@ -177,8 +177,7 @@ export default function Navbar() {
 
           {/* Partner + Donate */}
           <div className="hidden lg:flex items-center gap-6 flex-shrink-0">
-            <Link to="/partners" className="text-sm font-bold text-primary hover:text-primary-dark transition-colors">Partner</Link>
-            <Link to="/donors" className="text-sm font-bold text-accent hover:text-accent-dark transition-colors">Donate</Link>
+            <Link to="/get-started" className="btn-primary text-sm">Get Started</Link>
           </div>
 
           {/* Hamburger */}
@@ -250,9 +249,8 @@ export default function Navbar() {
                   )}
                 </li>
               ))}
-              <li className="flex gap-6 px-6 py-4">
-                <Link to="/partners" className="text-sm font-bold text-primary">Partner</Link>
-                <Link to="/donors" className="text-sm font-bold text-accent">Donate</Link>
+              <li className="px-6 py-4">
+                <Link to="/get-started" className="btn-primary text-sm w-full justify-center">Get Started</Link>
               </li>
             </ul>
           </motion.div>

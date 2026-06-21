@@ -6,12 +6,8 @@ import PageHeader from '../../components/ui/PageHeader'
 const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
 
 const timeline = [
-  { year: '2019', color: 'bg-primary', title: 'Founded in Juba', desc: "Officially registered in South Sudan. First team of 4 co-founders begins operations from a co-working space in Juba's city center." },
-  { year: '2020', color: 'bg-accent', title: 'First 10 Clients', desc: 'Delivered websites and digital systems for 10 organizations including NGOs, government agencies, and private businesses. Launched first training cohort with 25 students.' },
-  { year: '2021', color: 'bg-primary', title: 'E-Learning Platform Launched', desc: 'Developed and launched an e-learning platform serving schools across Central Equatoria. Team grows to 12 full-time staff and contractors.' },
-  { year: '2022', color: 'bg-accent', title: 'Mobile Development Division', desc: "Established a dedicated mobile app division. Delivered South Sudan's first locally-built fintech mobile app. Partnerships with 3 international organizations." },
-  { year: '2023', color: 'bg-primary', title: '100+ Projects Completed', desc: 'Surpassed 100 completed digital projects. Opened the SNC Academy with certified courses in web development, mobile apps, UI/UX, and digital marketing.' },
-  { year: '2024', color: 'bg-accent', title: 'Regional Expansion', desc: '500+ students trained. Expanding services across East Africa. Launching SNC open-source community platform and digital infrastructure programs for rural organizations.' },
+  { year: '2024', color: 'bg-primary', title: 'Founded in Juba', desc: "Officially registered in South Sudan. First team of 4 co-founders begins operations from a co-working space in Juba's city center. Delivered first client projects and launched the initial training cohort." },
+  { year: '2025', color: 'bg-accent', title: 'Growing & Expanding', desc: 'Delivering digital projects across South Sudan. Launched the SNC Academy with certified courses in web development, mobile apps, UI/UX, and digital marketing. Expanding services across East Africa.' },
 ]
 
 const values = [
@@ -36,7 +32,7 @@ export default function OurStory() {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">The Beginning</p>
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark mb-6">Born in Juba, Built for South Sudan</h2>
-              <p className="text-muted leading-relaxed mb-4">In 2019, a group of young South Sudanese technologists and educators gathered with one shared frustration: brilliant talent in South Sudan was going unrecognized, unequipped, and underserved by the digital economy.</p>
+              <p className="text-muted leading-relaxed mb-4">In 2024, a group of young South Sudanese technologists and educators gathered with one shared frustration: brilliant talent in South Sudan was going unrecognized, unequipped, and underserved by the digital economy.</p>
               <p className="text-muted leading-relaxed mb-4">Organizations across Juba desperately needed websites, apps, and digital systems — but had nowhere local to turn for quality, affordable, and context-aware solutions.</p>
               <p className="text-muted leading-relaxed mb-4">So we built Sleek Nexus Creative — a company that would deliver world-class technology solutions and train the next generation of South Sudanese developers, designers, and digital professionals.</p>
               <p className="text-muted leading-relaxed">We started with two laptops, one co-working space, and an unshakeable belief that <strong className="text-primary">Africa's youngest nation deserved the best technology.</strong></p>
@@ -53,7 +49,7 @@ export default function OurStory() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-16">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Our Journey</p>
-            <h2 className="section-title">Five Years of Growth</h2>
+            <h2 className="section-title">Our Journey So Far</h2>
             <p className="section-subtitle">Every milestone represents a commitment kept to the people of South Sudan.</p>
           </div>
           <div className="relative max-w-3xl mx-auto">

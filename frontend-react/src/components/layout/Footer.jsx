@@ -17,8 +17,7 @@ const footerLinks = {
     { label: 'IT Consulting', to: '/services/consulting' },
   ],
   'Get Involved': [
-    { label: 'Partner With Us', to: '/partners' },
-    { label: 'Donate', to: '/donors' },
+    { label: 'Get Started', to: '/get-started' },
     { label: 'Careers', to: '/careers' },
     { label: 'Internships', to: '/internships' },
     { label: 'Volunteer', to: '/volunteer' },
@@ -27,12 +26,12 @@ const footerLinks = {
 }
 
 const socials = [
-  { href: 'https://www.facebook.com/SNC', icon: 'fab fa-facebook', label: 'Facebook', color: 'text-[#1877f2]', bg: 'hover:bg-[#1877f2]' },
-  { href: 'https://twitter.com/SNC', icon: null, label: 'Twitter / X', color: 'text-white', bg: 'hover:bg-black' },
-  { href: 'https://www.linkedin.com/company/SNC', icon: 'fab fa-linkedin-in', label: 'LinkedIn', color: 'text-[#0a66c2]', bg: 'hover:bg-[#0a66c2]' },
-  { href: 'https://wa.me/211925277700', icon: 'fab fa-whatsapp', label: 'WhatsApp', color: 'text-[#25d366]', bg: 'hover:bg-[#25d366]' },
-  { href: 'https://www.tiktok.com/@SNC', icon: 'fab fa-tiktok', label: 'TikTok', color: 'text-[#ee1d52]', bg: 'hover:bg-[#010101]' },
-  { href: 'https://www.instagram.com/SNC', icon: 'fab fa-instagram', label: 'Instagram', color: 'text-[#e1306c]', bg: 'hover:bg-gradient-to-br hover:from-[#f58529] hover:via-[#e1306c] hover:to-[#833ab4]' },
+  { href: 'https://www.facebook.com/SNC', icon: 'fab fa-facebook-f', label: 'Facebook', color: 'bg-[#1877f2] text-white' },
+  { href: 'https://twitter.com/SNC', icon: null, label: 'Twitter / X', color: 'bg-white text-black' },
+  { href: 'https://www.linkedin.com/company/SNC', icon: 'fab fa-linkedin-in', label: 'LinkedIn', color: 'bg-[#0a66c2] text-white' },
+  { href: 'https://wa.me/211925277700', icon: 'fab fa-whatsapp', label: 'WhatsApp', color: 'bg-[#25d366] text-white' },
+  { href: 'https://www.tiktok.com/@SNC', icon: 'fab fa-tiktok', label: 'TikTok', color: 'bg-[#010101] text-white border border-white/20' },
+  { href: 'https://www.instagram.com/SNC', icon: 'fab fa-instagram', label: 'Instagram', color: 'bg-[#e1306c] text-white' },
 ]
 
 
@@ -40,10 +39,10 @@ export default function Footer() {
   return (
     <footer className="bg-[#0f172a] text-white pt-16 pb-8">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-start mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 items-start mb-12">
 
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div>
             <Link to="/" className="inline-flex items-center gap-2.5 mb-4 group">
               <span className="flex items-center justify-center w-[46px] h-[46px] bg-white rounded-full border-2 border-white/30 shadow-[0_2px_10px_rgba(196,30,58,0.25)] text-[0.78rem] font-black font-heading tracking-wide">
                 <span className="text-primary">S</span>
@@ -56,7 +55,7 @@ export default function Footer() {
                 <span className="text-primary"> Creative</span>
               </span>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4 max-w-sm">
+            <p className="text-gray-400 text-sm leading-relaxed mb-4">
               We design and deliver dependable digital products that help organizations scale impact, improve operations, and serve communities better.
             </p>
             <Link to="/careers" className="inline-flex items-center gap-2 text-xs font-semibold text-primary border border-primary/30 px-3 py-1.5 rounded-full hover:bg-primary/10 transition-colors">
@@ -97,10 +96,10 @@ export default function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Monthly Newsletter</h4>
             <NewsletterForm id="footer-newsletter-form" dark={true} />
             <div className="flex items-center gap-2 mt-5">
-              {socials.map(({ href, icon, label, color, bg }) => (
+              {socials.map(({ href, icon, label, color }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                  className={`w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center ${color} ${bg} hover:text-white transition-all duration-200`}>
-                  {icon ? <i className={`${icon} text-sm`} /> : <span className="text-sm font-black leading-none">𝕏</span>}
+                  className={`w-[36px] h-[36px] min-w-[36px] min-h-[36px] rounded-lg flex items-center justify-center transition-opacity duration-200 hover:opacity-80 ${color}`}>
+                  {icon ? <i className={`${icon} text-[14px] leading-none`} /> : <span className="text-[13px] font-black leading-none">X</span>}
                 </a>
               ))}
             </div>
