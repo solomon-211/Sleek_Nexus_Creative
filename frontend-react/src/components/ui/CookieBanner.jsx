@@ -1,12 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function CookieBanner() {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    if (!localStorage.getItem('snc_cookie_consent')) setVisible(true)
-  }, [])
+  // Initialize from storage on first render — no effect/flash needed (client-only app).
+  const [visible, setVisible] = useState(() => !localStorage.getItem('snc_cookie_consent'))
 
   const accept = () => { localStorage.setItem('snc_cookie_consent', 'accepted'); setVisible(false) }
   const decline = () => { localStorage.setItem('snc_cookie_consent', 'declined'); setVisible(false) }

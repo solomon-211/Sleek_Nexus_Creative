@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -18,10 +18,37 @@
     @apply inline-flex items-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200;
   }
   .section-title {
-    @apply text-3xl md:text-4xl font-heading font-bold text-dark mb-4;
+    @apply font-heading uppercase text-dark mb-4;
+    font-weight: 900;
+    font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
   }
   .section-subtitle {
     @apply text-muted text-lg max-w-2xl mx-auto;
+  }
+
+  /* Editorial display style — huge, black-weight, all-caps, tightly tracked.
+     Use for hero/page headlines that should land with impact. */
+  .display-heading {
+    @apply font-heading uppercase;
+    font-weight: 900;
+    font-size: clamp(2.75rem, 7vw, 5.5rem);
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+  /* Slightly smaller variant for section headings within a page. */
+  .display-heading-sm {
+    @apply font-heading uppercase;
+    font-weight: 900;
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  /* Small uppercase eyebrow label that sits above a display heading. */
+  .section-label {
+    @apply text-xs font-medium uppercase mb-3;
+    letter-spacing: 0.15em;
   }
   .card {
     @apply bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200;

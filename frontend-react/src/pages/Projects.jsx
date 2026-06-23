@@ -18,7 +18,6 @@ const projects = [
 
 export default function Projects() {
   const [active, setActive] = useState('all')
-  const [selected, setSelected] = useState(null)
 
   const filtered = active === 'all' ? projects : projects.filter(p => p.category === active)
   const detail = projects.find(p => p.id === 1)
@@ -61,7 +60,7 @@ export default function Projects() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">
               {filtered.map(({ id, img, tags, title, desc, year, client }) => (
-                <motion.div key={id} layout className="card overflow-hidden group cursor-pointer" onClick={() => setSelected(id)}
+                <motion.div key={id} layout className="card overflow-hidden group"
                   initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.3 }}>
                   <div className="relative overflow-hidden h-52">
                     <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />

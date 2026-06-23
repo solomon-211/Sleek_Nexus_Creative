@@ -5,21 +5,31 @@ import PageHeader from '../../components/ui/PageHeader'
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
 
+// Shared social links shown under every team member.
+// Format: [label, fontAwesomeClass, href, brandClasses]
+const socials = [
+  ['Facebook', 'fab fa-facebook-f', '#', 'bg-[#1877F2] text-white'],
+  ['Instagram', 'fab fa-instagram', '#', 'text-white bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5]'],
+  ['Twitter', 'fab fa-x-twitter', '#', 'bg-black text-white'],
+  ['WhatsApp', 'fab fa-whatsapp', '#', 'bg-[#25D366] text-white'],
+  ['LinkedIn', 'fab fa-linkedin-in', '#', 'bg-[#0A66C2] text-white'],
+]
+
 const board = [
-  { name: 'Board Chairman', role: 'Chairman, Board of Directors', img: '/images/board-chairman.jpeg', bio: 'Provides strategic governance and long-term vision to ensure SNC fulfills its mission. Brings 20+ years of leadership experience across East Africa.', socials: [['fa-envelope', 'mailto:info@SNC.ss'], ['fa-linkedin', '#']] },
-  { name: 'Board Member', role: 'Board Director', img: '/images/board-member.jpeg', bio: 'Brings expertise in organizational development, community engagement, and social impact programs to ensure SNC\'s work creates lasting change.', socials: [['fa-envelope', 'mailto:info@SNC.ss'], ['fa-linkedin', '#']] },
+  { name: 'Board Chairman', role: 'Chairman, Board of Directors', img: '/images/board-chairman.jpeg', bio: 'Provides strategic governance and long-term vision to ensure SNC fulfills its mission. Brings 20+ years of leadership experience across East Africa.', socials },
+  { name: 'Board Member', role: 'Board Director', img: '/images/board-member.jpeg', bio: 'Brings expertise in organizational development, community engagement, and social impact programs to ensure SNC\'s work creates lasting change.', socials },
 ]
 
 const executive = [
-  { name: 'Agau Deborah Makuol', role: 'Head of Marketing & Communications', img: '/images/marketing-head-new.jpeg', bio: 'Brand strategist and communications lead responsible for growing SNC\'s presence across South Sudan. Specializes in digital marketing, content strategy, and stakeholder engagement.', socials: [['fa-envelope', 'mailto:info@SNC.ss'], ['fa-linkedin', '#']] },
-  { name: 'Daniel Deng', role: 'Sales Manager & Business Development', img: '/images/sales-manager.jpeg', bio: 'Drives client acquisition, manages strategic partnerships, and oversees revenue growth across SNC\'s service lines.', socials: [['fa-envelope', 'mailto:info@SNC.ss'], ['fa-linkedin', '#']] },
+  { name: 'Agau Deborah Makuol', role: 'Head of Marketing & Communications', img: '/images/marketing-head-new.jpeg', bio: 'Brand strategist and communications lead responsible for growing SNC\'s presence across South Sudan. Specializes in digital marketing, content strategy, and stakeholder engagement.', socials },
+  { name: 'Daniel Deng', role: 'Sales Manager & Business Development', img: '/images/sales-manager.jpeg', bio: 'Drives client acquisition, manages strategic partnerships, and oversees revenue growth across SNC\'s service lines.', socials },
 ]
 
 const core = [
-  { name: 'Solomon Leek', role: 'CEO & Lead Engineer', img: '/images/team-member1.jpg', bio: 'Founder and driving force behind SNC. Full-stack engineer with deep expertise in scalable web architecture, API design, and cloud deployment.', socials: [['fa-envelope', 'mailto:info@SNC.ss'], ['fa-github', '#'], ['fa-linkedin', '#']] },
-  { name: 'Philip Bior', role: 'Lead UI/UX Designer', img: '/images/team-member2.jpg', bio: 'Product designer responsible for the visual identity and user experience across all SNC client products. Expert in Figma, user research, and design systems.', socials: [['fa-envelope', 'mailto:info@SNC.ss'], ['fa-linkedin', '#']] },
-  { name: 'Genesis Goch', role: 'Education Lead & Curriculum Developer', img: '/images/team-member3.jpg', bio: 'Designs and delivers SNC\'s tech training programs. Passionate about making high-quality tech education accessible to every South Sudanese student.', socials: [['fa-envelope', 'mailto:info@SNC.ss'], ['fa-linkedin', '#']] },
-  { name: 'Gideon Erioluwa', role: 'Mobile & Backend Engineer', img: '/images/team-member4.jpg', bio: 'Builds mobile apps and backend infrastructure. Specializes in Flutter, React Native, and Node.js with a focus on lightweight, offline-capable solutions.', socials: [['fa-envelope', 'mailto:info@SNC.ss'], ['fa-github', '#']] },
+  { name: 'Solomon Leek', role: 'CEO & Lead Engineer', img: '/images/team-member1.jpg', bio: 'Founder and driving force behind SNC. Full-stack engineer with deep expertise in scalable web architecture, API design, and cloud deployment.', socials },
+  { name: 'Philip Bior', role: 'Lead UI/UX Designer', img: '/images/team-member2.jpg', bio: 'Product designer responsible for the visual identity and user experience across all SNC client products. Expert in Figma, user research, and design systems.', socials },
+  { name: 'Genesis Goch', role: 'Education Lead & Curriculum Developer', img: '/images/team-member3.jpg', bio: 'Designs and delivers SNC\'s tech training programs. Passionate about making high-quality tech education accessible to every South Sudanese student.', socials },
+  { name: 'Gideon Erioluwa', role: 'Mobile & Backend Engineer', img: '/images/team-member4.jpg', bio: 'Builds mobile apps and backend infrastructure. Specializes in Flutter, React Native, and Node.js with a focus on lightweight, offline-capable solutions.', socials },
 ]
 
 const culture = [
@@ -39,10 +49,18 @@ function TeamCard({ member, i }) {
         <h3 className="font-heading font-bold text-dark">{member.name}</h3>
         <p className="text-primary text-xs font-semibold uppercase tracking-wide mb-2">{member.role}</p>
         <p className="text-muted text-sm leading-relaxed mb-4">{member.bio}</p>
-        <div className="flex gap-2">
-          {member.socials.map(([icon, href]) => (
-            <a key={icon} href={href} className="w-8 h-8 rounded-lg bg-gray-100 hover:bg-primary hover:text-white text-muted flex items-center justify-center transition-all text-sm">
-              <i className={`${icon.startsWith('fa-') ? 'fas' : 'fab'} ${icon}`} />
+        <div className="flex gap-4 justify-center">
+          {member.socials.map(([label, icon, href, brand]) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${member.name} on ${label}`}
+              title={label}
+              className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all text-sm hover:-translate-y-0.5 hover:shadow-md ${brand}`}
+            >
+              <i className={icon} />
             </a>
           ))}
         </div>

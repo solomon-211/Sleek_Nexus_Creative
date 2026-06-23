@@ -70,9 +70,9 @@ export default function Contact() {
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
-            <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Let's Transform Your Vision Into Reality</p>
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">Get In Touch</h1>
-            <p className="text-gray-300 text-lg leading-relaxed">We're here to answer your questions, discuss your project requirements, and explore how our technology solutions can drive your business forward.</p>
+            <p className="section-label text-accent">Let's Transform Your Vision Into Reality</p>
+            <h1 className="display-heading mb-6">Let's Talk.</h1>
+            <p className="text-gray-300 text-lg leading-relaxed mt-6">We're here to answer your questions, discuss your project requirements, and explore how our technology solutions can drive your business forward.</p>
           </motion.div>
         </div>
       </section>

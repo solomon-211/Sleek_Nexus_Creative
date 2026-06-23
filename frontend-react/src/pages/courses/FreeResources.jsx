@@ -5,19 +5,23 @@ import PageHeader from '../../components/ui/PageHeader'
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
 
+// `file` points to a PDF placed in /public/downloads/. Replace each path with the
+// real file once it's uploaded there (the filename must match exactly).
 const resources = [
-  { icon: 'fa-code', tag: 'Web Dev', title: 'HTML & CSS Starter Kit', desc: 'A beginner-friendly introduction to building web pages with HTML5 and CSS3. Includes exercises and a mini project.', type: 'PDF Guide', free: true },
-  { icon: 'fa-js', tag: 'JavaScript', title: 'JavaScript Fundamentals Cheatsheet', desc: 'Quick reference for variables, functions, arrays, objects, and ES6+ features. Perfect for beginners and review.', type: 'Cheatsheet PDF', free: true },
-  { icon: 'fa-mobile-alt', tag: 'Mobile', title: 'Mobile App Planning Template', desc: 'A structured template for defining your app\'s features, user flows, and tech requirements before development.', type: 'Template', free: true },
-  { icon: 'fa-database', tag: 'Database', title: 'SQL Basics for Beginners', desc: 'Learn to write SELECT, INSERT, UPDATE, and DELETE queries with real-world examples and exercises.', type: 'PDF Guide', free: true },
-  { icon: 'fa-palette', tag: 'Design', title: 'UI Design Principles Poster', desc: 'Visual guide to the 10 most important UI design principles — great for printing and keeping at your desk.', type: 'Poster PDF', free: true },
-  { icon: 'fa-shield-alt', tag: 'Security', title: 'Cybersecurity Checklist for SMEs', desc: 'A practical 20-point security checklist any small or medium business can implement without a dedicated IT team.', type: 'Checklist PDF', free: true },
+  { icon: 'fa-code', tag: 'Web Dev', title: 'HTML & CSS Starter Kit', desc: 'A beginner-friendly introduction to building web pages with HTML5 and CSS3. Includes exercises and a mini project.', type: 'PDF Guide', file: '/downloads/html-css-starter-kit.pdf' },
+  { icon: 'fa-js', tag: 'JavaScript', title: 'JavaScript Fundamentals Cheatsheet', desc: 'Quick reference for variables, functions, arrays, objects, and ES6+ features. Perfect for beginners and review.', type: 'Cheatsheet PDF', file: '/downloads/javascript-fundamentals-cheatsheet.pdf' },
+  { icon: 'fa-mobile-alt', tag: 'Mobile', title: 'Mobile App Planning Template', desc: 'A structured template for defining your app\'s features, user flows, and tech requirements before development.', type: 'Template', file: '/downloads/mobile-app-planning-template.pdf' },
+  { icon: 'fa-database', tag: 'Database', title: 'SQL Basics for Beginners', desc: 'Learn to write SELECT, INSERT, UPDATE, and DELETE queries with real-world examples and exercises.', type: 'PDF Guide', file: '/downloads/sql-basics-for-beginners.pdf' },
+  { icon: 'fa-palette', tag: 'Design', title: 'UI Design Principles Poster', desc: 'Visual guide to the 10 most important UI design principles — great for printing and keeping at your desk.', type: 'Poster PDF', file: '/downloads/ui-design-principles-poster.pdf' },
+  { icon: 'fa-shield-alt', tag: 'Security', title: 'Cybersecurity Checklist for SMEs', desc: 'A practical 20-point security checklist any small or medium business can implement without a dedicated IT team.', type: 'Checklist PDF', file: '/downloads/cybersecurity-checklist-smes.pdf' },
 ]
 
+// `url` is the full YouTube (or other) link the lesson opens. Replace each `#`
+// placeholder with the real video URL.
 const videos = [
-  { title: 'Build Your First React App in 30 Minutes', duration: '32 min', level: 'Beginner', views: '1.2K' },
-  { title: 'How to Design a Mobile App in Figma', duration: '45 min', level: 'Beginner', views: '980' },
-  { title: 'Python for Absolute Beginners — Lesson 1', duration: '28 min', level: 'Beginner', views: '2.1K' },
+  { title: 'Build Your First React App in 30 Minutes', duration: '32 min', level: 'Beginner', views: '1.2K', url: '#' },
+  { title: 'How to Design a Mobile App in Figma', duration: '45 min', level: 'Beginner', views: '980', url: '#' },
+  { title: 'Python for Absolute Beginners — Lesson 1', duration: '28 min', level: 'Beginner', views: '2.1K', url: '#' },
 ]
 
 export default function FreeResources() {
@@ -34,7 +38,7 @@ export default function FreeResources() {
             <p className="section-subtitle">Download any of these resources for free — no email required.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {resources.map(({ icon, tag, title, desc, type }, i) => (
+            {resources.map(({ icon, tag, title, desc, type, file }, i) => (
               <motion.div key={title} className="card p-6 flex flex-col" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -47,7 +51,7 @@ export default function FreeResources() {
                 <p className="text-muted text-sm leading-relaxed mb-4 flex-1">{desc}</p>
                 <div className="flex items-center justify-between mt-auto">
                   <span className="text-xs text-muted flex items-center gap-1"><i className="fas fa-file-alt text-primary" /> {type}</span>
-                  <Link to="/contact" className="text-primary text-sm font-semibold hover:underline flex items-center gap-1">Download <i className="fas fa-download text-xs" /></Link>
+                  <a href={file} download className="text-primary text-sm font-semibold hover:underline flex items-center gap-1">Download <i className="fas fa-download text-xs" /></a>
                 </div>
               </motion.div>
             ))}
@@ -63,18 +67,26 @@ export default function FreeResources() {
             <h2 className="section-title">Start Learning Right Now</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {videos.map(({ title, duration, level, views }, i) => (
-              <motion.div key={title} className="card p-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
-                <div className="bg-dark rounded-xl h-36 flex items-center justify-center mb-4">
-                  <i className="fas fa-play-circle text-white text-4xl opacity-80" />
+            {videos.map(({ title, duration, level, views, url }, i) => (
+              <motion.a
+                key={title}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Watch: ${title}`}
+                className="card p-6 block group"
+                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
+                <div className="bg-dark rounded-xl h-36 flex items-center justify-center mb-4 overflow-hidden">
+                  <i className="fas fa-play-circle text-white text-4xl opacity-80 transition-transform duration-300 group-hover:scale-110 group-hover:opacity-100" />
                 </div>
-                <h3 className="font-heading font-bold text-dark mb-3">{title}</h3>
+                <h3 className="font-heading font-bold text-dark mb-3 group-hover:text-primary transition-colors">{title}</h3>
                 <div className="flex gap-4 text-xs text-muted">
                   <span><i className="fas fa-clock text-primary mr-1" />{duration}</span>
                   <span><i className="fas fa-signal text-primary mr-1" />{level}</span>
                   <span><i className="fas fa-eye text-primary mr-1" />{views} views</span>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>

@@ -27,7 +27,7 @@ const footerLinks = {
 
 const socials = [
   { href: 'https://www.facebook.com/SNC', icon: 'fab fa-facebook-f', label: 'Facebook', color: 'bg-[#1877f2] text-white' },
-  { href: 'https://twitter.com/SNC', icon: null, label: 'Twitter / X', color: 'bg-white text-black' },
+  { href: 'https://twitter.com/SNC', icon: 'fab fa-x-twitter', label: 'Twitter / X', color: 'bg-black text-white' },
   { href: 'https://www.linkedin.com/company/SNC', icon: 'fab fa-linkedin-in', label: 'LinkedIn', color: 'bg-[#0a66c2] text-white' },
   { href: 'https://wa.me/211925277700', icon: 'fab fa-whatsapp', label: 'WhatsApp', color: 'bg-[#25d366] text-white' },
   { href: 'https://www.tiktok.com/@SNC', icon: 'fab fa-tiktok', label: 'TikTok', color: 'bg-[#010101] text-white border border-white/20' },
@@ -37,8 +37,10 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0f172a] text-white pt-16 pb-8">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <footer className="bg-[#0f172a] text-white">
+      {/* Brand accent bar */}
+      <div className="h-1 bg-gradient-to-r from-primary via-accent to-primary" />
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 items-start mb-12">
 
           {/* Brand */}
@@ -97,9 +99,9 @@ export default function Footer() {
             <NewsletterForm id="footer-newsletter-form" dark={true} />
             <div className="flex items-center gap-2 mt-5">
               {socials.map(({ href, icon, label, color }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                  className={`w-[36px] h-[36px] min-w-[36px] min-h-[36px] rounded-lg flex items-center justify-center transition-opacity duration-200 hover:opacity-80 ${color}`}>
-                  {icon ? <i className={`${icon} text-[14px] leading-none`} /> : <span className="text-[13px] font-black leading-none">X</span>}
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} title={label}
+                  className={`w-[36px] h-[36px] min-w-[36px] min-h-[36px] rounded-lg flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${color}`}>
+                  <i className={`${icon} text-[14px] leading-none`} />
                 </a>
               ))}
             </div>
@@ -109,9 +111,9 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <p>© {new Date().getFullYear()} Sleek Nexus Creative. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <a href="#top" className="hover:text-white transition-colors" aria-label="Back to top">
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-white transition-colors" aria-label="Back to top">
               <i className="fas fa-arrow-up" />
-            </a>
+            </button>
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>

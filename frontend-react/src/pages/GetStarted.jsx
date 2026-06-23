@@ -120,8 +120,8 @@ export default function GetStarted() {
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                 <i className="fas fa-handshake text-primary text-2xl" />
               </div>
-              <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Collaboration</p>
-              <h2 className="text-3xl font-heading font-bold text-dark mb-5">Partner With Us</h2>
+              <p className="section-label text-primary">Collaboration</p>
+              <h2 className="section-title">Partner With Us</h2>
               <p className="text-muted leading-relaxed mb-4">
                 Great things happen when the right people work together. We are actively seeking organizations,
                 businesses, and institutions ready to roll up their sleeves and co-create meaningful change

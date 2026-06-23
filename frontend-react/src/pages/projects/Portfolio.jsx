@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
 
-const fadeUp = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }
-
 const filters = ['all', 'web', 'mobile', 'edtech', 'enterprise']
 
 const projects = [

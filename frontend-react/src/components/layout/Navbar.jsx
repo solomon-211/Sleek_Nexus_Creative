@@ -105,6 +105,8 @@ export default function Navbar() {
   const location = useLocation()
   const navRef = useRef(null)
 
+  // Close any open menus when the route changes (navigation is an external event here).
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setMenuOpen(false); setOpenDropdown(null) }, [location])
 
   useEffect(() => {

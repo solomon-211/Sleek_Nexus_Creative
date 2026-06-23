@@ -126,8 +126,8 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-24 w-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
-              <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-4">Transforming Ideas Into Digital Reality</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
+              <p className="section-label text-accent">Transforming Ideas Into Digital Reality</p>
+              <h1 className="display-heading text-white mb-6 text-[clamp(2.25rem,5vw,4rem)]">
                 We Build Digital Products That Work in the <span className="text-accent">Real World</span>
               </h1>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
@@ -339,10 +339,10 @@ export default function Home() {
       {/* CTA Banner */}
       <section className="py-20 bg-gradient-to-br from-primary to-primary-dark text-white text-center">
         <div className="max-w-3xl mx-auto px-6">
-          <p className="text-white/80 text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="section-label text-white/80">
             <i className="fas fa-bolt mr-1" /> Let's Build Together
           </p>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Ready to Launch Your Next Digital Product?</h2>
+          <h2 className="display-heading-sm mb-4">Ready to Launch Your Next Digital Product?</h2>
           <p className="text-white/80 text-lg mb-8">Partner with Sleek Nexus Creative to build dependable, scalable technology that delivers real results for your organization.</p>
           <div className="flex flex-wrap gap-4 justify-center mb-8">
             <Link to="/contact" className="bg-white text-primary hover:bg-gray-100 font-semibold px-7 py-3 rounded-lg inline-flex items-center gap-2 transition-colors">
