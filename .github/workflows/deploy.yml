@@ -6,10 +6,19 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,9 +40,11 @@ jobs:
           VITE_EMAILJS_NEWSLETTER_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_NEWSLETTER_TEMPLATE_ID }}
           VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: frontend-react/dist
-          cname: sleeknexuscreative.com
+          path: frontend-react/dist
+
+      - uses: actions/deploy-pages@v4
+        id: deployment
