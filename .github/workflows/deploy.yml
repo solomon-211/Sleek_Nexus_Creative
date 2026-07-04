@@ -19,11 +19,11 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        working-directory: Sleek_Nexus_Creative/frontend-react
+        working-directory: frontend-react
         run: npm ci
 
       - name: Build
-        working-directory: Sleek_Nexus_Creative/frontend-react
+        working-directory: frontend-react
         run: npm run build
         env:
           VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
@@ -35,5 +35,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: Sleek_Nexus_Creative/frontend-react/dist
+          publish_dir: frontend-react/dist
           cname: sleeknexuscreative.com
