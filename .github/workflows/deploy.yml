@@ -17,8 +17,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-          cache-dependency-path: Sleek_Nexus_Creative/frontend-react/package-lock.json
 
       - name: Install dependencies
         working-directory: Sleek_Nexus_Creative/frontend-react
