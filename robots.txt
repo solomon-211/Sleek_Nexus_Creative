@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Block common crawlers from hitting non-existent pages
+Disallow: /login
+Disallow: /dashboard
+
+Sitemap: https://sleeknexuscreative.com/sitemap.xml
