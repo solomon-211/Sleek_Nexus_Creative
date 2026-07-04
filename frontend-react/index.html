@@ -122,6 +122,18 @@
     }
     </script>
 
+    <!-- GitHub Pages SPA: restore URL after 404 redirect -->
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search)
+        const path = params.get('p')
+        if (path) {
+          const query = params.get('q') ? '?' + params.get('q') : ''
+          window.history.replaceState(null, '', path + query + window.location.hash)
+        }
+      })()
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   </head>
   <body>
