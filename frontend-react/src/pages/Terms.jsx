@@ -47,7 +47,9 @@ export default function Terms() {
         <meta property="og:title" content="Terms of Service - Sleek Nexus Creative" />
         <meta property="og:description" content="Terms and conditions governing your use of Sleek Nexus Creative's services." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://SNC.ss/terms" />
+        <meta property="og:url" content="https://sleeknexuscreative.com/terms" />
+        <link rel="canonical" href="https://sleeknexuscreative.com/terms" />
+        <meta name="robots" content="noindex, follow" />
       </Helmet>
 
       {/* Header */}

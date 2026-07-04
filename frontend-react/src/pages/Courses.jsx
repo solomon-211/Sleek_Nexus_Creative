@@ -8,39 +8,39 @@ const categories = [
   {
     icon: 'fa-code', title: 'Web & Software Development', bg: '',
     courses: [
-      { duration: '12 Weeks', price: '$220', title: 'Full-Stack Web Development Bootcamp', desc: 'Master both frontend and backend development. Build complete web applications from scratch using industry-standard tools.', instructor: 'James Maker', mode: 'Online + In-Person', level: 'Beginner to Advanced', learns: ['HTML5, CSS3, JavaScript ES6+', 'React.js & Node.js/Express', 'MongoDB & RESTful APIs', '5 Real-World Portfolio Projects'] },
-      { duration: '8 Weeks', price: '$150', title: 'Frontend Development with Modern JavaScript', desc: 'Create stunning, interactive user interfaces with modern JavaScript frameworks and responsive design principles.', instructor: 'Sarah Chen', mode: 'Online', level: 'Intermediate', learns: ['ES6+ JavaScript & TypeScript', 'React & Vue.js Frameworks', 'Responsive Design & CSS Grid', 'API Integration & State Management'] },
-      { duration: '8 Weeks', price: '$160', title: 'Backend Development with Node.js & Express', desc: 'Build scalable server-side applications, RESTful APIs, and microservices with the Node.js ecosystem.', instructor: 'Michael Torres', mode: 'Online + In-Person', level: 'Intermediate', learns: ['Node.js & Express Framework', 'MongoDB & SQL Databases', 'Authentication & Security', 'RESTful API Development & Testing'] },
-      { duration: '10 Weeks', price: '$170', title: 'Python for Software Development', desc: 'Learn Python programming for web development, automation, data processing, and building scalable applications.', instructor: 'Dr. Amina Hassan', mode: 'Online', level: 'Beginner to Intermediate', learns: ['Python Fundamentals & OOP', 'Django Web Framework', 'Automation Scripts', 'Testing, Debugging & Deployment'] },
+      { duration: '12 Weeks', price: 'Contact for Pricing', title: 'Full-Stack Web Development Bootcamp', desc: 'Master both frontend and backend development. Build complete web applications from scratch using industry-standard tools.', instructor: 'Solomon Leek', mode: 'Online + In-Person', level: 'Beginner to Advanced', learns: ['HTML5, CSS3, JavaScript ES6+', 'React.js & Node.js/Express', 'MongoDB & RESTful APIs', '5 Real-World Portfolio Projects'] },
+      { duration: '8 Weeks', price: 'Contact for Pricing', title: 'Frontend Development with Modern JavaScript', desc: 'Create interactive user interfaces with modern JavaScript frameworks and responsive design principles.', instructor: 'Genesis Goch', mode: 'Online', level: 'Intermediate', learns: ['ES6+ JavaScript & TypeScript', 'React Framework', 'Responsive Design & CSS Grid', 'API Integration & State Management'] },
+      { duration: '8 Weeks', price: 'Contact for Pricing', title: 'Backend Development with Node.js & Express', desc: 'Build server-side applications and RESTful APIs with the Node.js ecosystem.', instructor: 'Gideon Erioluwa', mode: 'Online + In-Person', level: 'Intermediate', learns: ['Node.js & Express Framework', 'MongoDB & SQL Databases', 'Authentication & Security', 'RESTful API Development & Testing'] },
+      { duration: '10 Weeks', price: 'Contact for Pricing', title: 'Python for Software Development', desc: 'Learn Python programming for web development, automation, and data processing.', instructor: 'Solomon Leek', mode: 'Online', level: 'Beginner to Intermediate', learns: ['Python Fundamentals & OOP', 'Django Web Framework', 'Automation Scripts', 'Testing, Debugging & Deployment'] },
     ],
   },
   {
     icon: 'fa-mobile-alt', title: 'Mobile Development', bg: 'bg-gray-50',
     courses: [
-      { duration: '10 Weeks', price: '$200', badge: 'Popular', title: 'Mobile App Development with React Native', desc: 'Build cross-platform mobile apps for iOS and Android with one codebase using React Native.', instructor: 'David Kim', mode: 'Online + In-Person', level: 'Intermediate', learns: ['React Native Fundamentals', 'Navigation & State Management', 'Native Features & Device APIs', 'App Store & Play Store Deployment'] },
-      { duration: '12 Weeks', price: '$220', title: 'Android Development with Kotlin', desc: 'Create native Android applications using modern Kotlin programming and Android Studio.', instructor: 'Rachel Omondi', mode: 'Online', level: 'Intermediate', learns: ['Kotlin Programming Language', 'Android Studio & Jetpack', 'Material Design Guidelines', 'Google Play Store Publishing'] },
+      { duration: '10 Weeks', price: 'Contact for Pricing', badge: 'Popular', title: 'Mobile App Development with React Native', desc: 'Build cross-platform mobile apps for iOS and Android with one codebase using React Native.', instructor: 'Gideon Erioluwa', mode: 'Online + In-Person', level: 'Intermediate', learns: ['React Native Fundamentals', 'Navigation & State Management', 'Native Features & Device APIs', 'App Store & Play Store Deployment'] },
+      { duration: '12 Weeks', price: 'Contact for Pricing', title: 'Android Development with Kotlin', desc: 'Create native Android applications using modern Kotlin programming and Android Studio.', instructor: 'Gideon Erioluwa', mode: 'Online', level: 'Intermediate', learns: ['Kotlin Programming Language', 'Android Studio & Jetpack', 'Material Design Guidelines', 'Google Play Store Publishing'] },
     ],
   },
   {
     icon: 'fa-graduation-cap', title: 'EdTech & Digital Tools', bg: '',
     courses: [
-      { duration: '8 Weeks', price: '$160', badge: 'Hot', title: 'Building E-Learning Platforms', desc: 'Design and develop online learning management systems and educational platforms with modern tools.', instructor: 'Prof. John Akech', mode: 'Online + In-Person', level: 'Intermediate', learns: ['LMS Architecture & Design', 'Course Management Systems', 'Student Progress Tracking', 'Assessment & Grading Tools'] },
-      { duration: '6 Weeks', price: '$75', title: 'Digital Literacy for Educators', desc: 'Essential digital skills for teachers to effectively use technology in education and engage students.', instructor: 'Mary Ayen', mode: 'Online', level: 'Beginner', learns: ['Digital Tools for Teaching', 'Online Teaching Best Practices', 'Educational Content Creation', 'Student Engagement Strategies'] },
+      { duration: '8 Weeks', price: 'Contact for Pricing', badge: 'Hot', title: 'Building E-Learning Platforms', desc: 'Design and develop online learning management systems and educational platforms with modern tools.', instructor: 'Genesis Goch', mode: 'Online + In-Person', level: 'Intermediate', learns: ['LMS Architecture & Design', 'Course Management Systems', 'Student Progress Tracking', 'Assessment & Grading Tools'] },
+      { duration: '6 Weeks', price: 'Contact for Pricing', title: 'Digital Literacy for Educators', desc: 'Essential digital skills for teachers to effectively use technology in education and engage students.', instructor: 'Genesis Goch', mode: 'Online', level: 'Beginner', learns: ['Digital Tools for Teaching', 'Online Teaching Best Practices', 'Educational Content Creation', 'Student Engagement Strategies'] },
     ],
   },
   {
     icon: 'fa-shield-alt', title: 'IT & Cybersecurity', bg: 'bg-gray-50',
     courses: [
-      { duration: '8 Weeks', price: '$120', title: 'IT Support & Networking Fundamentals', desc: 'Master the basics of IT support, troubleshooting, and network administration.', instructor: 'Thomas Wani', mode: 'Online + In-Person', level: 'Beginner', learns: ['Hardware & Software Troubleshooting', 'Network Basics & TCP/IP', 'System Diagnostics & Repair', 'System Administration Essentials'] },
-      { duration: '10 Weeks', price: '$180', title: 'Cybersecurity Essentials', desc: 'Protect systems and data with essential cybersecurity skills, threat detection, and best practices.', instructor: 'Angela Nyok', mode: 'Online', level: 'Intermediate', learns: ['Security Fundamentals & CIA Triad', 'Threat Detection & Prevention', 'Encryption & Data Privacy', 'Incident Response & Recovery'] },
-      { duration: '8 Weeks', price: '$180', title: 'Cloud Computing with AWS', desc: 'Learn to deploy and manage applications on Amazon Web Services cloud platform.', instructor: 'Samuel Garang', mode: 'Online + In-Person', level: 'Intermediate', learns: ['AWS Fundamentals & Core Services', 'EC2, S3 & Lambda Functions', 'RDS & Database Services', 'Cloud Architecture & Best Practices'] },
+      { duration: '8 Weeks', price: 'Contact for Pricing', title: 'IT Support & Networking Fundamentals', desc: 'Master the basics of IT support, troubleshooting, and network administration.', instructor: 'Solomon Leek', mode: 'Online + In-Person', level: 'Beginner', learns: ['Hardware & Software Troubleshooting', 'Network Basics & TCP/IP', 'System Diagnostics & Repair', 'System Administration Essentials'] },
+      { duration: '10 Weeks', price: 'Contact for Pricing', title: 'Cybersecurity Essentials', desc: 'Protect systems and data with essential cybersecurity skills, threat detection, and best practices.', instructor: 'Gideon Erioluwa', mode: 'Online', level: 'Intermediate', learns: ['Security Fundamentals & CIA Triad', 'Threat Detection & Prevention', 'Encryption & Data Privacy', 'Incident Response & Recovery'] },
+      { duration: '8 Weeks', price: 'Contact for Pricing', title: 'Cloud Computing with AWS', desc: 'Learn to deploy and manage applications on Amazon Web Services cloud platform.', instructor: 'Gideon Erioluwa', mode: 'Online + In-Person', level: 'Intermediate', learns: ['AWS Fundamentals & Core Services', 'EC2, S3 & Lambda Functions', 'RDS & Database Services', 'Cloud Architecture & Best Practices'] },
     ],
   },
   {
     icon: 'fa-chart-line', title: 'Data & AI', bg: '',
     courses: [
-      { duration: '8 Weeks', price: '$140', title: 'Data Analysis with Python & Excel', desc: 'Analyze and visualize data using Python, Pandas, and Excel for actionable business insights.', instructor: 'Dr. Grace Bol', mode: 'Online', level: 'Beginner to Intermediate', learns: ['Python for Data Analysis', 'Pandas & NumPy Libraries', 'Data Visualization with Matplotlib', 'Excel Integration & Automation'] },
-      { duration: '10 Weeks', price: '$200', badge: 'Trending', title: 'Introduction to Machine Learning', desc: 'Build intelligent systems with machine learning algorithms and AI fundamentals.', instructor: 'Dr. Isaac Mayen', mode: 'Online + In-Person', level: 'Intermediate to Advanced', learns: ['ML Fundamentals & Algorithms', 'Supervised & Unsupervised Learning', 'Model Training & Evaluation', 'Real-world ML Projects'] },
+      { duration: '8 Weeks', price: 'Contact for Pricing', title: 'Data Analysis with Python & Excel', desc: 'Analyse and visualize data using Python, Pandas, and Excel for actionable business insights.', instructor: 'Solomon Leek', mode: 'Online', level: 'Beginner to Intermediate', learns: ['Python for Data Analysis', 'Pandas & NumPy Libraries', 'Data Visualization with Matplotlib', 'Excel Integration & Automation'] },
+      { duration: '10 Weeks', price: 'Contact for Pricing', badge: 'Trending', title: 'Introduction to Machine Learning', desc: 'Get started with machine learning concepts and build simple intelligent systems.', instructor: 'Gideon Erioluwa', mode: 'Online + In-Person', level: 'Intermediate', learns: ['ML Fundamentals & Algorithms', 'Supervised & Unsupervised Learning', 'Model Training & Evaluation', 'Real-world ML Projects'] },
     ],
   },
 ]
@@ -54,7 +54,7 @@ function CourseCard({ course, i }) {
           <span className="bg-accent text-white text-xs font-bold px-2.5 py-1 rounded-full">{course.price}</span>
           {course.badge && <span className="bg-primary text-white text-xs font-bold px-2.5 py-1 rounded-full">{course.badge}</span>}
         </div>
-        <span className="text-xs text-muted">Max: 50 Students</span>
+        <span className="text-xs text-muted">Limited Spots</span>
       </div>
       <h3 className="font-heading font-bold text-dark text-base mb-2">{course.title}</h3>
       <p className="text-muted text-sm leading-relaxed mb-4">{course.desc}</p>
@@ -85,8 +85,20 @@ export default function Courses() {
   return (
     <>
       <Helmet>
-        <title>Courses - Sleek Nexus Creative</title>
-        <meta name="description" content="Professional tech training programs in South Sudan covering web development, mobile apps, cybersecurity, data science, and more." />
+        <title>Tech Courses & Training — Sleek Nexus Creative | South Sudan</title>
+        <meta name="description" content="Professional tech training programs in South Sudan — web development, mobile apps, cybersecurity, data science, AI, and more. Taught by industry professionals in Juba." />
+        <meta name="keywords" content="tech courses South Sudan, coding bootcamp Juba, web development training, cybersecurity course South Sudan, data science training Juba" />
+        <link rel="canonical" href="https://sleeknexuscreative.com/courses" />
+        <meta property="og:title" content="Tech Courses & Training — Sleek Nexus Creative" />
+        <meta property="og:description" content="Professional tech training programs in South Sudan covering web development, mobile apps, cybersecurity, data science, and more." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://sleeknexuscreative.com/courses" />
+        <meta property="og:image" content="https://sleeknexuscreative.com/images/edtech.jpg" />
+        <meta property="og:image:alt" content="Tech training courses in South Sudan by Sleek Nexus Creative" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Tech Courses & Training — Sleek Nexus Creative" />
+        <meta name="twitter:description" content="Professional tech training programs in South Sudan covering web development, mobile apps, cybersecurity, and more." />
+        <meta name="twitter:image" content="https://sleeknexuscreative.com/images/edtech.jpg" />
       </Helmet>
 
       {/* Header */}
@@ -95,7 +107,7 @@ export default function Courses() {
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Empowering South Sudan's Future</p>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">Our Courses</h1>
-            <p className="text-gray-300 text-lg leading-relaxed">Professional tech training programs built for South Sudan. Learn practical skills with industry-certified instructors and real-world projects.</p>
+            <p className="text-gray-300 text-lg leading-relaxed">Practical tech training programs built for South Sudan. Learn real skills with our in-house instructors and hands-on projects.</p>
           </motion.div>
         </div>
       </section>
@@ -121,7 +133,7 @@ export default function Courses() {
       <section className="py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Ready to Start Your Learning Journey?</h2>
-          <p className="text-gray-300 mb-8">Join hundreds of students building tech careers in South Sudan.</p>
+          <p className="text-gray-300 mb-8">Join our growing community of students building tech skills in South Sudan.</p>
           <Link to="/contact" className="btn-primary text-base px-8 py-4">Enroll Today</Link>
         </div>
       </section>

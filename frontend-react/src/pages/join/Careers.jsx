@@ -92,7 +92,7 @@ export default function Careers() {
 
       <section className="py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl font-heading font-bold mb-4">Don't See the Right Role?</h2>
+          <h2 className="text-3xl font-heading font-bold mb-4">Interested in Joining the Team?</h2>
           <p className="text-gray-300 mb-8">We keep strong applications on file. Send us your CV and tell us what you'd like to do — we'll reach out when the right opportunity opens.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/contact" className="btn-primary">Send Your CV</Link>

@@ -1,5 +1,5 @@
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import SEO from '../components/ui/SEO'
 import { motion } from 'framer-motion'
 import { fadeUp } from '../lib/animations'
 
@@ -105,7 +105,7 @@ const roadmap = [
       'Develop strategic partnerships',
       'Launch mentorship, volunteer, and internship programs',
     ],
-    outcomes: ['500+ youth trained', '20+ internship opportunities', '50+ mentorship relationships', '25+ technology projects delivered'],
+    outcomes: ['300+ youth trained', '15+ internship opportunities', '30+ mentorship relationships', '15+ technology projects delivered'],
   },
   {
     phase: 'Phase II',
@@ -120,31 +120,31 @@ const roadmap = [
       'Launch Women in Technology initiatives',
       'Organise innovation challenges and hackathons',
     ],
-    outcomes: ['3,000+ youth trained', '50+ startups supported', '100+ internship & mentorship opportunities', 'Hub fully operational'],
+    outcomes: ['1,500+ youth trained', '20+ startups supported', '60+ internship & mentorship opportunities', 'Hub fully operational'],
   },
   {
     phase: 'Phase III',
     years: '2035 – 2040',
-    title: 'Regional Impact & Sustainability',
+    title: 'National Impact & Sustainability',
     color: 'border-dark bg-dark/5',
     badgeColor: 'bg-dark text-white',
     priorities: [
       'Launch Future Foresight Centre',
-      'Expand regional partnerships',
+      'Expand national partnerships',
       'Scale innovation and entrepreneurship programs',
       'Strengthen financial sustainability',
     ],
-    outcomes: ['10,000–20,000 directly empowered', '100,000+ reached indirectly', '500+ startups & businesses supported', 'Regional innovation leader'],
+    outcomes: ['5,000+ directly empowered', '30,000+ reached indirectly', '150+ startups & businesses supported', 'National innovation leader'],
   },
 ]
 
 const impact2030 = [
-  { icon: 'fa-user-graduate', value: '20,000+', label: 'Individuals Empowered by 2030' },
-  { icon: 'fa-bullhorn',      value: '100,000+', label: 'People Reached Indirectly' },
-  { icon: 'fa-store',         value: '500+',     label: 'Startups & Businesses Supported' },
-  { icon: 'fa-briefcase',     value: '1,000s',   label: 'Jobs & Entrepreneurship Created' },
-  { icon: 'fa-female',        value: '50%+',     label: 'Women & Underserved Participants' },
-  { icon: 'fa-globe-africa',  value: 'Africa',   label: 'Regional Innovation Ecosystem' },
+  { icon: 'fa-user-graduate', value: '5,000+',  label: 'Individuals Empowered by 2040' },
+  { icon: 'fa-bullhorn',      value: '30,000+', label: 'People Reached Indirectly' },
+  { icon: 'fa-store',         value: '150+',    label: 'Startups & Businesses Supported' },
+  { icon: 'fa-briefcase',     value: '500+',    label: 'Jobs & Entrepreneurship Created' },
+  { icon: 'fa-female',        value: '40%+',    label: 'Women & Underserved Participants' },
+  { icon: 'fa-flag',          value: 'Juba',    label: 'National Innovation Hub' },
 ]
 
 const communityPrograms = [
@@ -170,16 +170,14 @@ const getInvolved = [
 export default function InnovationHub() {
   return (
     <>
-      <Helmet>
-        <title>SNC Innovation & Leadership Hub — Sleek Nexus Creative</title>
-        <meta name="description" content="The SNC Innovation & Leadership Hub — a collaborative ecosystem empowering 10,000–20,000 individuals through technology, education, entrepreneurship, and community impact across South Sudan." />
-        <meta property="og:title" content="SNC Innovation & Leadership Hub" />
-        <meta property="og:description" content="Vision 2030: Empowering 10,000–20,000 individuals and reaching 100,000+ through education, innovation, entrepreneurship, and community impact." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://SNC.ss/innovation-hub" />
-        <meta property="og:image" content="https://SNC.ss/images/hero-tech.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
+      <SEO
+        title="SNC Innovation & Leadership Hub"
+        description="The SNC Innovation & Leadership Hub — a collaborative ecosystem empowering 5,000+ individuals through technology, education, entrepreneurship, and community impact across South Sudan."
+        canonical="/innovation-hub"
+        image="https://sleeknexuscreative.com/images/about-preview.jpg"
+        imageAlt="SNC Innovation and Leadership Hub in South Sudan"
+        breadcrumbs={[{ name: 'Innovation Hub', url: '/innovation-hub' }]}
+      />
 
       {/* ── HERO ──────────────────────────────────────────────────────── */}
       <section
@@ -206,7 +204,7 @@ export default function InnovationHub() {
               </p>
               <p className="text-accent font-semibold mb-8">
                 <i className="fas fa-eye mr-2" />
-                Vision 2030 · Directly empower 10,000–20,000 individuals · Reach 100,000+ people
+                Vision 2040 · Directly empower 5,000+ individuals · Reach 30,000+ people
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/get-started" className="btn-primary text-base px-8 py-3.5">

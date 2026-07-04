@@ -29,7 +29,9 @@ export default function Privacy() {
         <meta property="og:title" content="Privacy Policy - Sleek Nexus Creative" />
         <meta property="og:description" content="How Sleek Nexus Creative collects, uses, and protects your personal information." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://SNC.ss/privacy" />
+        <meta property="og:url" content="https://sleeknexuscreative.com/privacy" />
+        <link rel="canonical" href="https://sleeknexuscreative.com/privacy" />
+        <meta name="robots" content="noindex, follow" />
       </Helmet>
 
       {/* Header */}

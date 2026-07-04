@@ -1,19 +1,19 @@
 ﻿import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import SEO from '../components/ui/SEO'
 
 const fadeUp = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }
 
 const filters = ['all', 'web', 'mobile', 'edtech', 'enterprise']
 
 const projects = [
-  { id: 1, category: 'edtech', img: '/images/project1.jpg', tags: ['EdTech', 'Web App'], title: 'E-Learning Platform', desc: 'Comprehensive online learning system serving 10,000+ students with video courses, assessments, and progress tracking.', year: '2023', client: 'Education Sector', tech: ['React', 'Node.js', 'MongoDB', 'AWS', 'WebRTC'], results: ['10,000+ active students', '95% user satisfaction rate', '40% increase in course completion', '60% reduction in administrative workload'] },
-  { id: 2, category: 'enterprise', img: '/images/project2.jpg', tags: ['Enterprise', 'Web App'], title: 'Business Management System', desc: 'Integrated ERP solution streamlining operations, inventory, and customer management for growing enterprises.', year: '2023', client: 'Retail Business' },
-  { id: 3, category: 'mobile', img: '/images/project3.jpg', tags: ['Mobile', 'FinTech'], title: 'Mobile Banking App', desc: 'Secure and user-friendly mobile banking application with biometric authentication and real-time transactions.', year: '2024', client: 'Financial Services' },
-  { id: 4, category: 'web', img: '/images/project-ecommerce.jpg', tags: ['Web App', 'E-Commerce'], title: 'E-Commerce Platform', desc: 'Full-featured online marketplace with payment integration, inventory management, and analytics dashboard.', year: '2023', client: 'Retail' },
-  { id: 5, category: 'edtech', img: '/images/project-student-system.jpg', tags: ['EdTech', 'Portal'], title: 'Student Information System', desc: 'Comprehensive portal for managing student records, grades, attendance, and parent communication.', year: '2022', client: 'University' },
-  { id: 6, category: 'mobile', img: '/images/project6.jpg', tags: ['Mobile', 'Health'], title: 'Fitness Tracking App', desc: 'Mobile app for tracking workouts, nutrition, and health metrics with AI-powered recommendations.', year: '2024', client: 'Health & Wellness' },
+  { id: 1, category: 'edtech', img: '/images/project1.jpg', tags: ['EdTech', 'Web App'], title: 'E-Learning Platform', desc: 'Online learning platform for a Juba-based institution with video courses, assessments, and progress tracking for enrolled students.', year: '2024', client: 'Education Sector', tech: ['React', 'Node.js', 'MongoDB', 'DigitalOcean'], results: ['Launched with 80+ enrolled students', 'Staff trained to manage platform independently', 'Reduced admin workload for course management', 'Mobile-friendly for low-bandwidth access'] },
+  { id: 2, category: 'enterprise', img: '/images/project2.jpg', tags: ['Enterprise', 'Web App'], title: 'Business Management System', desc: 'Custom inventory and operations system for a local retail business to manage stock, sales, and daily workflows.', year: '2024', client: 'Retail Business' },
+  { id: 3, category: 'mobile', img: '/images/project3.jpg', tags: ['Mobile', 'Payments'], title: 'Mobile Payments App', desc: 'Simple and secure mobile app enabling small businesses to send and receive payments with transaction history.', year: '2025', client: 'Local Business' },
+  { id: 4, category: 'web', img: '/images/project-ecommerce.jpg', tags: ['Web App', 'E-Commerce'], title: 'E-Commerce Website', desc: 'Online store with product listings, order management, and WhatsApp checkout integration for a local retailer.', year: '2024', client: 'Retail' },
+  { id: 5, category: 'edtech', img: '/images/project-student-system.jpg', tags: ['EdTech', 'Portal'], title: 'Student Information System', desc: 'Portal for managing student records, grades, and attendance for a secondary school in Juba.', year: '2024', client: 'Secondary School' },
+  { id: 6, category: 'mobile', img: '/images/project6.jpg', tags: ['Mobile', 'Health'], title: 'Health Tracking App', desc: 'Mobile app for tracking basic health metrics and appointment reminders, built for a local health clinic.', year: '2025', client: 'Health Clinic' },
 ]
 
 export default function Projects() {
@@ -24,10 +24,14 @@ export default function Projects() {
 
   return (
     <>
-      <Helmet>
-        <title>Our Projects - Sleek Nexus Creative</title>
-        <meta name="description" content="View our portfolio of successful technology projects across South Sudan." />
-      </Helmet>
+      <SEO
+        title="Our Projects — Portfolio & Case Studies"
+        description="View Sleek Nexus Creative's portfolio of successful technology projects in South Sudan — e-learning platforms, business management systems, mobile payment apps, and more."
+        canonical="/projects"
+        image="https://sleeknexuscreative.com/images/project1.jpg"
+        imageAlt="E-Learning Platform project by Sleek Nexus Creative"
+        breadcrumbs={[{ name: 'Projects', url: '/projects' }]}
+      />
 
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">
@@ -98,11 +102,11 @@ export default function Projects() {
               <img src="/images/project1-detail.jpg" alt="E-Learning Platform" className="rounded-2xl w-full object-cover h-64" loading="lazy" />
               <div>
                 <h3 className="font-heading font-bold text-dark text-lg mb-2">The Challenge</h3>
-                <p className="text-muted leading-relaxed">A leading educational institution needed a scalable online learning platform to reach students across multiple locations — requiring video hosting, interactive assessments, progress tracking, and certification management.</p>
+                <p className="text-muted leading-relaxed">A Juba-based learning centre needed a simple online platform to deliver courses to enrolled students — requiring video hosting, assessments, progress tracking, and a way to issue certificates.</p>
               </div>
               <div>
                 <h3 className="font-heading font-bold text-dark text-lg mb-2">Our Solution</h3>
-                <p className="text-muted leading-relaxed">We developed a comprehensive LMS with video streaming, real-time quizzes, discussion forums, and automated grading — with mobile-responsive design and integration with existing student information systems.</p>
+                <p className="text-muted leading-relaxed">We built a straightforward LMS with video lessons, quizzes, and progress dashboards — optimized for low-bandwidth connections and designed so non-technical staff could manage it without ongoing developer support.</p>
               </div>
               <div>
                 <h3 className="font-heading font-bold text-dark text-lg mb-3">Results</h3>
@@ -118,7 +122,7 @@ export default function Projects() {
             <div className="space-y-6">
               <div className="card p-6">
                 <h4 className="font-heading font-bold text-dark mb-4">Project Info</h4>
-                {[['Client', 'Education Institute'], ['Year', '2023'], ['Duration', '6 months'], ['Category', 'EdTech']].map(([k, v]) => (
+                {[['Client', 'Juba Learning Centre'], ['Year', '2024'], ['Duration', '3 months'], ['Category', 'EdTech']].map(([k, v]) => (
                   <div key={k} className="flex justify-between py-2 border-b border-gray-100 last:border-0 text-sm">
                     <span className="text-muted">{k}</span>
                     <span className="font-medium text-dark">{v}</span>

@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Helmet } from 'react-helmet-async'
 import { fadeUp } from '../lib/animations'
-import NewsletterForm from '../components/ui/NewsletterForm'
+import SEO from '../components/ui/SEO'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -29,20 +28,20 @@ const processSteps = [
 ]
 
 const projects = [
-  { img: '/images/project1.jpg', title: 'E-Learning Platform', desc: 'Comprehensive digital learning ecosystem empowering 10,000+ students with accessible, quality education.', hash: '#project1' },
-  { img: '/images/project2.jpg', title: 'Business Management System', desc: 'Integrated enterprise solution driving operational excellence and scalable growth.', hash: '#project2' },
-  { img: '/images/project3.jpg', title: 'Mobile Banking App', desc: 'Bank-grade secure platform delivering seamless financial services to underserved communities.', hash: '#project3' },
+  { img: '/images/project1.jpg', title: 'E-Learning Platform', desc: 'Online learning platform built for a Juba-based institution, enabling students to access courses, track progress, and receive certificates digitally.', hash: '#project1' },
+  { img: '/images/project2.jpg', title: 'Business Management System', desc: 'Custom inventory and operations management system built for a local retail business to streamline daily workflows.', hash: '#project2' },
+  { img: '/images/project3.jpg', title: 'Mobile Payments App', desc: 'Simple and secure mobile app enabling small businesses to send and receive payments with ease.', hash: '#project3' },
 ]
 
 const testimonials = [
-  { initials: 'JD', name: 'John Doe', role: 'CEO, Tech Corp', text: 'Sleek Nexus Creative revolutionized our operations with exceptional innovation and technical excellence. Their professionalism and deep understanding of our business objectives set them apart as true strategic partners.' },
-  { initials: 'JS', name: 'Jane Smith', role: 'Director, Education Plus', text: 'Exceptional execution from start to finish. They delivered ahead of schedule while surpassing every expectation. Their technical expertise makes them our go-to partner for mission-critical projects.' },
-  { initials: 'SL', name: 'Solomon Leek', role: 'Founder, StartUp Hub', text: 'Simply the most capable technology partner we have collaborated with. Their unparalleled expertise and innovative approach consistently deliver transformative results for our organization.' },
+  { initials: 'AM', name: 'Akol Mading', role: 'Director, Juba Learning Centre', text: 'SNC built our online course platform from scratch. The team was communicative, delivered on time, and trained our staff to manage it independently. Exactly what we needed.' },
+  { initials: 'RC', name: 'Rebecca Chol', role: 'Owner, RC Retail Store', text: 'They built us a simple inventory system that actually works on our local network. No unnecessary complexity — just a clean solution that saves us hours every week.' },
+  { initials: 'PM', name: 'Peter Majok', role: 'Program Officer, Local NGO', text: 'We needed a website quickly and within a tight budget. SNC delivered a professional, mobile-friendly site and were honest about what was realistic. Great experience.' },
 ]
 
 const whyCards = [
   { icon: 'fa-map-marker-alt', title: 'Locally Based', desc: "We understand South Sudan's unique challenges, infrastructure, and market realities better than any foreign firm." },
-  { icon: 'fa-shield-alt', title: 'Secure & Reliable', desc: 'Every product we build follows security best practices with 99.9% uptime and robust backup systems.' },
+  { icon: 'fa-shield-alt', title: 'Secure & Reliable', desc: 'Every product we build follows security best practices with robust backup systems and reliable hosting.' },
   { icon: 'fa-dollar-sign', title: 'Affordable Pricing', desc: 'World-class quality at prices designed for African markets, with flexible payment plans available.' },
   { icon: 'fa-headset', title: 'Dedicated Support', desc: 'Our team is available after launch for maintenance, updates, training, and technical support.' },
   { icon: 'fa-graduation-cap', title: 'Training Included', desc: 'We train your team to use and manage every product we deliver so you stay independent.' },
@@ -78,38 +77,18 @@ function AnimatedCounter({ value, suffix }) {
   return <span ref={ref}>{count.toLocaleString()}{suffix}</span>
 }
 
-// ─── Newsletter Banner ────────────────────────────────────────────────────────
-
-function NewsletterBanner() {
-  return (
-    <div className="bg-gradient-to-r from-[#0f172a] to-[#1e293b] py-14">
-      <div className="max-w-[700px] mx-auto px-6 text-center">
-        <i className="fas fa-envelope text-primary text-3xl mb-4 block" />
-        <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2">Don't Miss Out On Exciting Updates</p>
-        <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-6">Subscribe to Our Monthly Newsletter</h2>
-        <NewsletterForm id="home-newsletter-form" dark={true} />
-      </div>
-    </div>
-  )
-}
-
 // ─── Home ─────────────────────────────────────────────────────────────────────
 
 export default function Home() {
   return (
     <>
-      <Helmet>
-        <title>Sleek Nexus Creative - Innovation That Solves Problems</title>
-        <meta name="description" content="Helping organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact." />
-        <meta property="og:title" content="Sleek Nexus Creative - Innovation That Solves Problems" />
-        <meta property="og:description" content="Helping organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://SNC.ss/" />
-        <meta property="og:image" content="https://SNC.ss/images/hero-tech.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sleek Nexus Creative - Innovation That Solves Problems" />
-        <meta name="twitter:image" content="https://SNC.ss/images/hero-tech.png" />
-      </Helmet>
+      <SEO
+        title="Innovation That Solves Problems | Juba, South Sudan"
+        description="Sleek Nexus Creative helps organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact. Based in Juba."
+        canonical="/"
+        image="https://sleeknexuscreative.com/images/og-cover.jpg"
+        imageAlt="Sleek Nexus Creative — Technology & Innovation for South Sudan"
+      />
 
       {/* Hero */}
       <section
@@ -360,8 +339,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter Banner */}
-      <NewsletterBanner />
     </>
   )
 }

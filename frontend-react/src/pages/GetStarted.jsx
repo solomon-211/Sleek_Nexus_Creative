@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import SEO from '../components/ui/SEO'
 import { motion } from 'framer-motion'
 import PageHeader from '../components/ui/PageHeader'
 import NewsletterForm from '../components/ui/NewsletterForm'
@@ -53,7 +53,14 @@ export default function GetStarted() {
   const [openFaq, setOpenFaq] = useState(null)
   return (
     <>
-      <Helmet><title>Get Started - Sleek Nexus Creative</title></Helmet>
+      <SEO
+        title="Get Started — Partner, Donate & Get Involved"
+        description="Partner with Sleek Nexus Creative, donate to support tech education in South Sudan, or get involved as a volunteer, trainer, or mentor."
+        canonical="/get-started"
+        image="https://sleeknexuscreative.com/images/hero-tech.png"
+        imageAlt="Get involved with Sleek Nexus Creative in South Sudan"
+        breadcrumbs={[{ name: 'Get Started', url: '/get-started' }]}
+      />
       <PageHeader
         label="Get Involved"
         title="Get Started"

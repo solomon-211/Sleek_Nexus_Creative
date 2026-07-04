@@ -8,6 +8,11 @@
   html { scroll-behavior: smooth; }
   body { @apply font-sans text-dark-soft antialiased; }
   h1, h2, h3, h4 { @apply font-heading; }
+
+  /* Global keyboard focus ring */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary rounded;
+  }
 }
 
 @layer components {
@@ -51,6 +56,6 @@
     letter-spacing: 0.15em;
   }
   .card {
-    @apply bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200;
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200;
   }
 }

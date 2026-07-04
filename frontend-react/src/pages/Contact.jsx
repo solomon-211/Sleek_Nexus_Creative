@@ -1,11 +1,11 @@
-﻿import { Helmet } from 'react-helmet-async'
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { fadeUp } from '../lib/animations'
+import SEO from '../components/ui/SEO'
 
 const schema = z.object({
   name: z.string().min(2, 'Full name is required'),
@@ -53,24 +53,19 @@ export default function Contact() {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us - Sleek Nexus Creative</title>
-        <meta name="description" content="Get in touch with Sleek Nexus Creative for your technology needs in South Sudan." />
-        <meta property="og:title" content="Contact Us - Sleek Nexus Creative" />
-        <meta property="og:description" content="Get in touch with Sleek Nexus Creative for your technology needs in South Sudan." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://SNC.ss/contact" />
-        <meta property="og:image" content="https://SNC.ss/images/hero-tech.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact Us - Sleek Nexus Creative" />
-        <meta name="twitter:image" content="https://SNC.ss/images/hero-tech.png" />
-      </Helmet>
+      <SEO
+        title="Contact Us — Juba, South Sudan"
+        description="Get in touch with Sleek Nexus Creative in Juba, South Sudan. Call +211 925 277 700, email info@sleeknexuscreative.com, or fill out our contact form for a free consultation."
+        canonical="/contact"
+        imageAlt="Contact Sleek Nexus Creative in Juba, South Sudan"
+        breadcrumbs={[{ name: 'Contact', url: '/contact' }]}
+      />
 
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
-            <p className="section-label text-accent">Let's Transform Your Vision Into Reality</p>
+            <p className="section-label text-accent">We'd love to hear from you</p>
             <h1 className="display-heading mb-6">Let's Talk.</h1>
             <p className="text-gray-300 text-lg leading-relaxed mt-6">We're here to answer your questions, discuss your project requirements, and explore how our technology solutions can drive your business forward.</p>
           </motion.div>
@@ -180,7 +175,7 @@ export default function Contact() {
               </div>
 
               <div className="grid grid-cols-3 gap-3">
-                {[{ icon: 'fa-headset', label: '24/7 Support' }, { icon: 'fa-comments', label: 'Free Consultation' }, { icon: 'fa-rocket', label: '24hr Response' }].map(({ icon, label }) => (
+                {[      { icon: 'fa-headset', label: 'Quick Response' }, { icon: 'fa-comments', label: 'Free Consultation' }, { icon: 'fa-rocket', label: '24hr Response' }].map(({ icon, label }) => (
                   <div key={label} className="card p-4 text-center">
                     <i className={`fas ${icon} text-primary text-xl mb-2 block`} />
                     <p className="text-xs font-semibold text-dark">{label}</p>

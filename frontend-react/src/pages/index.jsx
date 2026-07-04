@@ -11,14 +11,14 @@ const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
 const partnerTypes = [
   { icon: 'fa-laptop-code', title: 'Technology Partners', desc: 'Software vendors, cloud providers, and tech companies who collaborate with us to deliver better solutions for our clients.' },
   { icon: 'fa-graduation-cap', title: 'Education Partners', desc: 'Universities, schools, and NGOs that collaborate with SNC Academy to expand tech education access across South Sudan.' },
-  { icon: 'fa-handshake', title: 'Implementation Partners', desc: 'Consultancies and service firms that resell or co-deliver SNC solutions to organizations across East Africa.' },
+  { icon: 'fa-handshake', title: 'Implementation Partners', desc: 'Consultancies and service firms that co-deliver SNC solutions to organizations across South Sudan.' },
   { icon: 'fa-building', title: 'Corporate Partners', desc: 'Businesses and institutions that fund initiatives, sponsor training programs, or co-invest in community tech programs.' },
 ]
 
 const currentPartners = [
-  { img: '/images/partner-dxc-technology.jpg', name: 'Technology Partner', type: 'Technology', desc: 'Collaborating on educational technology initiatives, curriculum development, and training programs that transform learning outcomes.' },
-  { img: '/images/partner-education.jpg', name: 'Education Partner', type: 'Education', desc: 'Providing platforms, tools, and technical expertise to accelerate our development initiatives and maximize project impact.' },
-  { img: '/images/partner-dxc-ferrari.jpg', name: 'Corporate Partner', type: 'Corporate', desc: 'Co-developing solutions, sharing market intelligence, and driving mutual business growth through strategic collaboration.' },
+  { img: '/images/partner-dxc-technology.jpg', name: 'Technology Partner', type: 'Technology', desc: 'Collaborating on technology initiatives and training programs to support digital skills development in South Sudan.' },
+  { img: '/images/partner-education.jpg', name: 'Education Partner', type: 'Education', desc: 'Working together to expand access to quality tech education and practical training for South Sudanese learners.' },
+  { img: '/images/partner-dxc-ferrari.jpg', name: 'Corporate Partner', type: 'Corporate', desc: 'Supporting SNC\'s mission through resources, networks, and shared commitment to South Sudan\'s digital growth.' },
 ]
 
 const partnerFAQs = [
@@ -123,10 +123,10 @@ export function Partners() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <i className="fas fa-quote-left text-primary/20 text-5xl mb-6 block" />
           <blockquote className="text-lg text-dark leading-relaxed italic mb-6">
-            "Partnering with Sleek Nexus Creative has been transformative for our organization. Their unwavering commitment to innovation, technical excellence, and community impact aligns seamlessly with our mission. Together, we've reached thousands of students across South Sudan, delivering measurable improvements in educational access and outcomes."
+            "Working with Sleek Nexus Creative has been a positive experience. Their commitment to delivering practical technology solutions and their understanding of the local context makes them a reliable partner for organizations working in South Sudan."
           </blockquote>
-          <p className="font-semibold text-dark">Dr. Sarah Johnson</p>
-          <p className="text-muted text-sm">Director, Education Development Initiative</p>
+          <p className="font-semibold text-dark">Partner Representative</p>
+          <p className="text-muted text-sm">Education Development Partner</p>
         </div>
       </section>
 
@@ -144,7 +144,7 @@ export function Partners() {
       {/* CTA */}
       <section className="py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl font-heading font-bold mb-4">Become Our First Strategic Partner</h2>
+          <h2 className="text-3xl font-heading font-bold mb-4">Become a Strategic Partner</h2>
           <p className="text-gray-300 mb-8">We are actively building our partner network. If your organization shares our vision for South Sudan's digital future, let's talk.</p>
           <Link to="/contact" className="btn-primary">Partner With Us</Link>
         </div>
@@ -156,9 +156,9 @@ export function Partners() {
 // ─── Donors ──────────────────────────────────────────────────────────────────
 
 const donorCategories = [
-  { img: '/images/donor-major-capital-one.jpg', name: 'Major Donor', desc: 'Championing large-scale educational technology initiatives that transform learning outcomes across South Sudan.' },
-  { img: '/images/donor-foundation-reconnecting.jpg', name: 'Foundation Partner', desc: 'Funding comprehensive youth empowerment programs, skills development initiatives, and career acceleration pathways.' },
-  { img: '/images/donor-grant-provider.jpg', name: 'Grant Provider', desc: 'Enabling sustainable, scalable technology solutions that create lasting positive impact in underserved communities.' },
+  { img: '/images/donor-major-capital-one.jpg', name: 'Major Donor', desc: 'Supporting youth tech training programs and helping young South Sudanese access quality digital education.' },
+  { img: '/images/donor-foundation-reconnecting.jpg', name: 'Foundation Partner', desc: 'Funding skills development initiatives and community programs that create real opportunities for learners.' },
+  { img: '/images/donor-grant-provider.jpg', name: 'Grant Provider', desc: 'Enabling SNC to deliver technology solutions and training to underserved communities across South Sudan.' },
 ]
 
 const impactStats = [
@@ -208,9 +208,9 @@ export function Donors() {
       <section className="py-24">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Catalyzing Innovation</p>
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Supporting Our Mission</p>
             <h2 className="section-title">Our Valued Donors</h2>
-            <p className="section-subtitle">We extend our deepest gratitude to our visionary donors who champion our mission to democratize education, empower youth, and catalyze sustainable development through transformative technology solutions.</p>
+            <p className="section-subtitle">We are grateful to the donors who support our mission to expand tech education and create opportunities for young people in South Sudan.</p>
           </div>
 
           {/* Donor Cards */}
@@ -228,7 +228,7 @@ export function Donors() {
 
           {/* Featured Corporate Sponsor */}
           <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2 text-center">Featured Corporate Sponsor</p>
-          <p className="text-center text-muted text-sm mb-6">Our premier corporate partner providing strategic support and resources for large-scale technology infrastructure development.</p>
+          <p className="text-center text-muted text-sm mb-6">A corporate partner providing support and resources for our technology and training programs.</p>
           <div className="max-w-sm mx-auto card overflow-hidden mb-16">
             <img src="/images/donor-corporate-microsoft.jpg" alt="Corporate Sponsor" className="w-full h-44 object-cover" loading="lazy" />
             <div className="p-5 text-center">
@@ -241,10 +241,10 @@ export function Donors() {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <i className="fas fa-quote-left text-primary/20 text-5xl mb-6 block" />
             <blockquote className="text-lg text-dark leading-relaxed italic mb-6">
-              "Supporting Sleek Nexus Creative represents one of our most impactful philanthropic investments. Their exceptional transparency, rigorous impact measurement, and unwavering dedication to empowering South Sudanese youth through technology education make them an outstanding partner in creating transformative, sustainable change."
+            "Supporting Sleek Nexus Creative is an investment in South Sudan's future. Their transparency and focus on practical impact for local communities makes them a worthwhile partner."
             </blockquote>
-            <p className="font-semibold text-dark">Michael Chen</p>
-            <p className="text-muted text-sm">Executive Director, Global Impact Foundation</p>
+            <p className="font-semibold text-dark">Donor Representative</p>
+            <p className="text-muted text-sm">Community Impact Donor</p>
           </div>
 
           {/* Donate CTA Card */}
@@ -273,7 +273,7 @@ export function Donors() {
       {/* CTA */}
       <section className="py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl font-heading font-bold mb-4">Invest in Transformative Impact</h2>
+          <h2 className="text-3xl font-heading font-bold mb-4">Support Our Mission</h2>
           <p className="text-gray-300 mb-8">Partner with us to create lasting change and empower the next generation through technology.</p>
           <Link to="/contact" className="btn-primary">Become a Donor</Link>
         </div>

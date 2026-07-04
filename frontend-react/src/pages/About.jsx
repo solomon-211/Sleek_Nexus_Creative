@@ -1,7 +1,7 @@
-﻿import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { fadeUp } from '../lib/animations'
+import SEO from '../components/ui/SEO'
 
 const values = [
   { icon: 'fa-award', title: 'Excellence', desc: 'We hold ourselves to the highest professional standards. Every website, app, and training session reflects our commitment to delivering work that exceeds expectations.' },
@@ -29,27 +29,23 @@ const stats = [
 ]
 
 const team = [
-  { name: 'Solomon Leek', role: 'CEO & Founder', bio: 'Visionary entrepreneur with deep expertise in software engineering, strategic business development, and social impact technology.', img: '/images/team-member1.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/solomon-leek' }, { icon: 'fa-twitter', href: 'https://twitter.com/solomon_leek' }] },
-  { name: 'Gideon Erioluwa', role: 'CTO', bio: 'Technical architect specializing in cloud infrastructure, AI/ML integration, and enterprise-grade scalable system design.', img: '/images/team-member2.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/gideon-erioluwa' }] },
-  { name: 'Genesis Goch', role: 'Lead Developer', bio: 'Senior full-stack engineer specializing in React, Node.js, and database optimization — committed to clean, production-ready code.', img: '/images/team-member3.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/genesis-goch' }] },
-  { name: 'Philip Bior', role: 'UX/UI Designer', bio: 'Award-winning designer specializing in human-centered design, rapid prototyping, and crafting intuitive interfaces.', img: '/images/team-member4.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/philip-bior' }, { icon: 'fa-dribbble', href: 'https://dribbble.com/philipbior' }] },
+  { name: 'Solomon Leek', role: 'CEO & Founder', bio: 'Founder of SNC with a background in software engineering and a passion for building practical digital solutions for South Sudan.', img: '/images/team-member1.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/solomon-leek' }, { icon: 'fa-twitter', href: 'https://twitter.com/solomon_leek' }] },
+  { name: 'Gideon Erioluwa', role: 'CTO', bio: 'Leads technical architecture and development. Experienced in building web and mobile systems with a focus on reliability and performance.', img: '/images/team-member2.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/gideon-erioluwa' }] },
+  { name: 'Genesis Goch', role: 'Lead Developer', bio: 'Full-stack developer specializing in React and Node.js, focused on writing clean, maintainable code that solves real problems.', img: '/images/team-member3.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/genesis-goch' }] },
+  { name: 'Philip Bior', role: 'UX/UI Designer', bio: 'Designs user interfaces and experiences for SNC client products, with a focus on simplicity and usability in low-bandwidth environments.', img: '/images/team-member4.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/philip-bior' }] },
 ]
 
 export default function About() {
   return (
     <>
-      <Helmet>
-        <title>About Us - Sleek Nexus Creative</title>
-        <meta name="description" content="Learn how we help organizations in South Sudan launch dependable websites, apps, and platforms that scale and deliver measurable impact." />
-        <meta property="og:title" content="About Us - Sleek Nexus Creative" />
-        <meta property="og:description" content="Learn how we help organizations in South Sudan launch dependable websites, apps, and platforms that scale and deliver measurable impact." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://SNC.ss/about" />
-        <meta property="og:image" content="https://SNC.ss/images/hero-tech.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Us - Sleek Nexus Creative" />
-        <meta name="twitter:image" content="https://SNC.ss/images/hero-tech.png" />
-      </Helmet>
+      <SEO
+        title="About Us — Technology & Innovation, Juba South Sudan"
+        description="Learn about Sleek Nexus Creative — a technology, innovation, and leadership organisation based in Juba, South Sudan. We build digital solutions and empower the next generation."
+        canonical="/about"
+        image="https://sleeknexuscreative.com/images/company-story.jpg"
+        imageAlt="Sleek Nexus Creative team in Juba, South Sudan"
+        breadcrumbs={[{ name: 'About', url: '/about' }]}
+      />
 
       {/* Page Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">
@@ -68,10 +64,10 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Our Story</p>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark mb-6">Pioneering Digital Transformation Across <span className="text-primary">South Sudan</span></h2>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark mb-6">Building Digital Solutions for <span className="text-primary">South Sudan</span></h2>
               <p className="text-muted leading-relaxed mb-4">Sleek Nexus Creative (SNC) is a technology, innovation, and leadership organisation dedicated to accelerating digital transformation while empowering the next generation of innovators, entrepreneurs, and changemakers.</p>
-              <p className="text-muted leading-relaxed mb-4">We combine professional technology services, educational programs, entrepreneurship support, leadership development, and community impact initiatives to create lasting solutions that address local challenges and unlock global opportunities.</p>
-              <p className="text-muted leading-relaxed mb-8">Through innovation, collaboration, and continuous learning, SNC bridges the gap between talent, technology, and opportunity across South Sudan, Africa, and the global digital economy.</p>
+              <p className="text-muted leading-relaxed mb-4">We combine professional technology services, educational programs, entrepreneurship support, and community impact initiatives to create practical solutions that address local challenges.</p>
+              <p className="text-muted leading-relaxed mb-8">Through collaboration and continuous learning, SNC works to bridge the gap between talent, technology, and opportunity across South Sudan.</p>
               <div className="flex flex-wrap gap-3">
                 {['1+ Year Experience', '10+ Projects Delivered', '10+ Happy Clients', 'South Sudan Based'].map(b => (
                   <span key={b} className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full">
@@ -93,7 +89,7 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { icon: 'fa-bullseye', title: 'Our Mission', desc: 'To empower individuals, startups, organisations, and communities through innovative technology solutions, leadership development, entrepreneurship, future-ready skills, and community-driven innovation that drive sustainable social and economic transformation.' },
-              { icon: 'fa-eye', title: 'Our Vision 2030', desc: 'By 2030, SNC will be a leading African innovation, technology, and leadership ecosystem that directly empowers 10,000–20,000 individuals and reaches more than 100,000 people through education, innovation, entrepreneurship, technology, and community impact.' },
+              { icon: 'fa-eye', title: 'Our Vision 2040', desc: 'By 2040, SNC will be a recognized technology and leadership organization in South Sudan — directly empowering 5,000+ individuals and reaching 30,000+ people through education, innovation, entrepreneurship, and community impact.' },
               { icon: 'fa-heart', title: 'Our Values', desc: 'Six principles guide every project, every hire, and every decision — Excellence, Integrity, Inclusion, Innovation, Local Impact, and Growth Mindset. They shape how we write code, treat clients, and serve our community.' },
             ].map(({ icon, title, desc }, i) => (
               <motion.div key={title} className="card p-8 text-center" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>

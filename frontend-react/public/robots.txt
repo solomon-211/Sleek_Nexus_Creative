@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 
-Sitemap: https://SNC.ss/sitemap.xml
+# Block common crawlers from hitting non-existent pages
+Disallow: /login
+Disallow: /dashboard
+
+Sitemap: https://sleeknexuscreative.com/sitemap.xml

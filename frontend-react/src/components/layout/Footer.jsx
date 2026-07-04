@@ -53,13 +53,13 @@ const columns = [
 ]
 
 const socials = [
-  { href: 'https://www.facebook.com/SNC',         icon: 'fab fa-facebook-f',  label: 'Facebook',    hover: 'hover:bg-[#1877f2]' },
-  { href: 'https://twitter.com/SNC',              icon: 'fab fa-x-twitter',   label: 'X / Twitter', hover: 'hover:bg-black' },
-  { href: 'https://www.linkedin.com/company/SNC', icon: 'fab fa-linkedin-in', label: 'LinkedIn',    hover: 'hover:bg-[#0a66c2]' },
-  { href: 'https://wa.me/211925277700',           icon: 'fab fa-whatsapp',    label: 'WhatsApp',    hover: 'hover:bg-[#25d366]' },
-  { href: 'https://www.instagram.com/SNC',        icon: 'fab fa-instagram',   label: 'Instagram',   hover: 'hover:bg-[#e1306c]' },
-  { href: 'https://www.tiktok.com/@SNC',          icon: 'fab fa-tiktok',      label: 'TikTok',      hover: 'hover:bg-[#010101]' },
-  { href: 'https://www.youtube.com/@SNC',         icon: 'fab fa-youtube',     label: 'YouTube',     hover: 'hover:bg-[#ff0000]' },
+  { href: 'https://www.facebook.com/SNC',         icon: 'fab fa-facebook-f',  label: 'Facebook',    bg: 'bg-[#1877f2]' },
+  { href: 'https://twitter.com/SNC',              icon: 'fab fa-x-twitter',   label: 'X / Twitter', bg: 'bg-black' },
+  { href: 'https://www.linkedin.com/company/SNC', icon: 'fab fa-linkedin-in', label: 'LinkedIn',    bg: 'bg-[#0a66c2]' },
+  { href: 'https://wa.me/211925277700',           icon: 'fab fa-whatsapp',    label: 'WhatsApp',    bg: 'bg-[#25d366]' },
+  { href: 'https://www.instagram.com/SNC',        icon: 'fab fa-instagram',   label: 'Instagram',   bg: 'bg-[#e1306c]' },
+  { href: 'https://www.tiktok.com/@SNC',          icon: 'fab fa-tiktok',      label: 'TikTok',      bg: 'bg-[#010101]' },
+  { href: 'https://www.youtube.com/@SNC',         icon: 'fab fa-youtube',     label: 'YouTube',     bg: 'bg-[#ff0000]' },
 ]
 
 const contact = [
@@ -158,8 +158,8 @@ export default function Footer() {
             {/* Social links */}
             <div>
               <p className="text-[0.65rem] font-bold uppercase tracking-widest text-gray-500 mb-2.5">Follow Us</p>
-              <div className="flex flex-wrap gap-2">
-                {socials.map(({ href, icon, label, hover }) => (
+              <div className="flex flex-nowrap gap-2">
+                {socials.map(({ href, icon, label, bg }) => (
                   <a
                     key={label}
                     href={href}
@@ -167,7 +167,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     aria-label={label}
                     title={label}
-                    className={`w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-gray-400 hover:text-white transition-all hover:-translate-y-0.5 hover:shadow-md ${hover}`}
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center text-white transition-all hover:-translate-y-0.5 hover:shadow-md hover:brightness-110 ${bg}`}
                   >
                     <i className={`${icon} text-xs`} />
                   </a>

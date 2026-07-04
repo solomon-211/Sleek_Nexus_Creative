@@ -2,12 +2,13 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
+import SEO from '../../components/ui/SEO'
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
 
 const timeline = [
   { year: '2024', color: 'bg-primary', title: 'Founded in Juba', desc: "Officially registered in South Sudan. First team of 4 co-founders begins operations from a co-working space in Juba's city center. Delivered first client projects and launched the initial training cohort." },
-  { year: '2025', color: 'bg-accent', title: 'Growing & Expanding', desc: 'Delivering digital projects across South Sudan. Launched the SNC Academy with certified courses in web development, mobile apps, UI/UX, and digital marketing. Expanding services across East Africa.' },
+  { year: '2025', color: 'bg-accent', title: 'Growing & Delivering', desc: 'Delivering digital projects for businesses, schools, and NGOs across Juba. Launched the SNC Academy with practical courses in web development, mobile apps, UI/UX, and digital marketing. Building our reputation one project at a time.' },
 ]
 
 const values = [
@@ -22,8 +23,18 @@ const values = [
 export default function OurStory() {
   return (
     <>
-      <Helmet><title>Our Story - Sleek Nexus Creative</title></Helmet>
-      <PageHeader label="Who We Are" title="Our Story" desc="From a small team in Juba to South Sudan's leading digital innovation company — here's how it all began." />
+      <SEO
+        title="Our Story"
+        description="From a small team in Juba with a shared mission — how Sleek Nexus Creative was founded in 2024 to bring world-class technology to South Sudan."
+        canonical="/about/our-story"
+        image="https://sleeknexuscreative.com/images/company-story.jpg"
+        imageAlt="Sleek Nexus Creative founding story in Juba, South Sudan"
+        breadcrumbs={[
+          { name: 'About', url: '/about' },
+          { name: 'Our Story', url: '/about/our-story' },
+        ]}
+      />
+      <PageHeader label="Who We Are" title="Our Story" desc="From a small team in Juba with a shared mission — here's how Sleek Nexus Creative began." />
 
       {/* Origin */}
       <section className="py-24">

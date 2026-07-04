@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { fadeUp } from '../lib/animations'
+import SEO from '../components/ui/SEO'
 
 const services = [
   {
@@ -58,18 +59,14 @@ const packages = [
 export default function Services() {
   return (
     <>
-      <Helmet>
-        <title>Our Services - Sleek Nexus Creative</title>
-        <meta name="description" content="Software Development, Web & Mobile Apps, Educational Technology, IT Consulting in South Sudan." />
-        <meta property="og:title" content="Our Services - Sleek Nexus Creative" />
-        <meta property="og:description" content="Software Development, Web & Mobile Apps, Educational Technology, IT Consulting in South Sudan." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://SNC.ss/services" />
-        <meta property="og:image" content="https://SNC.ss/images/hero-tech.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Our Services - Sleek Nexus Creative" />
-        <meta name="twitter:image" content="https://SNC.ss/images/hero-tech.png" />
-      </Helmet>
+      <SEO
+        title="Our Services — Web, Mobile, E-Learning & IT Consulting"
+        description="Software development, web & mobile apps, educational technology, and IT consulting services in South Sudan. Affordable, reliable, and built for local realities."
+        canonical="/services"
+        image="https://sleeknexuscreative.com/images/software-dev.jpg"
+        imageAlt="Software development and IT services in South Sudan"
+        breadcrumbs={[{ name: 'Services', url: '/services' }]}
+      />
 
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">

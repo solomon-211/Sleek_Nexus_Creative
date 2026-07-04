@@ -24,7 +24,7 @@ const stats = [
 const impacts = [
   { title: 'Digital Inclusion', color: 'border-primary', desc: 'We\'ve built platforms that allow South Sudanese organizations to serve their communities digitally — from healthcare NGOs to schools to microfinance institutions.' },
   { title: 'Youth Employment', color: 'border-accent', desc: 'Through our training programs, we have helped place 20+ young South Sudanese into tech jobs, internships, and freelance careers. We\'re building the workforce South Sudan needs.' },
-  { title: 'Organizational Capacity', color: 'border-primary', desc: 'From manual spreadsheets to automated systems — we\'ve helped dozens of NGOs, government offices, and businesses operate more efficiently with technology.' },
+  { title: 'Organizational Capacity', color: 'border-primary', desc: 'From manual spreadsheets to digital systems — we have helped NGOs, community organizations, and small businesses operate more efficiently with technology.' },
 ]
 
 export default function MissionVision() {
@@ -42,7 +42,7 @@ export default function MissionVision() {
                 <i className="fas fa-bullseye" />
               </div>
               <h2 className="text-2xl font-heading font-bold mb-4">Our Mission</h2>
-              <p className="opacity-90 leading-relaxed text-lg">To empower individuals, organizations, and communities across South Sudan and East Africa through world-class digital solutions, technology education, and creative innovation — bridging the gap between local needs and global standards.</p>
+              <p className="opacity-90 leading-relaxed text-lg">To empower individuals, organizations, and communities across South Sudan through practical digital solutions, technology education, and creative innovation — bridging the gap between local needs and modern standards.</p>
             </motion.div>
             <motion.div className="bg-gradient-to-br from-accent to-orange-600 text-white rounded-2xl p-12" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 text-3xl">
