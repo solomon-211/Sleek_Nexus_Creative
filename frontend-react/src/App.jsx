@@ -9,6 +9,9 @@ import PageLoader from './components/ui/PageLoader'
 // Home loads eagerly — it's the landing page and should paint instantly.
 import Home from './pages/Home'
 
+// Innovation Hub — flagship page, loads eagerly alongside Home
+import InnovationHub from './pages/InnovationHub'
+
 // Every other page is split into its own chunk and fetched on demand.
 // Main pages
 const About = lazy(() => import('./pages/About'))
@@ -63,6 +66,7 @@ const Trainer = lazy(() => import('./pages/join/Trainer'))
 const Mentor = lazy(() => import('./pages/join/Mentor'))
 const Community = lazy(() => import('./pages/join/Community'))
 const OpenPositions = lazy(() => import('./pages/join/OpenPositions'))
+const Alumni = lazy(() => import('./pages/join/Alumni'))
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 1000 * 60 * 5, retry: 1 } },
@@ -79,6 +83,7 @@ export default function App() {
                 <Routes>
                   {/* Main */}
                   <Route path="/" element={<Home />} />
+                  <Route path="/innovation-hub" element={<InnovationHub />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/services" element={<Services />} />
                   <Route path="/projects" element={<Projects />} />
@@ -125,14 +130,16 @@ export default function App() {
 
                   {/* Join Us */}
                   <Route path="/join" element={<Navigate to="/careers" replace />} />
-                  <Route path="/join/careers" element={<Careers />} />
+                  <Route path="/careers" element={<Careers />} />
+                  <Route path="/join/careers" element={<Navigate to="/careers" replace />} />
                   <Route path="/internships" element={<Internships />} />
-                  <Route path="/join/internships" element={<Internships />} />
+                  <Route path="/join/internships" element={<Navigate to="/internships" replace />} />
                   <Route path="/volunteer" element={<Volunteer />} />
                   <Route path="/trainer" element={<Trainer />} />
                   <Route path="/mentor" element={<Mentor />} />
                   <Route path="/community" element={<Community />} />
                   <Route path="/open-positions" element={<OpenPositions />} />
+                  <Route path="/alumni" element={<Alumni />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>

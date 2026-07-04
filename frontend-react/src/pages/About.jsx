@@ -69,9 +69,9 @@ export default function About() {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Our Story</p>
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark mb-6">Pioneering Digital Transformation Across <span className="text-primary">South Sudan</span></h2>
-              <p className="text-muted leading-relaxed mb-4">Sleek Nexus Creative is a forward-thinking digital innovation company dedicated to accelerating South Sudan's transition into the modern digital era. We design and deliver cutting-edge technology solutions that empower businesses, institutions, and communities to thrive in a connected world.</p>
-              <p className="text-muted leading-relaxed mb-4">Our work focuses on building reliable digital infrastructure, developing custom software systems, and providing transformative tech services that improve efficiency, transparency, and access to opportunities.</p>
-              <p className="text-muted leading-relaxed mb-8">Driven by a mission to bridge the digital divide, Sleek Nexus Creative is committed to nurturing local talent, supporting entrepreneurship, and enabling sustainable development through innovation.</p>
+              <p className="text-muted leading-relaxed mb-4">Sleek Nexus Creative (SNC) is a technology, innovation, and leadership organisation dedicated to accelerating digital transformation while empowering the next generation of innovators, entrepreneurs, and changemakers.</p>
+              <p className="text-muted leading-relaxed mb-4">We combine professional technology services, educational programs, entrepreneurship support, leadership development, and community impact initiatives to create lasting solutions that address local challenges and unlock global opportunities.</p>
+              <p className="text-muted leading-relaxed mb-8">Through innovation, collaboration, and continuous learning, SNC bridges the gap between talent, technology, and opportunity across South Sudan, Africa, and the global digital economy.</p>
               <div className="flex flex-wrap gap-3">
                 {['1+ Year Experience', '10+ Projects Delivered', '10+ Happy Clients', 'South Sudan Based'].map(b => (
                   <span key={b} className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full">
@@ -92,9 +92,9 @@ export default function About() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: 'fa-bullseye', title: 'Our Mission', desc: 'To engineer transformative technology solutions that address critical real-world challenges, empower underserved communities, and catalyze sustainable economic growth.' },
-              { icon: 'fa-eye', title: 'Our Vision', desc: 'To become the most trusted technology partner across East Africa — renowned for turning bold ideas into high-impact digital solutions.' },
-              { icon: 'fa-heart', title: 'Our Values', desc: 'Six principles guide every project, every hire, and every decision we make — from how we write code to how we treat our clients and community.' },
+              { icon: 'fa-bullseye', title: 'Our Mission', desc: 'To empower individuals, startups, organisations, and communities through innovative technology solutions, leadership development, entrepreneurship, future-ready skills, and community-driven innovation that drive sustainable social and economic transformation.' },
+              { icon: 'fa-eye', title: 'Our Vision 2030', desc: 'By 2030, SNC will be a leading African innovation, technology, and leadership ecosystem that directly empowers 10,000–20,000 individuals and reaches more than 100,000 people through education, innovation, entrepreneurship, technology, and community impact.' },
+              { icon: 'fa-heart', title: 'Our Values', desc: 'Six principles guide every project, every hire, and every decision — Excellence, Integrity, Inclusion, Innovation, Local Impact, and Growth Mindset. They shape how we write code, treat clients, and serve our community.' },
             ].map(({ icon, title, desc }, i) => (
               <motion.div key={title} className="card p-8 text-center" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
                 <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">

@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 import PageHeader from '../../components/ui/PageHeader'
-
-const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
+import { fadeUp } from '../../lib/animations'
 
 const positions = [
   { title: 'Senior Frontend Developer', dept: 'Engineering & Product', type: 'Full-Time', location: 'Juba / Remote', desc: 'Lead UI development for client projects using React.js. Build fast, accessible interfaces and collaborate with design and backend teams to ship polished products.' },
@@ -14,7 +17,32 @@ const positions = [
   { title: 'Mobile App Developer (React Native / Flutter)', dept: 'Engineering & Product', type: 'Contract', location: 'Juba / Remote', desc: 'Build cross-platform mobile apps for iOS and Android for our client projects. Experience with offline-first architecture is a strong plus.' },
 ]
 
+const schema = z.object({
+  name:    z.string().min(2),
+  email:   z.string().email(),
+  role:    z.string().min(1, 'Please select a role'),
+  cvUrl:   z.string().url('Must be a valid URL').or(z.literal('')).optional(),
+  message: z.string().min(20, 'Min 20 characters — tell us why you\'re a great fit'),
+})
+
+const inp = 'w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm font-sans text-dark bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors'
+const lbl = 'block text-xs font-semibold text-dark-soft mb-1'
+const errCls = 'text-red-500 text-xs mt-1'
+
 export default function OpenPositions() {
+  const [submitted, setSubmitted] = useState(false)
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({ resolver: zodResolver(schema) })
+
+  const onSubmit = async (data) => {
+    try {
+      await fetch('http://localhost:5000/api/jobs/apply', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+    } catch { /* offline */ }
+    setSubmitted(true); reset()
+  }
+
   return (
     <>
       <Helmet><title>Open Positions - Sleek Nexus Creative</title></Helmet>

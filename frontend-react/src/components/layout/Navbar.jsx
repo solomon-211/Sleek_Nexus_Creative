@@ -67,8 +67,13 @@ const navLinks = [
       { icon: 'fa-chalkboard-teacher', label: 'Become a Trainer', to: '/trainer' },
       { icon: 'fa-user-tie', label: 'Become a Mentor', to: '/mentor' },
       { icon: 'fa-users', label: 'Join Our Community', to: '/community' },
+      { icon: 'fa-graduation-cap', label: 'Alumni Network', to: '/alumni' },
       { icon: 'fa-door-open', label: 'Open Positions', to: '/open-positions' },
     ],
+  },
+  {
+    label: 'Hub', to: '/innovation-hub',
+    highlight: true,  // special styling — flagship page
   },
 ]
 
@@ -154,12 +159,26 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <ul className="hidden lg:flex items-center gap-0.5">
-            {navLinks.map(({ label, to, dropdown }) => (
+            {navLinks.map(({ label, to, dropdown, highlight }) => (
               <li key={to} className="relative"
                 onMouseEnter={() => dropdown && setOpenDropdown(label)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
-                {dropdown ? (
+                {highlight ? (
+                  /* Flagship "Hub" nav item — stands out visually */
+                  <NavLink
+                    to={to}
+                    className={({ isActive }) =>
+                      `flex items-center gap-1.5 text-sm font-bold px-3 py-1.5 rounded-lg transition-all duration-200 whitespace-nowrap border ${
+                        isActive
+                          ? 'bg-primary text-white border-primary'
+                          : 'text-primary border-primary/40 hover:bg-primary hover:text-white hover:border-primary'
+                      }`
+                    }
+                  >
+                    <i className="fas fa-bolt text-[0.65rem]" /> {label}
+                  </NavLink>
+                ) : dropdown ? (
                   <button
                     className={`flex items-center gap-1 text-sm font-medium px-3 py-2 rounded-lg transition-colors duration-200 whitespace-nowrap ${openDropdown === label ? 'text-primary bg-primary/[0.07]' : 'text-dark-soft hover:text-primary hover:bg-primary/[0.06]'}`}
                     onClick={() => setOpenDropdown(openDropdown === label ? null : label)}
@@ -207,7 +226,7 @@ export default function Navbar() {
             className="lg:hidden overflow-hidden border-t border-dark/[0.07] bg-white shadow-[0_12px_28px_rgba(15,23,42,0.08)] max-h-[80vh] overflow-y-auto"
           >
             <ul className="py-2">
-              {navLinks.map(({ label, to, dropdown }) => (
+              {navLinks.map(({ label, to, dropdown, highlight }) => (
                 <li key={to}>
                   {dropdown ? (
                     <>
@@ -238,6 +257,17 @@ export default function Navbar() {
                         )}
                       </AnimatePresence>
                     </>
+                  ) : highlight ? (
+                    /* Flagship Hub link in mobile menu */
+                    <NavLink
+                      to={to}
+                      className={({ isActive }) =>
+                        `flex items-center gap-2 w-full px-6 py-3.5 text-base font-bold border-b border-dark/[0.05] transition-colors ${isActive ? 'text-primary bg-primary/[0.06]' : 'text-primary hover:bg-primary/[0.04]'}`
+                      }
+                    >
+                      <i className="fas fa-bolt text-xs" /> {label}
+                      <span className="ml-auto text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">Flagship</span>
+                    </NavLink>
                   ) : (
                     <NavLink
                       to={to}
