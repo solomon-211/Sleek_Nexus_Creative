@@ -170,15 +170,18 @@ export default function Navbar() {
             className="flex items-center gap-3 flex-shrink-0 group"
             aria-label="Sleek Nexus Creative Home"
           >
-            <span className="flex items-center justify-center w-[46px] h-[46px] bg-white rounded-xl border-2 border-white/20 shadow-[0_2px_12px_rgba(196,30,58,0.3)] text-[0.78rem] font-black font-heading tracking-wide transition-transform duration-300 group-hover:scale-110">
-              <span className="text-primary">S</span>
-              <span className="text-accent">N</span>
-              <span className="text-primary">C</span>
-            </span>
-            <span className="text-[1.05rem] font-extrabold font-heading leading-none whitespace-nowrap">
-              <span className="text-primary">Sleek </span>
-              <span className="text-accent">Nexus</span>
-              <span className="text-white"> Creative</span>
+            <img
+              src="/images/snc-logo.png"
+              alt="Sleek Nexus Creative"
+              className="h-[46px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+            <span className="hidden sm:flex flex-col leading-none">
+              <span className="text-[0.95rem] font-extrabold font-heading whitespace-nowrap">
+                <span className="text-accent">Sleek </span>
+                <span className="text-primary">Nexus</span>
+                <span className="text-accent"> Creative</span>
+              </span>
+              <span className="text-[0.6rem] text-white/50 uppercase tracking-widest mt-0.5">Technology &amp; Innovation</span>
             </span>
           </Link>
 

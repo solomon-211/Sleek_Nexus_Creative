@@ -107,7 +107,7 @@ export default function Home() {
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
               <p className="section-label text-accent">Transforming Ideas Into Digital Reality</p>
               <h1 className="display-heading text-white mb-5 sm:mb-6">
-                We Build Digital Products That Work in the <span className="text-accent">Real World</span>
+                We Build Digital Products<br />That Work in the <span className="text-accent">Real</span><br /><span className="text-accent">World</span>
               </h1>
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-7 sm:mb-8">
                 Sleek Nexus Creative helps organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact.
@@ -210,7 +210,7 @@ export default function Home() {
               <Link to="/about" className="btn-primary">Learn About Us</Link>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}>
-              <img src="/images/about-preview.jpg" alt="Sleek Nexus Creative Team collaborating" className="w-full rounded-xl object-cover h-56 sm:h-72" loading="lazy" />
+              <img src="/images/SNCNNNN.png" alt="Sleek Nexus Creative — Building Reliable Technology for South Sudan" className="w-full rounded-xl object-contain" loading="lazy" />
             </motion.div>
           </div>
         </div>

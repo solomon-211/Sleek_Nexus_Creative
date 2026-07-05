@@ -116,15 +116,18 @@ export default function Footer() {
 
             {/* Logo */}
             <Link to="/" className="inline-flex items-center gap-3 group w-fit" aria-label="Home">
-              <span className="flex items-center justify-center w-11 h-11 bg-white rounded-xl border-2 border-primary/20 shadow-lg text-[0.75rem] font-black font-heading tracking-wide transition-transform group-hover:scale-105">
-                <span className="text-primary">S</span>
-                <span className="text-accent">N</span>
-                <span className="text-primary">C</span>
-              </span>
-              <span className="font-heading font-extrabold leading-none">
-                <span className="text-primary text-base">Sleek </span>
-                <span className="text-accent text-base">Nexus</span>
-                <span className="text-primary text-base"> Creative</span>
+              <img
+                src="/images/snc-logo.png"
+                alt="Sleek Nexus Creative"
+                className="h-[44px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="flex flex-col leading-none">
+                <span className="font-heading font-extrabold text-[0.95rem] whitespace-nowrap">
+                  <span className="text-primary">Sleek </span>
+                  <span className="text-accent">Nexus</span>
+                  <span className="text-white"> Creative</span>
+                </span>
+                <span className="text-[0.6rem] text-white/50 uppercase tracking-widest mt-0.5">Technology &amp; Innovation</span>
               </span>
             </Link>
 
