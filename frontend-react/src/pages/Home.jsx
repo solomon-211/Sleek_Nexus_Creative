@@ -106,8 +106,10 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
               <p className="section-label text-accent">Transforming Ideas Into Digital Reality</p>
-              <h1 className="display-heading text-white mb-5 sm:mb-6">
-                We Build Digital Products<br />That Work in the <span className="text-accent">Real</span><br /><span className="text-accent">World</span>
+              <h1 className="text-white mb-5 sm:mb-6" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem, 4.2vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
+                <span className="block">We Build Digital Products</span>
+                <span className="block">That Work in</span>
+                <span className="block">the <span className="text-accent">Real World</span></span>
               </h1>
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-7 sm:mb-8">
                 Sleek Nexus Creative helps organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact.
@@ -210,7 +212,7 @@ export default function Home() {
               <Link to="/about" className="btn-primary">Learn About Us</Link>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}>
-              <img src="/images/SNCNNNN.png" alt="Sleek Nexus Creative — Building Reliable Technology for South Sudan" className="w-full rounded-xl object-contain" loading="lazy" />
+              <img src="/images/about-preview.jpg" alt="Sleek Nexus Creative — Building Reliable Technology for South Sudan" className="w-full rounded-xl object-cover" loading="lazy" />
             </motion.div>
           </div>
         </div>
