@@ -119,6 +119,7 @@ export default function App() {
                   <Route path="/courses/student-projects" element={<StudentProjects />} />
 
                   {/* Resources */}
+                  <Route path="/resources" element={<Navigate to="/blog" replace />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/guides" element={<Guides />} />
                   <Route path="/faqs" element={<FAQs />} />

@@ -43,7 +43,7 @@ const navLinks = [
     ],
   },
   {
-    label: 'Resources', to: '/resources',
+    label: 'Resources', to: '/blog',
     dropdown: [
       { icon: 'fa-rss',           label: 'Blog',      to: '/blog' },
       { icon: 'fa-map',           label: 'Guides',    to: '/guides' },
