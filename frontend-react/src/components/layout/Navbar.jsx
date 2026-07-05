@@ -175,13 +175,13 @@ export default function Navbar() {
               alt="Sleek Nexus Creative"
               className="h-[46px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
-            <span className="hidden sm:flex flex-col leading-none">
-              <span className="text-[0.95rem] font-extrabold font-heading whitespace-nowrap">
+            <span className="flex flex-col leading-none">
+              <span className="text-[0.8rem] sm:text-[0.95rem] font-extrabold font-heading whitespace-nowrap">
                 <span className="text-accent">Sleek </span>
                 <span className="text-primary">Nexus</span>
                 <span className="text-accent"> Creative</span>
               </span>
-              <span className="text-[0.6rem] text-white/50 uppercase tracking-widest mt-0.5">Technology &amp; Innovation</span>
+              <span className="hidden sm:block text-[0.6rem] text-white/50 uppercase tracking-widest mt-0.5">Technology &amp; Innovation</span>
             </span>
           </Link>
 
