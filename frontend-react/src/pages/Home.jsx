@@ -102,24 +102,24 @@ export default function Home() {
           backgroundPosition: 'center',
         }}
       >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-24 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-24 w-full">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
               <p className="section-label text-accent">Transforming Ideas Into Digital Reality</p>
-              <h1 className="display-heading text-white mb-6 text-[clamp(2.25rem,5vw,4rem)]">
+              <h1 className="display-heading text-white mb-5 sm:mb-6">
                 We Build Digital Products That Work in the <span className="text-accent">Real World</span>
               </h1>
-              <p className="text-gray-300 text-lg leading-relaxed mb-8">
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-7 sm:mb-8">
                 Sleek Nexus Creative helps organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact.
               </p>
-              <div className="flex flex-wrap gap-4 mb-12">
+              <div className="flex flex-wrap gap-3 mb-8 sm:mb-12">
                 <Link to="/contact" className="btn-primary"><i className="fas fa-rocket" /> Start Your Project</Link>
                 <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary"><i className="fas fa-eye" /> View Our Work</Link>
               </div>
-              <div className="flex flex-wrap gap-8">
+              <div className="flex flex-wrap gap-6 sm:gap-8">
                 {[{ value: '10+', label: 'Projects Delivered' }, { value: '50+', label: 'Learners Supported' }, { value: '1+', label: 'Years of Excellence' }].map(({ value, label }) => (
                   <div key={label}>
-                    <strong className="block text-3xl font-heading font-bold text-white">{value}</strong>
+                    <strong className="block text-2xl sm:text-3xl font-heading font-bold text-white">{value}</strong>
                     <span className="text-gray-400 text-sm">{label}</span>
                   </div>
                 ))}
@@ -128,7 +128,7 @@ export default function Home() {
 
             <motion.aside
               variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8"
+              className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 sm:p-8"
             >
               <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4">What You Get</p>
               <ul className="space-y-3 mb-6">
@@ -140,11 +140,11 @@ export default function Home() {
                   'On-time delivery with clear milestones',
                 ].map(item => (
                   <li key={item} className="flex items-start gap-3 text-gray-200 text-sm">
-                    <i className="fas fa-check-circle text-accent mt-0.5" />{item}
+                    <i className="fas fa-check-circle text-accent mt-0.5 flex-shrink-0" />{item}
                   </li>
                 ))}
               </ul>
-              <Link to="/services" className="inline-flex items-center gap-2 text-accent font-semibold text-sm hover:gap-3 transition-all">
+              <Link to="/services" className="inline-flex items-center gap-2 text-accent font-semibold text-sm">
                 Explore Our Services <i className="fas fa-arrow-right" />
               </Link>
             </motion.aside>
@@ -153,16 +153,16 @@ export default function Home() {
       </section>
 
       {/* Stats Counter */}
-      <section className="py-16 bg-white border-b border-gray-100">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <section className="py-12 sm:py-16 bg-white border-b border-gray-100">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
             {counters.map(({ icon, value, suffix, label }) => (
               <div key={label}>
-                <i className={`fas ${icon} text-primary text-2xl mb-3 block`} />
-                <strong className="block text-4xl font-heading font-black text-dark mb-1">
+                <i className={`fas ${icon} text-primary text-xl sm:text-2xl mb-2 sm:mb-3 block`} />
+                <strong className="block text-3xl sm:text-4xl font-heading font-black text-dark mb-1">
                   <AnimatedCounter value={value} suffix={suffix} />
                 </strong>
-                <span className="text-muted text-sm">{label}</span>
+                <span className="text-muted text-xs sm:text-sm">{label}</span>
               </div>
             ))}
           </div>
@@ -170,17 +170,17 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <motion.div className="text-center mb-14" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <motion.div className="text-center mb-10 sm:mb-14" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">What We Do</p>
             <h2 className="section-title">Our Services</h2>
             <p className="section-subtitle">From concept to launch, we design systems that solve real operational and community problems.</p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {services.map(({ icon, title, desc, hash }, i) => (
-              <motion.div key={title} className="card p-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+              <motion.div key={title} className="card p-5 sm:p-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <i className={`fas ${icon} text-primary text-lg`} />
                 </div>
                 <h3 className="font-heading font-bold text-dark mb-2">{title}</h3>
@@ -193,12 +193,12 @@ export default function Home() {
       </section>
 
       {/* About Preview */}
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
+      <section className="py-16 sm:py-24">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Who We Are</p>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark mb-5 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-dark mb-5 leading-tight">
                 Building Reliable Technology for South Sudanese Organizations
               </h2>
               <p className="text-muted leading-relaxed mb-4">
@@ -210,25 +210,25 @@ export default function Home() {
               <Link to="/about" className="btn-primary">Learn About Us</Link>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}>
-              <img src="/images/about-preview.jpg" alt="Sleek Nexus Creative Team collaborating" className="w-full rounded-xl object-cover h-72" loading="lazy" />
+              <img src="/images/about-preview.jpg" alt="Sleek Nexus Creative Team collaborating" className="w-full rounded-xl object-cover h-56 sm:h-72" loading="lazy" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* How We Work */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Our Process</p>
             <h2 className="section-title">How We Work</h2>
             <p className="section-subtitle">A clear, structured process from your first message to a live product.</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {processSteps.map(({ num, icon, title, desc }, i) => (
-              <motion.div key={num} className="card p-6 text-center" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
-                <div className="text-5xl font-heading font-black text-primary/10 mb-3">{num}</div>
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+              <motion.div key={num} className="card p-5 sm:p-6 text-center" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
+                <div className="text-4xl sm:text-5xl font-heading font-black text-primary/10 mb-3">{num}</div>
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <i className={`fas ${icon} text-primary text-lg`} />
                 </div>
                 <h3 className="font-heading font-bold text-dark mb-2">{title}</h3>
@@ -240,18 +240,18 @@ export default function Home() {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
+      <section className="py-16 sm:py-24">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Our Work</p>
             <h2 className="section-title">Featured Projects</h2>
             <p className="section-subtitle">Selected case studies with measurable outcomes in education, business, and finance.</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-8 sm:mb-10">
             {projects.map(({ img, title, desc, hash }, i) => (
               <motion.div key={title} className="card overflow-hidden" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
-                <img src={img} alt={title} className="w-full h-48 object-cover" loading="lazy" />
-                <div className="p-5">
+                <img src={img} alt={title} className="w-full h-44 sm:h-48 object-cover" loading="lazy" />
+                <div className="p-4 sm:p-5">
                   <h3 className="font-heading font-bold text-dark mb-2">{title}</h3>
                   <p className="text-muted text-sm leading-relaxed mb-4">{desc}</p>
                   <Link to={`/projects${hash}`} className="text-primary text-sm font-semibold hover:underline">View Case Study</Link>
@@ -266,16 +266,16 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Client Stories</p>
             <h2 className="section-title">What Our Clients Say</h2>
             <p className="section-subtitle">Trusted by businesses, schools, and organizations across South Sudan.</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {testimonials.map(({ initials, name, role, text }, i) => (
-              <motion.div key={name} className="card p-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
+              <motion.div key={name} className="card p-5 sm:p-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
                 <div className="flex gap-1 text-accent mb-4">
                   {Array(5).fill(0).map((_, j) => <i key={j} className="fas fa-star text-sm" />)}
                 </div>
@@ -294,17 +294,17 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
+      <section className="py-16 sm:py-24">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Our Edge</p>
             <h2 className="section-title">Why Choose Us</h2>
             <p className="section-subtitle">We are not just a vendor — we are a long-term technology partner committed to your success.</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {whyCards.map(({ icon, title, desc }, i) => (
-              <motion.div key={title} className="card p-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+              <motion.div key={title} className="card p-5 sm:p-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <i className={`fas ${icon} text-primary text-lg`} />
                 </div>
                 <h3 className="font-heading font-bold text-dark mb-2">{title}</h3>
@@ -316,29 +316,28 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primary-dark text-white text-center">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-primary to-primary-dark text-white text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <p className="section-label text-white/80">
             <i className="fas fa-bolt mr-1" /> Let's Build Together
           </p>
           <h2 className="display-heading-sm mb-4">Ready to Launch Your Next Digital Product?</h2>
-          <p className="text-white/80 text-lg mb-8">Partner with Sleek Nexus Creative to build dependable, scalable technology that delivers real results for your organization.</p>
-          <div className="flex flex-wrap gap-4 justify-center mb-8">
-            <Link to="/contact" className="bg-white text-primary hover:bg-gray-100 font-semibold px-7 py-3 rounded-lg inline-flex items-center gap-2 transition-colors">
+          <p className="text-white/80 text-base sm:text-lg mb-7 sm:mb-8">Partner with Sleek Nexus Creative to build dependable, scalable technology that delivers real results for your organization.</p>
+          <div className="flex flex-wrap gap-3 justify-center mb-6 sm:mb-8">
+            <Link to="/contact" className="bg-white text-primary hover:bg-gray-100 font-semibold px-6 sm:px-7 py-3 rounded-lg inline-flex items-center gap-2 transition-colors touch-manipulation">
               <i className="fas fa-rocket" /> Start Your Project
             </Link>
-            <Link to="/services" className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-7 py-3 rounded-lg inline-flex items-center gap-2 transition-colors">
+            <Link to="/services" className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-6 sm:px-7 py-3 rounded-lg inline-flex items-center gap-2 transition-colors touch-manipulation">
               Explore Services
             </Link>
           </div>
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-white/80">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-white/80">
             {['Free Consultation', 'On-Time Delivery', 'Post-Launch Support', 'Transparent Pricing'].map(item => (
               <span key={item} className="flex items-center gap-1.5"><i className="fas fa-check-circle text-white" /> {item}</span>
             ))}
           </div>
         </div>
       </section>
-
     </>
   )
 }

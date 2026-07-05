@@ -82,7 +82,7 @@ export default function Footer() {
 
       {/* Innovation Hub Banner */}
       <div className="bg-gradient-to-r from-[#1a0a10] to-[#0f1520] border-b border-white/5">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
               <i className="fas fa-bolt text-accent text-sm" />
@@ -106,13 +106,13 @@ export default function Footer() {
       </div>
 
       {/* Main body */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 pt-14 pb-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-12 sm:pt-14 pb-8 sm:pb-10">
 
         {/* ── Row 1: Brand + 4 nav columns ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-10 pb-10 border-b border-white/6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-5 gap-8 sm:gap-10 pb-8 sm:pb-10 border-b border-white/6">
 
           {/* Brand + contact + social */}
-          <div className="xl:col-span-1 flex flex-col gap-5">
+          <div className="col-span-2 xl:col-span-1 flex flex-col gap-5">
 
             {/* Logo */}
             <Link to="/" className="inline-flex items-center gap-3 group w-fit" aria-label="Home">
@@ -211,7 +211,7 @@ export default function Footer() {
         </div>
 
         {/* ── Row 2: Newsletter ── */}
-        <div className="grid md:grid-cols-2 gap-8 items-center py-8 border-b border-white/6">
+        <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 items-center py-6 sm:py-8 border-b border-white/6">
           <div>
             <p className="text-[0.65rem] font-bold uppercase tracking-widest text-primary mb-1">Stay Updated</p>
             <h3 className="text-lg font-heading font-bold text-white mb-1">

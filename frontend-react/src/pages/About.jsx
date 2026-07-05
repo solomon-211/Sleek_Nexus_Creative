@@ -48,8 +48,8 @@ export default function About() {
       />
 
       {/* Page Header */}
-      <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-16 sm:py-24 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Building Digital Solutions That Work</p>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">About Sleek Nexus Creative</h1>
@@ -58,10 +58,9 @@ export default function About() {
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-16 sm:py-24">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Our Story</p>
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark mb-6">Building Digital Solutions for <span className="text-primary">South Sudan</span></h2>
@@ -83,9 +82,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* Mission / Vision / Values summary */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-12 sm:py-16 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { icon: 'fa-bullseye', title: 'Our Mission', desc: 'To empower individuals, startups, organisations, and communities through innovative technology solutions, leadership development, entrepreneurship, future-ready skills, and community-driven innovation that drive sustainable social and economic transformation.' },
@@ -104,10 +102,9 @@ export default function About() {
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
+      <section className="py-16 sm:py-24">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">The Six Pillars</p>
             <h2 className="section-title">Our Core Values</h2>
             <p className="section-subtitle">These aren't words on a wall. They shape every project, every hire, and every line of code we write.</p>
@@ -126,10 +123,9 @@ export default function About() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">How We Work</p>
             <h2 className="section-title">Our Problem-Solving Approach</h2>
             <p className="section-subtitle">A strategic framework for delivering transformative solutions.</p>
@@ -151,9 +147,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-16 bg-gradient-to-r from-primary to-primary-dark text-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-primary to-primary-dark text-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map(({ value, label }) => (
               <div key={label}>
@@ -165,10 +160,9 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
+      <section className="py-16 sm:py-24">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">The People Behind The Work</p>
             <h2 className="section-title">Meet Our Team</h2>
             <p className="section-subtitle">The exceptional talent driving innovation and impact across South Sudan.</p>
@@ -195,9 +189,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
-        <div className="max-w-2xl mx-auto px-6">
+      <section className="py-14 sm:py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Ready to Shape South Sudan's Digital Future?</h2>
           <p className="text-gray-300 mb-8">We're actively seeking exceptional talent who share our passion for innovation and social impact.</p>
           <div className="flex flex-wrap gap-4 justify-center">

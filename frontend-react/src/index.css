@@ -13,14 +13,18 @@
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-primary rounded;
   }
+
+  /* Prevent horizontal overflow on mobile */
+  *, *::before, *::after { box-sizing: border-box; }
+  body { overflow-x: hidden; }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg;
+    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg touch-manipulation;
   }
   .btn-secondary {
-    @apply inline-flex items-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 touch-manipulation;
   }
   .section-title {
     @apply font-heading uppercase text-dark mb-4;
@@ -30,7 +34,7 @@
     line-height: 1.05;
   }
   .section-subtitle {
-    @apply text-muted text-lg max-w-2xl mx-auto;
+    @apply text-muted text-base md:text-lg max-w-2xl mx-auto;
   }
 
   /* Editorial display style — huge, black-weight, all-caps, tightly tracked.
@@ -38,17 +42,16 @@
   .display-heading {
     @apply font-heading uppercase;
     font-weight: 900;
-    font-size: clamp(2.75rem, 7vw, 5.5rem);
+    font-size: clamp(2rem, 6vw, 5.5rem);
     letter-spacing: -0.02em;
-    line-height: 0.95;
+    line-height: 1;
   }
-  /* Slightly smaller variant for section headings within a page. */
   .display-heading-sm {
     @apply font-heading uppercase;
     font-weight: 900;
-    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-size: clamp(1.75rem, 4vw, 3.25rem);
     letter-spacing: -0.02em;
-    line-height: 1;
+    line-height: 1.05;
   }
   /* Small uppercase eyebrow label that sits above a display heading. */
   .section-label {

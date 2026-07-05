@@ -73,12 +73,12 @@ export default function Contact() {
       </section>
 
       {/* Contact Form + Info */}
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="grid lg:grid-cols-5 gap-12">
+      <section className="py-16 sm:py-24">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
 
             {/* Form */}
-            <motion.div className="lg:col-span-3 card p-8" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
+            <motion.div className="lg:col-span-3 card p-5 sm:p-8" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <h2 className="text-2xl font-heading font-bold text-dark mb-2">Send Us a Message</h2>
               <p className="text-muted text-sm mb-6">Fill out the form below and we'll get back to you within 24 hours.</p>
 
@@ -188,8 +188,8 @@ export default function Contact() {
       </section>
 
       {/* FAQs */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-2xl mx-auto px-6 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 bg-gray-50">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="section-title">Frequently Asked Questions</h2>
             <p className="section-subtitle">Find answers to common questions about our services and process.</p>
