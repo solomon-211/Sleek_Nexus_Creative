@@ -240,10 +240,11 @@ export default function Navbar() {
 
           {/* ── Hamburger ── */}
           <button
-            className={`lg:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 rounded-[10px] border-[1.5px] transition-all duration-200 ${
+            type="button"
+            className={`lg:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 rounded-[10px] border-[1.5px] transition-all duration-200 cursor-pointer touch-manipulation ${
               menuOpen
                 ? 'bg-primary border-primary'
-                : 'bg-white/[0.08] border-white/20 hover:bg-white/[0.14] hover:border-white/30'
+                : 'bg-white/10 border-white/20'
             }`}
             onClick={() => setMenuOpen(o => !o)}
             aria-label="Toggle navigation"
@@ -264,7 +265,8 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden fixed inset-0 top-[72px] bg-black/50 z-[9998]"
+            className="lg:hidden fixed inset-0 bg-black/50"
+            style={{ top: '72px', zIndex: 9997 }}
             onClick={() => setMenuOpen(false)}
           />
         )}
@@ -278,7 +280,8 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden border-t border-white/[0.08] bg-[#0d1526] shadow-[0_16px_40px_rgba(0,0,0,0.4)] max-h-[calc(100vh-72px)] overflow-y-auto"
+            style={{ zIndex: 9998 }}
+            className="lg:hidden relative border-t border-white/10 bg-[#0d1526] shadow-[0_16px_40px_rgba(0,0,0,0.4)] max-h-[calc(100vh-72px)] overflow-y-auto"
           >
             <ul className="py-2">
               {navLinks.map(({ label, to, dropdown, highlight }) => (
