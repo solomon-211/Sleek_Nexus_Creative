@@ -53,13 +53,13 @@ const columns = [
 ]
 
 const socials = [
-  { href: 'https://www.facebook.com/SNC',         icon: 'fab fa-facebook-f',  label: 'Facebook',    bg: 'bg-[#1877f2]' },
-  { href: 'https://twitter.com/SNC',              icon: 'fab fa-x-twitter',   label: 'X / Twitter', bg: 'bg-black' },
-  { href: 'https://www.linkedin.com/company/SNC', icon: 'fab fa-linkedin-in', label: 'LinkedIn',    bg: 'bg-[#0a66c2]' },
-  { href: 'https://wa.me/211925277700',           icon: 'fab fa-whatsapp',    label: 'WhatsApp',    bg: 'bg-[#25d366]' },
-  { href: 'https://www.instagram.com/SNC',        icon: 'fab fa-instagram',   label: 'Instagram',   bg: 'bg-[#e1306c]' },
-  { href: 'https://www.tiktok.com/@SNC',          icon: 'fab fa-tiktok',      label: 'TikTok',      bg: 'bg-[#010101]' },
-  { href: 'https://www.youtube.com/@SNC',         icon: 'fab fa-youtube',     label: 'YouTube',     bg: 'bg-[#ff0000]' },
+  { href: 'https://www.facebook.com/share/183ufB9mqx/?mibextid=wwXIfr',                                          icon: 'fab fa-facebook-f',  label: 'Facebook',    bg: 'bg-[#1877f2]' },
+  { href: 'https://twitter.com/SNC',                                                                               icon: 'fab fa-x-twitter',   label: 'X / Twitter', bg: 'bg-black' },
+  { href: 'https://www.linkedin.com/company/sleek-nexus-creative/',                                               icon: 'fab fa-linkedin-in', label: 'LinkedIn',    bg: 'bg-[#0a66c2]' },
+  { href: 'https://wa.me/211925277700',                                                                            icon: 'fab fa-whatsapp',    label: 'WhatsApp',    bg: 'bg-[#25d366]' },
+  { href: 'https://www.instagram.com/sleek_nexus_creative?igsh=bmdpanczdzcwNm04&utm_source=qr',                  icon: 'fab fa-instagram',   label: 'Instagram',   bg: 'bg-[#e1306c]' },
+  { href: 'https://www.tiktok.com/@SNC',                                                                          icon: 'fab fa-tiktok',      label: 'TikTok',      bg: 'bg-[#010101]' },
+  { href: 'https://www.youtube.com/@SNC',                                                                         icon: 'fab fa-youtube',     label: 'YouTube',     bg: 'bg-[#ff0000]' },
 ]
 
 const contact = [

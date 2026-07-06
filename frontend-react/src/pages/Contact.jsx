@@ -166,7 +166,7 @@ export default function Contact() {
               <div>
                 <p className="font-semibold text-dark mb-3">Connect With Us</p>
                 <div className="flex gap-3">
-                  {[['fa-facebook', 'https://facebook.com/SNC'], ['fa-twitter', 'https://twitter.com/SNC'], ['fa-linkedin', 'https://linkedin.com/company/SNC'], ['fa-whatsapp', 'https://wa.me/211925277700']].map(([icon, href]) => (
+                  {[['fa-facebook', 'https://www.facebook.com/share/183ufB9mqx/?mibextid=wwXIfr'], ['fa-twitter', 'https://twitter.com/SNC'], ['fa-linkedin', 'https://www.linkedin.com/company/sleek-nexus-creative/'], ['fa-whatsapp', 'https://wa.me/211925277700'], ['fa-instagram', 'https://www.instagram.com/sleek_nexus_creative?igsh=bmdpanczdzcwNm04&utm_source=qr']].map(([icon, href]) => (
                     <a key={icon} href={href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-gray-100 hover:bg-primary hover:text-white text-muted flex items-center justify-center transition-all duration-200">
                       <i className={`fab ${icon} text-sm`} />
                     </a>

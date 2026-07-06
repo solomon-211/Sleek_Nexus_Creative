@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/snc-logo.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/images/snc-logo.png" />
-    <link rel="shortcut icon" href="/images/snc-logo.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/snc-logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/snc-logo.png?v=2" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/snc-logo.png?v=2" />
+    <link rel="shortcut icon" href="/images/snc-logo.png?v=2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/snc-logo.png?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#c41e3a" />
 
@@ -75,15 +75,48 @@
         "latitude": 4.8594,
         "longitude": 31.5713
       },
+      "hasMap": "https://maps.google.com/?q=Juba,South+Sudan",
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00" }
       ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "3",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Akol Mading" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "SNC built our online course platform from scratch. The team was communicative, delivered on time, and trained our staff to manage it independently. Exactly what we needed.",
+          "datePublished": "2024-06-01"
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Rebecca Chol" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "They built us a simple inventory system that actually works on our local network. No unnecessary complexity — just a clean solution that saves us hours every week.",
+          "datePublished": "2024-08-15"
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Peter Majok" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "We needed a website quickly and within a tight budget. SNC delivered a professional, mobile-friendly site and were honest about what was realistic. Great experience.",
+          "datePublished": "2024-10-20"
+        }
+      ],
       "sameAs": [
-        "https://www.facebook.com/SleekNexusCreative",
+        "https://www.facebook.com/share/183ufB9mqx/?mibextid=wwXIfr",
         "https://twitter.com/SleekNexus",
-        "https://www.linkedin.com/company/sleek-nexus-creative",
-        "https://www.instagram.com/sleeknexuscreative"
+        "https://www.linkedin.com/company/sleek-nexus-creative/",
+        "https://www.instagram.com/sleek_nexus_creative",
+        "https://www.youtube.com/@SleekNexusCreative",
+        "https://www.tiktok.com/@sleeknexuscreative"
       ],
       "priceRange": "$$",
       "currenciesAccepted": "USD",
@@ -113,7 +146,15 @@
       },
       "foundingDate": "2024",
       "founders": [{ "@type": "Person", "name": "Solomon Leek" }],
-      "numberOfEmployees": { "@type": "QuantitativeValue", "value": 8 }
+      "numberOfEmployees": { "@type": "QuantitativeValue", "value": 8 },
+      "sameAs": [
+        "https://www.facebook.com/share/183ufB9mqx/?mibextid=wwXIfr",
+        "https://twitter.com/SleekNexus",
+        "https://www.linkedin.com/company/sleek-nexus-creative/",
+        "https://www.instagram.com/sleek_nexus_creative",
+        "https://www.youtube.com/@SleekNexusCreative",
+        "https://www.tiktok.com/@sleeknexuscreative"
+      ]
     }
     </script>
 
@@ -134,6 +175,26 @@
         },
         "query-input": "required name=search_term_string"
       }
+    }
+    </script>
+
+    <!-- JSON-LD: Sitelinks (key pages Google shows under main result) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Sleek Nexus Creative — Key Pages",
+      "itemListElement": [
+        { "@type": "SiteLinksSearchBox", "url": "https://sleeknexuscreative.com" },
+        { "@type": "ListItem", "position": 1, "name": "About Us", "url": "https://sleeknexuscreative.com/about" },
+        { "@type": "ListItem", "position": 2, "name": "Our Services", "url": "https://sleeknexuscreative.com/services" },
+        { "@type": "ListItem", "position": 3, "name": "Our Projects", "url": "https://sleeknexuscreative.com/projects" },
+        { "@type": "ListItem", "position": 4, "name": "Courses & Training", "url": "https://sleeknexuscreative.com/courses" },
+        { "@type": "ListItem", "position": 5, "name": "Innovation Hub", "url": "https://sleeknexuscreative.com/innovation-hub" },
+        { "@type": "ListItem", "position": 6, "name": "Contact Us", "url": "https://sleeknexuscreative.com/contact" },
+        { "@type": "ListItem", "position": 7, "name": "Careers", "url": "https://sleeknexuscreative.com/careers" },
+        { "@type": "ListItem", "position": 8, "name": "Get Started", "url": "https://sleeknexuscreative.com/get-started" }
+      ]
     }
     </script>
 
