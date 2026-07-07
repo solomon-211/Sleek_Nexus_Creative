@@ -88,6 +88,45 @@ export default function Home() {
         canonical="/"
         image="https://sleeknexuscreative.com/images/og-cover.jpg"
         imageAlt="Sleek Nexus Creative — Technology & Innovation for South Sudan"
+        schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Sleek Nexus Creative',
+            url: 'https://sleeknexuscreative.com',
+            logo: 'https://sleeknexuscreative.com/images/snc-logo.png',
+            description: 'Sleek Nexus Creative is a technology and innovation company based in Juba, South Sudan, building websites, mobile apps, e-learning platforms, and digital solutions for organizations across Africa.',
+            foundingDate: '2024',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Juba',
+              addressCountry: 'SS',
+            },
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'customer support',
+              email: 'info@sleeknexuscreative.com',
+              availableLanguage: 'English',
+            },
+            sameAs: [
+              'https://www.linkedin.com/company/sleek-nexus-creative',
+              'https://www.facebook.com/sleeknexuscreative',
+              'https://twitter.com/SleekNexus',
+              'https://www.instagram.com/sleeknexuscreative',
+            ],
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Sleek Nexus Creative',
+            url: 'https://sleeknexuscreative.com',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: 'https://sleeknexuscreative.com/?s={search_term_string}',
+              'query-input': 'required name=search_term_string',
+            },
+          },
+        ]}
       />
 
       {/* Hero */}

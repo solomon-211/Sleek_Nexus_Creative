@@ -94,7 +94,9 @@ export default function SEO({
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       )}
       {schema && (
-        <script type="application/ld+json">{JSON.stringify(schema)}</script>
+        Array.isArray(schema)
+          ? schema.map((s, i) => <script key={i} type="application/ld+json">{JSON.stringify(s)}</script>)
+          : <script type="application/ld+json">{JSON.stringify(schema)}</script>
       )}
     </Helmet>
   )
