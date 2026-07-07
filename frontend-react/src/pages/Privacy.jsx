@@ -1,21 +1,21 @@
 import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import SEO from '../components/ui/SEO'
 
 const sections = [
-  { id: 'info-collect', label: '1. Information We Collect' },
-  { id: 'info-use', label: '2. How We Use Information' },
-  { id: 'info-share', label: '3. Information Sharing' },
-  { id: 'security', label: '4. Data Security' },
-  { id: 'cookies', label: '5. Cookies' },
-  { id: 'retention', label: '7. Data Retention' },
-  { id: 'rights', label: '8. Your Rights' },
-  { id: 'children', label: "9. Children's Privacy" },
-  { id: 'international', label: '10. International Transfers' },
-  { id: 'email', label: '12. Email Communications' },
-  { id: 'breach', label: '15. Data Breach' },
-  { id: 'gdpr', label: '17. GDPR Compliance' },
-  { id: 'contact', label: '20. Contact Us' },
+  { id: 'info-collect',   label: '1. Information We Collect' },
+  { id: 'info-use',       label: '2. How We Use Information' },
+  { id: 'info-share',     label: '3. Information Sharing' },
+  { id: 'security',       label: '4. Data Security' },
+  { id: 'cookies',        label: '5. Cookies' },
+  { id: 'retention',      label: '6. Data Retention' },
+  { id: 'rights',         label: '7. Your Rights' },
+  { id: 'children',       label: "8. Children's Privacy" },
+  { id: 'international',  label: '9. International Transfers' },
+  { id: 'email',          label: '10. Email Communications' },
+  { id: 'breach',         label: '11. Data Breach' },
+  { id: 'gdpr',           label: '12. GDPR Compliance' },
+  { id: 'contact',        label: '13. Contact Us' },
 ]
 
 export default function Privacy() {
@@ -23,16 +23,12 @@ export default function Privacy() {
 
   return (
     <>
-      <Helmet>
-        <title>Privacy Policy - Sleek Nexus Creative</title>
-        <meta name="description" content="How Sleek Nexus Creative collects, uses, and protects your personal information." />
-        <meta property="og:title" content="Privacy Policy - Sleek Nexus Creative" />
-        <meta property="og:description" content="How Sleek Nexus Creative collects, uses, and protects your personal information." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://sleeknexuscreative.com/privacy" />
-        <link rel="canonical" href="https://sleeknexuscreative.com/privacy" />
-        <meta name="robots" content="noindex, follow" />
-      </Helmet>
+      <SEO
+        title="Privacy Policy"
+        description="How Sleek Nexus Creative collects, uses, and protects your personal information."
+        canonical="/privacy"
+        schema={{ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Privacy Policy', url: 'https://sleeknexuscreative.com/privacy' }}
+      />
 
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-20 text-center">
@@ -146,7 +142,7 @@ export default function Privacy() {
 
               <h2 id="retention" className="text-xl font-heading font-bold text-dark mt-10 mb-4 flex items-center gap-2 scroll-mt-24">
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"><i className="fas fa-clock text-primary text-xs" /></span>
-                7. Data Retention
+                6. Data Retention
               </h2>
               <div className="overflow-x-auto mb-8">
                 <table className="w-full text-sm border-collapse">
@@ -169,7 +165,7 @@ export default function Privacy() {
 
               <h2 id="rights" className="text-xl font-heading font-bold text-dark mt-10 mb-4 flex items-center gap-2 scroll-mt-24">
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"><i className="fas fa-user-shield text-primary text-xs" /></span>
-                8. Your Rights and Choices
+                7. Your Rights and Choices
               </h2>
               <div className="grid sm:grid-cols-2 gap-3 mb-8">
                 {[['Access', 'Request a copy of the personal information we hold about you'], ['Correction', 'Request correction of inaccurate or incomplete information'], ['Deletion', 'Request deletion of your personal information'], ['Opt-Out', 'Unsubscribe from marketing communications at any time'], ['Data Portability', 'Request transfer of your data to another service']].map(([right, desc]) => (
@@ -179,47 +175,47 @@ export default function Privacy() {
                   </div>
                 ))}
               </div>
-              <p className="text-muted text-sm mb-8">To exercise these rights, contact us at <a href="mailto:info@SNC.ss" className="text-primary hover:underline">info@SNC.ss</a></p>
+              <p className="text-muted text-sm mb-8">To exercise these rights, contact us at <a href="mailto:info@sleeknexuscreative.com" className="text-primary hover:underline">info@sleeknexuscreative.com</a></p>
 
               <h2 id="children" className="text-xl font-heading font-bold text-dark mt-10 mb-4 flex items-center gap-2 scroll-mt-24">
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"><i className="fas fa-child text-primary text-xs" /></span>
-                9. Children's Privacy
+                8. Children's Privacy
               </h2>
               <p className="text-muted text-sm leading-relaxed mb-8">Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us immediately.</p>
 
               <h2 id="international" className="text-xl font-heading font-bold text-dark mt-10 mb-4 flex items-center gap-2 scroll-mt-24">
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"><i className="fas fa-globe text-primary text-xs" /></span>
-                10. International Data Transfers
+                9. International Data Transfers
               </h2>
               <p className="text-muted text-sm leading-relaxed mb-8">Your information may be transferred to and processed in countries other than South Sudan. We ensure appropriate safeguards are in place to protect your information in accordance with this Privacy Policy.</p>
 
               <h2 id="email" className="text-xl font-heading font-bold text-dark mt-10 mb-4 flex items-center gap-2 scroll-mt-24">
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"><i className="fas fa-envelope text-primary text-xs" /></span>
-                12. Email Communications
+                10. Email Communications
               </h2>
-              <p className="text-muted text-sm leading-relaxed mb-3">You can unsubscribe from marketing emails at any time by clicking "unsubscribe" in any email or contacting us at <a href="mailto:info@SNC.ss" className="text-primary hover:underline">info@SNC.ss</a>.</p>
+              <p className="text-muted text-sm leading-relaxed mb-3">You can unsubscribe from marketing emails at any time by clicking "unsubscribe" in any email or contacting us at <a href="mailto:info@sleeknexuscreative.com" className="text-primary hover:underline">info@sleeknexuscreative.com</a>.</p>
               <p className="text-muted text-sm leading-relaxed mb-8">Note: You cannot opt out of transactional emails related to services you've purchased.</p>
 
               <h2 id="breach" className="text-xl font-heading font-bold text-dark mt-10 mb-4 flex items-center gap-2 scroll-mt-24">
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"><i className="fas fa-exclamation-triangle text-primary text-xs" /></span>
-                15. Data Breach Notification
+                11. Data Breach Notification
               </h2>
               <p className="text-muted text-sm leading-relaxed mb-3">In the event of a data breach affecting your personal information, we will notify affected users within 72 hours of discovering the breach, explain steps we're taking, and recommend actions you can take to protect yourself.</p>
 
               <h2 id="gdpr" className="text-xl font-heading font-bold text-dark mt-10 mb-4 flex items-center gap-2 scroll-mt-24">
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"><i className="fas fa-flag text-primary text-xs" /></span>
-                17. GDPR Compliance (European Users)
+                12. GDPR Compliance (European Users)
               </h2>
               <p className="text-muted text-sm leading-relaxed mb-8">If you are located in the European Economic Area (EEA), you have additional rights under GDPR including the right to object, restriction, lodge complaints with your local data protection authority, and rights around automated decision-making. We do not use automated decision-making or profiling.</p>
 
               <h2 id="contact" className="text-xl font-heading font-bold text-dark mt-10 mb-4 flex items-center gap-2 scroll-mt-24">
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"><i className="fas fa-envelope text-primary text-xs" /></span>
-                20. Contact Us
+                13. Contact Us
               </h2>
               <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 mb-8">
                 <p className="font-semibold text-dark mb-3">If you have any questions about this Privacy Policy, contact us:</p>
                 <ul className="space-y-2 text-sm text-muted">
-                  <li className="flex items-center gap-2"><i className="fas fa-envelope text-primary w-4" /><a href="mailto:info@SNC.ss" className="hover:text-primary">info@SNC.ss</a></li>
+                  <li className="flex items-center gap-2"><i className="fas fa-envelope text-primary w-4" /><a href="mailto:info@sleeknexuscreative.com" className="hover:text-primary">info@sleeknexuscreative.com</a></li>
                   <li className="flex items-center gap-2"><i className="fas fa-phone text-primary w-4" /><a href="tel:+211925277700" className="hover:text-primary">+211 925 277 700</a></li>
                   <li className="flex items-center gap-2"><i className="fas fa-location-dot text-primary w-4" /><span>Juba, South Sudan</span></li>
                 </ul>

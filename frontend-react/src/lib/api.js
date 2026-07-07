@@ -56,50 +56,6 @@ export const statsApi = {
   get: () => api.get('/stats'),
 }
 
-// ── Projects ──────────────────────────────────────────────────────────────────
-export const projectsApi = {
-  /** GET /api/projects?page=1&limit=12&category=xxx */
-  list: (params) => api.get('/projects', { params }),
-  /** GET /api/projects/:id */
-  get: (id) => api.get(`/projects/${id}`),
-}
-
-// ── Courses ───────────────────────────────────────────────────────────────────
-export const coursesApi = {
-  /** GET /api/courses?page=1&limit=12&category=xxx */
-  list: (params) => api.get('/courses', { params }),
-  /** GET /api/courses/:id */
-  get: (id) => api.get(`/courses/${id}`),
-  /** POST /api/courses/enroll */
-  enroll: (data) => api.post('/courses/enroll', data),
-}
-
-// ── Jobs ──────────────────────────────────────────────────────────────────────
-export const jobsApi = {
-  /** GET /api/jobs */
-  list: (params) => api.get('/jobs', { params }),
-  /** GET /api/jobs/:id */
-  get: (id) => api.get(`/jobs/${id}`),
-  /** POST /api/jobs/apply */
-  apply: (data) => api.post('/jobs/apply', data),
-}
-
-// ── Impact / Donors ───────────────────────────────────────────────────────────
-export const impactApi = {
-  /** GET /api/impact */
-  get: () => api.get('/impact'),
-}
-
-// ── Alumni ────────────────────────────────────────────────────────────────────
-export const alumniApi = {
-  /** GET /api/alumni?page=1&limit=12 */
-  list: (params) => api.get('/alumni', { params }),
-  /** GET /api/alumni/search?q=xxx&page=1&limit=12 */
-  search: (q, params) => api.get('/alumni/search', { params: { q, ...params } }),
-  /** POST /api/alumni/register */
-  register: (data) => api.post('/alumni/register', data),
-}
-
 // ── Quote / Consultation ──────────────────────────────────────────────────────
 export const quoteApi = {
   /** POST /api/contact/quote — submit a project quote request */
@@ -109,16 +65,6 @@ export const quoteApi = {
 export const consultationApi = {
   /** POST /api/contact/consultation */
   book: (data) => api.post('/contact', { ...data, type: 'consultation' }),
-}
-
-// ── Auth ──────────────────────────────────────────────────────────────────────
-export const authApi = {
-  /** POST /api/auth/login */
-  login: (credentials) => api.post('/auth/login', credentials),
-  /** POST /api/auth/logout */
-  logout: () => api.post('/auth/logout'),
-  /** GET  /api/auth/me */
-  me: () => api.get('/auth/me'),
 }
 
 export default api

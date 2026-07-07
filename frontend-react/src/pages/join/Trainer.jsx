@@ -180,7 +180,7 @@ export default function Trainer() {
           <h2 className="text-3xl font-heading font-bold mb-4">Ready to Make an Impact?</h2>
           <p className="text-gray-300 mb-8">Join the SNC trainer network and start shaping South Sudan's tech talent pipeline.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/courses" className="btn-primary">See Our Courses</Link>
+            <Link to="/innovation-hub" className="btn-primary">Explore the Hub</Link>
             <Link to="/contact" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">Ask a Question</Link>
           </div>
         </div>

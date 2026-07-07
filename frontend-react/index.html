@@ -43,14 +43,15 @@
     <meta name="geo.position" content="4.8594;31.5713" />
     <meta name="ICBM" content="4.8594, 31.5713" />
 
-    <!-- JSON-LD Structured Data: LocalBusiness -->
+    <!-- JSON-LD: LocalBusiness + ProfessionalService (Google Knowledge Panel) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://sleeknexuscreative.com/#organization",
       "name": "Sleek Nexus Creative",
       "alternateName": "SNC",
-      "description": "Technology, innovation, and leadership organisation in Juba, South Sudan. We build websites, mobile apps, e-learning platforms, and provide IT consulting.",
+      "description": "Sleek Nexus Creative (SNC) is a technology, innovation, and leadership organisation in Juba, South Sudan. We build websites, mobile apps, e-learning platforms, and provide IT consulting for businesses, schools, and NGOs.",
       "url": "https://sleeknexuscreative.com",
       "logo": {
         "@type": "ImageObject",
@@ -58,10 +59,10 @@
         "width": 512,
         "height": 512
       },
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://sleeknexuscreative.com/images/SNCNNNN.png"
-      },
+      "image": [
+        "https://sleeknexuscreative.com/images/snc-logo.png",
+        "https://sleeknexuscreative.com/images/SNCNNNN.png"
+      ],
       "telephone": "+211925277700",
       "email": "info@sleeknexuscreative.com",
       "address": {
@@ -76,7 +77,8 @@
         "latitude": 4.8594,
         "longitude": 31.5713
       },
-      "hasMap": "https://maps.google.com/?q=Juba,South+Sudan",
+      "hasMap": "https://maps.google.com/?q=Sleek+Nexus+Creative,Juba,South+Sudan",
+      "openingHours": ["Mo-Fr 09:00-18:00", "Sa 10:00-16:00"],
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00" }
@@ -121,16 +123,33 @@
       ],
       "priceRange": "$$",
       "currenciesAccepted": "USD",
-      "areaServed": "South Sudan",
-      "serviceType": ["Web Development", "Mobile App Development", "IT Consulting", "E-Learning Solutions", "UI/UX Design", "Branding"]
+      "paymentAccepted": "Cash, Bank Transfer",
+      "areaServed": {
+        "@type": "Country",
+        "name": "South Sudan"
+      },
+      "knowsAbout": ["Web Development", "Mobile App Development", "IT Consulting", "E-Learning Solutions", "UI/UX Design", "Branding", "Cybersecurity", "Digital Transformation"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Technology Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development", "url": "https://sleeknexuscreative.com/services/web-dev" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development", "url": "https://sleeknexuscreative.com/services/mobile-apps" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Learning Solutions", "url": "https://sleeknexuscreative.com/services/elearning" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IT Consulting", "url": "https://sleeknexuscreative.com/services/consulting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UI/UX Design", "url": "https://sleeknexuscreative.com/services/ui-ux" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Branding", "url": "https://sleeknexuscreative.com/services/branding" } }
+        ]
+      }
     }
     </script>
 
-    <!-- JSON-LD: Organization (for Google Knowledge Panel) -->
+    <!-- JSON-LD: Organization (Google Knowledge Panel + social profiles) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://sleeknexuscreative.com/#organization",
       "name": "Sleek Nexus Creative",
       "url": "https://sleeknexuscreative.com",
       "logo": {
@@ -139,12 +158,21 @@
         "width": 512,
         "height": 512
       },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+211925277700",
-        "contactType": "customer service",
-        "availableLanguage": "English"
-      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+211925277700",
+          "contactType": "customer service",
+          "availableLanguage": "English",
+          "areaServed": "SS"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+211925277700",
+          "contactType": "sales",
+          "availableLanguage": "English"
+        }
+      ],
       "foundingDate": "2024",
       "founders": [{ "@type": "Person", "name": "Solomon Leek" }],
       "numberOfEmployees": { "@type": "QuantitativeValue", "value": 8 },
@@ -159,15 +187,17 @@
     }
     </script>
 
-    <!-- JSON-LD: WebSite (enables Google Sitelinks Search Box) -->
+    <!-- JSON-LD: WebSite (Sitelinks Search Box) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://sleeknexuscreative.com/#website",
       "name": "Sleek Nexus Creative",
       "url": "https://sleeknexuscreative.com",
       "description": "Technology, innovation, and leadership organisation in Juba, South Sudan.",
       "inLanguage": "en-US",
+      "publisher": { "@id": "https://sleeknexuscreative.com/#organization" },
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
@@ -179,14 +209,13 @@
     }
     </script>
 
-    <!-- JSON-LD: Sitelinks (key pages Google shows under main result) -->
+    <!-- JSON-LD: Sitelinks — key pages shown under main Google result -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "name": "Sleek Nexus Creative — Key Pages",
       "itemListElement": [
-        { "@type": "SiteLinksSearchBox", "url": "https://sleeknexuscreative.com" },
         { "@type": "ListItem", "position": 1, "name": "About Us", "url": "https://sleeknexuscreative.com/about" },
         { "@type": "ListItem", "position": 2, "name": "Our Services", "url": "https://sleeknexuscreative.com/services" },
         { "@type": "ListItem", "position": 3, "name": "Our Projects", "url": "https://sleeknexuscreative.com/projects" },
@@ -195,6 +224,46 @@
         { "@type": "ListItem", "position": 6, "name": "Contact Us", "url": "https://sleeknexuscreative.com/contact" },
         { "@type": "ListItem", "position": 7, "name": "Careers", "url": "https://sleeknexuscreative.com/careers" },
         { "@type": "ListItem", "position": 8, "name": "Get Started", "url": "https://sleeknexuscreative.com/get-started" }
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage (drives FAQ rich results in Google search) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does Sleek Nexus Creative offer?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sleek Nexus Creative offers web development, mobile app development, e-learning platform development, UI/UX design, branding, and IT consulting services for businesses, schools, and NGOs in South Sudan." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Sleek Nexus Creative located?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sleek Nexus Creative is based in Juba, Central Equatoria, South Sudan. We serve clients across South Sudan and remotely." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a typical project take?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Project timelines vary based on complexity. Simple websites take 2–4 weeks, while complex applications may take 3–6 months. We provide detailed timelines during the free initial consultation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Sleek Nexus Creative offer tech training courses?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Through the SNC Future Skills Academy, we offer practical tech training in web development, mobile apps, cybersecurity, data science, AI, and digital literacy — taught by industry professionals in Juba." }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I get a quote for my project?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Contact us via our website at https://sleeknexuscreative.com/contact, call +211 925 277 700, or email info@sleeknexuscreative.com. We offer a free initial consultation for all new projects." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the SNC Innovation & Leadership Hub?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The SNC Innovation & Leadership Hub is a collaborative ecosystem in Juba that empowers individuals through technology, education, entrepreneurship, and community impact programs — with a vision to directly empower 5,000+ people by 2040." }
+        }
       ]
     }
     </script>

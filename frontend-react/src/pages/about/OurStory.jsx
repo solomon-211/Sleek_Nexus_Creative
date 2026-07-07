@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
 import SEO from '../../components/ui/SEO'
-
-const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
+import { fadeUp } from '../../lib/animations'
 
 const timeline = [
   { year: '2024', color: 'bg-primary', title: 'Founded in Juba', desc: "Officially registered in South Sudan. First team of 4 co-founders begins operations from a co-working space in Juba's city center. Delivered first client projects and launched the initial training cohort." },

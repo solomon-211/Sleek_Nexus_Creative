@@ -2,8 +2,7 @@
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import SEO from '../components/ui/SEO'
-
-const fadeUp = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }
+import { fadeUpSm as fadeUp } from '../lib/animations'
 
 const filters = ['all', 'web', 'mobile', 'edtech', 'enterprise']
 

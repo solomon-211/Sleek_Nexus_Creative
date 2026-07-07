@@ -2,8 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
-
-const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
+import { fadeUp } from '../../lib/animations'
 
 const offers = ['iOS & Android App Development', 'Cross-Platform Apps (React Native / Flutter)', 'Mobile UI/UX Design', 'Offline-Capable Apps', 'Push Notifications & Real-Time Features', 'Payment & SMS Integration', 'App Store & Play Store Submission', 'Maintenance & Version Updates']
 

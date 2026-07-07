@@ -7,8 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import api from '../../lib/api'
 import PageHeader from '../../components/ui/PageHeader'
-
-const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
+import { fadeUp } from '../../lib/animations'
 
 const schema = z.object({
   name: z.string().min(2, 'Full name is required'),

@@ -4,8 +4,7 @@ import SEO from '../components/ui/SEO'
 import { motion } from 'framer-motion'
 import PageHeader from '../components/ui/PageHeader'
 import NewsletterForm from '../components/ui/NewsletterForm'
-
-const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
+import { fadeUp } from '../lib/animations'
 
 const faqs = [
   {
@@ -26,7 +25,7 @@ const faqs = [
   },
   {
     q: 'How long does it take to hear back after reaching out?',
-    a: 'We respond to all partnership and donation inquiries within 24 hours on business days. For urgent matters, you can also reach us directly at info@SNC.ss.',
+    a: 'We respond to all partnership and donation inquiries within 24 hours on business days. For urgent matters, you can also reach us directly at info@sleeknexuscreative.com.',
   },
 ]
 
@@ -251,7 +250,7 @@ export default function GetStarted() {
                   ))}
                 </div>
                 <div className="mt-8 pt-6 border-t border-white/20">
-                  <p className="text-white/70 text-xs">Have questions about donating? Reach us at <a href="mailto:info@SNC.ss" className="text-white underline">info@SNC.ss</a></p>
+                  <p className="text-white/70 text-xs">Have questions about donating? Reach us at <a href="mailto:info@sleeknexuscreative.com" className="text-white underline">info@sleeknexuscreative.com</a></p>
                 </div>
               </div>
             </motion.div>

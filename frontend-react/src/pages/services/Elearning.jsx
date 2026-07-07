@@ -2,8 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
-
-const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
+import { fadeUp } from '../../lib/animations'
 
 const offers = ['Learning Management Systems (LMS)', 'Online Course Platforms', 'Student Information Systems', 'Video Streaming & Media', 'Automated Assessments & Grading', 'Progress Tracking & Analytics', 'Digital Certificates', 'Offline Learning Support']
 
@@ -99,7 +98,7 @@ export default function Elearning() {
           <p className="text-gray-300 mb-8">We've built platforms serving thousands of learners — let us build yours.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/contact" className="btn-primary">Get a Free Consultation</Link>
-            <Link to="/courses" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">Browse Our Courses</Link>
+            <Link to="/projects/portfolio" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Projects</Link>
           </div>
         </div>
       </section>

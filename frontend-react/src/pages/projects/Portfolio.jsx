@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import SEO from '../../components/ui/SEO'
 import PageHeader from '../../components/ui/PageHeader'
 
 const filters = ['all', 'web', 'mobile', 'edtech', 'enterprise']
@@ -13,6 +13,7 @@ const projects = [
   { id: 4, category: 'web', img: '/images/project-ecommerce.jpg', tags: ['Web App', 'E-Commerce'], title: 'E-Commerce Platform', desc: 'Full-featured online marketplace with payment integration, inventory management, and analytics dashboard.', year: '2024', client: 'Retail' },
   { id: 5, category: 'edtech', img: '/images/project-student-system.jpg', tags: ['EdTech', 'Portal'], title: 'Student Information System', desc: 'Comprehensive portal for managing student records, grades, attendance, and parent communication.', year: '2025', client: 'University' },
   { id: 6, category: 'mobile', img: '/images/project6.jpg', tags: ['Mobile', 'Health'], title: 'Fitness Tracking App', desc: 'Mobile app for tracking workouts, nutrition, and health metrics with AI-powered recommendations.', year: '2025', client: 'Health & Wellness' },
+  { id: 7, category: 'mobile', img: '/images/Screenshot 2026-04-20 190503.png', logo: '/images/Hb.png', tags: ['Mobile', 'Health'], title: 'HealthHub Bridge', desc: 'A health connectivity platform bridging patients and healthcare providers in South Sudan — enabling appointment booking, health records, and remote consultations.', year: '2025', client: 'Healthcare Sector' },
 ]
 
 export default function Portfolio() {
@@ -21,7 +22,7 @@ export default function Portfolio() {
 
   return (
     <>
-      <Helmet><title>Portfolio - Sleek Nexus Creative</title></Helmet>
+      <SEO title="Project Portfolio" description="A showcase of the digital solutions we've built for organizations across South Sudan and beyond." canonical="/projects/portfolio" breadcrumbs={[{ name: 'Projects', url: '/projects' }, { name: 'Portfolio', url: '/projects/portfolio' }]} />
       <PageHeader label="Our Work" title="Project Portfolio" desc="A showcase of the digital solutions we've built for organizations across South Sudan and beyond." />
 
       {/* Filters */}
@@ -42,11 +43,16 @@ export default function Portfolio() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">
-              {filtered.map(({ id, img, tags, title, desc, year, client }) => (
+              {filtered.map(({ id, img, logo, tags, title, desc, year, client }) => (
                 <motion.div key={id} layout className="card overflow-hidden group"
                   initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.3 }}>
                   <div className="relative overflow-hidden h-52">
                     <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    {logo && (
+                      <div className="absolute bottom-3 left-3 bg-white rounded-xl px-2 py-1 shadow-md">
+                        <img src={logo} alt={`${title} logo`} className="h-7 w-auto object-contain" />
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <Link to="/projects/case-studies" className="text-white text-sm font-semibold border border-white rounded-full px-4 py-2">View Case Study</Link>
                     </div>

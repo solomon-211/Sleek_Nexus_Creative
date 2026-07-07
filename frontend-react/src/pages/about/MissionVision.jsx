@@ -2,8 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
-
-const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
+import { fadeUp } from '../../lib/animations'
 
 const values = [
   { icon: 'fa-award', title: 'Excellence', desc: 'We hold ourselves to the highest standards. Every line of code, every pixel, every interaction reflects our commitment to delivering work that exceeds expectations.' },

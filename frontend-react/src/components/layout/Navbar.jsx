@@ -34,21 +34,11 @@ const navLinks = [
     ],
   },
   {
-    label: 'Courses', to: '/courses',
+    label: 'Resources', to: '/resources/leadership',
     dropdown: [
-      { icon: 'fa-search',    label: 'Browse Courses',   to: '/courses/browse' },
-      { icon: 'fa-gift',      label: 'Free Resources',   to: '/courses/free-resources' },
-      { icon: 'fa-certificate',label: 'Certifications',  to: '/courses/certifications' },
-      { icon: 'fa-flask',     label: 'Student Projects', to: '/courses/student-projects' },
-    ],
-  },
-  {
-    label: 'Resources', to: '/blog',
-    dropdown: [
-      { icon: 'fa-rss',           label: 'Blog',      to: '/blog' },
-      { icon: 'fa-map',           label: 'Guides',    to: '/guides' },
-      { icon: 'fa-question-circle',label: 'FAQs',     to: '/faqs' },
-      { icon: 'fa-download',      label: 'Downloads', to: '/downloads' },
+      { icon: 'fa-crown',          label: 'Leadership',    to: '/resources/leadership' },
+      { icon: 'fa-chart-line',     label: 'Career Growth', to: '/resources/career-growth' },
+      { icon: 'fa-graduation-cap', label: 'Scholarships',  to: '/resources/scholarships' },
     ],
   },
   {
@@ -62,14 +52,10 @@ const navLinks = [
   {
     label: 'Join Us', to: '/join',
     dropdown: [
-      { icon: 'fa-briefcase',        label: 'Careers',            to: '/careers' },
-      { icon: 'fa-user-graduate',    label: 'Internships',        to: '/internships' },
-      { icon: 'fa-hands-helping',    label: 'Volunteer',          to: '/volunteer' },
-      { icon: 'fa-chalkboard-teacher',label: 'Become a Trainer',  to: '/trainer' },
-      { icon: 'fa-user-tie',         label: 'Become a Mentor',    to: '/mentor' },
-      { icon: 'fa-users',            label: 'Join Our Community', to: '/community' },
-      { icon: 'fa-graduation-cap',   label: 'Alumni Network',     to: '/alumni' },
-      { icon: 'fa-door-open',        label: 'Open Positions',     to: '/open-positions' },
+      { icon: 'fa-briefcase',     label: 'Careers',           to: '/careers' },
+      { icon: 'fa-user-graduate', label: 'Internships',       to: '/internships' },
+      { icon: 'fa-users',         label: 'Get Involved',      to: '/join-community' },
+      { icon: 'fa-graduation-cap',label: 'Alumni Network',    to: '/alumni' },
     ],
   },
   { label: 'Hub', to: '/innovation-hub', highlight: true },
@@ -190,7 +176,7 @@ export default function Navbar() {
             {navLinks.map(({ label, to, dropdown, highlight }) => (
               <li
                 key={to}
-                className="relative"
+                className={`relative${highlight ? ' ml-3' : ''}`}
                 onMouseEnter={() => dropdown && setOpenDropdown(label)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >

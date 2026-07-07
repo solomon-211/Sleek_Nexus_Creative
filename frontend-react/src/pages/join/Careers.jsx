@@ -1,9 +1,8 @@
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
-
-const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
+import SEO from '../../components/ui/SEO'
+import { fadeUp } from '../../lib/animations'
 
 const benefits = [
   { icon: 'fa-rocket', title: 'Meaningful Projects', desc: 'Every project you work on at SNC has real users, real stakes, and real impact — from e-learning platforms to fintech apps serving underserved communities.' },
@@ -25,7 +24,7 @@ const process = [
 export default function Careers() {
   return (
     <>
-      <Helmet><title>Careers - Sleek Nexus Creative</title></Helmet>
+      <SEO title="Careers" description="Build your career with meaningful projects and talented people who are shaping South Sudan's digital future." canonical="/careers" breadcrumbs={[{ name: 'Careers', url: '/careers' }]} />
       <PageHeader label="Join Us" title="Careers at SNC" desc="Build your career with meaningful projects and talented people who are shaping South Sudan's digital future." />
 
       {/* Benefits */}

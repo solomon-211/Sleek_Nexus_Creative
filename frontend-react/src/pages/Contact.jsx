@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -57,8 +57,15 @@ export default function Contact() {
         title="Contact Us — Juba, South Sudan"
         description="Get in touch with Sleek Nexus Creative in Juba, South Sudan. Call +211 925 277 700, email info@sleeknexuscreative.com, or fill out our contact form for a free consultation."
         canonical="/contact"
+        keywords="contact Sleek Nexus Creative, web development Juba, IT consulting South Sudan, free consultation"
         imageAlt="Contact Sleek Nexus Creative in Juba, South Sudan"
         breadcrumbs={[{ name: 'Contact', url: '/contact' }]}
+        faq={[
+          { q: 'How long does a typical project take?', a: 'Project timelines vary based on complexity. Simple websites take 2–4 weeks, while complex applications may take 3–6 months. We provide detailed timelines during consultation.' },
+          { q: 'What is your pricing structure?', a: 'We offer flexible pricing based on project scope. Contact us for a free consultation and custom quote tailored to your needs and budget.' },
+          { q: 'Do you provide ongoing support?', a: 'Yes! We offer maintenance packages and ongoing support to ensure your solution continues to perform optimally after launch.' },
+          { q: 'Can you work with our existing systems?', a: 'Absolutely. We specialize in integrations and can work with your existing infrastructure to create seamless solutions.' },
+        ]}
       />
 
       {/* Header */}
@@ -147,7 +154,7 @@ export default function Contact() {
                   {[
                     { icon: 'fa-map-marker-alt', title: 'Office Address', lines: ['Juba, South Sudan', 'Central Equatoria State'] },
                     { icon: 'fa-phone', title: 'Phone', lines: ['+211 925 277 700', 'Mon–Fri, 9AM–6PM'], href: 'tel:+211925277700' },
-                    { icon: 'fa-envelope', title: 'Email', lines: ['info@SNC.ss'], href: 'mailto:info@SNC.ss' },
+                    { icon: 'fa-envelope', title: 'Email', lines: ['info@sleeknexuscreative.com'], href: 'mailto:info@sleeknexuscreative.com' },
                     { icon: 'fa-clock', title: 'Business Hours', lines: ['Mon – Fri: 9AM – 6PM', 'Saturday: 10AM – 4PM', 'Sunday: Closed'] },
                   ].map(({ icon, title, lines, href }) => (
                     <div key={title} className="flex gap-4">

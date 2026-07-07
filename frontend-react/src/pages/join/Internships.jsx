@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import emailjs from '@emailjs/browser'
+import SEO from '../../components/ui/SEO'
 import PageHeader from '../../components/ui/PageHeader'
 import { fadeUp } from '../../lib/animations'
 
@@ -46,20 +47,24 @@ export default function Internships() {
 
   const onSubmit = async (data) => {
     try {
-      await fetch('http://localhost:5000/api/contact', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, type: 'internship-application' }),
-      })
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID,
+        { ...data, type: 'internship-application' },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
     } catch { /* offline */ }
     setSubmitted(true); reset()
   }
 
   return (
     <>
-      <Helmet>
-        <title>Internship Program - Sleek Nexus Creative</title>
-        <meta name="description" content="Gain real-world tech experience on live client projects at SNC. 3-month internship with mentorship, stipend, and certificate." />
-      </Helmet>
+      <SEO
+        title="Internship Program"
+        description="Gain real-world tech experience on live client projects at SNC. 3-month internship with mentorship, stipend, and certificate."
+        canonical="/internships"
+        breadcrumbs={[{ name: 'Internships', url: '/internships' }]}
+      />
 
       <PageHeader label="Join Us" title="Internship Program"
         desc="Real work on live projects. Real mentorship from senior professionals. A real start to your tech career." />

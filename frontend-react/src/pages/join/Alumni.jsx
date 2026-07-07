@@ -6,27 +6,27 @@ import { fadeUp } from '../../lib/animations'
 import PageHeader from '../../components/ui/PageHeader'
 
 const benefits = [
-  { icon: 'fa-briefcase',          title: 'Career Support',         desc: 'Get access to job referrals, employer introductions, and career guidance from the SNC team long after you graduate.' },
-  { icon: 'fa-chalkboard-teacher', title: 'Mentorship Access',      desc: 'Connect with experienced mentors in tech, design, and business who can guide your next career move.' },
-  { icon: 'fa-certificate',        title: 'Verified Credentials',   desc: 'Receive a verifiable digital certificate that proves your skills to employers and clients.' },
-  { icon: 'fa-calendar-alt',       title: 'Events & Workshops',     desc: 'Get invited to exclusive alumni workshops, industry talks, hackathons, and networking evenings in Juba.' },
-  { icon: 'fa-users',              title: 'Graduate Community',     desc: 'Stay connected with fellow graduates through our WhatsApp and online community groups.' },
-  { icon: 'fa-hand-holding-heart', title: 'Give Back',              desc: 'Volunteer as a guest speaker, mentor, or trainer to help the next generation of South Sudanese tech talent.' },
+  { icon: 'fa-briefcase',          title: 'Career Support',         desc: 'Get access to job referrals, employer introductions, and career guidance from the SNC team long after you complete your program.' },
+  { icon: 'fa-user-tie',           title: 'Mentorship Access',      desc: 'Connect with experienced mentors in leadership, business, and professional development who can guide your next career move.' },
+  { icon: 'fa-certificate',        title: 'Verified Credentials',   desc: 'Receive a verifiable digital certificate that demonstrates your program completion to employers, clients, and scholarship committees.' },
+  { icon: 'fa-calendar-alt',       title: 'Events & Workshops',     desc: 'Get invited to exclusive alumni workshops, leadership talks, networking evenings, and community events in Juba.' },
+  { icon: 'fa-users',              title: 'Graduate Community',     desc: 'Stay connected with fellow SNC graduates through our WhatsApp and online community groups.' },
+  { icon: 'fa-hand-holding-heart', title: 'Give Back',              desc: 'Volunteer as a guest speaker, mentor, or facilitator to help the next generation of young South Sudanese leaders.' },
 ]
 
 const pathways = [
-  { step: '01', icon: 'fa-graduation-cap', title: 'Complete Your Course',   desc: 'Finish your SNC program and receive your certificate of completion.' },
+  { step: '01', icon: 'fa-graduation-cap', title: 'Complete Your Program',  desc: 'Finish your SNC program — leadership, career development, mentorship, or internship — and receive your certificate.' },
   { step: '02', icon: 'fa-id-card',        title: 'Join the Alumni Network', desc: 'Fill in the stay-connected form below and we will add you to the alumni community.' },
-  { step: '03', icon: 'fa-rocket',         title: 'Launch Your Career',      desc: 'Use your skills, network, and SNC support to land your first role or freelance client.' },
-  { step: '04', icon: 'fa-hands-helping',  title: 'Come Back & Contribute',  desc: 'Return as a mentor, trainer, or partner to help grow the next cohort of graduates.' },
+  { step: '03', icon: 'fa-rocket',         title: 'Launch Your Career',      desc: 'Use your skills, network, and SNC support to land your first role, grow in your current job, or apply for a scholarship.' },
+  { step: '04', icon: 'fa-hands-helping',  title: 'Come Back & Contribute',  desc: 'Return as a mentor, facilitator, or partner to help grow the next cohort of SNC graduates.' },
 ]
 
 const faqs = [
-  { q: 'Who qualifies as an SNC alumnus?',             a: 'Anyone who has completed at least one course or training program at Sleek Nexus Creative qualifies to join the alumni network.' },
-  { q: 'Is there a fee to join the alumni network?',   a: 'No. Joining the SNC alumni network is completely free for all graduates.' },
-  { q: 'How do I get my certificate after graduating?', a: 'Certificates are issued within 7 days of completing your program. Contact us at info@sleeknexuscreative.com if you have not received yours.' },
-  { q: 'Can alumni access new courses at a discount?', a: 'Yes. SNC alumni receive a discount on all future courses and workshops. Reach out to us for your alumni discount code.' },
-  { q: 'How can I become a mentor or trainer?',        a: 'Fill in the stay-connected form below and select "Mentor / Trainer" as your interest. Our team will follow up with next steps.' },
+  { q: 'Who qualifies as an SNC alumnus?',              a: 'Anyone who has completed at least one program at Sleek Nexus Creative — including leadership workshops, mentorship cohorts, internships, or career programs — qualifies to join the alumni network.' },
+  { q: 'Is there a fee to join the alumni network?',    a: 'No. Joining the SNC alumni network is completely free for all graduates.' },
+  { q: 'How do I get my certificate after completing?', a: 'Certificates are issued within 7 days of completing your program. Contact us at info@sleeknexuscreative.com if you have not received yours.' },
+  { q: 'Can alumni access future SNC programs at a discount?', a: 'Yes. SNC alumni receive priority access and reduced fees for future programs and workshops. Reach out to us for your alumni benefit.' },
+  { q: 'How can I become a mentor or facilitator?',    a: 'Fill in the stay-connected form below and select "Mentor / Trainer" as your interest. Our team will follow up with next steps.' },
 ]
 
 export default function Alumni() {
@@ -177,11 +177,11 @@ export default function Alumni() {
                     placeholder="you@example.com" />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-dark-soft mb-1">Course Completed</label>
+                  <label className="block text-xs font-semibold text-dark-soft mb-1">Program / Path</label>
                   <select value={form.course} onChange={e => setForm({ ...form, course: e.target.value })}
                     className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10">
-                    <option value="">Select a course…</option>
-                    {['Web Development Fundamentals', 'Full-Stack Web Development Bootcamp', 'Mobile App Development', 'UI/UX Design', 'Data Analysis', 'Digital Marketing', 'IT Support & Networking', 'Other'].map(c => <option key={c}>{c}</option>)}
+                    <option value="">Select a program…</option>
+                    {['Leadership Development', 'Young Leaders Initiative', 'Emerging Leaders Program', 'Executive Leadership Bootcamp', 'Career Growth Program', 'Internship Program', 'Mentorship Program', 'Volunteer Program', 'Other / SNC Project'].map(c => <option key={c}>{c}</option>)}
                   </select>
                 </div>
                 <div>
@@ -220,9 +220,9 @@ export default function Alumni() {
       <section className="py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Not Yet a Graduate?</h2>
-          <p className="text-gray-300 mb-8">Start your tech journey with one of our courses and join the growing network of SNC graduates across South Sudan.</p>
+          <p className="text-gray-300 mb-8">Start your journey with SNC — explore our leadership programs, apply for an internship, or join our growing community of young professionals across South Sudan.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/courses/browse" className="btn-primary">Browse Courses</Link>
+            <Link to="/resources/leadership" className="btn-primary">Leadership Programs</Link>
             <Link to="/community" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">Join the Community</Link>
           </div>
         </div>

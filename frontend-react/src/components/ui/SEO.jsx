@@ -1,21 +1,20 @@
 import { Helmet } from 'react-helmet-async'
 
 const BASE_URL = 'https://sleeknexuscreative.com'
-const DEFAULT_IMAGE = `${BASE_URL}/images/og-cover.jpg`
+const DEFAULT_IMAGE = `${BASE_URL}/images/SNCNNNN.png`
 const SITE_NAME = 'Sleek Nexus Creative'
 
 /**
- * SEO component — drop into any page to set title, description, OG, Twitter,
- * and optional JSON-LD structured data (breadcrumbs, article, etc.)
- *
- * @param {string}  title        - Page title (appended with site name)
- * @param {string}  description  - Meta description (max ~155 chars)
- * @param {string}  canonical    - Canonical URL path e.g. "/about/our-story"
- * @param {string}  image        - Absolute OG image URL (defaults to og-cover.jpg)
- * @param {string}  imageAlt     - Alt text for OG image
- * @param {string}  type         - OG type: "website" | "article" (default: website)
- * @param {Array}   breadcrumbs  - [{name, url}] for BreadcrumbList schema
- * @param {object}  schema       - Any extra JSON-LD object to inject
+ * @param {string}  title
+ * @param {string}  description
+ * @param {string}  canonical      - path e.g. "/about"
+ * @param {string}  image          - absolute OG image URL
+ * @param {string}  imageAlt
+ * @param {string}  type           - "website" | "article"
+ * @param {string}  keywords
+ * @param {Array}   breadcrumbs    - [{name, url}]
+ * @param {Array}   faq            - [{q, a}] — renders FAQPage JSON-LD
+ * @param {object}  schema         - any extra JSON-LD object
  */
 export default function SEO({
   title,
@@ -24,7 +23,9 @@ export default function SEO({
   image = DEFAULT_IMAGE,
   imageAlt,
   type = 'website',
+  keywords,
   breadcrumbs,
+  faq,
   schema,
 }) {
   const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Technology & Innovation for South Sudan`
@@ -47,10 +48,23 @@ export default function SEO({
       }
     : null
 
+  const faqSchema = faq?.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faq.map(({ q, a }) => ({
+          '@type': 'Question',
+          name: q,
+          acceptedAnswer: { '@type': 'Answer', text: a },
+        })),
+      }
+    : null
+
   return (
     <Helmet>
       <title>{fullTitle}</title>
       {description && <meta name="description" content={description} />}
+      {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={url} />
 
       {/* Open Graph */}
@@ -73,18 +87,14 @@ export default function SEO({
       <meta name="twitter:image" content={image} />
       <meta name="twitter:image:alt" content={alt} />
 
-      {/* Breadcrumb JSON-LD */}
       {breadcrumbSchema && (
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       )}
-
-      {/* Extra schema */}
+      {faqSchema && (
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      )}
       {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(schema)}</script>
       )}
     </Helmet>
   )

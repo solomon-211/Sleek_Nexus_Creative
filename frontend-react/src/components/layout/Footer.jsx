@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import NewsletterForm from '../ui/NewsletterForm'
 
 // ── Data ──────────────────────────────────────────────────────────────────────
@@ -30,8 +30,9 @@ const columns = [
     heading: 'Programs',
     links: [
       { label: '⚡ Innovation Hub',     to: '/innovation-hub', highlight: true },
-      { label: 'Browse Courses',       to: '/courses/browse' },
-      { label: 'Certifications',       to: '/courses/certifications' },
+      { label: 'Leadership',           to: '/resources/leadership' },
+      { label: 'Career Growth',        to: '/resources/career-growth' },
+      { label: 'Scholarships',         to: '/resources/scholarships' },
       { label: 'Alumni Network',       to: '/alumni' },
       { label: 'Internships',          to: '/internships' },
       { label: 'Mentor Program',       to: '/mentor' },
@@ -41,13 +42,10 @@ const columns = [
   {
     heading: 'Resources',
     links: [
-      { label: 'Blog',                 to: '/blog' },
-      { label: 'Guides',               to: '/guides' },
-      { label: 'FAQs',                 to: '/faqs' },
-      { label: 'Free Resources',       to: '/courses/free-resources' },
-      { label: 'Downloads',            to: '/downloads' },
       { label: 'Get a Quote',          to: '/quote' },
       { label: 'Book Consultation',    to: '/book-consultation' },
+      { label: 'Privacy Policy',       to: '/privacy' },
+      { label: 'Terms of Service',     to: '/terms' },
     ],
   },
 ]
@@ -63,10 +61,10 @@ const socials = [
 ]
 
 const contact = [
-  { icon: 'fa-envelope',     label: 'info@SNC.ss',       href: 'mailto:info@SNC.ss' },
-  { icon: 'fa-phone',        label: '+211 925 277 700',  href: 'tel:+211925277700' },
-  { icon: 'fa-location-dot', label: 'Juba, South Sudan', href: null },
-  { icon: 'fa-globe',        label: 'www.SNC.ss',        href: 'https://SNC.ss' },
+  { icon: 'fa-envelope',     label: 'info@sleeknexuscreative.com', href: 'mailto:info@sleeknexuscreative.com' },
+  { icon: 'fa-phone',        label: '+211 925 277 700',            href: 'tel:+211925277700' },
+  { icon: 'fa-location-dot', label: 'Juba, South Sudan',           href: null },
+  { icon: 'fa-globe',        label: 'sleeknexuscreative.com',      href: 'https://sleeknexuscreative.com' },
 ]
 
 // ── Component ─────────────────────────────────────────────────────────────────

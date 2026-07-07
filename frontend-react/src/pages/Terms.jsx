@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import SEO from '../components/ui/SEO'
 
 const navItems = [
   { id: 'acceptance', label: 'Acceptance of Terms' },
@@ -41,16 +41,11 @@ export default function Terms() {
 
   return (
     <>
-      <Helmet>
-        <title>Terms of Service - Sleek Nexus Creative</title>
-        <meta name="description" content="Terms and conditions governing your use of Sleek Nexus Creative's services." />
-        <meta property="og:title" content="Terms of Service - Sleek Nexus Creative" />
-        <meta property="og:description" content="Terms and conditions governing your use of Sleek Nexus Creative's services." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://sleeknexuscreative.com/terms" />
-        <link rel="canonical" href="https://sleeknexuscreative.com/terms" />
-        <meta name="robots" content="noindex, follow" />
-      </Helmet>
+      <SEO
+        title="Terms of Service"
+        description="Terms and conditions governing your use of Sleek Nexus Creative's services."
+        canonical="/terms"
+      />
 
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-20 text-center">
@@ -188,7 +183,7 @@ export default function Terms() {
                   <ul className="space-y-2 text-sm text-muted">
                     <li className="flex items-center gap-2"><i className="fas fa-building text-primary w-4" /><strong className="text-dark">Sleek Nexus Creative</strong></li>
                     <li className="flex items-center gap-2"><i className="fas fa-location-dot text-primary w-4" />Juba, South Sudan</li>
-                    <li className="flex items-center gap-2"><i className="fas fa-envelope text-primary w-4" /><a href="mailto:legal@SNC.ss" className="hover:text-primary">legal@SNC.ss</a></li>
+                    <li className="flex items-center gap-2"><i className="fas fa-envelope text-primary w-4" /><a href="mailto:info@sleeknexuscreative.com" className="hover:text-primary">info@sleeknexuscreative.com</a></li>
                     <li className="flex items-center gap-2"><i className="fas fa-phone text-primary w-4" /><a href="tel:+211925277700" className="hover:text-primary">+211 925 277 700</a></li>
                   </ul>
                 </div>

@@ -76,7 +76,7 @@ export default class ErrorBoundary extends Component {
             <a href="/" className="btn-secondary">
               <i className="fas fa-home" /> Go Home
             </a>
-            <a href="mailto:info@SNC.ss" className="btn-secondary">
+            <a href="mailto:info@sleeknexuscreative.com" className="btn-secondary">
               <i className="fas fa-envelope" /> Report Issue
             </a>
           </div>

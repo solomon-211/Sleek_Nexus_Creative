@@ -2,10 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
-
-const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
-
-// Shared social links shown under every team member.
+import { fadeUp } from '../../lib/animations'
 // Format: [label, fontAwesomeClass, href, brandClasses]
 const socials = [
   ['Facebook', 'fab fa-facebook-f', '#', 'bg-[#1877F2] text-white'],

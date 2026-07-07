@@ -17,7 +17,6 @@ import InnovationHub from './pages/InnovationHub'
 const About = lazy(() => import('./pages/About'))
 const Services = lazy(() => import('./pages/Services'))
 const Projects = lazy(() => import('./pages/Projects'))
-const Courses = lazy(() => import('./pages/Courses'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Privacy = lazy(() => import('./pages/Privacy'))
 const Terms = lazy(() => import('./pages/Terms'))
@@ -42,17 +41,10 @@ const Portfolio = lazy(() => import('./pages/projects/Portfolio'))
 const CaseStudies = lazy(() => import('./pages/projects/CaseStudies'))
 const ClientSuccess = lazy(() => import('./pages/projects/ClientSuccess'))
 
-// Courses dropdown
-const Browse = lazy(() => import('./pages/courses/Browse'))
-const FreeResources = lazy(() => import('./pages/courses/FreeResources'))
-const Certifications = lazy(() => import('./pages/courses/Certifications'))
-const StudentProjects = lazy(() => import('./pages/courses/StudentProjects'))
-
 // Resources dropdown
-const Blog = lazy(() => import('./pages/resources/Blog'))
-const Guides = lazy(() => import('./pages/resources/Guides'))
-const FAQs = lazy(() => import('./pages/resources/FAQs'))
-const Downloads = lazy(() => import('./pages/resources/Downloads'))
+const Leadership = lazy(() => import('./pages/resources/Leadership'))
+const CareerGrowth = lazy(() => import('./pages/resources/CareerGrowth'))
+const Scholarships = lazy(() => import('./pages/resources/Scholarships'))
 
 // Contact dropdown
 const Quote = lazy(() => import('./pages/contact/Quote'))
@@ -61,11 +53,7 @@ const BookConsultation = lazy(() => import('./pages/contact/BookConsultation'))
 // Join Us dropdown
 const Careers = lazy(() => import('./pages/join/Careers'))
 const Internships = lazy(() => import('./pages/join/Internships'))
-const Volunteer = lazy(() => import('./pages/join/Volunteer'))
-const Trainer = lazy(() => import('./pages/join/Trainer'))
-const Mentor = lazy(() => import('./pages/join/Mentor'))
-const Community = lazy(() => import('./pages/join/Community'))
-const OpenPositions = lazy(() => import('./pages/join/OpenPositions'))
+const JoinCommunity = lazy(() => import('./pages/join/JoinCommunity'))
 const Alumni = lazy(() => import('./pages/join/Alumni'))
 
 const queryClient = new QueryClient({
@@ -87,7 +75,6 @@ export default function App() {
                   <Route path="/about" element={<About />} />
                   <Route path="/services" element={<Services />} />
                   <Route path="/projects" element={<Projects />} />
-                  <Route path="/courses" element={<Courses />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/get-started" element={<GetStarted />} />
                   <Route path="/privacy" element={<Privacy />} />
@@ -97,7 +84,6 @@ export default function App() {
                   <Route path="/about/our-story" element={<OurStory />} />
                   <Route path="/about/team" element={<Team />} />
                   <Route path="/about/mission-vision" element={<MissionVision />} />
-                  <Route path="/careers" element={<Careers />} />
 
                   {/* Services */}
                   <Route path="/services/web-dev" element={<WebDev />} />
@@ -112,18 +98,16 @@ export default function App() {
                   <Route path="/projects/case-studies" element={<CaseStudies />} />
                   <Route path="/projects/client-success" element={<ClientSuccess />} />
 
-                  {/* Courses */}
-                  <Route path="/courses/browse" element={<Browse />} />
-                  <Route path="/courses/free-resources" element={<FreeResources />} />
-                  <Route path="/courses/certifications" element={<Certifications />} />
-                  <Route path="/courses/student-projects" element={<StudentProjects />} />
-
                   {/* Resources */}
-                  <Route path="/resources" element={<Navigate to="/blog" replace />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/guides" element={<Guides />} />
-                  <Route path="/faqs" element={<FAQs />} />
-                  <Route path="/downloads" element={<Downloads />} />
+                  <Route path="/resources" element={<Navigate to="/resources/leadership" replace />} />
+                  <Route path="/resources/leadership" element={<Leadership />} />
+                  <Route path="/resources/career-growth" element={<CareerGrowth />} />
+                  <Route path="/resources/scholarships" element={<Scholarships />} />
+                  {/* Legacy redirects */}
+                  <Route path="/blog" element={<Navigate to="/resources/leadership" replace />} />
+                  <Route path="/guides" element={<Navigate to="/resources/career-growth" replace />} />
+                  <Route path="/faqs" element={<Navigate to="/contact" replace />} />
+                  <Route path="/downloads" element={<Navigate to="/resources/career-growth" replace />} />
 
                   {/* Contact */}
                   <Route path="/quote" element={<Quote />} />
@@ -135,11 +119,12 @@ export default function App() {
                   <Route path="/join/careers" element={<Navigate to="/careers" replace />} />
                   <Route path="/internships" element={<Internships />} />
                   <Route path="/join/internships" element={<Navigate to="/internships" replace />} />
-                  <Route path="/volunteer" element={<Volunteer />} />
-                  <Route path="/trainer" element={<Trainer />} />
-                  <Route path="/mentor" element={<Mentor />} />
-                  <Route path="/community" element={<Community />} />
-                  <Route path="/open-positions" element={<OpenPositions />} />
+                  <Route path="/join-community" element={<JoinCommunity />} />
+                  <Route path="/volunteer" element={<Navigate to="/join-community" replace />} />
+                  <Route path="/trainer" element={<Navigate to="/join-community" replace />} />
+                  <Route path="/mentor" element={<Navigate to="/join-community" replace />} />
+                  <Route path="/community" element={<Navigate to="/join-community" replace />} />
+                  <Route path="/open-positions" element={<Navigate to="/careers" replace />} />
                   <Route path="/alumni" element={<Alumni />} />
 
                   <Route path="*" element={<NotFound />} />

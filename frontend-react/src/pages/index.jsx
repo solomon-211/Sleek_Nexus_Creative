@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import SEO from '../components/ui/SEO'
 import PageHeader from '../components/ui/PageHeader'
-
-const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }
+import { fadeUp } from '../lib/animations'
 
 // ─── Partners ────────────────────────────────────────────────────────────────
 
@@ -59,7 +58,7 @@ function FAQAccordion({ items }) {
 export function Partners() {
   return (
     <>
-      <Helmet><title>Partner With Us - Sleek Nexus Creative</title></Helmet>
+      <SEO title="Partner With Us" description="Co-creating South Sudan's digital future through strategic collaboration with Sleek Nexus Creative." canonical="/get-started" />
       <PageHeader label="Collaboration" title="Our Partners" desc="Co-Creating South Sudan's Digital Future Through Strategic Collaboration" />
 
       {/* Partnership Types */}
@@ -186,7 +185,7 @@ const donorFAQs = [
 export function Donors() {
   return (
     <>
-      <Helmet><title>Donate - Sleek Nexus Creative</title></Helmet>
+      <SEO title="Our Donors" description="Investing in innovation, empowering communities, and transforming lives in South Sudan through donor support." canonical="/get-started" />
       <PageHeader label="Support Our Mission" title="Our Donors" desc="Investing in Innovation, Empowering Communities, Transforming Lives" />
 
       {/* Impact Stats */}
@@ -253,7 +252,7 @@ export function Donors() {
             <p className="text-muted text-sm mb-6">Reach out to discuss donation amounts, tax receipts, and how your contribution will be used.</p>
             <div className="flex flex-col gap-3">
               <Link to="/contact" className="btn-primary justify-center">Contact Us to Donate</Link>
-              <a href="mailto:info@SNC.ss" className="btn-secondary justify-center">info@SNC.ss</a>
+              <a href="mailto:info@sleeknexuscreative.com" className="btn-secondary justify-center">info@sleeknexuscreative.com</a>
             </div>
           </div>
         </div>
@@ -287,7 +286,7 @@ export function Donors() {
 export function NotFound() {
   return (
     <>
-      <Helmet><title>404 - Page Not Found | Sleek Nexus Creative</title></Helmet>
+      <SEO title="404 — Page Not Found" description="The page you're looking for doesn't exist or has been moved." canonical="/404" />
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center px-6">
           <div className="text-8xl font-heading font-black text-primary/20 mb-4">404</div>

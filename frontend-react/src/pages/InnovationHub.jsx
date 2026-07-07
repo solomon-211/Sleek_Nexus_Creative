@@ -41,17 +41,17 @@ const pillars = [
     color: 'from-[#ff8c42] to-[#e6740a]',
     title: 'Education & Talent Development',
     badge: 'Strategic Pillar II',
-    desc: 'Through the SNC Future Skills Academy, learners gain practical knowledge and competencies required for success in the modern workforce — from software development to leadership and communication.',
+    desc: 'Through leadership programs, career development, and scholarship guidance, SNC equips the next generation with the practical knowledge, confidence, and competencies needed for success in the modern workforce.',
     features: [
-      'Software Dev, AI & Data Science',
-      'Cybersecurity & Cloud Computing',
-      'Digital Marketing & Design',
-      'Leadership & Communication Academy',
-      'Career & College Readiness Centre',
-      'Scholarship guidance & CV coaching',
+      'Leadership & Character Development',
+      'Career Guidance & Professional Growth',
+      'Scholarship Guidance & Applications',
+      'Mentorship & Coaching Programs',
+      'Internship & Work Experience',
+      'Alumni Network & Community',
     ],
-    link: '/courses',
-    linkLabel: 'Browse Academy',
+    link: '/resources/leadership',
+    linkLabel: 'Explore Programs',
   },
   {
     num: 'III',
@@ -157,12 +157,12 @@ const communityPrograms = [
 ]
 
 const getInvolved = [
-  { icon: 'fa-user-graduate',   title: 'Enroll in a Program',    desc: 'Join a course, accelerator cohort, or leadership workshop and start building your future.', link: '/courses',    cta: 'Browse Programs',   bg: 'bg-primary' },
-  { icon: 'fa-user-tie',        title: 'Become a Mentor',        desc: 'Share your expertise, guide the next generation, and give back to South Sudan\'s tech community.', link: '/mentor',    cta: 'Apply to Mentor',   bg: 'bg-accent' },
-  { icon: 'fa-handshake',       title: 'Partner With Us',        desc: 'Co-fund programs, sponsor cohorts, recruit from our talent pipeline, or co-develop solutions.', link: '/partners',   cta: 'Partner With Us',   bg: 'bg-primary' },
-  { icon: 'fa-heart',           title: 'Support a Student',      desc: 'Sponsor a learner\'s training, donate to community programs, or fund a Hub initiative.', link: '/donors',    cta: 'Donate Now',        bg: 'bg-accent' },
-  { icon: 'fa-briefcase',       title: 'Internship Program',     desc: 'Gain real-world experience working on live projects alongside SNC professionals.', link: '/internships', cta: 'Apply for Internship', bg: 'bg-dark' },
-  { icon: 'fa-hands-helping',   title: 'Volunteer',              desc: 'Contribute your time and skills to teaching, outreach, content creation, or open-source projects.', link: '/volunteer',  cta: 'Volunteer With Us', bg: 'bg-primary' },
+  { icon: 'fa-crown',           title: 'Leadership Programs',    desc: 'Join a leadership workshop, personal development cohort, or career program to build your skills and grow your impact.', link: '/resources/leadership',  cta: 'Explore Leadership',    bg: 'bg-primary' },
+  { icon: 'fa-user-tie',        title: 'Become a Mentor',        desc: 'Share your expertise, guide the next generation, and give back to South Sudan\'s community.', link: '/mentor',     cta: 'Apply to Mentor',   bg: 'bg-accent' },
+  { icon: 'fa-handshake',       title: 'Partner With Us',        desc: 'Co-fund programs, sponsor cohorts, recruit from our talent pipeline, or co-develop solutions.', link: '/get-started', cta: 'Partner With Us',   bg: 'bg-primary' },
+  { icon: 'fa-heart',           title: 'Support a Student',      desc: 'Sponsor a learner\'s development, donate to community programs, or fund a Hub initiative.', link: '/get-started', cta: 'Donate Now',        bg: 'bg-accent' },
+  { icon: 'fa-briefcase',       title: 'Internship Program',     desc: 'Gain real-world experience working on live projects alongside SNC professionals.', link: '/internships',  cta: 'Apply for Internship', bg: 'bg-dark' },
+  { icon: 'fa-hands-helping',   title: 'Volunteer',              desc: 'Contribute your time and skills to teaching, outreach, content creation, or open-source projects.', link: '/volunteer',   cta: 'Volunteer With Us', bg: 'bg-primary' },
 ]
 
 // ── Page ──────────────────────────────────────────────────────────────────────
@@ -464,7 +464,7 @@ export default function InnovationHub() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link to="/partners" className="btn-primary">Become a Strategic Partner</Link>
+            <Link to="/get-started" className="btn-primary">Become a Strategic Partner</Link>
           </div>
         </div>
       </section>
