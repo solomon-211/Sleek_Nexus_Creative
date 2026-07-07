@@ -83,9 +83,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Innovation That Solves Problems | Juba, South Sudan"
+        title="Sleek Nexus Creative — Technology & Innovation for South Sudan"
         description="Sleek Nexus Creative helps organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact. Based in Juba."
         canonical="/"
+        keywords="web development South Sudan, mobile apps Juba, IT consulting South Sudan, e-learning platform South Sudan, software company Juba, Sleek Nexus Creative, SNC technology"
         image="https://sleeknexuscreative.com/images/og-cover.jpg"
         imageAlt="Sleek Nexus Creative — Technology & Innovation for South Sudan"
         schema={[

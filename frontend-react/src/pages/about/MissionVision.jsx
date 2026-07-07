@@ -1,6 +1,6 @@
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import SEO from '../../components/ui/SEO'
 import PageHeader from '../../components/ui/PageHeader'
 import { fadeUp } from '../../lib/animations'
 
@@ -29,7 +29,13 @@ const impacts = [
 export default function MissionVision() {
   return (
     <>
-      <Helmet><title>Mission & Vision - Sleek Nexus Creative</title></Helmet>
+      <SEO
+        title="Mission & Vision — Purpose, Values & Impact"
+        description="Sleek Nexus Creative's mission is to empower South Sudan through technology, education, and innovation. Discover our vision, core values, and the impact we are creating across communities."
+        canonical="/about/mission-vision"
+        keywords="Sleek Nexus Creative mission, SNC vision, technology South Sudan, digital innovation Juba, tech education South Sudan"
+        breadcrumbs={[{ name: 'About', url: '/about' }, { name: 'Mission & Vision', url: '/about/mission-vision' }]}
+      />
       <PageHeader label="Purpose & Direction" title="Mission & Vision" desc="The principles that guide our work, our hiring, our products, and our impact across South Sudan and beyond." />
 
       {/* Mission & Vision */}

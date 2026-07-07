@@ -171,12 +171,19 @@ export default function InnovationHub() {
   return (
     <>
       <SEO
-        title="SNC Innovation & Leadership Hub"
-        description="The SNC Innovation & Leadership Hub — a collaborative ecosystem empowering 5,000+ individuals through technology, education, entrepreneurship, and community impact across South Sudan."
+        title="SNC Innovation & Leadership Hub — Technology, Education & Entrepreneurship in South Sudan"
+        description="The SNC Innovation & Leadership Hub is a collaborative ecosystem in Juba, South Sudan empowering 5,000+ individuals through technology, education, entrepreneurship, and community impact programs. Vision 2040."
         canonical="/innovation-hub"
+        keywords="innovation hub South Sudan, tech hub Juba, entrepreneurship South Sudan, leadership programs Juba, SNC hub, startup incubation South Sudan, digital transformation South Sudan"
         image="https://sleeknexuscreative.com/images/about-preview.jpg"
         imageAlt="SNC Innovation and Leadership Hub in South Sudan"
         breadcrumbs={[{ name: 'Innovation Hub', url: '/innovation-hub' }]}
+        faq={[
+          { q: 'What is the SNC Innovation & Leadership Hub?', a: 'The SNC Innovation & Leadership Hub is a collaborative ecosystem in Juba, South Sudan that empowers individuals through technology services, education, entrepreneurship support, and community impact programs — with a vision to directly empower 5,000+ people by 2040.' },
+          { q: 'Who can join the SNC Hub?', a: 'Anyone in South Sudan can get involved — students, professionals, entrepreneurs, organizations, and international partners. You can join as a learner, mentor, volunteer, trainer, intern, or strategic partner.' },
+          { q: 'What programs does the SNC Hub offer?', a: 'The Hub offers four strategic pillars: Technology & Digital Solutions, Education & Talent Development, Innovation & Entrepreneurship, and Community Impact. Programs include internships, mentorship, leadership training, startup incubation, and digital literacy.' },
+          { q: 'Where is the SNC Innovation Hub located?', a: 'The SNC Innovation & Leadership Hub is based in Juba, Central Equatoria, South Sudan.' },
+        ]}
       />
 
       {/* ── HERO ──────────────────────────────────────────────────────── */}

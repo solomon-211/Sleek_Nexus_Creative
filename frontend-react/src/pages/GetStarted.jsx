@@ -53,12 +53,14 @@ export default function GetStarted() {
   return (
     <>
       <SEO
-        title="Get Started — Partner, Donate & Get Involved"
-        description="Partner with Sleek Nexus Creative, donate to support tech education in South Sudan, or get involved as a volunteer, trainer, or mentor."
+        title="Get Started — Partner, Donate & Get Involved in South Sudan"
+        description="Partner with Sleek Nexus Creative, donate to support youth tech education in South Sudan, or get involved as a volunteer, trainer, or mentor. Start making an impact today."
         canonical="/get-started"
+        keywords="partner with SNC, donate tech education South Sudan, get involved Juba, volunteer South Sudan tech, support digital innovation"
         image="https://sleeknexuscreative.com/images/hero-tech.png"
         imageAlt="Get involved with Sleek Nexus Creative in South Sudan"
         breadcrumbs={[{ name: 'Get Started', url: '/get-started' }]}
+        faq={faqs.map(({ q, a }) => ({ q, a }))}
       />
       <PageHeader
         label="Get Involved"

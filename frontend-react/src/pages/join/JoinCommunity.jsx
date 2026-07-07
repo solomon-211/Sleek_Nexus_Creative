@@ -443,8 +443,10 @@ export default function JoinCommunity() {
   return (
     <>
       <Helmet>
-        <title>Get Involved — Sleek Nexus Creative</title>
-        <meta name="description" content="Join the SNC community, volunteer, become a mentor, or train the next generation of South Sudanese tech professionals." />
+        <title>Get Involved — Volunteer, Mentor & Trainer Opportunities | Sleek Nexus Creative</title>
+        <meta name="description" content="Join the SNC community in South Sudan. Volunteer, become a mentor, or train the next generation of tech professionals. Free to join — make a real impact in Juba." />
+        <meta name="keywords" content="volunteer South Sudan, become a mentor Juba, tech trainer South Sudan, join SNC community, get involved South Sudan tech" />
+        <link rel="canonical" href="https://sleeknexuscreative.com/join-community" />
       </Helmet>
       <PageHeader
         label="Get Involved"
