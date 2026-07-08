@@ -1,5 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="16" fill="#0f172a"/>
-  <rect x="8" y="8" width="84" height="84" rx="12" fill="#c41e3a"/>
-  <text x="50" y="56" font-family="Arial Black,sans-serif" font-size="38" font-weight="900" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">SNC</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background circle matching SNC brand red -->
+  <circle cx="256" cy="256" r="256" fill="#c41e3a"/>
+  <!-- Inner subtle ring -->
+  <circle cx="256" cy="256" r="220" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="8"/>
+  <!-- SNC text - bold, white, centered -->
+  <text
+    x="256"
+    y="300"
+    font-family="Arial Black, Arial, sans-serif"
+    font-size="180"
+    font-weight="900"
+    fill="#ffffff"
+    text-anchor="middle"
+    letter-spacing="-4"
+  >SNC</text>
 </svg>
