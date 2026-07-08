@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="18" fill="#0f172a"/>
-  <text x="50" y="38" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" fill="#ff8c42" text-anchor="middle">SNC</text>
-  <text x="50" y="62" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#c41e3a" text-anchor="middle" letter-spacing="2">SLEEK</text>
-  <text x="50" y="75" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ff8c42" text-anchor="middle" letter-spacing="1">NEXUS</text>
+  <rect width="100" height="100" rx="16" fill="#0f172a"/>
+  <rect x="8" y="8" width="84" height="84" rx="12" fill="#c41e3a"/>
+  <text x="50" y="56" font-family="Arial Black,sans-serif" font-size="38" font-weight="900" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">SNC</text>
 </svg>
