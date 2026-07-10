@@ -40,6 +40,9 @@ jobs:
           VITE_EMAILJS_NEWSLETTER_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_NEWSLETTER_TEMPLATE_ID }}
           VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
 
+      - name: Copy CNAME to dist
+        run: cp CNAME frontend-react/dist/CNAME
+
       - uses: actions/configure-pages@v4
 
       - uses: actions/upload-pages-artifact@v3
