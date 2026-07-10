@@ -8,16 +8,15 @@
   "theme_color": "#c41e3a",
   "icons": [
     {
-      "src": "/images/SLEEK NEXUS CREATIVE.png",
-      "sizes": "512x512",
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/images/SLEEK NEXUS CREATIVE.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
     }
   ]
 }
