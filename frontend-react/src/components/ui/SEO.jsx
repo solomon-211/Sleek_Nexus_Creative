@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 
 const BASE_URL = 'https://sleeknexuscreative.com'
-const DEFAULT_IMAGE = `${BASE_URL}/images/SNCNNNN.png`
+const DEFAULT_IMAGE = `${BASE_URL}/images/snc-logo.png`
 const SITE_NAME = 'Sleek Nexus Creative'
 
 /**
