@@ -2,14 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>Sleek Nexus Creative</title>
     <script>
-      // GitHub Pages SPA redirect — sends 404s back to index.html
-      // so React Router can handle the route client-side.
-      const path = window.location.pathname
-      const search = window.location.search
-      const hash = window.location.hash
-      const redirectUrl = '/?p=' + encodeURIComponent(path) + (search ? '&q=' + encodeURIComponent(search.slice(1)) : '') + hash
-      window.location.replace(redirectUrl)
+      // GitHub Pages SPA redirect — preserves the full path + query + hash
+      // index.html reads the ?p= param and restores the URL via history.replaceState
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1).join('/') +
+        '/?p=' + encodeURIComponent(l.pathname + l.search) +
+        (l.hash ? '&q=' + encodeURIComponent(l.hash.slice(1)) : '')
+      );
     </script>
   </head>
   <body></body>
