@@ -80,10 +80,10 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-[0.65rem] font-bold uppercase tracking-widest text-accent mb-0.5">
-                Flagship Initiative · Vision 2030
+                Flagship Initiative · Vision 2040
               </p>
               <p className="text-sm font-semibold text-white leading-tight">
-                SNC Innovation &amp; Leadership Hub — empowering 10,000–20,000 individuals across South Sudan
+                SNC Innovation Hub — Technology &amp; Digital Solutions for South Sudan and Africa
               </p>
             </div>
           </div>
@@ -202,7 +202,7 @@ export default function Footer() {
               Subscribe to Our Newsletter
             </h3>
             <p className="text-gray-500 text-sm leading-relaxed">
-              Monthly updates on programs, opportunities, events, and SNC news.
+              Monthly updates on projects, digital insights, and SNC news.
             </p>
           </div>
           <div className="max-w-md w-full md:ml-auto">
