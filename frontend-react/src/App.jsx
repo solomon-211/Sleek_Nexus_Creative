@@ -1,7 +1,10 @@
 import { lazy, Suspense } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { HelmetProvider } from 'react-helmet-async'
+import { motion } from 'framer-motion'
+import { pageVariants } from './lib/animations'
 import Layout from './components/layout/Layout'
 import ErrorBoundary from './components/ui/ErrorBoundary'
 import PageLoader from './components/ui/PageLoader'
@@ -48,6 +51,63 @@ const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 1000 * 60 * 5, retry: 1 } },
 })
 
+function PageWrapper({ children }) {
+  return (
+    <motion.div
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+function AnimatedRoutes() {
+  const location = useLocation()
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <Routes location={location} key={location.pathname}>
+                  {/* Main */}
+                  <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+                  <Route path="/innovation-hub" element={<PageWrapper><InnovationHub /></PageWrapper>} />
+                  <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+                  <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
+                  <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
+                  <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+                  <Route path="/get-started" element={<PageWrapper><GetStarted /></PageWrapper>} />
+                  <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
+                  <Route path="/terms" element={<PageWrapper><Terms /></PageWrapper>} />
+
+                  {/* About */}
+                  <Route path="/about/our-story" element={<PageWrapper><OurStory /></PageWrapper>} />
+                  {/* <Route path="/about/team" element={<Team />} /> */}
+                  <Route path="/about/team" element={<Navigate to="/about" replace />} />
+                  <Route path="/about/mission-vision" element={<PageWrapper><MissionVision /></PageWrapper>} />
+
+                  {/* Services */}
+                  <Route path="/services/web-dev" element={<PageWrapper><WebDev /></PageWrapper>} />
+                  <Route path="/services/mobile-apps" element={<PageWrapper><MobileApps /></PageWrapper>} />
+                  <Route path="/services/ui-ux" element={<PageWrapper><UIUX /></PageWrapper>} />
+                  <Route path="/services/branding" element={<PageWrapper><Branding /></PageWrapper>} />
+                  <Route path="/services/consulting" element={<PageWrapper><Consulting /></PageWrapper>} />
+
+                  {/* Projects */}
+                  <Route path="/projects/portfolio" element={<PageWrapper><Portfolio /></PageWrapper>} />
+                  <Route path="/projects/case-studies" element={<PageWrapper><CaseStudies /></PageWrapper>} />
+                  <Route path="/projects/client-success" element={<PageWrapper><ClientSuccess /></PageWrapper>} />
+
+                  {/* Contact */}
+                  <Route path="/quote" element={<PageWrapper><Quote /></PageWrapper>} />
+                  <Route path="/book-consultation" element={<PageWrapper><BookConsultation /></PageWrapper>} />
+
+                  <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+      </Routes>
+    </AnimatePresence>
+  )
+}
+
 export default function App() {
   return (
     <HelmetProvider>
@@ -56,42 +116,7 @@ export default function App() {
           <ErrorBoundary>
             <Layout>
               <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  {/* Main */}
-                  <Route path="/" element={<Home />} />
-                  <Route path="/innovation-hub" element={<InnovationHub />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/get-started" element={<GetStarted />} />
-                  <Route path="/privacy" element={<Privacy />} />
-                  <Route path="/terms" element={<Terms />} />
-
-                  {/* About */}
-                  <Route path="/about/our-story" element={<OurStory />} />
-                  {/* <Route path="/about/team" element={<Team />} /> */}
-                  <Route path="/about/team" element={<Navigate to="/about" replace />} />
-                  <Route path="/about/mission-vision" element={<MissionVision />} />
-
-                  {/* Services */}
-                  <Route path="/services/web-dev" element={<WebDev />} />
-                  <Route path="/services/mobile-apps" element={<MobileApps />} />
-                  <Route path="/services/ui-ux" element={<UIUX />} />
-                  <Route path="/services/branding" element={<Branding />} />
-                  <Route path="/services/consulting" element={<Consulting />} />
-
-                  {/* Projects */}
-                  <Route path="/projects/portfolio" element={<Portfolio />} />
-                  <Route path="/projects/case-studies" element={<CaseStudies />} />
-                  <Route path="/projects/client-success" element={<ClientSuccess />} />
-
-                  {/* Contact */}
-                  <Route path="/quote" element={<Quote />} />
-                  <Route path="/book-consultation" element={<BookConsultation />} />
-
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
+                <AnimatedRoutes />
               </Suspense>
             </Layout>
           </ErrorBoundary>

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { fadeUp } from '../lib/animations'
+import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerItem, scaleIn } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -147,9 +147,11 @@ export default function Home() {
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
               <p className="section-label text-accent">Transforming Ideas Into Digital Reality</p>
               <h1 className="text-white mb-5 sm:mb-6" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem, 4.2vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
-                <span className="block">We Build Digital Products</span>
-                <span className="block">That Work in</span>
-                <span className="block">the <span className="text-accent">Real World</span></span>
+                <span className="block bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">We Build Digital Products</span>
+                <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">That Work in</span>
+                <span className="block">the{' '}
+                  <span className="bg-gradient-to-r from-accent via-orange-300 to-yellow-300 bg-clip-text text-transparent">Real World</span>
+                </span>
               </h1>
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-7 sm:mb-8">
                 Sleek Nexus Creative helps organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact.
@@ -169,8 +171,9 @@ export default function Home() {
             </motion.div>
 
             <motion.aside
-              variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 sm:p-8"
+              variants={fadeRight} initial="hidden" animate="show" transition={{ duration: 0.6, delay: 0.25 }}
+              className="bg-white/[0.07] backdrop-blur-xl border border-white/20 rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.15)]"
+              style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.04) 100%)' }}
             >
               <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4">What You Get</p>
               <ul className="space-y-3 mb-6">
@@ -197,17 +200,20 @@ export default function Home() {
       {/* Stats Counter */}
       <section className="py-12 sm:py-16 bg-white border-b border-gray-100">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center"
+            variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
+          >
             {counters.map(({ icon, value, suffix, label }) => (
-              <div key={label}>
+              <motion.div key={label} variants={scaleIn}>
                 <i className={`fas ${icon} text-primary text-xl sm:text-2xl mb-2 sm:mb-3 block`} />
                 <strong className="block text-3xl sm:text-4xl font-heading font-black text-dark mb-1">
                   <AnimatedCounter value={value} suffix={suffix} />
                 </strong>
                 <span className="text-muted text-xs sm:text-sm">{label}</span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -219,9 +225,12 @@ export default function Home() {
             <h2 className="section-title">Our Services</h2>
             <p className="section-subtitle">From concept to launch, we design systems that solve real operational and community problems.</p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            {services.map(({ icon, title, desc, hash }, i) => (
-              <motion.div key={title} className="card p-5 sm:p-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"
+            variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
+          >
+            {services.map(({ icon, title, desc, hash }) => (
+              <motion.div key={title} className="card p-5 sm:p-6" variants={staggerItem}>
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <i className={`fas ${icon} text-primary text-lg`} />
                 </div>
@@ -230,7 +239,7 @@ export default function Home() {
                 <Link to={`/services${hash}`} className="text-primary text-sm font-semibold hover:underline">Learn More</Link>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -289,9 +298,12 @@ export default function Home() {
             <h2 className="section-title">Featured Projects</h2>
             <p className="section-subtitle">Selected case studies with measurable outcomes in education, business, and finance.</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-8 sm:mb-10">
-            {projects.map(({ img, title, desc, hash }, i) => (
-              <motion.div key={title} className="card overflow-hidden" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-8 sm:mb-10"
+            variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
+          >
+            {projects.map(({ img, title, desc, hash }) => (
+              <motion.div key={title} className="card overflow-hidden" variants={staggerItem}>
                 <img src={img} alt={title} className="w-full h-44 sm:h-48 object-cover" loading="lazy" />
                 <div className="p-4 sm:p-5">
                   <h3 className="font-heading font-bold text-dark mb-2">{title}</h3>
@@ -300,7 +312,7 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
           <div className="text-center">
             <Link to="/projects" className="btn-primary">View All Projects</Link>
           </div>
@@ -343,9 +355,12 @@ export default function Home() {
             <h2 className="section-title">Why Choose Us</h2>
             <p className="section-subtitle">We are not just a vendor — we are a long-term technology partner committed to your success.</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {whyCards.map(({ icon, title, desc }, i) => (
-              <motion.div key={title} className="card p-5 sm:p-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+            variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
+          >
+            {whyCards.map(({ icon, title, desc }) => (
+              <motion.div key={title} className="card p-5 sm:p-6" variants={staggerItem}>
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <i className={`fas ${icon} text-primary text-lg`} />
                 </div>
@@ -353,7 +368,7 @@ export default function Home() {
                 <p className="text-muted text-sm leading-relaxed">{desc}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 

@@ -1,7 +1,35 @@
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/ui/SEO'
 import { motion } from 'framer-motion'
-import { fadeUp } from '../lib/animations'
+import { fadeUp, staggerContainer, scaleIn } from '../lib/animations'
+
+// ── Animated Counter (Hub) ────────────────────────────────────────────────────
+function AnimatedCounter({ value, suffix = '' }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const started = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started.current) {
+        started.current = true
+        const steps = 60
+        const increment = value / steps
+        let current = 0
+        const timer = setInterval(() => {
+          current += increment
+          if (current >= value) { setCount(value); clearInterval(timer) }
+          else setCount(Math.floor(current))
+        }, 1800 / steps)
+      }
+    }, { threshold: 0.3 })
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [value])
+
+  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>
+}
 
 // ── SDGs SNC directly addresses ──────────────────────────────────────────────
 const sdgs = [
@@ -124,12 +152,12 @@ const roadmap = [
 
 // ── Impact metrics ────────────────────────────────────────────────────────────
 const impact = [
-  { icon: 'fa-code',          value: '150+',   label: 'Digital Products Built by 2040' },
-  { icon: 'fa-store',         value: '20+',    label: 'Startups Supported' },
-  { icon: 'fa-briefcase',     value: '500+',   label: 'Jobs & Opportunities Created' },
-  { icon: 'fa-globe-africa',  value: 'Africa', label: 'Regional Market Reach' },
-  { icon: 'fa-handshake',     value: '30+',    label: 'Strategic Partnerships' },
-  { icon: 'fa-flag',          value: 'Juba',   label: 'Innovation Hub HQ' },
+  { icon: 'fa-code',          value: 150,   suffix: '+',     label: 'Digital Products Built by 2040', isNum: true },
+  { icon: 'fa-store',         value: 20,    suffix: '+',     label: 'Startups Supported', isNum: true },
+  { icon: 'fa-briefcase',     value: 500,   suffix: '+',     label: 'Jobs & Opportunities Created', isNum: true },
+  { icon: 'fa-globe-africa',  value: null,  display: 'Africa', label: 'Regional Market Reach' },
+  { icon: 'fa-handshake',     value: 30,    suffix: '+',     label: 'Strategic Partnerships', isNum: true },
+  { icon: 'fa-flag',          value: null,  display: 'Juba', label: 'Innovation Hub HQ' },
 ]
 
 // ── Partners ──────────────────────────────────────────────────────────────────
@@ -183,8 +211,8 @@ export default function InnovationHub() {
               </span>
               <h1 className="text-white font-heading font-black uppercase leading-[0.95] mb-6"
                 style={{ fontSize: 'clamp(2.25rem,5.5vw,4.25rem)', letterSpacing: '-0.02em' }}>
-                Technology &amp; Innovation<br />
-                <span className="text-primary">Hub</span>
+                <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">Technology &amp; Innovation</span><br />
+                <span className="bg-gradient-to-r from-primary via-accent to-orange-300 bg-clip-text text-transparent">Hub</span>
               </h1>
               <p className="text-gray-300 text-lg leading-relaxed mb-4 max-w-2xl">
                 A technology and innovation ecosystem in Juba, South Sudan — building digital products, delivering software solutions, and driving transformation aligned with the UN Sustainable Development Goals.
@@ -341,17 +369,22 @@ export default function InnovationHub() {
             <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-2">Expected Impact by 2040</p>
             <h2 className="text-3xl font-heading font-bold">The Scale of Our Ambition</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-            {impact.map(({ icon, value, label }, i) => (
-              <motion.div key={label} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07 }}>
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center"
+            variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
+          >
+            {impact.map(({ icon, value, suffix, display, label, isNum }, i) => (
+              <motion.div key={label} variants={scaleIn}>
                 <div className="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mx-auto mb-3">
                   <i className={`fas ${icon} text-white text-lg`} />
                 </div>
-                <div className="text-2xl font-heading font-black mb-1">{value}</div>
+                <div className="text-2xl font-heading font-black mb-1">
+                  {isNum ? <AnimatedCounter value={value} suffix={suffix} /> : display}
+                </div>
                 <div className="text-white/70 text-xs leading-tight">{label}</div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 

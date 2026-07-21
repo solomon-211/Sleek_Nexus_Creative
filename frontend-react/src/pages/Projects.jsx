@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import SEO from '../components/ui/SEO'
-import { fadeUpSm as fadeUp } from '../lib/animations'
+import { fadeUpSm as fadeUp, staggerContainer, staggerItem } from '../lib/animations'
 
 const filters = ['all', 'web', 'mobile', 'edtech', 'enterprise']
 
@@ -60,10 +60,14 @@ export default function Projects() {
       {/* Grid */}
       <section className="py-16">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={staggerContainer} initial="hidden" animate="show"
+          >
             <AnimatePresence mode="popLayout">
               {filtered.map(({ id, img, tags, title, desc, year, client }) => (
                 <motion.div key={id} layout className="card overflow-hidden group"
+                  variants={staggerItem}
                   initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.3 }}>
                   <div className="relative overflow-hidden h-52">
                     <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
@@ -85,7 +89,7 @@ export default function Projects() {
                 </motion.div>
               ))}
             </AnimatePresence>
-          </div>
+          </motion.div>
         </div>
       </section>
 
