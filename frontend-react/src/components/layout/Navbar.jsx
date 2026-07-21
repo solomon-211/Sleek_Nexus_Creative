@@ -34,14 +34,6 @@ const navLinks = [
     ],
   },
   {
-    label: 'Resources', to: '/resources/leadership',
-    dropdown: [
-      { icon: 'fa-crown',          label: 'Leadership',    to: '/resources/leadership' },
-      { icon: 'fa-chart-line',     label: 'Career Growth', to: '/resources/career-growth' },
-      { icon: 'fa-graduation-cap', label: 'Scholarships',  to: '/resources/scholarships' },
-    ],
-  },
-  {
     label: 'Contact', to: '/contact',
     dropdown: [
       { icon: 'fa-envelope',          label: 'Contact Us',        to: '/contact' },

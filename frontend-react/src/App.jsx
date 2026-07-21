@@ -41,11 +41,6 @@ const Portfolio = lazy(() => import('./pages/projects/Portfolio'))
 const CaseStudies = lazy(() => import('./pages/projects/CaseStudies'))
 const ClientSuccess = lazy(() => import('./pages/projects/ClientSuccess'))
 
-// Resources dropdown
-const Leadership = lazy(() => import('./pages/resources/Leadership'))
-const CareerGrowth = lazy(() => import('./pages/resources/CareerGrowth'))
-const Scholarships = lazy(() => import('./pages/resources/Scholarships'))
-
 // Contact dropdown
 const Quote = lazy(() => import('./pages/contact/Quote'))
 const BookConsultation = lazy(() => import('./pages/contact/BookConsultation'))
@@ -98,17 +93,6 @@ export default function App() {
                   <Route path="/projects/portfolio" element={<Portfolio />} />
                   <Route path="/projects/case-studies" element={<CaseStudies />} />
                   <Route path="/projects/client-success" element={<ClientSuccess />} />
-
-                  {/* Resources */}
-                  <Route path="/resources" element={<Navigate to="/resources/leadership" replace />} />
-                  <Route path="/resources/leadership" element={<Leadership />} />
-                  <Route path="/resources/career-growth" element={<CareerGrowth />} />
-                  <Route path="/resources/scholarships" element={<Scholarships />} />
-                  {/* Legacy redirects */}
-                  <Route path="/blog" element={<Navigate to="/resources/leadership" replace />} />
-                  <Route path="/guides" element={<Navigate to="/resources/career-growth" replace />} />
-                  <Route path="/faqs" element={<Navigate to="/contact" replace />} />
-                  <Route path="/downloads" element={<Navigate to="/resources/career-growth" replace />} />
 
                   {/* Contact */}
                   <Route path="/quote" element={<Quote />} />
