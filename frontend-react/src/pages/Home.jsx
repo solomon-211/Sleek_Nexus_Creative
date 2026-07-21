@@ -145,10 +145,10 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-24 w-full">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
-              <p className="section-label text-accent">Transforming Ideas Into Digital Reality</p>
+              <p className="section-label text-accent">Technology Built for South Sudan</p>
               <h1 className="text-white mb-5 sm:mb-6" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem, 4.2vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
-                <span className="block bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">We Build Digital Products</span>
-                <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">That Work in</span>
+                <span className="block text-white">We Build Digital Products</span>
+                <span className="block text-white">That Work in</span>
                 <span className="block">the{' '}
                   <span className="bg-gradient-to-r from-accent via-orange-300 to-yellow-300 bg-clip-text text-transparent">Real World</span>
                 </span>
@@ -157,8 +157,8 @@ export default function Home() {
                 Sleek Nexus Creative helps organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact.
               </p>
               <div className="flex flex-wrap gap-3 mb-8 sm:mb-12">
-                <Link to="/contact" className="btn-primary"><i className="fas fa-rocket" /> Start Your Project</Link>
-                <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary"><i className="fas fa-eye" /> View Our Work</Link>
+                <Link to="/contact" className="btn-primary">Start Your Project</Link>
+                <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Work</Link>
               </div>
               <div className="flex flex-wrap gap-6 sm:gap-8">
                 {[{ value: '10+', label: 'Projects Delivered' }, { value: '50+', label: 'Learners Supported' }, { value: '1+', label: 'Years of Excellence' }].map(({ value, label }) => (
@@ -375,17 +375,15 @@ export default function Home() {
       {/* CTA Banner */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-primary to-primary-dark text-white text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <p className="section-label text-white/80">
-            <i className="fas fa-bolt mr-1" /> Let's Build Together
-          </p>
-          <h2 className="display-heading-sm mb-4">Ready to Launch Your Next Digital Product?</h2>
-          <p className="text-white/80 text-base sm:text-lg mb-7 sm:mb-8">Partner with Sleek Nexus Creative to build dependable, scalable technology that delivers real results for your organization.</p>
+          <p className="section-label text-white/70">Work With Us</p>
+          <h2 className="display-heading-sm mb-4">Have a Project in Mind?</h2>
+          <p className="text-white/80 text-base sm:text-lg mb-7 sm:mb-8">Tell us what you need. We will assess it honestly, scope it clearly, and build it right.</p>
           <div className="flex flex-wrap gap-3 justify-center mb-6 sm:mb-8">
             <Link to="/contact" className="bg-white text-primary hover:bg-gray-100 font-semibold px-6 sm:px-7 py-3 rounded-lg inline-flex items-center gap-2 transition-colors touch-manipulation">
-              <i className="fas fa-rocket" /> Start Your Project
+              Get in Touch
             </Link>
             <Link to="/services" className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-6 sm:px-7 py-3 rounded-lg inline-flex items-center gap-2 transition-colors touch-manipulation">
-              Explore Services
+              Our Services
             </Link>
           </div>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-white/80">

@@ -207,11 +207,11 @@ export default function InnovationHub() {
           <div className="max-w-4xl">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.7 }}>
               <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-6 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">
-                <i className="fas fa-bolt text-[0.7rem]" /> Flagship Initiative · Vision 2040
+                SNC · Vision 2040
               </span>
               <h1 className="text-white font-heading font-black uppercase leading-[0.95] mb-6"
                 style={{ fontSize: 'clamp(2.25rem,5.5vw,4.25rem)', letterSpacing: '-0.02em' }}>
-                <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">Technology &amp; Innovation</span><br />
+                <span className="text-white">Technology &amp; Innovation</span><br />
                 <span className="bg-gradient-to-r from-primary via-accent to-orange-300 bg-clip-text text-transparent">Hub</span>
               </h1>
               <p className="text-gray-300 text-lg leading-relaxed mb-4 max-w-2xl">
@@ -219,14 +219,14 @@ export default function InnovationHub() {
               </p>
               <p className="text-accent font-semibold mb-8">
                 <i className="fas fa-globe-africa mr-2" />
-                SDG-aligned · South Sudan & Africa · Vision 2040
+                SDG-aligned · South Sudan &amp; Africa · Vision 2040
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/get-started" className="btn-primary text-base px-8 py-3.5">
-                  <i className="fas fa-rocket" /> Start a Project
+                  Start a Project
                 </Link>
                 <a href="#focus" className="inline-flex items-center gap-2 border-2 border-white/30 text-white hover:border-white font-semibold px-8 py-3.5 rounded-lg transition-all">
-                  Explore the Hub <i className="fas fa-arrow-down text-sm" />
+                  Explore the Hub
                 </a>
               </div>
             </motion.div>
@@ -367,7 +367,7 @@ export default function InnovationHub() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-12">
             <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-2">Expected Impact by 2040</p>
-            <h2 className="text-3xl font-heading font-bold">The Scale of Our Ambition</h2>
+            <h2 className="text-3xl font-heading font-bold">What We Are Building Toward</h2>
           </div>
           <motion.div
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center"
@@ -416,23 +416,20 @@ export default function InnovationHub() {
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-5 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">
-              <i className="fas fa-bolt" /> Vision 2040
+              Vision 2040
             </span>
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 leading-tight">
-              Building Digital Solutions That Drive Real-World Impact
+              Building Digital Infrastructure for South Sudan
             </h2>
-            <p className="text-gray-300 text-lg leading-relaxed mb-4">
+            <p className="text-gray-300 text-lg leading-relaxed mb-10">
               Through the SNC Innovation Hub, we are building an ecosystem where technology solves real problems, businesses grow digitally, and communities benefit from innovation — aligned with the UN SDGs.
-            </p>
-            <p className="text-gray-400 text-sm mb-10 italic">
-              "Every organisation can leverage technology for growth. Every community can benefit from innovation."
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/get-started" className="btn-primary text-base px-8 py-3.5">
-                <i className="fas fa-rocket" /> Start a Project
+                Start a Project
               </Link>
               <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-white/30 text-white hover:border-white font-semibold px-8 py-3.5 rounded-lg transition-all">
-                <i className="fas fa-envelope" /> Talk to Us
+                Talk to Us
               </Link>
             </div>
           </motion.div>
