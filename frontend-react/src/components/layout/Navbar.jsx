@@ -11,7 +11,6 @@ const navLinks = [
       { icon: 'fa-book-open',    label: 'Our Story',       to: '/about/our-story' },
       // { icon: 'fa-users',        label: 'Team',             to: '/about/team' },
       { icon: 'fa-bullseye',     label: 'Mission & Vision', to: '/about/mission-vision' },
-      { icon: 'fa-briefcase',    label: 'Careers',          to: '/careers' },
     ],
   },
   {
@@ -20,7 +19,6 @@ const navLinks = [
       { icon: 'fa-code',          label: 'Web Development',      to: '/services/web-dev' },
       { icon: 'fa-mobile-alt',    label: 'Mobile Apps',          to: '/services/mobile-apps' },
       { icon: 'fa-pencil-ruler',  label: 'UI/UX Design',         to: '/services/ui-ux' },
-      { icon: 'fa-graduation-cap',label: 'E-Learning Solutions',  to: '/services/elearning' },
       { icon: 'fa-palette',       label: 'Branding',             to: '/services/branding' },
       { icon: 'fa-laptop-code',   label: 'Digital Consulting',   to: '/services/consulting' },
     ],
@@ -39,15 +37,6 @@ const navLinks = [
       { icon: 'fa-envelope',          label: 'Contact Us',        to: '/contact' },
       { icon: 'fa-file-invoice-dollar',label: 'Get a Quote',      to: '/quote' },
       { icon: 'fa-calendar-check',    label: 'Book Consultation', to: '/book-consultation' },
-    ],
-  },
-  {
-    label: 'Join Us', to: '/join',
-    dropdown: [
-      { icon: 'fa-briefcase',     label: 'Careers',           to: '/careers' },
-      { icon: 'fa-user-graduate', label: 'Internships',       to: '/internships' },
-      { icon: 'fa-users',         label: 'Get Involved',      to: '/join-community' },
-      { icon: 'fa-graduation-cap',label: 'Alumni Network',    to: '/alumni' },
     ],
   },
   { label: 'Hub', to: '/innovation-hub', highlight: true },

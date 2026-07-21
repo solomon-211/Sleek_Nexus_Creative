@@ -32,7 +32,6 @@ const MissionVision = lazy(() => import('./pages/about/MissionVision'))
 const WebDev = lazy(() => import('./pages/services/WebDev'))
 const MobileApps = lazy(() => import('./pages/services/MobileApps'))
 const UIUX = lazy(() => import('./pages/services/UIUX'))
-const Elearning = lazy(() => import('./pages/services/Elearning'))
 const Branding = lazy(() => import('./pages/services/Branding'))
 const Consulting = lazy(() => import('./pages/services/Consulting'))
 
@@ -44,12 +43,6 @@ const ClientSuccess = lazy(() => import('./pages/projects/ClientSuccess'))
 // Contact dropdown
 const Quote = lazy(() => import('./pages/contact/Quote'))
 const BookConsultation = lazy(() => import('./pages/contact/BookConsultation'))
-
-// Join Us dropdown
-const Careers = lazy(() => import('./pages/join/Careers'))
-const Internships = lazy(() => import('./pages/join/Internships'))
-const JoinCommunity = lazy(() => import('./pages/join/JoinCommunity'))
-const Alumni = lazy(() => import('./pages/join/Alumni'))
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 1000 * 60 * 5, retry: 1 } },
@@ -85,7 +78,6 @@ export default function App() {
                   <Route path="/services/web-dev" element={<WebDev />} />
                   <Route path="/services/mobile-apps" element={<MobileApps />} />
                   <Route path="/services/ui-ux" element={<UIUX />} />
-                  <Route path="/services/elearning" element={<Elearning />} />
                   <Route path="/services/branding" element={<Branding />} />
                   <Route path="/services/consulting" element={<Consulting />} />
 
@@ -97,20 +89,6 @@ export default function App() {
                   {/* Contact */}
                   <Route path="/quote" element={<Quote />} />
                   <Route path="/book-consultation" element={<BookConsultation />} />
-
-                  {/* Join Us */}
-                  <Route path="/join" element={<Navigate to="/careers" replace />} />
-                  <Route path="/careers" element={<Careers />} />
-                  <Route path="/join/careers" element={<Navigate to="/careers" replace />} />
-                  <Route path="/internships" element={<Internships />} />
-                  <Route path="/join/internships" element={<Navigate to="/internships" replace />} />
-                  <Route path="/join-community" element={<JoinCommunity />} />
-                  <Route path="/volunteer" element={<Navigate to="/join-community" replace />} />
-                  <Route path="/trainer" element={<Navigate to="/join-community" replace />} />
-                  <Route path="/mentor" element={<Navigate to="/join-community" replace />} />
-                  <Route path="/community" element={<Navigate to="/join-community" replace />} />
-                  <Route path="/open-positions" element={<Navigate to="/careers" replace />} />
-                  <Route path="/alumni" element={<Alumni />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>
