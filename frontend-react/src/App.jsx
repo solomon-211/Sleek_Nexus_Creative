@@ -16,36 +16,21 @@ import Home from './pages/Home'
 import InnovationHub from './pages/InnovationHub'
 
 // Every other page is split into its own chunk and fetched on demand.
-// Main pages
-const About = lazy(() => import('./pages/About'))
-const Services = lazy(() => import('./pages/Services'))
-const Projects = lazy(() => import('./pages/Projects'))
-const Contact = lazy(() => import('./pages/Contact'))
-const Privacy = lazy(() => import('./pages/Privacy'))
-const Terms = lazy(() => import('./pages/Terms'))
+const About      = lazy(() => import('./pages/About'))
+const Services   = lazy(() => import('./pages/Services'))
+const Projects   = lazy(() => import('./pages/Projects'))
+const Contact    = lazy(() => import('./pages/Contact'))
+const Privacy    = lazy(() => import('./pages/Privacy'))
+const Terms      = lazy(() => import('./pages/Terms'))
 const GetStarted = lazy(() => import('./pages/GetStarted'))
-const NotFound = lazy(() => import('./pages/index.jsx').then(m => ({ default: m.NotFound })))
+const NotFound   = lazy(() => import('./pages/index.jsx').then(m => ({ default: m.NotFound })))
 
-// About dropdown
-const OurStory = lazy(() => import('./pages/about/OurStory'))
-// const Team = lazy(() => import('./pages/about/Team'))
-const MissionVision = lazy(() => import('./pages/about/MissionVision'))
-
-// Services dropdown
-const WebDev = lazy(() => import('./pages/services/WebDev'))
+// Services sub-pages
+const WebDev     = lazy(() => import('./pages/services/WebDev'))
 const MobileApps = lazy(() => import('./pages/services/MobileApps'))
-const UIUX = lazy(() => import('./pages/services/UIUX'))
-const Branding = lazy(() => import('./pages/services/Branding'))
+const UIUX       = lazy(() => import('./pages/services/UIUX'))
+const Branding   = lazy(() => import('./pages/services/Branding'))
 const Consulting = lazy(() => import('./pages/services/Consulting'))
-
-// Projects dropdown
-const Portfolio = lazy(() => import('./pages/projects/Portfolio'))
-const CaseStudies = lazy(() => import('./pages/projects/CaseStudies'))
-const ClientSuccess = lazy(() => import('./pages/projects/ClientSuccess'))
-
-// Contact dropdown
-const Quote = lazy(() => import('./pages/contact/Quote'))
-const BookConsultation = lazy(() => import('./pages/contact/BookConsultation'))
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 1000 * 60 * 5, retry: 1 } },
@@ -80,27 +65,22 @@ function AnimatedRoutes() {
                   <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
                   <Route path="/terms" element={<PageWrapper><Terms /></PageWrapper>} />
 
-                  {/* About */}
-                  <Route path="/about/our-story" element={<PageWrapper><OurStory /></PageWrapper>} />
-                  {/* <Route path="/about/team" element={<Team />} /> */}
-                  <Route path="/about/team" element={<Navigate to="/about" replace />} />
-                  <Route path="/about/mission-vision" element={<PageWrapper><MissionVision /></PageWrapper>} />
-
-                  {/* Services */}
+                  {/* Services sub-pages */}
                   <Route path="/services/web-dev" element={<PageWrapper><WebDev /></PageWrapper>} />
                   <Route path="/services/mobile-apps" element={<PageWrapper><MobileApps /></PageWrapper>} />
                   <Route path="/services/ui-ux" element={<PageWrapper><UIUX /></PageWrapper>} />
                   <Route path="/services/branding" element={<PageWrapper><Branding /></PageWrapper>} />
                   <Route path="/services/consulting" element={<PageWrapper><Consulting /></PageWrapper>} />
 
-                  {/* Projects */}
-                  <Route path="/projects/portfolio" element={<PageWrapper><Portfolio /></PageWrapper>} />
-                  <Route path="/projects/case-studies" element={<PageWrapper><CaseStudies /></PageWrapper>} />
-                  <Route path="/projects/client-success" element={<PageWrapper><ClientSuccess /></PageWrapper>} />
-
-                  {/* Contact */}
-                  <Route path="/quote" element={<PageWrapper><Quote /></PageWrapper>} />
-                  <Route path="/book-consultation" element={<PageWrapper><BookConsultation /></PageWrapper>} />
+                  {/* Redirects for removed pages */}
+                  <Route path="/about/our-story"        element={<Navigate to="/about" replace />} />
+                  <Route path="/about/mission-vision"   element={<Navigate to="/about" replace />} />
+                  <Route path="/about/team"             element={<Navigate to="/about" replace />} />
+                  <Route path="/projects/portfolio"     element={<Navigate to="/projects" replace />} />
+                  <Route path="/projects/case-studies"  element={<Navigate to="/projects" replace />} />
+                  <Route path="/projects/client-success" element={<Navigate to="/projects" replace />} />
+                  <Route path="/quote"                  element={<Navigate to="/get-started" replace />} />
+                  <Route path="/book-consultation"      element={<Navigate to="/get-started" replace />} />
 
                   <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
       </Routes>

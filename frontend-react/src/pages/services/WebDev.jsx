@@ -89,7 +89,7 @@ export default function WebDev() {
           <p className="text-gray-300 mb-8">Get a free consultation and custom quote within 24 hours.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/contact" className="btn-primary">Get a Free Quote</Link>
-            <Link to="/projects/portfolio" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">See Our Work</Link>
+            <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">See Our Work</Link>
           </div>
         </div>
       </section>

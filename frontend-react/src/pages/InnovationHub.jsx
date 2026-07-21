@@ -212,7 +212,7 @@ export default function InnovationHub() {
               <h1 className="text-white font-heading font-black uppercase leading-[0.95] mb-6"
                 style={{ fontSize: 'clamp(2.25rem,5.5vw,4.25rem)', letterSpacing: '-0.02em' }}>
                 <span className="text-white">Technology &amp; Innovation</span><br />
-                <span className="bg-gradient-to-r from-primary via-accent to-orange-300 bg-clip-text text-transparent">Hub</span>
+                <span className="text-accent">Hub</span>
               </h1>
               <p className="text-gray-300 text-lg leading-relaxed mb-4 max-w-2xl">
                 A technology and innovation ecosystem in Juba, South Sudan — building digital products, delivering software solutions, and driving transformation aligned with the UN Sustainable Development Goals.

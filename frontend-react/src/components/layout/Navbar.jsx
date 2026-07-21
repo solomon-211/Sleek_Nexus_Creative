@@ -4,42 +4,21 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 // ── Nav data ──────────────────────────────────────────────────────────────────
 const navLinks = [
-  { label: 'Home', to: '/' },
-  {
-    label: 'About', to: '/about',
-    dropdown: [
-      { icon: 'fa-book-open',    label: 'Our Story',       to: '/about/our-story' },
-      // { icon: 'fa-users',        label: 'Team',             to: '/about/team' },
-      { icon: 'fa-bullseye',     label: 'Mission & Vision', to: '/about/mission-vision' },
-    ],
-  },
+  { label: 'Home',     to: '/' },
+  { label: 'About',    to: '/about' },
   {
     label: 'Services', to: '/services',
     dropdown: [
-      { icon: 'fa-code',          label: 'Web Development',      to: '/services/web-dev' },
-      { icon: 'fa-mobile-alt',    label: 'Mobile Apps',          to: '/services/mobile-apps' },
-      { icon: 'fa-pencil-ruler',  label: 'UI/UX Design',         to: '/services/ui-ux' },
-      { icon: 'fa-palette',       label: 'Branding',             to: '/services/branding' },
-      { icon: 'fa-laptop-code',   label: 'Digital Consulting',   to: '/services/consulting' },
+      { icon: 'fa-code',         label: 'Web Development',    to: '/services/web-dev' },
+      { icon: 'fa-mobile-alt',   label: 'Mobile Apps',        to: '/services/mobile-apps' },
+      { icon: 'fa-pencil-ruler', label: 'UI/UX Design',       to: '/services/ui-ux' },
+      { icon: 'fa-palette',      label: 'Branding',           to: '/services/branding' },
+      { icon: 'fa-laptop-code',  label: 'IT Consulting',      to: '/services/consulting' },
     ],
   },
-  {
-    label: 'Projects', to: '/projects',
-    dropdown: [
-      { icon: 'fa-th',        label: 'Portfolio',             to: '/projects/portfolio' },
-      { icon: 'fa-chart-bar', label: 'Case Studies',          to: '/projects/case-studies' },
-      { icon: 'fa-trophy',    label: 'Client Success Stories', to: '/projects/client-success' },
-    ],
-  },
-  {
-    label: 'Contact', to: '/contact',
-    dropdown: [
-      { icon: 'fa-envelope',          label: 'Contact Us',        to: '/contact' },
-      { icon: 'fa-file-invoice-dollar',label: 'Get a Quote',      to: '/quote' },
-      { icon: 'fa-calendar-check',    label: 'Book Consultation', to: '/book-consultation' },
-    ],
-  },
-  { label: 'Hub', to: '/innovation-hub', highlight: true },
+  { label: 'Projects', to: '/projects' },
+  { label: 'Contact',  to: '/contact' },
+  { label: 'Hub',      to: '/innovation-hub', highlight: true },
 ]
 
 // ── Dropdown panel — white card on dark navbar ────────────────────────────────
@@ -153,7 +132,7 @@ export default function Navbar() {
           </Link>
 
           {/* ── Desktop nav ── */}
-          <ul className="hidden lg:flex items-center gap-0.5 ml-8">
+          <ul className="hidden lg:flex items-center gap-0.5 ml-auto mr-3">
             {navLinks.map(({ label, to, dropdown, highlight }) => (
               <li
                 key={to}
@@ -168,12 +147,12 @@ export default function Navbar() {
                     className={({ isActive }) =>
                       `flex items-center gap-1.5 text-sm font-bold px-3 py-1.5 rounded-lg transition-all duration-200 whitespace-nowrap border ${
                         isActive
-                          ? 'bg-primary text-white border-primary shadow-[0_0_16px_rgba(196,30,58,0.4)]'
+                          ? 'bg-accent text-white border-accent shadow-[0_0_16px_rgba(255,140,66,0.4)]'
                           : 'text-accent border-accent/50 hover:bg-accent hover:text-white hover:border-accent hover:shadow-[0_0_16px_rgba(255,140,66,0.3)]'
                       }`
                     }
                   >
-                    <i className="fas fa-bolt text-[0.65rem]" /> {label}
+                    {label}
                   </NavLink>
                 ) : dropdown ? (
                   <button

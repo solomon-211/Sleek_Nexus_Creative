@@ -7,10 +7,9 @@ const columns = [
   {
     heading: 'Company',
     links: [
-      { label: 'About Us',         to: '/about' },
-      { label: 'Our Story',        to: '/about/our-story' },
-      { label: 'Mission & Vision', to: '/about/mission-vision' },
-      { label: 'Innovation Hub',   to: '/innovation-hub', highlight: true },
+      { label: 'About Us',       to: '/about' },
+      { label: 'Our Projects',   to: '/projects' },
+      { label: 'Innovation Hub', to: '/innovation-hub', highlight: true },
     ],
   },
   {
@@ -24,21 +23,12 @@ const columns = [
     ],
   },
   {
-    heading: 'Projects',
-    links: [
-      { label: 'Portfolio',              to: '/projects/portfolio' },
-      { label: 'Case Studies',           to: '/projects/case-studies' },
-      { label: 'Client Success Stories', to: '/projects/client-success' },
-    ],
-  },
-  {
     heading: 'Work With Us',
     links: [
-      { label: 'Get a Quote',       to: '/quote' },
-      { label: 'Book Consultation', to: '/book-consultation' },
-      { label: 'Get Started',       to: '/get-started' },
-      { label: 'Privacy Policy',    to: '/privacy' },
-      { label: 'Terms of Service',  to: '/terms' },
+      { label: 'Get Started',    to: '/get-started' },
+      { label: 'Contact Us',     to: '/contact' },
+      { label: 'Privacy Policy', to: '/privacy' },
+      { label: 'Terms of Service', to: '/terms' },
     ],
   },
 ]
@@ -99,13 +89,11 @@ export default function Footer() {
       {/* Main body */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-12 sm:pt-14 pb-8 sm:pb-10">
 
-        {/* ── Main grid: brand col + 4 nav cols ── */}
+        {/* ── Main grid: brand col + nav cols + contact col ── */}
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 pb-10 border-b border-white/6">
 
           {/* ── Brand column ── */}
-          <div className="col-span-2 lg:col-span-1 flex flex-col gap-6">
-
-            {/* Logo */}
+          <div className="col-span-2 lg:col-span-1 flex flex-col gap-5">
             <Link to="/" className="inline-flex items-center gap-3 group w-fit" aria-label="Home">
               <img
                 src="/images/snc-logo.png"
@@ -121,46 +109,12 @@ export default function Footer() {
                 <span className="text-[0.6rem] text-white/40 uppercase tracking-widest mt-0.5">Technology &amp; Innovation</span>
               </span>
             </Link>
-
-            {/* Tagline */}
             <p className="text-gray-400 text-xs leading-relaxed">
               Building digital products and software solutions that work in the real world — for businesses, startups, and organisations across South Sudan and Africa.
             </p>
-
-            {/* Contact */}
-            <ul className="space-y-2.5">
-              {contact.map(({ icon, label, href }) => (
-                <li key={label} className="flex items-center gap-2.5">
-                  <i className={`fas ${icon} text-primary text-xs w-3.5 flex-shrink-0`} />
-                  {href
-                    ? <a href={href} className="text-gray-400 text-xs hover:text-white transition-colors">{label}</a>
-                    : <span className="text-gray-400 text-xs">{label}</span>}
-                </li>
-              ))}
-            </ul>
-
-            {/* Socials */}
-            <div>
-              <p className="text-[0.6rem] font-bold uppercase tracking-widest text-gray-500 mb-2">Follow Us</p>
-              <div className="flex flex-wrap gap-1.5">
-                {socials.map(({ href, icon, label, bg }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    title={label}
-                    className={`w-7 h-7 rounded-lg flex items-center justify-center text-white transition-all hover:-translate-y-0.5 hover:brightness-110 ${bg}`}
-                  >
-                    <i className={`${icon} text-[0.65rem]`} />
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
 
-          {/* ── 4 nav columns ── */}
+          {/* ── Nav columns ── */}
           {columns.map(({ heading, links }) => (
             <div key={heading} className="col-span-1">
               <div className="flex items-center gap-2 mb-4">
@@ -184,6 +138,40 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+
+          {/* ── Contact + Socials column ── */}
+          <div className="col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-0.5 h-3.5 bg-primary rounded-full flex-shrink-0" />
+              <h4 className="text-[0.65rem] font-bold uppercase tracking-widest text-white">Contact</h4>
+            </div>
+            <ul className="space-y-2.5 mb-5">
+              {contact.map(({ icon, label, href }) => (
+                <li key={label} className="flex items-center gap-2.5">
+                  <i className={`fas ${icon} text-primary text-xs w-3.5 flex-shrink-0`} />
+                  {href
+                    ? <a href={href} className="text-gray-400 text-xs hover:text-white transition-colors">{label}</a>
+                    : <span className="text-gray-400 text-xs">{label}</span>}
+                </li>
+              ))}
+            </ul>
+            <p className="text-[0.6rem] font-bold uppercase tracking-widest text-gray-500 mb-2">Follow Us</p>
+            <div className="flex flex-wrap gap-1.5">
+              {socials.map(({ href, icon, label, bg }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  title={label}
+                  className={`w-7 h-7 rounded-lg flex items-center justify-center text-white transition-all hover:-translate-y-0.5 hover:brightness-110 ${bg}`}
+                >
+                  <i className={`${icon} text-[0.65rem]`} />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* ── Newsletter ── */}

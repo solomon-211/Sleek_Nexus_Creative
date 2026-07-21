@@ -150,7 +150,7 @@ export default function Home() {
                 <span className="block text-white">We Build Digital Products</span>
                 <span className="block text-white">That Work in</span>
                 <span className="block">the{' '}
-                  <span className="bg-gradient-to-r from-accent via-orange-300 to-yellow-300 bg-clip-text text-transparent">Real World</span>
+                  <span className="text-accent">Real World</span>
                 </span>
               </h1>
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-7 sm:mb-8">
