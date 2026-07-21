@@ -9,7 +9,7 @@ const navLinks = [
     label: 'About', to: '/about',
     dropdown: [
       { icon: 'fa-book-open',    label: 'Our Story',       to: '/about/our-story' },
-      { icon: 'fa-users',        label: 'Team',             to: '/about/team' },
+      // { icon: 'fa-users',        label: 'Team',             to: '/about/team' },
       { icon: 'fa-bullseye',     label: 'Mission & Vision', to: '/about/mission-vision' },
       { icon: 'fa-briefcase',    label: 'Careers',          to: '/careers' },
     ],

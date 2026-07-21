@@ -25,7 +25,7 @@ const NotFound = lazy(() => import('./pages/index.jsx').then(m => ({ default: m.
 
 // About dropdown
 const OurStory = lazy(() => import('./pages/about/OurStory'))
-const Team = lazy(() => import('./pages/about/Team'))
+// const Team = lazy(() => import('./pages/about/Team'))
 const MissionVision = lazy(() => import('./pages/about/MissionVision'))
 
 // Services dropdown
@@ -82,7 +82,8 @@ export default function App() {
 
                   {/* About */}
                   <Route path="/about/our-story" element={<OurStory />} />
-                  <Route path="/about/team" element={<Team />} />
+                  {/* <Route path="/about/team" element={<Team />} /> */}
+                  <Route path="/about/team" element={<Navigate to="/about" replace />} />
                   <Route path="/about/mission-vision" element={<MissionVision />} />
 
                   {/* Services */}
