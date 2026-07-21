@@ -99,97 +99,83 @@ export default function Footer() {
       {/* Main body */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-12 sm:pt-14 pb-8 sm:pb-10">
 
-        {/* ── Row 0: Brand strip — logo, tagline, contact, socials all horizontal ── */}
-        <div className="flex flex-col lg:flex-row lg:items-start gap-8 pb-8 border-b border-white/6 mb-8">
+        {/* ── Main grid: brand col + 4 nav cols ── */}
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 pb-10 border-b border-white/6">
 
-          {/* Logo + tagline */}
-          <div className="flex flex-col gap-3 lg:w-64 flex-shrink-0">
+          {/* ── Brand column ── */}
+          <div className="col-span-2 lg:col-span-1 flex flex-col gap-6">
+
+            {/* Logo */}
             <Link to="/" className="inline-flex items-center gap-3 group w-fit" aria-label="Home">
               <img
                 src="/images/snc-logo.png"
                 alt="Sleek Nexus Creative"
-                className="h-[44px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
               <span className="flex flex-col leading-none">
-                <span className="font-heading font-extrabold text-[0.95rem] whitespace-nowrap">
+                <span className="font-heading font-extrabold text-sm whitespace-nowrap">
                   <span className="text-primary">Sleek </span>
                   <span className="text-accent">Nexus</span>
                   <span className="text-white"> Creative</span>
                 </span>
-                <span className="text-[0.6rem] text-white/50 uppercase tracking-widest mt-0.5">Technology &amp; Innovation</span>
+                <span className="text-[0.6rem] text-white/40 uppercase tracking-widest mt-0.5">Technology &amp; Innovation</span>
               </span>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed">
+
+            {/* Tagline */}
+            <p className="text-gray-400 text-xs leading-relaxed">
               Building digital products and software solutions that work in the real world — for businesses, startups, and organisations across South Sudan and Africa.
             </p>
-          </div>
 
-          {/* Divider */}
-          <div className="hidden lg:block w-px bg-white/8 self-stretch" />
-
-          {/* Contact details — horizontal */}
-          <div className="flex flex-wrap gap-x-8 gap-y-3 flex-1">
-            {contact.map(({ icon, label, href }) => (
-              <div key={label} className="flex items-center gap-2 text-sm text-gray-400">
-                <i className={`fas ${icon} text-primary w-4 flex-shrink-0`} />
-                {href
-                  ? <a href={href} className="hover:text-white transition-colors">{label}</a>
-                  : <span>{label}</span>}
-              </div>
-            ))}
-          </div>
-
-          {/* Divider */}
-          <div className="hidden lg:block w-px bg-white/8 self-stretch" />
-
-          {/* Social icons */}
-          <div className="flex flex-col gap-2 flex-shrink-0">
-            <p className="text-[0.65rem] font-bold uppercase tracking-widest text-gray-500">Follow Us</p>
-            <div className="flex flex-nowrap gap-2">
-              {socials.map(({ href, icon, label, bg }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  title={label}
-                  className={`w-8 h-8 rounded-lg flex items-center justify-center text-white transition-all hover:-translate-y-0.5 hover:shadow-md hover:brightness-110 ${bg}`}
-                >
-                  <i className={`${icon} text-xs`} />
-                </a>
+            {/* Contact */}
+            <ul className="space-y-2.5">
+              {contact.map(({ icon, label, href }) => (
+                <li key={label} className="flex items-center gap-2.5">
+                  <i className={`fas ${icon} text-primary text-xs w-3.5 flex-shrink-0`} />
+                  {href
+                    ? <a href={href} className="text-gray-400 text-xs hover:text-white transition-colors">{label}</a>
+                    : <span className="text-gray-400 text-xs">{label}</span>}
+                </li>
               ))}
+            </ul>
+
+            {/* Socials */}
+            <div>
+              <p className="text-[0.6rem] font-bold uppercase tracking-widest text-gray-500 mb-2">Follow Us</p>
+              <div className="flex flex-wrap gap-1.5">
+                {socials.map(({ href, icon, label, bg }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    title={label}
+                    className={`w-7 h-7 rounded-lg flex items-center justify-center text-white transition-all hover:-translate-y-0.5 hover:brightness-110 ${bg}`}
+                  >
+                    <i className={`${icon} text-[0.65rem]`} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* ── Row 1: 4 nav columns ── */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10 pb-8 sm:pb-10 border-b border-white/6">
-
-          {/* 4 navigation columns — each clearly separated */}
+          {/* ── 4 nav columns ── */}
           {columns.map(({ heading, links }) => (
-            <div key={heading}>
-              {/* Column heading with left accent */}
-              <div className="flex items-center gap-2 mb-5">
-                <span className="w-0.5 h-4 bg-primary rounded-full flex-shrink-0" />
-                <h4 className="text-xs font-bold uppercase tracking-widest text-white">{heading}</h4>
+            <div key={heading} className="col-span-1">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-0.5 h-3.5 bg-primary rounded-full flex-shrink-0" />
+                <h4 className="text-[0.65rem] font-bold uppercase tracking-widest text-white">{heading}</h4>
               </div>
-              {/* Links */}
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {links.map(({ label, to, highlight }) => (
                   <li key={label}>
                     {highlight ? (
-                      <Link
-                        to={to}
-                        className="text-sm text-accent font-semibold hover:text-white transition-colors flex items-center gap-1.5"
-                      >
-                        {label}
+                      <Link to={to} className="text-xs text-accent font-semibold hover:text-white transition-colors flex items-center gap-1">
+                        <i className="fas fa-bolt text-[0.55rem]" />{label}
                       </Link>
                     ) : (
-                      <Link
-                        to={to}
-                        className="text-sm text-gray-400 hover:text-white hover:pl-1 transition-all duration-150 block"
-                      >
+                      <Link to={to} className="text-xs text-gray-400 hover:text-white hover:pl-1 transition-all duration-150 block">
                         {label}
                       </Link>
                     )}
@@ -200,7 +186,7 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* ── Row 2: Newsletter ── */}
+        {/* ── Newsletter ── */}
         <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 items-center py-6 sm:py-8 border-b border-white/6">
           <div>
             <p className="text-[0.65rem] font-bold uppercase tracking-widest text-primary mb-1">Stay Updated</p>
