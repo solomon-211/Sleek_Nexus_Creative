@@ -99,13 +99,11 @@ export default function Footer() {
       {/* Main body */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-12 sm:pt-14 pb-8 sm:pb-10">
 
-        {/* ── Row 1: Brand + 4 nav columns ── */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-5 gap-8 sm:gap-10 pb-8 sm:pb-10 border-b border-white/6">
+        {/* ── Row 0: Brand strip — logo, tagline, contact, socials all horizontal ── */}
+        <div className="flex flex-col lg:flex-row lg:items-start gap-8 pb-8 border-b border-white/6 mb-8">
 
-          {/* Brand + contact + social */}
-          <div className="col-span-2 xl:col-span-1 flex flex-col gap-5">
-
-            {/* Logo */}
+          {/* Logo + tagline */}
+          <div className="flex flex-col gap-3 lg:w-64 flex-shrink-0">
             <Link to="/" className="inline-flex items-center gap-3 group w-fit" aria-label="Home">
               <img
                 src="/images/snc-logo.png"
@@ -121,48 +119,56 @@ export default function Footer() {
                 <span className="text-[0.6rem] text-white/50 uppercase tracking-widest mt-0.5">Technology &amp; Innovation</span>
               </span>
             </Link>
-
-            {/* Tagline */}
             <p className="text-gray-400 text-sm leading-relaxed">
               Building digital products and software solutions that work in the real world — for businesses, startups, and organisations across South Sudan and Africa.
             </p>
+          </div>
 
-            {/* Contact details */}
-            <ul className="space-y-2.5">
-              {contact.map(({ icon, label, href }) => (
-                <li key={label} className="flex items-center gap-2.5 text-sm text-gray-400">
-                  <i className={`fas ${icon} text-primary w-4 flex-shrink-0`} />
-                  {href
-                    ? <a href={href} className="hover:text-white transition-colors">{label}</a>
-                    : <span>{label}</span>}
-                </li>
-              ))}
-            </ul>
+          {/* Divider */}
+          <div className="hidden lg:block w-px bg-white/8 self-stretch" />
 
-            {/* Social links */}
-            <div>
-              <p className="text-[0.65rem] font-bold uppercase tracking-widest text-gray-500 mb-2.5">Follow Us</p>
-              <div className="flex flex-nowrap gap-2">
-                {socials.map(({ href, icon, label, bg }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    title={label}
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center text-white transition-all hover:-translate-y-0.5 hover:shadow-md hover:brightness-110 ${bg}`}
-                  >
-                    <i className={`${icon} text-xs`} />
-                  </a>
-                ))}
+          {/* Contact details — horizontal */}
+          <div className="flex flex-wrap gap-x-8 gap-y-3 flex-1">
+            {contact.map(({ icon, label, href }) => (
+              <div key={label} className="flex items-center gap-2 text-sm text-gray-400">
+                <i className={`fas ${icon} text-primary w-4 flex-shrink-0`} />
+                {href
+                  ? <a href={href} className="hover:text-white transition-colors">{label}</a>
+                  : <span>{label}</span>}
               </div>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <div className="hidden lg:block w-px bg-white/8 self-stretch" />
+
+          {/* Social icons */}
+          <div className="flex flex-col gap-2 flex-shrink-0">
+            <p className="text-[0.65rem] font-bold uppercase tracking-widest text-gray-500">Follow Us</p>
+            <div className="flex flex-nowrap gap-2">
+              {socials.map(({ href, icon, label, bg }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  title={label}
+                  className={`w-8 h-8 rounded-lg flex items-center justify-center text-white transition-all hover:-translate-y-0.5 hover:shadow-md hover:brightness-110 ${bg}`}
+                >
+                  <i className={`${icon} text-xs`} />
+                </a>
+              ))}
             </div>
           </div>
+        </div>
+
+        {/* ── Row 1: 4 nav columns ── */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10 pb-8 sm:pb-10 border-b border-white/6">
 
           {/* 4 navigation columns — each clearly separated */}
           {columns.map(({ heading, links }) => (
-            <div key={heading} className="xl:col-span-1">
+            <div key={heading}>
               {/* Column heading with left accent */}
               <div className="flex items-center gap-2 mb-5">
                 <span className="w-0.5 h-4 bg-primary rounded-full flex-shrink-0" />
