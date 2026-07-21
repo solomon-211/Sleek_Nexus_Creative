@@ -7,45 +7,38 @@ const columns = [
   {
     heading: 'Company',
     links: [
-      { label: 'About Us',             to: '/about' },
-      { label: 'Our Story',            to: '/about/our-story' },
-      { label: 'Mission & Vision',     to: '/about/mission-vision' },
-      { label: 'Our Team',             to: '/about/team' },
-      { label: 'Careers',              to: '/careers' },
-      { label: 'Open Positions',       to: '/open-positions' },
+      { label: 'About Us',         to: '/about' },
+      { label: 'Our Story',        to: '/about/our-story' },
+      { label: 'Mission & Vision', to: '/about/mission-vision' },
+      { label: 'Innovation Hub',   to: '/innovation-hub', highlight: true },
     ],
   },
   {
     heading: 'Services',
     links: [
-      { label: 'Web Development',      to: '/services/web-dev' },
-      { label: 'Mobile Apps',          to: '/services/mobile-apps' },
-      { label: 'UI/UX Design',         to: '/services/ui-ux' },
-      { label: 'E-Learning Solutions', to: '/services/elearning' },
-      { label: 'Branding & Design',    to: '/services/branding' },
-      { label: 'IT Consulting',        to: '/services/consulting' },
+      { label: 'Web Development',  to: '/services/web-dev' },
+      { label: 'Mobile Apps',      to: '/services/mobile-apps' },
+      { label: 'UI/UX Design',     to: '/services/ui-ux' },
+      { label: 'Branding & Design',to: '/services/branding' },
+      { label: 'IT Consulting',    to: '/services/consulting' },
     ],
   },
   {
-    heading: 'Programs',
+    heading: 'Projects',
     links: [
-      { label: '⚡ Innovation Hub',     to: '/innovation-hub', highlight: true },
-      { label: 'Leadership',           to: '/resources/leadership' },
-      { label: 'Career Growth',        to: '/resources/career-growth' },
-      { label: 'Scholarships',         to: '/resources/scholarships' },
-      { label: 'Alumni Network',       to: '/alumni' },
-      { label: 'Internships',          to: '/internships' },
-      { label: 'Mentor Program',       to: '/mentor' },
-      { label: 'Volunteer',            to: '/volunteer' },
+      { label: 'Portfolio',              to: '/projects/portfolio' },
+      { label: 'Case Studies',           to: '/projects/case-studies' },
+      { label: 'Client Success Stories', to: '/projects/client-success' },
     ],
   },
   {
-    heading: 'Resources',
+    heading: 'Work With Us',
     links: [
-      { label: 'Get a Quote',          to: '/quote' },
-      { label: 'Book Consultation',    to: '/book-consultation' },
-      { label: 'Privacy Policy',       to: '/privacy' },
-      { label: 'Terms of Service',     to: '/terms' },
+      { label: 'Get a Quote',       to: '/quote' },
+      { label: 'Book Consultation', to: '/book-consultation' },
+      { label: 'Get Started',       to: '/get-started' },
+      { label: 'Privacy Policy',    to: '/privacy' },
+      { label: 'Terms of Service',  to: '/terms' },
     ],
   },
 ]
@@ -131,18 +124,8 @@ export default function Footer() {
 
             {/* Tagline */}
             <p className="text-gray-400 text-sm leading-relaxed">
-              Technology, innovation, and leadership — empowering the next generation of innovators and changemakers across South Sudan and Africa.
+              Building digital products and software solutions that work in the real world — for businesses, startups, and organisations across South Sudan and Africa.
             </p>
-
-            {/* Hiring badge */}
-            <Link
-              to="/careers"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-primary border border-primary/30 px-3 py-1.5 rounded-full hover:bg-primary/10 transition-colors w-fit"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              We're Hiring
-              <i className="fas fa-arrow-right text-[0.6rem]" />
-            </Link>
 
             {/* Contact details */}
             <ul className="space-y-2.5">

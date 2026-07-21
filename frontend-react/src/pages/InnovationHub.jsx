@@ -3,94 +3,78 @@ import SEO from '../components/ui/SEO'
 import { motion } from 'framer-motion'
 import { fadeUp } from '../lib/animations'
 
-// ── Data from SNC Project Proposal 2024 ──────────────────────────────────────
-
-const objectives = [
-  { icon: 'fa-user-tie',      text: 'Develop future-ready leaders and professionals.' },
-  { icon: 'fa-seedling',      text: 'Support startup creation and business growth.' },
-  { icon: 'fa-rocket',        text: 'Foster innovation and entrepreneurship.' },
-  { icon: 'fa-laptop',        text: 'Expand access to technology and digital opportunities.' },
-  { icon: 'fa-flask',         text: 'Promote research, creativity, and problem-solving.' },
-  { icon: 'fa-globe-africa',  text: "Strengthen South Sudan's innovation ecosystem." },
-  { icon: 'fa-network-wired', text: 'Connect local talent to regional and global opportunities.' },
-  { icon: 'fa-leaf',          text: 'Drive sustainable community transformation.' },
+// ── SDGs SNC directly addresses ──────────────────────────────────────────────
+const sdgs = [
+  {
+    num: 4,
+    color: '#c41e3a',
+    icon: 'fa-graduation-cap',
+    title: 'Quality Education',
+    desc: 'Building digital learning platforms, e-learning tools, and tech-enabled education systems that expand access to quality education across South Sudan.',
+  },
+  {
+    num: 8,
+    color: '#ff8c42',
+    icon: 'fa-briefcase',
+    title: 'Decent Work & Economic Growth',
+    desc: 'Creating digital jobs, empowering entrepreneurs with software tools, and driving economic growth through technology services and startup support.',
+  },
+  {
+    num: 9,
+    color: '#c41e3a',
+    icon: 'fa-industry',
+    title: 'Industry, Innovation & Infrastructure',
+    desc: 'Delivering scalable software, cloud infrastructure, and digital transformation solutions that modernise industries and build resilient digital infrastructure.',
+  },
+  {
+    num: 10,
+    color: '#ff8c42',
+    icon: 'fa-balance-scale',
+    title: 'Reduced Inequalities',
+    desc: 'Bridging the digital divide by making technology accessible to underserved communities, women, and youth across South Sudan and Africa.',
+  },
+  {
+    num: 17,
+    color: '#1e293b',
+    icon: 'fa-handshake',
+    title: 'Partnerships for the Goals',
+    desc: 'Forging strategic alliances with governments, NGOs, tech companies, and international organisations to co-create digital solutions for sustainable development.',
+  },
 ]
 
-const pillars = [
+// ── Core technology focus areas ───────────────────────────────────────────────
+const focusAreas = [
   {
-    num: 'I',
     icon: 'fa-laptop-code',
     color: 'from-[#c41e3a] to-[#9b1530]',
-    title: 'Technology & Digital Solutions',
-    badge: 'Strategic Pillar I',
-    desc: 'SNC provides innovative and scalable technology solutions to businesses, startups, institutions, and organisations — from custom software to cybersecurity, cloud infrastructure, and digital transformation.',
-    features: [
-      'Custom web & mobile applications',
-      'SaaS product development',
-      'UI/UX design & branding',
-      'Digital marketing & SEO',
-      'IT consulting & cloud services',
-      'Cybersecurity assessments',
-    ],
-    link: '/services',
-    linkLabel: 'Explore Services',
+    title: 'Custom Software Development',
+    desc: 'End-to-end development of web applications, mobile apps, SaaS platforms, and enterprise systems built to solve real business problems.',
+    features: ['Web & mobile applications', 'SaaS product development', 'API design & integration', 'Cloud-native architecture'],
   },
   {
-    num: 'II',
-    icon: 'fa-graduation-cap',
+    icon: 'fa-pencil-ruler',
     color: 'from-[#ff8c42] to-[#e6740a]',
-    title: 'Education & Talent Development',
-    badge: 'Strategic Pillar II',
-    desc: 'Through leadership programs, career development, and scholarship guidance, SNC equips the next generation with the practical knowledge, confidence, and competencies needed for success in the modern workforce.',
-    features: [
-      'Leadership & Character Development',
-      'Career Guidance & Professional Growth',
-      'Scholarship Guidance & Applications',
-      'Mentorship & Coaching Programs',
-      'Internship & Work Experience',
-      'Alumni Network & Community',
-    ],
-    link: '/resources/leadership',
-    linkLabel: 'Explore Programs',
+    title: 'UI/UX & Digital Design',
+    desc: 'Human-centred design that turns complex problems into intuitive, beautiful digital experiences — from wireframes to production-ready interfaces.',
+    features: ['User research & prototyping', 'Interface & interaction design', 'Design systems & branding', 'Accessibility-first approach'],
   },
   {
-    num: 'III',
-    icon: 'fa-seedling',
+    icon: 'fa-cloud',
     color: 'from-[#1e293b] to-[#0f172a]',
-    title: 'Innovation & Entrepreneurship',
-    badge: 'Strategic Pillar III',
-    desc: 'SNC nurtures innovators and entrepreneurs capable of creating sustainable solutions for local and global challenges — through incubation, acceleration, mentorship, and hands-on Innovation Lab programs.',
-    features: [
-      'Startup Incubation & Acceleration',
-      'Business model validation',
-      'Investor readiness & market access',
-      'Entrepreneurship Development Program',
-      'Innovation Lab & prototyping',
-      'Fellowship & Mentorship Programs',
-    ],
-    link: '/contact',
-    linkLabel: 'Join the Launchpad',
+    title: 'Cloud & Infrastructure',
+    desc: 'Scalable, secure cloud infrastructure and DevOps pipelines that keep your digital products fast, reliable, and ready to grow.',
+    features: ['Cloud deployment & migration', 'DevOps & CI/CD pipelines', 'Cybersecurity assessments', 'Performance optimisation'],
   },
   {
-    num: 'IV',
-    icon: 'fa-hands-helping',
+    icon: 'fa-lightbulb',
     color: 'from-[#c41e3a] to-[#ff8c42]',
-    title: 'Community Impact & Future Foresight',
-    badge: 'Strategic Pillar IV',
-    desc: 'SNC is committed to building resilient communities equipped for the future — through digital literacy, women in tech, youth leadership, rural outreach, and a Research & Future Foresight Centre.',
-    features: [
-      'Digital Literacy for All',
-      'Women in Technology Initiative',
-      'Youth Leadership Network',
-      'Rural Innovation Outreach',
-      'Research & Future Foresight Centre',
-      'AI, Climate & Smart Communities R&D',
-    ],
-    link: '/community-programs',
-    linkLabel: 'Community Programs',
+    title: 'Innovation & Consulting',
+    desc: 'Strategic technology consulting and innovation lab programs that help organisations identify opportunities, validate ideas, and build digital solutions.',
+    features: ['Digital transformation strategy', 'Technology audits & roadmaps', 'Startup incubation & prototyping', 'Innovation workshops & sprints'],
   },
 ]
 
+// ── Roadmap ───────────────────────────────────────────────────────────────────
 const roadmap = [
   {
     phase: 'Phase I',
@@ -99,13 +83,13 @@ const roadmap = [
     color: 'border-primary bg-primary/5',
     badgeColor: 'bg-primary text-white',
     priorities: [
-      'Establish SNC operations and governance structure',
-      'Build technology and creative service portfolio',
-      'Launch leadership and career development programs',
-      'Develop strategic partnerships',
-      'Launch mentorship, volunteer, and internship programs',
+      'Establish SNC operations and governance',
+      'Build core software & digital service portfolio',
+      'Deliver 15+ technology projects',
+      'Develop strategic technology partnerships',
+      'Launch innovation consulting practice',
     ],
-    outcomes: ['300+ youth trained', '15+ internship opportunities', '30+ mentorship relationships', '15+ technology projects delivered'],
+    outcomes: ['15+ projects delivered', '30+ clients served', '5+ strategic partnerships', 'Operational hub in Juba'],
   },
   {
     phase: 'Phase II',
@@ -114,55 +98,50 @@ const roadmap = [
     color: 'border-accent bg-accent/5',
     badgeColor: 'bg-accent text-white',
     priorities: [
-      'Launch SNC Innovation & Leadership Hub',
-      'Introduce startup incubation programs',
-      'Expand Future Skills Academy',
-      'Launch Women in Technology initiatives',
-      'Organise innovation challenges and hackathons',
+      'Launch SNC Innovation Lab & prototyping centre',
+      'Introduce startup incubation & acceleration',
+      'Expand into regional African markets',
+      'Build proprietary SaaS products',
+      'Organise hackathons & innovation challenges',
     ],
-    outcomes: ['1,500+ youth trained', '20+ startups supported', '60+ internship & mentorship opportunities', 'Hub fully operational'],
+    outcomes: ['50+ projects delivered', '20+ startups supported', 'Regional market presence', 'Innovation Lab fully operational'],
   },
   {
     phase: 'Phase III',
     years: '2035 – 2040',
-    title: 'National Impact & Sustainability',
+    title: 'National Impact & Scale',
     color: 'border-dark bg-dark/5',
     badgeColor: 'bg-dark text-white',
     priorities: [
-      'Launch Future Foresight Centre',
-      'Expand national partnerships',
-      'Scale innovation and entrepreneurship programs',
+      'Scale digital solutions across South Sudan',
+      'Launch Future Foresight & R&D Centre',
+      'Expand national & international partnerships',
       'Strengthen financial sustainability',
     ],
-    outcomes: ['5,000+ directly empowered', '30,000+ reached indirectly', '150+ startups & businesses supported', 'National innovation leader'],
+    outcomes: ['150+ projects & products', '500+ jobs created', 'National digital infrastructure leader', 'Pan-African technology brand'],
   },
 ]
 
-const impact2030 = [
-  { icon: 'fa-user-graduate', value: '5,000+',  label: 'Individuals Empowered by 2040' },
-  { icon: 'fa-bullhorn',      value: '30,000+', label: 'People Reached Indirectly' },
-  { icon: 'fa-store',         value: '150+',    label: 'Startups & Businesses Supported' },
-  { icon: 'fa-briefcase',     value: '500+',    label: 'Jobs & Entrepreneurship Created' },
-  { icon: 'fa-female',        value: '40%+',    label: 'Women & Underserved Participants' },
-  { icon: 'fa-flag',          value: 'Juba',    label: 'National Innovation Hub' },
+// ── Impact metrics ────────────────────────────────────────────────────────────
+const impact = [
+  { icon: 'fa-code',          value: '150+',   label: 'Digital Products Built by 2040' },
+  { icon: 'fa-store',         value: '20+',    label: 'Startups Supported' },
+  { icon: 'fa-briefcase',     value: '500+',   label: 'Jobs & Opportunities Created' },
+  { icon: 'fa-globe-africa',  value: 'Africa', label: 'Regional Market Reach' },
+  { icon: 'fa-handshake',     value: '30+',    label: 'Strategic Partnerships' },
+  { icon: 'fa-flag',          value: 'Juba',   label: 'Innovation Hub HQ' },
 ]
 
-const communityPrograms = [
-  { icon: 'fa-wifi',        title: 'Digital Literacy for All',         desc: 'Expanding access to digital skills and technology education across South Sudan, including rural and underserved areas.' },
-  { icon: 'fa-female',      title: 'Women in Technology',              desc: 'Increasing participation and leadership of women and girls in STEM, innovation, and entrepreneurship.' },
-  { icon: 'fa-users',       title: 'Youth Leadership Network',         desc: 'Developing responsible, impactful young leaders equipped with critical thinking, civic values, and practical skills.' },
-  { icon: 'fa-map-marker',  title: 'Rural Innovation Outreach',        desc: 'Bringing technology, education, and economic opportunities to underserved communities and remote regions.' },
-  { icon: 'fa-trophy',      title: 'Community Innovation Challenges',  desc: 'Empowering citizens to create innovative, locally-relevant solutions to real challenges through competitions and hackathons.' },
-  { icon: 'fa-microscope',  title: 'Future Foresight Centre',          desc: 'Research on AI, future of work, digital economy, climate innovation, smart communities, and emerging technologies.' },
-]
-
-const getInvolved = [
-  { icon: 'fa-crown',           title: 'Leadership Programs',    desc: 'Join a leadership workshop, personal development cohort, or career program to build your skills and grow your impact.', link: '/resources/leadership',  cta: 'Explore Leadership',    bg: 'bg-primary' },
-  { icon: 'fa-user-tie',        title: 'Become a Mentor',        desc: 'Share your expertise, guide the next generation, and give back to South Sudan\'s community.', link: '/mentor',     cta: 'Apply to Mentor',   bg: 'bg-accent' },
-  { icon: 'fa-handshake',       title: 'Partner With Us',        desc: 'Co-fund programs, sponsor cohorts, recruit from our talent pipeline, or co-develop solutions.', link: '/get-started', cta: 'Partner With Us',   bg: 'bg-primary' },
-  { icon: 'fa-heart',           title: 'Support a Student',      desc: 'Sponsor a learner\'s development, donate to community programs, or fund a Hub initiative.', link: '/get-started', cta: 'Donate Now',        bg: 'bg-accent' },
-  { icon: 'fa-briefcase',       title: 'Internship Program',     desc: 'Gain real-world experience working on live projects alongside SNC professionals.', link: '/internships',  cta: 'Apply for Internship', bg: 'bg-dark' },
-  { icon: 'fa-hands-helping',   title: 'Volunteer',              desc: 'Contribute your time and skills to teaching, outreach, content creation, or open-source projects.', link: '/volunteer',   cta: 'Volunteer With Us', bg: 'bg-primary' },
+// ── Partners ──────────────────────────────────────────────────────────────────
+const partners = [
+  { icon: 'fa-landmark',       label: 'Government Institutions' },
+  { icon: 'fa-building',       label: 'Technology Companies' },
+  { icon: 'fa-globe',          label: 'International Organisations' },
+  { icon: 'fa-hands-helping',  label: 'NGOs & Development Partners' },
+  { icon: 'fa-flask',          label: 'Research Institutions' },
+  { icon: 'fa-store',          label: 'Private Sector Orgs' },
+  { icon: 'fa-university',     label: 'Universities & Colleges' },
+  { icon: 'fa-rocket',         label: 'Startup Ecosystems' },
 ]
 
 // ── Page ──────────────────────────────────────────────────────────────────────
@@ -171,24 +150,24 @@ export default function InnovationHub() {
   return (
     <>
       <SEO
-        title="SNC Innovation & Leadership Hub — Technology, Education & Entrepreneurship in South Sudan"
-        description="The SNC Innovation & Leadership Hub is a collaborative ecosystem in Juba, South Sudan empowering 5,000+ individuals through technology, education, entrepreneurship, and community impact programs. Vision 2040."
+        title="SNC Innovation Hub — Technology & Digital Solutions for South Sudan"
+        description="The SNC Innovation Hub is a technology and innovation ecosystem in Juba, South Sudan — delivering custom software, digital transformation, and startup support aligned with the UN SDGs."
         canonical="/innovation-hub"
-        keywords="innovation hub South Sudan, tech hub Juba, entrepreneurship South Sudan, leadership programs Juba, SNC hub, startup incubation South Sudan, digital transformation South Sudan"
+        keywords="innovation hub South Sudan, tech hub Juba, software development South Sudan, digital transformation South Sudan, SNC hub, startup incubation South Sudan, SDGs technology"
         image="https://sleeknexuscreative.com/images/about-preview.jpg"
-        imageAlt="SNC Innovation and Leadership Hub in South Sudan"
+        imageAlt="SNC Innovation Hub — Technology and Digital Solutions"
         breadcrumbs={[{ name: 'Innovation Hub', url: '/innovation-hub' }]}
         faq={[
-          { q: 'What is the SNC Innovation & Leadership Hub?', a: 'The SNC Innovation & Leadership Hub is a collaborative ecosystem in Juba, South Sudan that empowers individuals through technology services, education, entrepreneurship support, and community impact programs — with a vision to directly empower 5,000+ people by 2040.' },
-          { q: 'Who can join the SNC Hub?', a: 'Anyone in South Sudan can get involved — students, professionals, entrepreneurs, organizations, and international partners. You can join as a learner, mentor, volunteer, trainer, intern, or strategic partner.' },
-          { q: 'What programs does the SNC Hub offer?', a: 'The Hub offers four strategic pillars: Technology & Digital Solutions, Education & Talent Development, Innovation & Entrepreneurship, and Community Impact. Programs include internships, mentorship, leadership training, startup incubation, and digital literacy.' },
-          { q: 'Where is the SNC Innovation Hub located?', a: 'The SNC Innovation & Leadership Hub is based in Juba, Central Equatoria, South Sudan.' },
+          { q: 'What is the SNC Innovation Hub?', a: 'The SNC Innovation Hub is a technology and innovation ecosystem in Juba, South Sudan that delivers custom software, digital transformation, and startup support — aligned with the UN Sustainable Development Goals.' },
+          { q: 'What SDGs does SNC address?', a: 'SNC directly contributes to SDG 4 (Quality Education), SDG 8 (Decent Work & Economic Growth), SDG 9 (Industry, Innovation & Infrastructure), SDG 10 (Reduced Inequalities), and SDG 17 (Partnerships for the Goals).' },
+          { q: 'What technology services does SNC offer?', a: 'SNC offers custom software development, mobile apps, UI/UX design, cloud infrastructure, cybersecurity, digital consulting, and startup incubation.' },
+          { q: 'Where is the SNC Innovation Hub located?', a: 'The SNC Innovation Hub is based in Juba, Central Equatoria, South Sudan.' },
         ]}
       />
 
       {/* ── HERO ──────────────────────────────────────────────────────── */}
       <section
-        className="relative min-h-[80vh] flex items-center overflow-hidden"
+        className="relative min-h-[85vh] flex items-center overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #0d0f1a 0%, #1a0a10 45%, #0f1520 100%)' }}
       >
         <div className="absolute inset-0 opacity-[0.035]"
@@ -200,24 +179,25 @@ export default function InnovationHub() {
           <div className="max-w-4xl">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.7 }}>
               <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-6 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">
-                <i className="fas fa-bolt text-[0.7rem]" /> Flagship Initiative · Vision 2030
+                <i className="fas fa-bolt text-[0.7rem]" /> Flagship Initiative · Vision 2040
               </span>
               <h1 className="text-white font-heading font-black uppercase leading-[0.95] mb-6"
                 style={{ fontSize: 'clamp(2.25rem,5.5vw,4.25rem)', letterSpacing: '-0.02em' }}>
-                SNC Innovation &amp;<br />Leadership Hub
+                Technology &amp; Innovation<br />
+                <span className="text-primary">Hub</span>
               </h1>
               <p className="text-gray-300 text-lg leading-relaxed mb-4 max-w-2xl">
-                A collaborative ecosystem where innovation, technology, leadership, entrepreneurship, and community impact converge — building the next generation of innovators, leaders, entrepreneurs, and digital solutions for South Sudan and beyond.
+                A technology and innovation ecosystem in Juba, South Sudan — building digital products, delivering software solutions, and driving transformation aligned with the UN Sustainable Development Goals.
               </p>
               <p className="text-accent font-semibold mb-8">
-                <i className="fas fa-eye mr-2" />
-                Vision 2040 · Directly empower 5,000+ individuals · Reach 30,000+ people
+                <i className="fas fa-globe-africa mr-2" />
+                SDG-aligned · South Sudan & Africa · Vision 2040
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/get-started" className="btn-primary text-base px-8 py-3.5">
-                  <i className="fas fa-rocket" /> Get Involved
+                  <i className="fas fa-rocket" /> Start a Project
                 </Link>
-                <a href="#pillars" className="inline-flex items-center gap-2 border-2 border-white/30 text-white hover:border-white font-semibold px-8 py-3.5 rounded-lg transition-all">
+                <a href="#focus" className="inline-flex items-center gap-2 border-2 border-white/30 text-white hover:border-white font-semibold px-8 py-3.5 rounded-lg transition-all">
                   Explore the Hub <i className="fas fa-arrow-down text-sm" />
                 </a>
               </div>
@@ -226,141 +206,98 @@ export default function InnovationHub() {
         </div>
       </section>
 
-      {/* ── ABOUT SNC ─────────────────────────────────────────────────── */}
+      {/* ── SDGs SECTION ──────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.55 }}>
-              <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">About SNC</p>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark mb-6 leading-tight">
-                Technology, Innovation &amp; <span className="text-primary">Leadership</span> for Africa
-              </h2>
-              <p className="text-muted leading-relaxed mb-5 text-lg">
-                Sleek Nexus Creative (SNC) is a technology, innovation, and leadership organisation dedicated to accelerating digital transformation while empowering the next generation of innovators, entrepreneurs, and changemakers.
-              </p>
-              <p className="text-muted leading-relaxed mb-5">
-                We combine professional technology services, educational programs, entrepreneurship support, leadership development, and community impact initiatives to create lasting solutions that address local challenges and unlock global opportunities.
-              </p>
-              <p className="text-muted leading-relaxed mb-8">
-                Through innovation, collaboration, and continuous learning, SNC bridges the gap between talent, technology, and opportunity across South Sudan, Africa, and the global digital economy.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { icon: 'fa-bullseye', label: 'Mission', text: 'Empower through technology, leadership & innovation' },
-                  { icon: 'fa-eye',      label: 'Vision',  text: 'Leading African innovation ecosystem by 2030' },
-                ].map(({ icon, label, text }) => (
-                  <div key={label} className="card p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <i className={`fas ${icon} text-primary text-sm`} />
-                      <span className="text-xs font-bold text-primary uppercase tracking-wide">{label}</span>
-                    </div>
-                    <p className="text-dark-soft text-sm leading-relaxed">{text}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.15 }}>
-              <img src="/images/about-preview.jpg" alt="SNC Innovation Hub" className="w-full rounded-2xl shadow-2xl object-cover h-[440px]" loading="lazy" />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── OBJECTIVES ─────────────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Our Focus</p>
-            <h2 className="section-title">Hub Objectives</h2>
-            <p className="section-subtitle">Eight clear goals guiding every program, partnership, and initiative within the Hub.</p>
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Global Alignment</p>
+            <h2 className="section-title">SDGs We Are Addressing</h2>
+            <p className="section-subtitle">
+              Every digital product and solution we build is intentionally aligned with the UN Sustainable Development Goals — creating technology that drives real, measurable impact.
+            </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {objectives.map(({ icon, text }, i) => (
-              <motion.div key={text} className="bg-white rounded-xl border border-gray-100 p-5 flex items-start gap-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07 }}>
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <i className={`fas ${icon} text-primary text-sm`} />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sdgs.map(({ num, color, icon, title, desc }, i) => (
+              <motion.div
+                key={num}
+                className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col"
+                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
+              >
+                <div className="p-5 flex items-center gap-4" style={{ backgroundColor: color }}>
+                  <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i className={`fas ${icon} text-white text-2xl`} />
+                  </div>
+                  <div>
+                    <p className="text-white/70 text-xs font-bold uppercase tracking-widest">SDG {num}</p>
+                    <h3 className="text-white font-heading font-bold text-base leading-tight">{title}</h3>
+                  </div>
                 </div>
-                <p className="text-dark-soft text-sm leading-relaxed font-medium">{text}</p>
+                <div className="p-5 bg-white flex-1">
+                  <p className="text-muted text-sm leading-relaxed">{desc}</p>
+                </div>
               </motion.div>
             ))}
+            {/* Filler card — "and more" */}
+            <motion.div
+              className="rounded-2xl border-2 border-dashed border-gray-200 p-6 flex flex-col items-center justify-center text-center gap-3"
+              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.4 }}
+            >
+              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                <i className="fas fa-plus text-gray-400 text-lg" />
+              </div>
+              <p className="text-sm font-semibold text-dark">More SDGs Through Impact</p>
+              <p className="text-xs text-muted leading-relaxed">As we grow, our digital solutions will address additional SDGs across health, climate, and governance.</p>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ── FOUR STRATEGIC PILLARS ─────────────────────────────────────── */}
-      <section id="pillars" className="py-24 bg-white scroll-mt-20">
+      {/* ── FOCUS AREAS ───────────────────────────────────────────────── */}
+      <section id="focus" className="py-24 bg-gray-50 scroll-mt-20">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-16">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Strategic Framework</p>
-            <h2 className="section-title">Four Strategic Pillars</h2>
-            <p className="section-subtitle">The four interconnected pillars that form SNC's comprehensive ecosystem — from technology delivery to community transformation.</p>
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">What We Build</p>
+            <h2 className="section-title">Core Technology Focus Areas</h2>
+            <p className="section-subtitle">Four interconnected technology disciplines that form the foundation of everything we build and deliver.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-7">
-            {pillars.map(({ num, icon, color, title, badge, desc, features, link, linkLabel }, i) => (
+            {focusAreas.map(({ icon, color, title, desc, features }, i) => (
               <motion.div key={title} className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col"
                 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
                 <div className={`bg-gradient-to-br ${color} p-7 text-white`}>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                        <i className={`fas ${icon} text-white text-xl`} />
-                      </div>
-                      <span className="text-4xl font-heading font-black text-white/20">{num}</span>
-                    </div>
-                    <span className="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">{badge}</span>
+                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
+                    <i className={`fas ${icon} text-white text-xl`} />
                   </div>
                   <h3 className="text-xl font-heading font-bold leading-tight">{title}</h3>
                 </div>
                 <div className="p-6 flex flex-col flex-1 bg-white">
                   <p className="text-muted text-sm leading-relaxed mb-5">{desc}</p>
-                  <ul className="space-y-2 mb-6 flex-1">
+                  <ul className="space-y-2 flex-1">
                     {features.map(f => (
                       <li key={f} className="flex items-center gap-2.5 text-sm text-dark-soft">
                         <i className="fas fa-check-circle text-primary text-xs flex-shrink-0" /> {f}
                       </li>
                     ))}
                   </ul>
-                  <Link to={link} className="btn-primary text-sm justify-center mt-auto">
-                    {linkLabel} <i className="fas fa-arrow-right text-xs" />
-                  </Link>
                 </div>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── COMMUNITY PROGRAMS ─────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Community Impact</p>
-            <h2 className="section-title">Community & Future Programs</h2>
-            <p className="section-subtitle">Grassroots programs ensuring no one is left behind in South Sudan's digital transformation.</p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {communityPrograms.map(({ icon, title, desc }, i) => (
-              <motion.div key={title} className="card p-6"
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
-                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <i className={`fas ${icon} text-primary`} />
-                </div>
-                <h3 className="font-heading font-bold text-dark mb-2">{title}</h3>
-                <p className="text-muted text-sm leading-relaxed">{desc}</p>
-              </motion.div>
-            ))}
+          <div className="text-center mt-10">
+            <Link to="/services" className="btn-primary text-base px-8 py-3.5">
+              <i className="fas fa-arrow-right" /> View All Services
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ── VISION 2030 ROADMAP ────────────────────────────────────────── */}
+      {/* ── VISION 2040 ROADMAP ────────────────────────────────────────── */}
       <section className="py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-16">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Implementation Roadmap</p>
-            <h2 className="section-title">Vision 2030 · 2026–2040</h2>
-            <p className="section-subtitle">A phased approach to building South Sudan's leading innovation ecosystem over 15 years.</p>
+            <h2 className="section-title">Vision 2040 · 2026–2040</h2>
+            <p className="section-subtitle">A phased approach to building South Sudan's leading technology and innovation ecosystem over 15 years.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-7">
             {roadmap.map(({ phase, years, title, color, badgeColor, priorities, outcomes }, i) => (
@@ -405,7 +342,7 @@ export default function InnovationHub() {
             <h2 className="text-3xl font-heading font-bold">The Scale of Our Ambition</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-            {impact2030.map(({ icon, value, label }, i) => (
+            {impact.map(({ icon, value, label }, i) => (
               <motion.div key={label} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07 }}>
                 <div className="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mx-auto mb-3">
                   <i className={`fas ${icon} text-white text-lg`} />
@@ -418,83 +355,48 @@ export default function InnovationHub() {
         </div>
       </section>
 
-      {/* ── GET INVOLVED ────────────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Opportunities to Get Involved</p>
-            <h2 className="section-title">Your Role in the Hub</h2>
-            <p className="section-subtitle">Six ways individuals and organisations can contribute to building South Sudan's innovation ecosystem.</p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {getInvolved.map(({ icon, title, desc, link, cta, bg }, i) => (
-              <motion.div key={title} className="card p-7 flex flex-col"
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
-                <div className={`w-12 h-12 ${bg} rounded-xl flex items-center justify-center mb-5 shadow-md`}>
-                  <i className={`fas ${icon} text-white text-lg`} />
-                </div>
-                <h3 className="font-heading font-bold text-dark text-lg mb-2">{title}</h3>
-                <p className="text-muted text-sm leading-relaxed mb-6 flex-1">{desc}</p>
-                <Link to={link} className="btn-primary text-sm justify-center">{cta}</Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── PARTNERSHIPS ────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white">
+      {/* ── STRATEGIC PARTNERSHIPS ──────────────────────────────────────── */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-12">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Ecosystem Development</p>
             <h2 className="section-title">Strategic Partnerships</h2>
-            <p className="section-subtitle">Meaningful, sustainable impact is achieved through collaboration. SNC develops strategic alliances across every sector.</p>
+            <p className="section-subtitle">Sustainable digital impact is built through collaboration. SNC develops alliances across every sector to co-create solutions that last.</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {[
-              { icon: 'fa-university',      label: 'Universities & Colleges' },
-              { icon: 'fa-school',          label: 'Secondary Schools' },
-              { icon: 'fa-landmark',        label: 'Government Institutions' },
-              { icon: 'fa-building',        label: 'Technology Companies' },
-              { icon: 'fa-globe',           label: 'International Organizations' },
-              { icon: 'fa-hands-helping',   label: 'NGOs & Development Partners' },
-              { icon: 'fa-flask',           label: 'Research Institutions' },
-              { icon: 'fa-store',           label: 'Private Sector Orgs' },
-              { icon: 'fa-lightbulb',       label: 'Innovation Hubs' },
-              { icon: 'fa-rocket',          label: 'Startup Ecosystems' },
-            ].map(({ icon, label }, i) => (
-              <motion.div key={label} className="card p-4 text-center"
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+            {partners.map(({ icon, label }, i) => (
+              <motion.div key={label} className="card p-5 text-center"
                 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.05 }}>
                 <i className={`fas ${icon} text-primary text-xl mb-2 block`} />
                 <p className="text-xs font-semibold text-dark-soft leading-tight">{label}</p>
               </motion.div>
             ))}
           </div>
-          <div className="text-center mt-10">
+          <div className="text-center">
             <Link to="/get-started" className="btn-primary">Become a Strategic Partner</Link>
           </div>
         </div>
       </section>
 
-      {/* ── CONCLUSION CTA ──────────────────────────────────────────────── */}
+      {/* ── CTA ─────────────────────────────────────────────────────────── */}
       <section className="py-24 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-5 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">
-              <i className="fas fa-bolt" /> Vision 2030
+              <i className="fas fa-bolt" /> Vision 2040
             </span>
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 leading-tight">
-              A Future Where Every Young Person Has Access to Opportunity
+              Building Digital Solutions That Drive Real-World Impact
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-4">
-              Through the SNC Innovation &amp; Leadership Hub, we are building an ecosystem that empowers people, transforms communities, strengthens businesses, and prepares future generations to lead, innovate, and thrive.
+              Through the SNC Innovation Hub, we are building an ecosystem where technology solves real problems, businesses grow digitally, and communities benefit from innovation — aligned with the UN SDGs.
             </p>
             <p className="text-gray-400 text-sm mb-10 italic">
-              "Every entrepreneur has access to support. Every organisation can leverage technology for growth. Every community can benefit from innovation."
+              "Every organisation can leverage technology for growth. Every community can benefit from innovation."
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/get-started" className="btn-primary text-base px-8 py-3.5">
-                <i className="fas fa-rocket" /> Join the Movement
+                <i className="fas fa-rocket" /> Start a Project
               </Link>
               <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-white/30 text-white hover:border-white font-semibold px-8 py-3.5 rounded-lg transition-all">
                 <i className="fas fa-envelope" /> Talk to Us
