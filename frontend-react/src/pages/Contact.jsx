@@ -6,6 +6,7 @@ import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { fadeUp } from '../lib/animations'
 import SEO from '../components/ui/SEO'
+import { pageSeo } from '../lib/seo-data'
 
 const schema = z.object({
   name: z.string().min(2, 'Full name is required'),
@@ -53,20 +54,7 @@ export default function Contact() {
 
   return (
     <>
-      <SEO
-        title="Contact Us — Juba, South Sudan"
-        description="Get in touch with Sleek Nexus Creative in Juba, South Sudan. Call +211 925 277 700, email info@sleeknexuscreative.com, or fill out our contact form for a free consultation."
-        canonical="/contact"
-        keywords="contact Sleek Nexus Creative, web development Juba, IT consulting South Sudan, free consultation"
-        imageAlt="Contact Sleek Nexus Creative in Juba, South Sudan"
-        breadcrumbs={[{ name: 'Contact', url: '/contact' }]}
-        faq={[
-          { q: 'How long does a typical project take?', a: 'Project timelines vary based on complexity. Simple websites take 2–4 weeks, while complex applications may take 3–6 months. We provide detailed timelines during consultation.' },
-          { q: 'What is your pricing structure?', a: 'We offer flexible pricing based on project scope. Contact us for a free consultation and custom quote tailored to your needs and budget.' },
-          { q: 'Do you provide ongoing support?', a: 'Yes! We offer maintenance packages and ongoing support to ensure your solution continues to perform optimally after launch.' },
-          { q: 'Can you work with our existing systems?', a: 'Absolutely. We specialize in integrations and can work with your existing infrastructure to create seamless solutions.' },
-        ]}
-      />
+      <SEO {...pageSeo['/contact']} />
 
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, staggerItem } from '../lib/animations'
 import SEO from '../components/ui/SEO'
+import { pageSeo } from '../lib/seo-data'
 
 const timeline = [
   { year: '2024', color: 'bg-primary', border: 'border-primary', title: 'Founded in Juba', desc: 'Officially registered in South Sudan. First team of 4 co-founders begins operations from a co-working space in Juba. Delivered first client projects and launched the initial training cohort.' },
@@ -34,14 +35,7 @@ const stats = [
 export default function About() {
   return (
     <>
-      <SEO
-        title="About Us — Sleek Nexus Creative, Juba South Sudan"
-        description="Learn about Sleek Nexus Creative — a technology and innovation company based in Juba, South Sudan. Our story, mission, values, and the team behind the work."
-        canonical="/about"
-        image="https://sleeknexuscreative.com/images/company-story.jpg"
-        imageAlt="Sleek Nexus Creative team in Juba, South Sudan"
-        breadcrumbs={[{ name: 'About', url: '/about' }]}
-      />
+      <SEO {...pageSeo['/about']} />
 
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-16 sm:py-24 text-center">

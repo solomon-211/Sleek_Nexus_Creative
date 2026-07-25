@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import emailjs from '@emailjs/browser'
 import SEO from '../components/ui/SEO'
+import { pageSeo } from '../lib/seo-data'
 import { motion } from 'framer-motion'
 import { fadeUp } from '../lib/animations'
 
@@ -63,23 +64,13 @@ export default function GetStarted() {
 
   return (
     <>
-      <SEO
-        title="Get Started — Start a Project with Sleek Nexus Creative"
-        description="Ready to build something? Tell us about your project and we'll get back to you within 24 hours with a free consultation and custom proposal."
-        canonical="/get-started"
-        keywords="start a project, hire software developers South Sudan, web development quote, mobile app development Africa"
-        image="https://sleeknexuscreative.com/images/about-preview.jpg"
-        imageAlt="Start a project with Sleek Nexus Creative"
-        breadcrumbs={[{ name: 'Get Started', url: '/get-started' }]}
-      />
+      <SEO {...pageSeo['/get-started']} />
 
       {/* Header */}
       <section
         className="relative py-24 flex items-center overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #0d0f1a 0%, #1a0a10 50%, #0f1520 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #1a0503 0%, #4a1710 50%, #200604 100%)' }}
       >
-        <div className="absolute inset-0 opacity-[0.03]"
-          style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
         <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }} className="max-w-2xl">

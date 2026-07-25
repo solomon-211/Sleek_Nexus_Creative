@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/ui/SEO'
+import { pageSeo } from '../lib/seo-data'
 
 const navItems = [
   { id: 'acceptance', label: 'Acceptance of Terms' },
@@ -41,11 +42,7 @@ export default function Terms() {
 
   return (
     <>
-      <SEO
-        title="Terms of Service"
-        description="Terms and conditions governing your use of Sleek Nexus Creative's services."
-        canonical="/terms"
-      />
+      <SEO {...pageSeo['/terms']} />
 
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-20 text-center">

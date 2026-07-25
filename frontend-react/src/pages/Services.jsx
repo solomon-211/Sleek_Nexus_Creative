@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { fadeUp } from '../lib/animations'
 import SEO from '../components/ui/SEO'
+import { pageSeo } from '../lib/seo-data'
 
 const services = [
   {
@@ -58,14 +59,7 @@ const packages = [
 export default function Services() {
   return (
     <>
-      <SEO
-        title="Our Services — Web, Mobile, E-Learning & IT Consulting"
-        description="Software development, web & mobile apps, educational technology, and IT consulting services in South Sudan. Affordable, reliable, and built for local realities."
-        canonical="/services"
-        image="https://sleeknexuscreative.com/images/software-dev.jpg"
-        imageAlt="Software development and IT services in South Sudan"
-        breadcrumbs={[{ name: 'Services', url: '/services' }]}
-      />
+      <SEO {...pageSeo['/services']} />
 
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerItem, scaleIn } from '../lib/animations'
 import SEO from '../components/ui/SEO'
+import { pageSeo } from '../lib/seo-data'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -82,67 +83,25 @@ function AnimatedCounter({ value, suffix }) {
 export default function Home() {
   return (
     <>
-      <SEO
-        title="Sleek Nexus Creative — Technology & Innovation for South Sudan"
-        description="Sleek Nexus Creative helps organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact. Based in Juba."
-        canonical="/"
-        keywords="web development South Sudan, mobile apps Juba, IT consulting South Sudan, e-learning platform South Sudan, software company Juba, Sleek Nexus Creative, SNC technology"
-        image="https://sleeknexuscreative.com/images/og-cover.jpg"
-        imageAlt="Sleek Nexus Creative — Technology & Innovation for South Sudan"
-        schema={[
-          {
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'Sleek Nexus Creative',
-            url: 'https://sleeknexuscreative.com',
-            logo: 'https://sleeknexuscreative.com/images/snc-logo.png',
-            description: 'Sleek Nexus Creative is a technology and innovation company based in Juba, South Sudan, building websites, mobile apps, e-learning platforms, and digital solutions for organizations across Africa.',
-            foundingDate: '2024',
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: 'Juba',
-              addressCountry: 'SS',
-            },
-            contactPoint: {
-              '@type': 'ContactPoint',
-              contactType: 'customer support',
-              email: 'info@sleeknexuscreative.com',
-              availableLanguage: 'English',
-            },
-            sameAs: [
-              'https://www.linkedin.com/company/sleek-nexus-creative',
-              'https://www.facebook.com/sleeknexuscreative',
-              'https://twitter.com/SleekNexus',
-              'https://www.instagram.com/sleeknexuscreative',
-            ],
-          },
-          {
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: 'Sleek Nexus Creative',
-            url: 'https://sleeknexuscreative.com',
-            potentialAction: {
-              '@type': 'SearchAction',
-              target: 'https://sleeknexuscreative.com/?s={search_term_string}',
-              'query-input': 'required name=search_term_string',
-            },
-          },
-        ]}
-      />
+      <SEO {...pageSeo['/']} />
 
       {/* Hero */}
       <section
         className="relative min-h-screen flex items-center"
         style={{
-          backgroundImage: `radial-gradient(ellipse at 70% 50%, rgba(196,30,58,.18), transparent 55%),
-            radial-gradient(ellipse at 10% 80%, rgba(255,140,66,.12), transparent 45%),
-            linear-gradient(120deg, rgba(8,10,20,.82), rgba(15,20,35,.78)),
+          backgroundImage: `radial-gradient(ellipse at 70% 50%, rgba(195,17,12,.20), transparent 55%),
+            radial-gradient(ellipse at 10% 80%, rgba(230,80,27,.14), transparent 45%),
+            linear-gradient(120deg, rgba(40,9,5,.85), rgba(74,23,16,.8)),
             url('/images/hero-tech.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-24 w-full">
+        {/* Ambient glow orbs — layered depth over the flat radial background */}
+        <div className="absolute top-1/4 right-[8%] w-96 h-96 bg-primary/15 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-0 left-[5%] w-80 h-80 bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-24 w-full">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
               <p className="section-label text-accent">Technology Built for South Sudan</p>
@@ -373,8 +332,9 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-primary to-primary-dark text-white text-center">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+      <section className="relative overflow-hidden py-16 sm:py-20 bg-gradient-to-br from-primary to-primary-dark text-white text-center">
+        <div className="absolute -top-10 right-[10%] w-72 h-72 bg-accent/20 rounded-full blur-[110px] pointer-events-none" />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6">
           <p className="section-label text-white/70">Work With Us</p>
           <h2 className="display-heading-sm mb-4">Have a Project in Mind?</h2>
           <p className="text-white/80 text-base sm:text-lg mb-7 sm:mb-8">Tell us what you need. We will assess it honestly, scope it clearly, and build it right.</p>

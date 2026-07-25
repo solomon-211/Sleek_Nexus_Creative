@@ -15,17 +15,12 @@ import { Link } from 'react-router-dom'
 export default function PageHeader({ label, title, desc, breadcrumb, actions, compact = false }) {
   return (
     <section
-      className={`relative bg-gradient-to-br from-[#0d0f1a] via-[#1a0a10] to-[#0f1520] text-white overflow-hidden ${compact ? 'py-14' : 'py-20 md:py-24'}`}
+      className={`relative bg-gradient-to-br from-[#1a0503] via-[#4a1710] to-[#200604] text-white overflow-hidden ${compact ? 'py-14' : 'py-20 md:py-24'}`}
       aria-label={`${title} page header`}
     >
-      {/* Subtle grid overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px)', backgroundSize: '48px 48px' }}
-      />
-
-      {/* Glow orb */}
-      <div className="absolute top-0 right-1/4 w-72 h-72 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+      {/* Glow orbs — dual-tone ember effect */}
+      <div className="absolute top-0 right-1/4 w-72 h-72 bg-primary/15 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-accent/10 rounded-full blur-[110px] pointer-events-none" />
 
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
         <motion.div

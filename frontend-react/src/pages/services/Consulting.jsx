@@ -1,7 +1,8 @@
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
+import SEO from '../../components/ui/SEO'
+import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
 
 const offers = ['Technology Strategy & Roadmapping', 'Digital Transformation Planning', 'System Architecture Design', 'Security Audits & Compliance', 'Cloud Migration Services', 'Vendor Selection & Evaluation', 'Performance Optimization', 'IT Policy & Governance']
@@ -22,7 +23,7 @@ const engagements = [
 export default function Consulting() {
   return (
     <>
-      <Helmet><title>Digital Consulting - Sleek Nexus Creative</title></Helmet>
+      <SEO {...pageSeo['/services/consulting']} />
       <PageHeader label="Services" title="Digital Consulting" desc="Strategic technology advisory to help your organization navigate digital transformation with confidence and clarity." />
 
       <section className="py-24">

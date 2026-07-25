@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <!-- Background circle matching SNC brand red -->
-  <circle cx="256" cy="256" r="256" fill="#c41e3a"/>
+  <circle cx="256" cy="256" r="256" fill="#C3110C"/>
   <!-- Inner subtle ring -->
   <circle cx="256" cy="256" r="220" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="8"/>
   <!-- SNC text - bold, white, centered -->

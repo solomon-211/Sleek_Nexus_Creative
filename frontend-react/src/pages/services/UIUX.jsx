@@ -1,7 +1,8 @@
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
+import SEO from '../../components/ui/SEO'
+import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
 
 const offers = ['User Research & Personas', 'Wireframing & Prototyping', 'High-Fidelity UI Design', 'Design Systems & Component Libraries', 'Usability Testing', 'Mobile & Web App Design', 'Branding Integration', 'Figma Handoff for Developers']
@@ -18,7 +19,7 @@ const principles = [
 export default function UIUX() {
   return (
     <>
-      <Helmet><title>UI/UX Design - Sleek Nexus Creative</title></Helmet>
+      <SEO {...pageSeo['/services/ui-ux']} />
       <PageHeader label="Services" title="UI/UX Design" desc="Human-centered design that makes digital products intuitive, accessible, and beautiful — built for your users, not just aesthetics." />
 
       <section className="py-24">

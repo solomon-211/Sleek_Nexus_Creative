@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import SEO from '../components/ui/SEO'
+import { pageSeo } from '../lib/seo-data'
 import { fadeUp, staggerContainer, staggerItem } from '../lib/animations'
 
 const filters = ['all', 'web', 'mobile', 'edtech', 'enterprise']
@@ -57,14 +58,7 @@ export default function Projects() {
 
   return (
     <>
-      <SEO
-        title="Our Projects — Portfolio & Case Studies"
-        description="View Sleek Nexus Creative's portfolio of technology projects in South Sudan — e-learning platforms, business management systems, mobile payment apps, and more."
-        canonical="/projects"
-        image="https://sleeknexuscreative.com/images/project1.jpg"
-        imageAlt="E-Learning Platform project by Sleek Nexus Creative"
-        breadcrumbs={[{ name: 'Projects', url: '/projects' }]}
-      />
+      <SEO {...pageSeo['/projects']} />
 
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">

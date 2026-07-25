@@ -1,7 +1,8 @@
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
+import SEO from '../../components/ui/SEO'
+import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
 
 const offers = ['Custom Website Development', 'Responsive Web Design', 'Progressive Web Apps (PWA)', 'E-Commerce Platforms', 'CMS Development (WordPress, Custom)', 'API Development & Integration', 'Landing Pages & Marketing Sites', 'Web App Dashboards & Portals']
@@ -20,7 +21,7 @@ const process = [
 export default function WebDev() {
   return (
     <>
-      <Helmet><title>Web Development - Sleek Nexus Creative</title></Helmet>
+      <SEO {...pageSeo['/services/web-dev']} />
       <PageHeader label="Services" title="Web Development" desc="Custom, responsive, and high-performing websites and web applications built for South Sudan and beyond." />
 
       <section className="py-24">

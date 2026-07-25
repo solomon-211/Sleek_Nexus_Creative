@@ -22,7 +22,7 @@ export default function CookieBanner() {
       role="dialog"
       aria-modal="false"
       aria-label="Cookie consent"
-      className="fixed bottom-0 left-0 right-0 z-[10000] bg-[#0f172a]/98 backdrop-blur-sm border-t border-white/10 shadow-[0_-8px_32px_rgba(0,0,0,0.4)]"
+      className="fixed bottom-0 left-0 right-0 z-[10000] bg-dark/98 backdrop-blur-sm border-t border-white/10 shadow-[0_-8px_32px_rgba(0,0,0,0.4)]"
       style={{ animation: 'slideUp 0.3s ease' }}
     >
       <style>{`@keyframes slideUp { from { transform: translateY(100%); opacity:0; } to { transform: translateY(0); opacity:1; } }`}</style>

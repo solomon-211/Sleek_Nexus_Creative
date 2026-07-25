@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/ui/SEO'
+import { pageSeo } from '../lib/seo-data'
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, scaleIn } from '../lib/animations'
 
@@ -35,35 +36,35 @@ function AnimatedCounter({ value, suffix = '' }) {
 const sdgs = [
   {
     num: 4,
-    color: '#c41e3a',
+    color: '#C3110C',
     icon: 'fa-graduation-cap',
     title: 'Quality Education',
     desc: 'Building digital learning platforms, e-learning tools, and tech-enabled education systems that expand access to quality education across South Sudan.',
   },
   {
     num: 8,
-    color: '#ff8c42',
+    color: '#E6501B',
     icon: 'fa-briefcase',
     title: 'Decent Work & Economic Growth',
     desc: 'Creating digital jobs, empowering entrepreneurs with software tools, and driving economic growth through technology services and startup support.',
   },
   {
     num: 9,
-    color: '#c41e3a',
+    color: '#C3110C',
     icon: 'fa-industry',
     title: 'Industry, Innovation & Infrastructure',
     desc: 'Delivering scalable software, cloud infrastructure, and digital transformation solutions that modernise industries and build resilient digital infrastructure.',
   },
   {
     num: 10,
-    color: '#ff8c42',
+    color: '#E6501B',
     icon: 'fa-balance-scale',
     title: 'Reduced Inequalities',
     desc: 'Bridging the digital divide by making technology accessible to underserved communities, women, and youth across South Sudan and Africa.',
   },
   {
     num: 17,
-    color: '#1e293b',
+    color: '#4A1710',
     icon: 'fa-handshake',
     title: 'Partnerships for the Goals',
     desc: 'Forging strategic alliances with governments, NGOs, tech companies, and international organisations to co-create digital solutions for sustainable development.',
@@ -74,28 +75,28 @@ const sdgs = [
 const focusAreas = [
   {
     icon: 'fa-laptop-code',
-    color: 'from-[#c41e3a] to-[#9b1530]',
+    color: 'from-primary to-primary-dark',
     title: 'Custom Software Development',
     desc: 'End-to-end development of web applications, mobile apps, SaaS platforms, and enterprise systems built to solve real business problems.',
     features: ['Web & mobile applications', 'SaaS product development', 'API design & integration', 'Cloud-native architecture'],
   },
   {
     icon: 'fa-pencil-ruler',
-    color: 'from-[#ff8c42] to-[#e6740a]',
+    color: 'from-accent to-accent-dark',
     title: 'UI/UX & Digital Design',
     desc: 'Human-centred design that turns complex problems into intuitive, beautiful digital experiences — from wireframes to production-ready interfaces.',
     features: ['User research & prototyping', 'Interface & interaction design', 'Design systems & branding', 'Accessibility-first approach'],
   },
   {
     icon: 'fa-cloud',
-    color: 'from-[#1e293b] to-[#0f172a]',
+    color: 'from-dark-soft to-dark',
     title: 'Cloud & Infrastructure',
     desc: 'Scalable, secure cloud infrastructure and DevOps pipelines that keep your digital products fast, reliable, and ready to grow.',
     features: ['Cloud deployment & migration', 'DevOps & CI/CD pipelines', 'Cybersecurity assessments', 'Performance optimisation'],
   },
   {
     icon: 'fa-lightbulb',
-    color: 'from-[#c41e3a] to-[#ff8c42]',
+    color: 'from-primary to-accent',
     title: 'Innovation & Consulting',
     desc: 'Strategic technology consulting and innovation lab programs that help organisations identify opportunities, validate ideas, and build digital solutions.',
     features: ['Digital transformation strategy', 'Technology audits & roadmaps', 'Startup incubation & prototyping', 'Innovation workshops & sprints'],
@@ -177,29 +178,13 @@ const partners = [
 export default function InnovationHub() {
   return (
     <>
-      <SEO
-        title="SNC Innovation Hub — Technology & Digital Solutions for South Sudan"
-        description="The SNC Innovation Hub is a technology and innovation ecosystem in Juba, South Sudan — delivering custom software, digital transformation, and startup support aligned with the UN SDGs."
-        canonical="/innovation-hub"
-        keywords="innovation hub South Sudan, tech hub Juba, software development South Sudan, digital transformation South Sudan, SNC hub, startup incubation South Sudan, SDGs technology"
-        image="https://sleeknexuscreative.com/images/about-preview.jpg"
-        imageAlt="SNC Innovation Hub — Technology and Digital Solutions"
-        breadcrumbs={[{ name: 'Innovation Hub', url: '/innovation-hub' }]}
-        faq={[
-          { q: 'What is the SNC Innovation Hub?', a: 'The SNC Innovation Hub is a technology and innovation ecosystem in Juba, South Sudan that delivers custom software, digital transformation, and startup support — aligned with the UN Sustainable Development Goals.' },
-          { q: 'What SDGs does SNC address?', a: 'SNC directly contributes to SDG 4 (Quality Education), SDG 8 (Decent Work & Economic Growth), SDG 9 (Industry, Innovation & Infrastructure), SDG 10 (Reduced Inequalities), and SDG 17 (Partnerships for the Goals).' },
-          { q: 'What technology services does SNC offer?', a: 'SNC offers custom software development, mobile apps, UI/UX design, cloud infrastructure, cybersecurity, digital consulting, and startup incubation.' },
-          { q: 'Where is the SNC Innovation Hub located?', a: 'The SNC Innovation Hub is based in Juba, Central Equatoria, South Sudan.' },
-        ]}
-      />
+      <SEO {...pageSeo['/innovation-hub']} />
 
       {/* ── HERO ──────────────────────────────────────────────────────── */}
       <section
         className="relative min-h-[85vh] flex items-center overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #0d0f1a 0%, #1a0a10 45%, #0f1520 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #1a0503 0%, #4a1710 45%, #200604 100%)' }}
       >
-        <div className="absolute inset-0 opacity-[0.035]"
-          style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
 

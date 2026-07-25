@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/ui/SEO'
+import { pageSeo } from '../lib/seo-data'
 
 const sections = [
   { id: 'info-collect',   label: '1. Information We Collect' },
@@ -23,12 +24,7 @@ export default function Privacy() {
 
   return (
     <>
-      <SEO
-        title="Privacy Policy"
-        description="How Sleek Nexus Creative collects, uses, and protects your personal information."
-        canonical="/privacy"
-        schema={{ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Privacy Policy', url: 'https://sleeknexuscreative.com/privacy' }}
-      />
+      <SEO {...pageSeo['/privacy']} />
 
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-20 text-center">

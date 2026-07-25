@@ -4,8 +4,8 @@
   "description": "Technology, innovation, and leadership organisation in Juba, South Sudan.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#c41e3a",
+  "background_color": "#280905",
+  "theme_color": "#C3110C",
   "icons": [
     {
       "src": "/favicon-192x192.png",

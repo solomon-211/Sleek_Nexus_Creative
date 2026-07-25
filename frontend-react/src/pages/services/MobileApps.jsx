@@ -1,7 +1,8 @@
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
+import SEO from '../../components/ui/SEO'
+import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
 
 const offers = ['iOS & Android App Development', 'Cross-Platform Apps (React Native / Flutter)', 'Mobile UI/UX Design', 'Offline-Capable Apps', 'Push Notifications & Real-Time Features', 'Payment & SMS Integration', 'App Store & Play Store Submission', 'Maintenance & Version Updates']
@@ -18,7 +19,7 @@ const features = [
 export default function MobileApps() {
   return (
     <>
-      <Helmet><title>Mobile App Development - Sleek Nexus Creative</title></Helmet>
+      <SEO {...pageSeo['/services/mobile-apps']} />
       <PageHeader label="Services" title="Mobile App Development" desc="Native and cross-platform mobile apps built for South Sudan's real users — offline-capable, lightweight, and production-ready." />
 
       <section className="py-24">
@@ -81,7 +82,7 @@ export default function MobileApps() {
           <p className="text-gray-300 mb-8">We'll help you turn it into a real product — from concept to App Store.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/contact" className="btn-primary">Get a Free Quote</Link>
-            <Link to="/projects/portfolio" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Projects</Link>
+            <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Projects</Link>
           </div>
         </div>
       </section>

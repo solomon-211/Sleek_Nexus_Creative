@@ -1,7 +1,8 @@
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
+import SEO from '../../components/ui/SEO'
+import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
 
 const offers = [
@@ -64,7 +65,7 @@ const brandGallery = [
 export default function Branding() {
   return (
     <>
-      <Helmet><title>Branding & Identity - Sleek Nexus Creative</title></Helmet>
+      <SEO {...pageSeo['/services/branding']} />
       <PageHeader
         label="Services"
         title="Branding & Identity"
