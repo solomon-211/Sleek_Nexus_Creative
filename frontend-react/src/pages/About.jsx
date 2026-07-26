@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { fadeUp, staggerContainer, staggerItem } from '../lib/animations'
+import { fadeUp, fadeLeft, staggerContainer, staggerItem, revealUp } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 
 const timeline = [
-  { year: '2024', color: 'bg-primary', border: 'border-primary', title: 'Founded in Juba', desc: 'Officially registered in South Sudan. First team of 4 co-founders begins operations from a co-working space in Juba. Delivered first client projects and launched the initial training cohort.' },
-  { year: '2025', color: 'bg-accent', border: 'border-accent', title: 'Growing & Delivering', desc: 'Delivering digital projects for businesses, schools, and NGOs across Juba. Launched the SNC Academy with practical courses in web development, mobile apps, UI/UX, and digital marketing.' },
+  { year: '2024', color: 'bg-primary', border: 'border-t-primary', title: 'Founded in Juba', desc: 'Officially registered in South Sudan. First team of 4 co-founders begins operations from a co-working space in Juba. Delivered first client projects and launched the initial training cohort.' },
+  { year: '2025', color: 'bg-accent', border: 'border-t-accent', title: 'Growing & Delivering', desc: 'Delivering digital projects for businesses, schools, and NGOs across Juba. Launched the SNC Academy with practical courses in web development, mobile apps, UI/UX, and digital marketing.' },
 ]
 
 const values = [
@@ -40,7 +40,7 @@ export default function About() {
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-16 sm:py-24 text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
+          <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Who We Are</p>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">About Sleek Nexus Creative</h1>
             <p className="text-gray-300 text-lg leading-relaxed">
@@ -55,7 +55,7 @@ export default function About() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <motion.div className="bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl p-10"
-              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
+              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75 }}>
               <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-5">
                 <i className="fas fa-bullseye text-white text-xl" />
               </div>
@@ -63,7 +63,7 @@ export default function About() {
               <p className="opacity-90 leading-relaxed">To empower individuals, organizations, and communities across South Sudan through practical digital solutions, technology education, and creative innovation — bridging the gap between local needs and modern standards.</p>
             </motion.div>
             <motion.div className="bg-gradient-to-br from-dark to-dark-soft text-white rounded-2xl p-10 border border-white/10"
-              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
+              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}>
               <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-5">
                 <i className="fas fa-eye text-accent text-xl" />
               </div>
@@ -74,14 +74,14 @@ export default function About() {
 
           {/* Our Story */}
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75 }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Our Story</p>
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark mb-6">Born in Juba, Built for South Sudan</h2>
               <p className="text-muted leading-relaxed mb-4">In 2024, a group of young South Sudanese technologists gathered with one shared frustration: brilliant talent in South Sudan was going unrecognized, unequipped, and underserved by the digital economy.</p>
               <p className="text-muted leading-relaxed mb-4">Organizations across Juba needed websites, apps, and digital systems — but had nowhere local to turn for quality, affordable, context-aware solutions.</p>
               <p className="text-muted leading-relaxed">We started with two laptops, one co-working space, and an unshakeable belief that <strong className="text-primary">Africa's youngest nation deserved the best technology.</strong></p>
             </motion.div>
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.25 }}>
               <img src="/images/company-story.jpg" alt="Sleek Nexus Creative founding story" className="rounded-2xl shadow-xl w-full h-[400px] object-cover" loading="lazy" />
             </motion.div>
           </div>
@@ -96,17 +96,30 @@ export default function About() {
             <h2 className="section-title">Where We've Been</h2>
             <p className="section-subtitle">Every milestone represents a commitment kept to the people of South Sudan.</p>
           </div>
-          <div className="relative max-w-3xl mx-auto">
-            <div className="absolute left-1/2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-primary to-accent -translate-x-1/2 hidden md:block" />
+          <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 max-w-3xl mx-auto">
             {timeline.map(({ year, color, border, title, desc }, i) => (
-              <motion.div key={year} className={`relative flex mb-10 ${i % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
-                <div className={`w-full md:w-[45%] bg-white rounded-xl p-6 shadow-md border-l-4 ${border}`}>
-                  <span className={`text-xs font-black px-3 py-1 rounded-full text-white ${color}`}>{year}</span>
-                  <h3 className="font-heading font-bold text-dark mt-3 mb-2">{title}</h3>
-                  <p className="text-muted text-sm leading-relaxed">{desc}</p>
+              <motion.div
+                key={year}
+                className="relative"
+                variants={revealUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}
+              >
+                <div className={`card h-full p-7 sm:p-8 relative overflow-hidden border-t-4 ${border}`}>
+                  <span className="absolute -top-3 -right-2 text-8xl font-heading font-black text-primary/[0.06] leading-none select-none pointer-events-none">
+                    {year}
+                  </span>
+                  <span className={`relative inline-block text-xs font-black tracking-wide px-3 py-1.5 rounded-full text-white mb-4 ${color}`}>
+                    {year}
+                  </span>
+                  <h3 className="relative font-heading font-bold text-dark text-xl mb-2">{title}</h3>
+                  <p className="relative text-muted text-sm leading-relaxed">{desc}</p>
                 </div>
-                <div className={`absolute left-1/2 top-5 w-4 h-4 rounded-full border-2 border-white -translate-x-1/2 hidden md:block ${color}`} />
+
+                {/* Connector to the next milestone */}
+                {i < timeline.length - 1 && (
+                  <div className="hidden sm:flex absolute top-1/2 -right-4 md:-right-5 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white shadow-md border border-gray-100 items-center justify-center">
+                    <i className="fas fa-arrow-right text-primary text-xs" />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
@@ -163,7 +176,7 @@ export default function About() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map(({ name, role, bio, img, socials }, i) => (
               <motion.div key={name} className="card overflow-hidden"
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
+                variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: i * 0.15 }}>
                 <img src={img} alt={name} className="w-full h-52 object-cover" loading="lazy" />
                 <div className="p-5">
                   <h3 className="font-heading font-bold text-dark">{name}</h3>

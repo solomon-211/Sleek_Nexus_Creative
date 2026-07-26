@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerItem, scaleIn } from '../lib/animations'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { fadeUp, fadeLeft, fadeRight, fadeDown, rotateIn, staggerContainer, staggerItem, scaleIn, revealUp, stackReveal, floatAnimation } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
+import TiltCard from '../components/ui/TiltCard'
+import MagneticButton from '../components/ui/MagneticButton'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -81,76 +83,89 @@ function AnimatedCounter({ value, suffix }) {
 // ─── Home ─────────────────────────────────────────────────────────────────────
 
 export default function Home() {
+  // Parallax: the background glow orbs drift at a fraction of scroll speed while the
+  // hero content scrolls at normal speed — the classic "background slower than
+  // foreground" parallax effect, scoped to the hero section only.
+  const heroRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
+  const orb1Y = useTransform(scrollYProgress, [0, 1], [0, 120])
+  const orb2Y = useTransform(scrollYProgress, [0, 1], [0, -80])
+
   return (
     <>
       <SEO {...pageSeo['/']} />
 
       {/* Hero */}
       <section
-        className="relative min-h-screen flex items-center"
+        ref={heroRef}
+        className="relative min-h-screen flex items-center bg-white overflow-hidden"
         style={{
-          backgroundImage: `radial-gradient(ellipse at 70% 50%, rgba(195,17,12,.20), transparent 55%),
-            radial-gradient(ellipse at 10% 80%, rgba(230,80,27,.14), transparent 45%),
-            linear-gradient(120deg, rgba(40,9,5,.85), rgba(74,23,16,.8)),
-            url('/images/hero-tech.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundImage: `radial-gradient(ellipse at 70% 20%, rgba(254,127,45,.08), transparent 55%),
+            radial-gradient(ellipse at 10% 90%, rgba(254,153,87,.07), transparent 45%)`,
         }}
       >
-        {/* Ambient glow orbs — layered depth over the flat radial background */}
-        <div className="absolute top-1/4 right-[8%] w-96 h-96 bg-primary/15 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-0 left-[5%] w-80 h-80 bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
+        {/* Ambient glow orbs — soft color wash over the white background, parallaxed on scroll */}
+        <motion.div style={{ y: orb1Y }} className="absolute top-1/4 right-[8%] w-96 h-96 bg-primary/10 rounded-full blur-[130px] pointer-events-none" />
+        <motion.div style={{ y: orb2Y }} className="absolute bottom-0 left-[5%] w-80 h-80 bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-24 w-full">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
+            <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
               <p className="section-label text-accent">Technology Built for South Sudan</p>
-              <h1 className="text-white mb-5 sm:mb-6" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem, 4.2vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
-                <span className="block text-white">We Build Digital Products</span>
-                <span className="block text-white">That Work in</span>
+              <h1 className="text-dark mb-5 sm:mb-6" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem, 4.2vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
+                <span className="block">We Build Digital Products</span>
+                <span className="block">That Work in</span>
                 <span className="block">the{' '}
                   <span className="text-accent">Real World</span>
                 </span>
               </h1>
-              <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-7 sm:mb-8">
+              <p className="text-muted text-base sm:text-lg leading-relaxed mb-7 sm:mb-8">
                 Sleek Nexus Creative helps organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact.
               </p>
               <div className="flex flex-wrap gap-3 mb-8 sm:mb-12">
-                <Link to="/contact" className="btn-primary">Start Your Project</Link>
-                <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Work</Link>
+                <MagneticButton>
+                  <Link to="/contact" className="btn-primary">Start Your Project</Link>
+                </MagneticButton>
+                <MagneticButton>
+                  <Link to="/projects" className="btn-secondary">View Our Work</Link>
+                </MagneticButton>
               </div>
               <div className="flex flex-wrap gap-6 sm:gap-8">
                 {[{ value: '10+', label: 'Projects Delivered' }, { value: '50+', label: 'Learners Supported' }, { value: '1+', label: 'Years of Excellence' }].map(({ value, label }) => (
                   <div key={label}>
-                    <strong className="block text-2xl sm:text-3xl font-heading font-bold text-white">{value}</strong>
-                    <span className="text-gray-400 text-sm">{label}</span>
+                    <strong className="block text-2xl sm:text-3xl font-heading font-bold text-dark">{value}</strong>
+                    <span className="text-muted text-sm">{label}</span>
                   </div>
                 ))}
               </div>
             </motion.div>
 
             <motion.aside
-              variants={fadeRight} initial="hidden" animate="show" transition={{ duration: 0.6, delay: 0.25 }}
-              className="bg-white/[0.07] backdrop-blur-xl border border-white/20 rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.15)]"
-              style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.04) 100%)' }}
+              variants={fadeRight} initial="hidden" animate="show" transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4">What You Get</p>
-              <ul className="space-y-3 mb-6">
-                {[
-                  'Discovery and planning before every build',
-                  'Fast, mobile-first interfaces users actually adopt',
-                  'Secure architecture and post-launch support',
-                  'Dedicated team throughout the project',
-                  'On-time delivery with clear milestones',
-                ].map(item => (
-                  <li key={item} className="flex items-start gap-3 text-gray-200 text-sm">
-                    <i className="fas fa-check-circle text-accent mt-0.5 flex-shrink-0" />{item}
-                  </li>
-                ))}
-              </ul>
-              <Link to="/services" className="inline-flex items-center gap-2 text-accent font-semibold text-sm">
-                Explore Our Services <i className="fas fa-arrow-right" />
-              </Link>
+              {/* Continuous idle float once the card has entered — a small "alive" touch */}
+              <motion.div
+                animate={floatAnimation}
+                className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
+              >
+                <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4">What You Get</p>
+                <ul className="space-y-3 mb-6">
+                  {[
+                    'Discovery and planning before every build',
+                    'Fast, mobile-first interfaces users actually adopt',
+                    'Secure architecture and post-launch support',
+                    'Dedicated team throughout the project',
+                    'On-time delivery with clear milestones',
+                  ].map(item => (
+                    <li key={item} className="flex items-start gap-3 text-dark-soft text-sm">
+                      <i className="fas fa-check-circle text-accent mt-0.5 flex-shrink-0" />{item}
+                    </li>
+                  ))}
+                </ul>
+                <Link to="/services" className="inline-flex items-center gap-2 text-accent font-semibold text-sm">
+                  Explore Our Services <i className="fas fa-arrow-right" />
+                </Link>
+              </motion.div>
             </motion.aside>
           </div>
         </div>
@@ -206,7 +221,7 @@ export default function Home() {
       <section className="py-16 sm:py-24">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+            <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Who We Are</p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-dark mb-5 leading-tight">
                 Building Reliable Technology for South Sudanese Organizations
@@ -219,7 +234,7 @@ export default function Home() {
               </p>
               <Link to="/about" className="btn-primary">Learn About Us</Link>
             </motion.div>
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}>
+            <motion.div variants={fadeRight} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}>
               <img src="/images/about-preview.jpg" alt="Sleek Nexus Creative — Building Reliable Technology for South Sudan" className="w-full rounded-xl object-cover" loading="lazy" />
             </motion.div>
           </div>
@@ -236,7 +251,7 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {processSteps.map(({ num, icon, title, desc }, i) => (
-              <motion.div key={num} className="card p-5 sm:p-6 text-center" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
+              <motion.div key={num} className="card p-5 sm:p-6 text-center" variants={fadeDown} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}>
                 <div className="text-4xl sm:text-5xl font-heading font-black text-primary/10 mb-3">{num}</div>
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <i className={`fas ${icon} text-primary text-lg`} />
@@ -260,16 +275,24 @@ export default function Home() {
           <motion.div
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-8 sm:mb-10"
             variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
+            transition={{ staggerChildren: 0.18, delayChildren: 0.15 }}
           >
             {projects.map(({ img, title, desc, hash }) => (
-              <motion.div key={title} className="card overflow-hidden" variants={staggerItem}>
-                <img src={img} alt={title} className="w-full h-44 sm:h-48 object-cover" loading="lazy" />
+              <TiltCard key={title} className="card overflow-hidden group" variants={revealUp}>
+                <div className="relative overflow-hidden h-44 sm:h-48">
+                  <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <span className="inline-flex items-center gap-1.5 text-white text-xs font-bold uppercase tracking-wide translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                      View Case Study <i className="fas fa-arrow-right text-[0.65rem]" />
+                    </span>
+                  </div>
+                </div>
                 <div className="p-4 sm:p-5">
                   <h3 className="font-heading font-bold text-dark mb-2">{title}</h3>
                   <p className="text-muted text-sm leading-relaxed mb-4">{desc}</p>
                   <Link to={`/projects${hash}`} className="text-primary text-sm font-semibold hover:underline">View Case Study</Link>
                 </div>
-              </motion.div>
+              </TiltCard>
             ))}
           </motion.div>
           <div className="text-center">
@@ -288,7 +311,7 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {testimonials.map(({ initials, name, role, text }, i) => (
-              <motion.div key={name} className="card p-5 sm:p-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
+              <motion.div key={name} className="card p-5 sm:p-6" style={{ transformPerspective: 800 }} variants={stackReveal(i)} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}>
                 <div className="flex gap-1 text-accent mb-4">
                   {Array(5).fill(0).map((_, j) => <i key={j} className="fas fa-star text-sm" />)}
                 </div>
@@ -319,7 +342,7 @@ export default function Home() {
             variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
           >
             {whyCards.map(({ icon, title, desc }) => (
-              <motion.div key={title} className="card p-5 sm:p-6" variants={staggerItem}>
+              <motion.div key={title} className="card p-5 sm:p-6" variants={rotateIn}>
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <i className={`fas ${icon} text-primary text-lg`} />
                 </div>

@@ -4,6 +4,7 @@ import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, scaleIn } from '../lib/animations'
+import TiltCard from '../components/ui/TiltCard'
 
 // ── Animated Counter (Hub) ────────────────────────────────────────────────────
 function AnimatedCounter({ value, suffix = '' }) {
@@ -36,35 +37,35 @@ function AnimatedCounter({ value, suffix = '' }) {
 const sdgs = [
   {
     num: 4,
-    color: '#C3110C',
+    color: '#8C4619',
     icon: 'fa-graduation-cap',
     title: 'Quality Education',
     desc: 'Building digital learning platforms, e-learning tools, and tech-enabled education systems that expand access to quality education across South Sudan.',
   },
   {
     num: 8,
-    color: '#E6501B',
+    color: '#8C5430',
     icon: 'fa-briefcase',
     title: 'Decent Work & Economic Growth',
     desc: 'Creating digital jobs, empowering entrepreneurs with software tools, and driving economic growth through technology services and startup support.',
   },
   {
     num: 9,
-    color: '#C3110C',
+    color: '#8C4619',
     icon: 'fa-industry',
     title: 'Industry, Innovation & Infrastructure',
     desc: 'Delivering scalable software, cloud infrastructure, and digital transformation solutions that modernise industries and build resilient digital infrastructure.',
   },
   {
     num: 10,
-    color: '#E6501B',
+    color: '#8C5430',
     icon: 'fa-balance-scale',
     title: 'Reduced Inequalities',
     desc: 'Bridging the digital divide by making technology accessible to underserved communities, women, and youth across South Sudan and Africa.',
   },
   {
     num: 17,
-    color: '#4A1710',
+    color: '#233D4D',
     icon: 'fa-handshake',
     title: 'Partnerships for the Goals',
     desc: 'Forging strategic alliances with governments, NGOs, tech companies, and international organisations to co-create digital solutions for sustainable development.',
@@ -181,25 +182,22 @@ export default function InnovationHub() {
       <SEO {...pageSeo['/innovation-hub']} />
 
       {/* ── HERO ──────────────────────────────────────────────────────── */}
-      <section
-        className="relative min-h-[85vh] flex items-center overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #1a0503 0%, #4a1710 45%, #200604 100%)' }}
-      >
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-white border-b border-gray-100">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 py-28 w-full">
           <div className="max-w-4xl">
-            <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.7 }}>
+            <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.85 }}>
               <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-6 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">
                 SNC · Vision 2040
               </span>
-              <h1 className="text-white font-heading font-black uppercase leading-[0.95] mb-6"
+              <h1 className="text-dark font-heading font-black uppercase leading-[0.95] mb-6"
                 style={{ fontSize: 'clamp(2.25rem,5.5vw,4.25rem)', letterSpacing: '-0.02em' }}>
-                <span className="text-white">Technology &amp; Innovation</span><br />
+                <span className="text-dark">Technology &amp; Innovation</span><br />
                 <span className="text-accent">Hub</span>
               </h1>
-              <p className="text-gray-300 text-lg leading-relaxed mb-4 max-w-2xl">
+              <p className="text-muted text-lg leading-relaxed mb-4 max-w-2xl">
                 A technology and innovation ecosystem in Juba, South Sudan — building digital products, delivering software solutions, and driving transformation aligned with the UN Sustainable Development Goals.
               </p>
               <p className="text-accent font-semibold mb-8">
@@ -210,7 +208,7 @@ export default function InnovationHub() {
                 <Link to="/get-started" className="btn-primary text-base px-8 py-3.5">
                   Start a Project
                 </Link>
-                <a href="#focus" className="inline-flex items-center gap-2 border-2 border-white/30 text-white hover:border-white font-semibold px-8 py-3.5 rounded-lg transition-all">
+                <a href="#focus" className="inline-flex items-center gap-2 border-2 border-primary/30 text-primary hover:border-primary font-semibold px-8 py-3.5 rounded-lg transition-all">
                   Explore the Hub
                 </a>
               </div>
@@ -234,7 +232,7 @@ export default function InnovationHub() {
               <motion.div
                 key={num}
                 className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col"
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
+                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}
               >
                 <div className="p-5 flex items-center gap-4" style={{ backgroundColor: color }}>
                   <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -253,7 +251,7 @@ export default function InnovationHub() {
             {/* Filler card — "and more" */}
             <motion.div
               className="rounded-2xl border-2 border-dashed border-gray-200 p-6 flex flex-col items-center justify-center text-center gap-3"
-              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.4 }}
+              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.5 }}
             >
               <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
                 <i className="fas fa-plus text-gray-400 text-lg" />
@@ -276,7 +274,7 @@ export default function InnovationHub() {
           <div className="grid md:grid-cols-2 gap-7">
             {focusAreas.map(({ icon, color, title, desc, features }, i) => (
               <motion.div key={title} className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col"
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
+                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}>
                 <div className={`bg-gradient-to-br ${color} p-7 text-white`}>
                   <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
                     <i className={`fas ${icon} text-white text-xl`} />
@@ -314,8 +312,8 @@ export default function InnovationHub() {
           </div>
           <div className="grid md:grid-cols-3 gap-7">
             {roadmap.map(({ phase, years, title, color, badgeColor, priorities, outcomes }, i) => (
-              <motion.div key={phase} className={`rounded-2xl border-2 ${color} p-7`}
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
+              <TiltCard key={phase} className={`rounded-2xl border-2 ${color} p-7`}
+                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.15 }}>
                 <div className="flex items-center gap-3 mb-4">
                   <span className={`text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full ${badgeColor}`}>{phase}</span>
                   <span className="text-xs font-semibold text-muted">{years}</span>
@@ -341,7 +339,7 @@ export default function InnovationHub() {
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </TiltCard>
             ))}
           </div>
         </div>
@@ -384,7 +382,7 @@ export default function InnovationHub() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
             {partners.map(({ icon, label }, i) => (
               <motion.div key={label} className="card p-5 text-center"
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.05 }}>
+                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.08 }}>
                 <i className={`fas ${icon} text-primary text-xl mb-2 block`} />
                 <p className="text-xs font-semibold text-dark-soft leading-tight">{label}</p>
               </motion.div>
@@ -399,7 +397,7 @@ export default function InnovationHub() {
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
       <section className="py-24 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
         <div className="max-w-3xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8 }}>
             <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-5 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">
               Vision 2040
             </span>

@@ -79,7 +79,7 @@ export default function Footer() {
           </div>
           <Link
             to="/innovation-hub"
-            className="flex-shrink-0 inline-flex items-center gap-2 bg-primary/20 border border-primary/40 hover:bg-primary hover:border-primary text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-[0_8px_24px_rgba(195,17,12,0.4)] hover:-translate-y-0.5"
+            className="flex-shrink-0 inline-flex items-center gap-2 bg-primary/20 border border-primary/40 hover:bg-primary hover:border-primary text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-[0_8px_24px_rgba(254,127,45,0.4)] hover:-translate-y-0.5"
           >
             <i className="fas fa-rocket text-[0.65rem]" /> Explore the Hub
           </Link>
@@ -204,7 +204,7 @@ export default function Footer() {
             <Link to="/terms"   className="hover:text-white transition-colors">Terms of Service</Link>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="w-7 h-7 rounded-lg bg-white/5 hover:bg-primary hover:text-white flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_16px_rgba(195,17,12,0.5)]"
+              className="w-7 h-7 rounded-lg bg-white/5 hover:bg-primary hover:text-white flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_16px_rgba(254,127,45,0.5)]"
               aria-label="Back to top"
             >
               <i className="fas fa-arrow-up text-xs" />

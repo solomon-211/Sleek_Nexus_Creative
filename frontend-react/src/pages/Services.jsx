@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { fadeUp } from '../lib/animations'
+import { fadeUp, scaleIn, floatAnimation } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 
@@ -64,7 +64,7 @@ export default function Services() {
       {/* Header */}
       <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">
         <div className="max-w-3xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
+          <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Enterprise-Grade Technology Solutions</p>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">Our Services</h1>
             <p className="text-gray-300 text-lg leading-relaxed">We deliver comprehensive technology services designed to transform your business operations and accelerate growth — from custom software development to strategic IT consulting.</p>
@@ -77,7 +77,7 @@ export default function Services() {
         <section key={id} id={id} className={`py-24 ${idx % 2 !== 0 ? 'bg-gray-50' : ''}`}>
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className={`grid lg:grid-cols-2 gap-16 items-center ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
-              <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }} className={idx % 2 !== 0 ? 'lg:order-2' : ''}>
+              <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75 }} className={idx % 2 !== 0 ? 'lg:order-2' : ''}>
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5">
                   <i className={`fas ${icon} text-primary text-2xl`} />
                 </div>
@@ -132,7 +132,7 @@ export default function Services() {
                 )}
                 <Link to="/contact" className="btn-primary">Request a Quote</Link>
               </motion.div>
-              <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className={idx % 2 !== 0 ? 'lg:order-1' : ''}>
+              <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.25 }} className={idx % 2 !== 0 ? 'lg:order-1' : ''}>
                 <img src={img} alt={title} className="rounded-2xl shadow-xl w-full object-cover h-80 lg:h-[420px]" loading="lazy" />
               </motion.div>
             </div>
@@ -150,28 +150,33 @@ export default function Services() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {packages.map(({ tier, label, icon, timeline, popular, desc, features, bestFor }, i) => (
-              <motion.div key={tier} className={`card p-8 relative ${popular ? 'border-2 border-primary shadow-xl scale-105' : ''}`} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
-                {popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full">Most Popular</div>}
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <i className={`fas ${icon} text-primary text-lg`} />
-                </div>
-                <span className="text-xs font-black uppercase tracking-widest text-muted">{tier}</span>
-                <h3 className="text-xl font-heading font-bold text-dark mt-1 mb-2">{label}</h3>
-                <p className="text-muted text-sm mb-4">{desc}</p>
-                <div className="inline-flex items-center gap-1.5 text-xs text-muted border border-gray-200 rounded-full px-3 py-1 mb-5">
-                  <i className="fas fa-clock text-primary" /> {timeline} delivery
-                </div>
-                <ul className="space-y-2 mb-6">
-                  {features.map(f => (
-                    <li key={f} className="flex items-start gap-2 text-sm text-muted">
-                      <i className="fas fa-check text-primary text-xs mt-1 flex-shrink-0" /> {f}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-xs text-muted bg-gray-50 rounded-lg p-3 mb-5">
-                  <i className="fas fa-users text-primary mr-1" /> {bestFor}
-                </p>
-                <Link to="/contact" className={popular ? 'btn-primary w-full justify-center' : 'btn-secondary w-full justify-center'}>Get a Free Quote</Link>
+              <motion.div key={tier} className="h-full" variants={scaleIn} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}>
+                <motion.div
+                  animate={popular ? floatAnimation : undefined}
+                  className={`card p-8 relative h-full ${popular ? 'border-2 border-primary shadow-xl scale-105' : ''}`}
+                >
+                  {popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full">Most Popular</div>}
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <i className={`fas ${icon} text-primary text-lg`} />
+                  </div>
+                  <span className="text-xs font-black uppercase tracking-widest text-muted">{tier}</span>
+                  <h3 className="text-xl font-heading font-bold text-dark mt-1 mb-2">{label}</h3>
+                  <p className="text-muted text-sm mb-4">{desc}</p>
+                  <div className="inline-flex items-center gap-1.5 text-xs text-muted border border-gray-200 rounded-full px-3 py-1 mb-5">
+                    <i className="fas fa-clock text-primary" /> {timeline} delivery
+                  </div>
+                  <ul className="space-y-2 mb-6">
+                    {features.map(f => (
+                      <li key={f} className="flex items-start gap-2 text-sm text-muted">
+                        <i className="fas fa-check text-primary text-xs mt-1 flex-shrink-0" /> {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-xs text-muted bg-gray-50 rounded-lg p-3 mb-5">
+                    <i className="fas fa-users text-primary mr-1" /> {bestFor}
+                  </p>
+                  <Link to="/contact" className={popular ? 'btn-primary w-full justify-center' : 'btn-secondary w-full justify-center'}>Get a Free Quote</Link>
+                </motion.div>
               </motion.div>
             ))}
           </div>

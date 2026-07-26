@@ -67,19 +67,17 @@ export default function GetStarted() {
       <SEO {...pageSeo['/get-started']} />
 
       {/* Header */}
-      <section
-        className="relative py-24 flex items-center overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #1a0503 0%, #4a1710 50%, #200604 100%)' }}
-      >
+      <section className="relative py-24 flex items-center overflow-hidden bg-white border-b border-gray-100">
         <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 right-[10%] w-64 h-64 bg-accent/10 rounded-full blur-[110px] pointer-events-none" />
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }} className="max-w-2xl">
             <p className="text-accent text-sm font-bold uppercase tracking-widest mb-4">Free Consultation · 24hr Response</p>
-            <h1 className="text-white font-heading font-black uppercase leading-tight mb-5"
+            <h1 className="text-dark font-heading font-black uppercase leading-tight mb-5"
               style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.02em' }}>
               Let's Build Something<br /><span className="text-primary">That Works</span>
             </h1>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-muted text-lg leading-relaxed">
               Tell us about your project and we'll get back to you within 24 hours with a free discovery call and a custom proposal — no commitment required.
             </p>
           </motion.div>

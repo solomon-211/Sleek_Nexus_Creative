@@ -85,17 +85,15 @@ export default function Navbar() {
   const linkClass = ({ isActive }) =>
     `text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 whitespace-nowrap ${
       isActive
-        ? 'text-white bg-white/[0.12] font-semibold shadow-[inset_0_-2px_0_0_#E6501B]'
+        ? 'text-white bg-white/[0.12] font-semibold shadow-[inset_0_-2px_0_0_#FE9957]'
         : 'text-white/80 hover:text-white hover:bg-white/[0.08]'
     }`
 
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#1c0503] shadow-[0_4px_24px_rgba(0,0,0,0.4)]'
-          : 'bg-dark'
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 bg-dark ${
+        scrolled ? 'shadow-[0_4px_24px_rgba(0,0,0,0.4)]' : ''
       }`}
     >
       {/* Scroll progress bar */}
@@ -147,8 +145,8 @@ export default function Navbar() {
                     className={({ isActive }) =>
                       `flex items-center gap-1.5 text-sm font-bold px-3 py-1.5 rounded-lg transition-all duration-200 whitespace-nowrap border ${
                         isActive
-                          ? 'bg-accent text-white border-accent shadow-[0_0_16px_rgba(230,80,27,0.4)]'
-                          : 'text-accent border-accent/50 hover:bg-accent hover:text-white hover:border-accent hover:shadow-[0_0_16px_rgba(230,80,27,0.3)]'
+                          ? 'bg-accent text-white border-accent shadow-[0_0_16px_rgba(254,153,87,0.4)]'
+                          : 'text-accent border-accent/50 hover:bg-accent hover:text-white hover:border-accent hover:shadow-[0_0_16px_rgba(254,153,87,0.3)]'
                       }`
                     }
                   >
@@ -158,7 +156,7 @@ export default function Navbar() {
                   <button
                     className={`flex items-center gap-1 text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 whitespace-nowrap ${
                       openDropdown === label
-                        ? 'text-white bg-white/[0.12] shadow-[inset_0_-2px_0_0_#E6501B]'
+                        ? 'text-white bg-white/[0.12] shadow-[inset_0_-2px_0_0_#FE9957]'
                         : 'text-white/80 hover:text-white hover:bg-white/[0.08]'
                     }`}
                     onClick={() => setOpenDropdown(openDropdown === label ? null : label)}
@@ -181,7 +179,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center flex-shrink-0">
             <Link
               to="/get-started"
-              className="btn-primary text-sm shadow-[0_0_20px_rgba(195,17,12,0.3)] hover:shadow-[0_0_28px_rgba(195,17,12,0.45)]"
+              className="btn-primary text-sm shadow-[0_0_20px_rgba(254,127,45,0.3)] hover:shadow-[0_0_28px_rgba(254,127,45,0.45)]"
             >
               Get Started
             </Link>
@@ -230,7 +228,7 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
             style={{ zIndex: 9998 }}
-            className="lg:hidden relative border-t border-white/10 bg-[#1c0503] shadow-[0_16px_40px_rgba(0,0,0,0.4)] max-h-[calc(100vh-72px)] overflow-y-auto"
+            className="lg:hidden relative border-t border-white/10 bg-dark shadow-[0_16px_40px_rgba(0,0,0,0.4)] max-h-[calc(100vh-72px)] overflow-y-auto"
           >
             <ul className="py-2">
               {navLinks.map(({ label, to, dropdown, highlight }) => (
