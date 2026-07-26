@@ -62,7 +62,7 @@ export default function Footer() {
       <div className="h-1 bg-gradient-to-r from-primary via-accent to-primary" />
 
       {/* Innovation Hub Banner */}
-      <div className="bg-gradient-to-r from-primary-dark to-dark border-b border-white/5">
+      <div className="bg-dark-soft border-b border-white/5">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">

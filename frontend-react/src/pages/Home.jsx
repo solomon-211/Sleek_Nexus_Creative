@@ -91,6 +91,9 @@ export default function Home() {
   const orb1Y = useTransform(scrollYProgress, [0, 1], [0, 120])
   const orb2Y = useTransform(scrollYProgress, [0, 1], [0, -80])
 
+  // "What You Get" card's rotating ring — pauses and squares itself up on hover.
+  const [ringHovered, setRingHovered] = useState(false)
+
   return (
     <>
       <SEO {...pageSeo['/']} />
@@ -142,11 +145,25 @@ export default function Home() {
 
             <motion.aside
               variants={fadeRight} initial="hidden" animate="show" transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative"
+              onMouseEnter={() => setRingHovered(true)}
+              onMouseLeave={() => setRingHovered(false)}
             >
+              {/* Rotating yellow ring — sits behind the card, offset outward, so its
+                  corners sweep past the card's edges as it spins. Hovering the card
+                  stops the spin and squares the ring back up flush with the card. */}
+              <motion.div
+                className="absolute -inset-4 rounded-2xl border-[3px] border-yellow-400 pointer-events-none"
+                animate={{ rotate: ringHovered ? 0 : 360 }}
+                transition={ringHovered
+                  ? { duration: 0.5, ease: 'easeOut' }
+                  : { duration: 10, repeat: Infinity, ease: 'linear' }}
+              />
+
               {/* Continuous idle float once the card has entered — a small "alive" touch */}
               <motion.div
                 animate={floatAnimation}
-                className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
+                className="relative bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
               >
                 <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4">What You Get</p>
                 <ul className="space-y-3 mb-6">

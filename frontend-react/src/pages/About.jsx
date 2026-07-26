@@ -21,7 +21,7 @@ const values = [
 ]
 
 const team = [
-  { name: 'Solomon Leek',    role: 'CEO & Founder',   bio: 'Founder of SNC with a background in software engineering and a passion for building practical digital solutions for South Sudan.', img: '/images/team-member1.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/solomon-leek' }] },
+  { name: 'Solomon Leek',    role: 'CEO & Founder',   bio: 'Founder of SNC with a background in software engineering and a passion for building practical digital solutions for South Sudan.', img: '/images/Solomon-leek.png', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/solomon-leek' }] },
   { name: 'Gideon Erioluwa', role: 'CTO',             bio: 'Leads technical architecture and development. Experienced in building web and mobile systems with a focus on reliability and performance.', img: '/images/team-member2.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/gideon-erioluwa' }] },
   { name: 'Genesis Goch',    role: 'Lead Developer',  bio: 'Full-stack developer specializing in React and Node.js, focused on writing clean, maintainable code that solves real problems.', img: '/images/team-member3.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/genesis-goch' }] },
   { name: 'Philip Bior',     role: 'UX/UI Designer',  bio: 'Designs user interfaces and experiences for SNC client products, with a focus on simplicity and usability in low-bandwidth environments.', img: '/images/team-member4.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/philip-bior' }] },
