@@ -5,6 +5,7 @@ import { pageSeo } from '../lib/seo-data'
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, scaleIn } from '../lib/animations'
 import TiltCard from '../components/ui/TiltCard'
+import MagneticButton from '../components/ui/MagneticButton'
 
 // ── Animated Counter (Hub) ────────────────────────────────────────────────────
 function AnimatedCounter({ value, suffix = '' }) {
@@ -205,12 +206,16 @@ export default function InnovationHub() {
                 SDG-aligned · South Sudan &amp; Africa · Vision 2040
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/get-started" className="btn-primary text-base px-8 py-3.5">
-                  Start a Project
-                </Link>
-                <a href="#focus" className="inline-flex items-center gap-2 border-2 border-primary/30 text-primary hover:border-primary font-semibold px-8 py-3.5 rounded-lg transition-all">
-                  Explore the Hub
-                </a>
+                <MagneticButton>
+                  <Link to="/get-started" className="btn-primary text-base px-8 py-3.5">
+                    Start a Project
+                  </Link>
+                </MagneticButton>
+                <MagneticButton>
+                  <a href="#focus" className="inline-flex items-center gap-2 border-2 border-primary/30 text-primary hover:border-primary font-semibold px-8 py-3.5 rounded-lg transition-all">
+                    Explore the Hub
+                  </a>
+                </MagneticButton>
               </div>
             </motion.div>
           </div>

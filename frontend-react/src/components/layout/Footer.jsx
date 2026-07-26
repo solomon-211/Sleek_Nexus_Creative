@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import NewsletterForm from '../ui/NewsletterForm'
+import MagneticButton from '../ui/MagneticButton'
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 
@@ -77,12 +78,14 @@ export default function Footer() {
               </p>
             </div>
           </div>
-          <Link
-            to="/innovation-hub"
-            className="flex-shrink-0 inline-flex items-center gap-2 bg-primary/20 border border-primary/40 hover:bg-primary hover:border-primary text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-[0_8px_24px_rgba(254,127,45,0.4)] hover:-translate-y-0.5"
-          >
-            <i className="fas fa-rocket text-[0.65rem]" /> Explore the Hub
-          </Link>
+          <MagneticButton className="flex-shrink-0">
+            <Link
+              to="/innovation-hub"
+              className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 hover:bg-primary hover:border-primary text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-[0_8px_24px_rgba(254,127,45,0.4)] hover:-translate-y-0.5"
+            >
+              <i className="fas fa-rocket text-[0.65rem]" /> Explore the Hub
+            </Link>
+          </MagneticButton>
         </div>
       </div>
 
