@@ -4,7 +4,12 @@ import { useState, useEffect, useRef } from 'react'
  * useIntersectionObserver — returns whether an element is in the viewport.
  * Useful for triggering animations, lazy-loading, or counter start.
  *
- * @param {IntersectionObserverInit} options
+ * `options.root` may be a raw DOM node/null (standard IntersectionObserver
+ * behavior) OR a ref object pointing at the scroll container — its `.current`
+ * is resolved inside the effect, after commit, so it's safe to pass a ref
+ * whose node isn't mounted yet at the time this hook is called during render.
+ *
+ * @param {IntersectionObserverInit & { root?: Element|null|{current: Element|null} }} options
  * @returns {{ ref: RefObject, isIntersecting: boolean }}
  *
  * @example
@@ -19,9 +24,12 @@ export function useIntersectionObserver(options = {}) {
     const el = ref.current
     if (!el) return
 
+    const { root, ...rest } = options
+    const resolvedRoot = root && typeof root === 'object' && 'current' in root ? root.current : (root ?? null)
+
     const observer = new IntersectionObserver(([entry]) => {
       setIsIntersecting(entry.isIntersecting)
-    }, { threshold: 0.1, ...options })
+    }, { threshold: 0.1, ...rest, root: resolvedRoot })
 
     observer.observe(el)
     return () => observer.disconnect()

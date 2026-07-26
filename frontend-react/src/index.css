@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Seamless infinite marquee — track must render its content twice; translating
+   exactly -50% moves the first copy fully out just as the second copy lines up
+   in its place, so the loop point is invisible. */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 @layer base {
   html { scroll-behavior: smooth; }
   body { @apply font-sans text-dark-soft antialiased; }
@@ -60,5 +68,8 @@
   }
   .card {
     @apply bg-white rounded-xl shadow-sm border border-surface hover:border-primary/20 hover:shadow-[0_16px_36px_-12px_rgba(254,127,45,0.22)] hover:-translate-y-1 transition-all duration-300;
+  }
+  .animate-marquee {
+    animation: marquee-scroll 22s linear infinite;
   }
 }

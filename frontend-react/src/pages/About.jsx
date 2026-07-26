@@ -1,6 +1,8 @@
+import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { fadeUp, fadeLeft, staggerContainer, staggerItem, revealUp } from '../lib/animations'
+import { fadeUp, staggerContainer, staggerItem, revealUp } from '../lib/animations'
+import { useIntersectionObserver } from '../hooks'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 
@@ -31,6 +33,86 @@ const stats = [
   { value: '5+',  label: 'Partner Organizations' },
   { value: '1+',  label: 'Years Operating' },
 ]
+
+// ─── Team Marquee ────────────────────────────────────────────────────────────
+// Continuous, seamless, infinite horizontal scroll. The team array is rendered
+// twice back-to-back so the CSS animation loops invisibly. Pressing any card
+// pauses the whole strip — and every card settles into a clean, level resting
+// pose (tilt straightens out, float stops, a slight lift) instead of freezing
+// wherever it happened to be mid-bob. Pressing again resumes the drift.
+function TeamCard({ member, i, paused, setPaused, containerRef }) {
+  const { name, role, bio, img, socials } = member
+  const { ref, isIntersecting } = useIntersectionObserver({ root: containerRef, threshold: 0.2 })
+  const tilt = i % 2 === 0 ? -4 : 4
+
+  return (
+    <motion.div
+      ref={ref}
+      onClick={() => setPaused(p => !p)}
+      role="button"
+      tabIndex={0}
+      aria-pressed={paused}
+      aria-label={`${paused ? 'Resume' : 'Pause'} team gallery`}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setPaused(p => !p) } }}
+      className="card overflow-hidden w-64 flex-shrink-0 cursor-pointer relative group shadow-[0_10px_15px_-3px_rgba(0,0,0,0.15),0_20px_35px_-8px_rgba(0,0,0,0.2),0_0_45px_-8px_rgba(254,127,45,0.3)]"
+      style={{ transformPerspective: 1000 }}
+      animate={{
+        rotate: paused ? 0 : tilt,
+        y: paused ? -4 : [0, -8, 0],
+        scale: !isIntersecting ? 0.85 : paused ? 1.04 : 1,
+        opacity: isIntersecting ? 1 : 0.35,
+        filter: isIntersecting ? 'blur(0px)' : 'blur(6px)',
+      }}
+      transition={{
+        rotate: { duration: 0.4, ease: 'easeOut' },
+        y: paused ? { duration: 0.4, ease: 'easeOut' } : { duration: 4.5, repeat: Infinity, ease: 'easeInOut' },
+        scale: { duration: 0.4, ease: 'easeOut' },
+        opacity: { duration: 0.7, ease: 'easeOut' },
+        filter: { duration: 0.7, ease: 'easeOut' },
+      }}
+    >
+      <div className="relative">
+        <img src={img} alt={name} className="w-full h-52 object-cover" loading="lazy" />
+        <span className="absolute top-3 right-3 w-7 h-7 rounded-full bg-dark/60 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+          <i className={`fas ${paused ? 'fa-play' : 'fa-pause'} text-[0.6rem]`} />
+        </span>
+      </div>
+      <div className="p-5">
+        <h3 className="font-heading font-bold text-dark">{name}</h3>
+        <p className="text-primary text-xs font-semibold mb-2">{role}</p>
+        <p className="text-muted text-xs leading-relaxed mb-4">{bio}</p>
+        <div className="flex gap-3">
+          {socials.map(({ icon, href }) => (
+            <a key={icon} href={href} target="_blank" rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="text-muted hover:text-primary transition-colors" aria-label={icon.replace('fa-', '')}>
+              <i className={`fab ${icon}`} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
+function TeamMarquee({ team }) {
+  const [paused, setPaused] = useState(false)
+  const containerRef = useRef(null)
+  const loop = [...team, ...team]
+
+  return (
+    <div ref={containerRef} className="overflow-hidden py-6">
+      <div
+        className="flex gap-8 w-max animate-marquee"
+        style={{ animationPlayState: paused ? 'paused' : 'running' }}
+      >
+        {loop.map((member, i) => (
+          <TeamCard key={`${member.name}-${i}`} member={member} i={i} paused={paused} setPaused={setPaused} containerRef={containerRef} />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function About() {
   return (
@@ -173,27 +255,7 @@ export default function About() {
             <h2 className="section-title">Our Team</h2>
             <p className="section-subtitle">The people driving technology and impact across South Sudan.</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map(({ name, role, bio, img, socials }, i) => (
-              <motion.div key={name} className="card overflow-hidden"
-                variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: i * 0.15 }}>
-                <img src={img} alt={name} className="w-full h-52 object-cover" loading="lazy" />
-                <div className="p-5">
-                  <h3 className="font-heading font-bold text-dark">{name}</h3>
-                  <p className="text-primary text-xs font-semibold mb-2">{role}</p>
-                  <p className="text-muted text-xs leading-relaxed mb-4">{bio}</p>
-                  <div className="flex gap-3">
-                    {socials.map(({ icon, href }) => (
-                      <a key={icon} href={href} target="_blank" rel="noopener noreferrer"
-                        className="text-muted hover:text-primary transition-colors" aria-label={icon.replace('fa-', '')}>
-                        <i className={`fab ${icon}`} />
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <TeamMarquee team={team} />
         </div>
       </section>
 
