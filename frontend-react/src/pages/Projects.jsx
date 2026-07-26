@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import { fadeUp, staggerContainer, staggerItem } from '../lib/animations'
+import MagneticButton from '../components/ui/MagneticButton'
 
 const filters = ['all', 'web', 'mobile', 'edtech', 'enterprise']
 
@@ -208,8 +209,12 @@ export default function Projects() {
           <h2 className="text-3xl font-heading font-bold mb-4">Have a Project in Mind?</h2>
           <p className="text-gray-300 mb-8">Tell us what you need and we'll get back to you within 24 hours.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/contact" className="btn-primary">Start a Project</Link>
-            <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Services</Link>
+            <MagneticButton>
+              <Link to="/contact" className="btn-primary">Start a Project</Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Services</Link>
+            </MagneticButton>
           </div>
         </div>
       </section>

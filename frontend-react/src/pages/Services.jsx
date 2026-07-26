@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { fadeUp, scaleIn, floatAnimation } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
+import MagneticButton from '../components/ui/MagneticButton'
 
 const services = [
   {
@@ -193,8 +194,12 @@ export default function Services() {
           <h2 className="text-3xl font-heading font-bold mb-4">Ready to Accelerate Your Digital Transformation?</h2>
           <p className="text-gray-300 mb-8">Partner with us to unlock innovative solutions that drive growth, efficiency, and competitive advantage.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/contact" className="btn-primary">Contact Us</Link>
-            <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Work</Link>
+            <MagneticButton>
+              <Link to="/contact" className="btn-primary">Contact Us</Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Work</Link>
+            </MagneticButton>
           </div>
         </div>
       </section>

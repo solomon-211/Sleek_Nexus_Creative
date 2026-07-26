@@ -379,12 +379,16 @@ export default function Home() {
           <h2 className="display-heading-sm mb-4">Have a Project in Mind?</h2>
           <p className="text-white/80 text-base sm:text-lg mb-7 sm:mb-8">Tell us what you need. We will assess it honestly, scope it clearly, and build it right.</p>
           <div className="flex flex-wrap gap-3 justify-center mb-6 sm:mb-8">
-            <Link to="/contact" className="bg-white text-primary hover:bg-gray-100 font-semibold px-6 sm:px-7 py-3 rounded-lg inline-flex items-center gap-2 transition-colors touch-manipulation">
-              Get in Touch
-            </Link>
-            <Link to="/services" className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-6 sm:px-7 py-3 rounded-lg inline-flex items-center gap-2 transition-colors touch-manipulation">
-              Our Services
-            </Link>
+            <MagneticButton>
+              <Link to="/contact" className="bg-white text-primary hover:bg-gray-100 font-semibold px-6 sm:px-7 py-3 rounded-lg inline-flex items-center gap-2 transition-colors touch-manipulation">
+                Get in Touch
+              </Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link to="/services" className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-6 sm:px-7 py-3 rounded-lg inline-flex items-center gap-2 transition-colors touch-manipulation">
+                Our Services
+              </Link>
+            </MagneticButton>
           </div>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-white/80">
             {['Free Consultation', 'On-Time Delivery', 'Post-Launch Support', 'Transparent Pricing'].map(item => (

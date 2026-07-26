@@ -413,12 +413,16 @@ export default function InnovationHub() {
               Through the SNC Innovation Hub, we are building an ecosystem where technology solves real problems, businesses grow digitally, and communities benefit from innovation — aligned with the UN SDGs.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link to="/get-started" className="btn-primary text-base px-8 py-3.5">
-                Start a Project
-              </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-white/30 text-white hover:border-white font-semibold px-8 py-3.5 rounded-lg transition-all">
-                Talk to Us
-              </Link>
+              <MagneticButton>
+                <Link to="/get-started" className="btn-primary text-base px-8 py-3.5">
+                  Start a Project
+                </Link>
+              </MagneticButton>
+              <MagneticButton>
+                <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-white/30 text-white hover:border-white font-semibold px-8 py-3.5 rounded-lg transition-all">
+                  Talk to Us
+                </Link>
+              </MagneticButton>
             </div>
           </motion.div>
         </div>

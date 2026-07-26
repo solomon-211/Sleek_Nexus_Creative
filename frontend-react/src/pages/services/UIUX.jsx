@@ -4,6 +4,7 @@ import PageHeader from '../../components/ui/PageHeader'
 import SEO from '../../components/ui/SEO'
 import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
+import MagneticButton from '../../components/ui/MagneticButton'
 
 const offers = ['User Research & Personas', 'Wireframing & Prototyping', 'High-Fidelity UI Design', 'Design Systems & Component Libraries', 'Usability Testing', 'Mobile & Web App Design', 'Branding Integration', 'Figma Handoff for Developers']
 
@@ -81,8 +82,12 @@ export default function UIUX() {
           <h2 className="text-3xl font-heading font-bold mb-4">Ready to Redesign Your Product?</h2>
           <p className="text-gray-300 mb-8">Let's make it beautiful, usable, and built for your real users.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/contact" className="btn-primary">Get a Free Consultation</Link>
-            <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">All Services</Link>
+            <MagneticButton>
+              <Link to="/contact" className="btn-primary">Get a Free Consultation</Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">All Services</Link>
+            </MagneticButton>
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import PageHeader from '../../components/ui/PageHeader'
 import SEO from '../../components/ui/SEO'
 import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
+import MagneticButton from '../../components/ui/MagneticButton'
 
 const offers = ['Technology Strategy & Roadmapping', 'Digital Transformation Planning', 'System Architecture Design', 'Security Audits & Compliance', 'Cloud Migration Services', 'Vendor Selection & Evaluation', 'Performance Optimization', 'IT Policy & Governance']
 
@@ -96,8 +97,12 @@ export default function Consulting() {
           <h2 className="text-3xl font-heading font-bold mb-4">Let's Map Your Digital Future</h2>
           <p className="text-gray-300 mb-8">Free initial consultation — no commitment, just clarity.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/contact" className="btn-primary">Book a Consultation</Link>
-            <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">All Services</Link>
+            <MagneticButton>
+              <Link to="/contact" className="btn-primary">Book a Consultation</Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">All Services</Link>
+            </MagneticButton>
           </div>
         </div>
       </section>

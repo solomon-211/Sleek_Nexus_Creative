@@ -5,6 +5,7 @@ import { fadeUp, staggerContainer, staggerItem, revealUp } from '../lib/animatio
 import { useIntersectionObserver } from '../hooks'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
+import MagneticButton from '../components/ui/MagneticButton'
 
 const timeline = [
   { year: '2024', color: 'bg-primary', border: 'border-t-primary', title: 'Founded in Juba', desc: 'Officially registered in South Sudan. First team of 4 co-founders begins operations from a co-working space in Juba. Delivered first client projects and launched the initial training cohort.' },
@@ -265,8 +266,12 @@ export default function About() {
           <h2 className="text-3xl font-heading font-bold mb-4">Work With Us</h2>
           <p className="text-gray-300 mb-8">Whether you need a digital solution or want to build your tech skills, we're your partner in growth.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/contact" className="btn-primary">Get in Touch</Link>
-            <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">Our Services</Link>
+            <MagneticButton>
+              <Link to="/contact" className="btn-primary">Get in Touch</Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">Our Services</Link>
+            </MagneticButton>
           </div>
         </div>
       </section>

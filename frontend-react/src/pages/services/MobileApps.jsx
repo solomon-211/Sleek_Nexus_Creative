@@ -4,6 +4,7 @@ import PageHeader from '../../components/ui/PageHeader'
 import SEO from '../../components/ui/SEO'
 import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
+import MagneticButton from '../../components/ui/MagneticButton'
 
 const offers = ['iOS & Android App Development', 'Cross-Platform Apps (React Native / Flutter)', 'Mobile UI/UX Design', 'Offline-Capable Apps', 'Push Notifications & Real-Time Features', 'Payment & SMS Integration', 'App Store & Play Store Submission', 'Maintenance & Version Updates']
 
@@ -81,8 +82,12 @@ export default function MobileApps() {
           <h2 className="text-3xl font-heading font-bold mb-4">Have an App Idea?</h2>
           <p className="text-gray-300 mb-8">We'll help you turn it into a real product — from concept to App Store.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/contact" className="btn-primary">Get a Free Quote</Link>
-            <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Projects</Link>
+            <MagneticButton>
+              <Link to="/contact" className="btn-primary">Get a Free Quote</Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Projects</Link>
+            </MagneticButton>
           </div>
         </div>
       </section>

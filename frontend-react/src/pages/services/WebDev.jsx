@@ -4,6 +4,7 @@ import PageHeader from '../../components/ui/PageHeader'
 import SEO from '../../components/ui/SEO'
 import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
+import MagneticButton from '../../components/ui/MagneticButton'
 
 const offers = ['Custom Website Development', 'Responsive Web Design', 'Progressive Web Apps (PWA)', 'E-Commerce Platforms', 'CMS Development (WordPress, Custom)', 'API Development & Integration', 'Landing Pages & Marketing Sites', 'Web App Dashboards & Portals']
 
@@ -89,8 +90,12 @@ export default function WebDev() {
           <h2 className="text-3xl font-heading font-bold mb-4">Ready to Build Your Website?</h2>
           <p className="text-gray-300 mb-8">Get a free consultation and custom quote within 24 hours.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/contact" className="btn-primary">Get a Free Quote</Link>
-            <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">See Our Work</Link>
+            <MagneticButton>
+              <Link to="/contact" className="btn-primary">Get a Free Quote</Link>
+            </MagneticButton>
+            <MagneticButton>
+              <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">See Our Work</Link>
+            </MagneticButton>
           </div>
         </div>
       </section>
