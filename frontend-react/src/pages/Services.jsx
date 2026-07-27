@@ -63,7 +63,7 @@ export default function Services() {
       <SEO {...pageSeo['/services']} />
 
       {/* Header */}
-      <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">
+      <section className="bg-dark text-white py-24 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Enterprise-Grade Technology Solutions</p>
@@ -189,7 +189,7 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
+      <section className="py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Ready to Accelerate Your Digital Transformation?</h2>
           <p className="text-gray-300 mb-8">Partner with us to unlock innovative solutions that drive growth, efficiency, and competitive advantage.</p>

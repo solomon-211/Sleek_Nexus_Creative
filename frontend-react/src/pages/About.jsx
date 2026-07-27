@@ -121,7 +121,7 @@ export default function About() {
       <SEO {...pageSeo['/about']} />
 
       {/* Header */}
-      <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-16 sm:py-24 text-center">
+      <section className="bg-dark text-white py-16 sm:py-24 text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Who We Are</p>
@@ -137,7 +137,7 @@ export default function About() {
       <section className="py-16 sm:py-24">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <motion.div className="bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl p-10"
+            <motion.div className="bg-primary text-white rounded-2xl p-10"
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75 }}>
               <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-5">
                 <i className="fas fa-bullseye text-white text-xl" />
@@ -145,7 +145,7 @@ export default function About() {
               <h2 className="text-xl font-heading font-bold mb-3">Our Mission</h2>
               <p className="opacity-90 leading-relaxed">To empower individuals, organizations, and communities across South Sudan through practical digital solutions, technology education, and creative innovation — bridging the gap between local needs and modern standards.</p>
             </motion.div>
-            <motion.div className="bg-gradient-to-br from-dark to-dark-soft text-white rounded-2xl p-10 border border-white/10"
+            <motion.div className="bg-dark text-white rounded-2xl p-10 border border-white/10"
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}>
               <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-5">
                 <i className="fas fa-eye text-accent text-xl" />
@@ -210,7 +210,7 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 sm:py-16 bg-gradient-to-r from-primary to-primary-dark text-white">
+      <section className="py-12 sm:py-16 bg-primary text-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map(({ value, label }) => (
@@ -261,7 +261,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-14 sm:py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
+      <section className="py-14 sm:py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Work With Us</h2>
           <p className="text-gray-300 mb-8">Whether you need a digital solution or want to build your tech skills, we're your partner in growth.</p>

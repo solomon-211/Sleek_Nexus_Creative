@@ -57,7 +57,7 @@ export default function Contact() {
       <SEO {...pageSeo['/contact']} />
 
       {/* Header */}
-      <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">
+      <section className="bg-dark text-white py-24 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
             <p className="section-label text-accent">We'd love to hear from you</p>

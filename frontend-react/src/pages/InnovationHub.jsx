@@ -351,7 +351,7 @@ export default function InnovationHub() {
       </section>
 
       {/* ── IMPACT BY 2040 ──────────────────────────────────────────────── */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
+      <section className="py-20 bg-primary text-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-12">
             <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-2">Expected Impact by 2040</p>
@@ -400,7 +400,7 @@ export default function InnovationHub() {
       </section>
 
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
+      <section className="py-24 bg-dark text-white text-center">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8 }}>
             <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-5 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">

@@ -62,7 +62,7 @@ export default function Projects() {
       <SEO {...pageSeo['/projects']} />
 
       {/* Header */}
-      <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-24 text-center">
+      <section className="bg-dark text-white py-24 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">What We've Built</p>
@@ -204,7 +204,7 @@ export default function Projects() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-dark to-dark-soft text-white text-center">
+      <section className="py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Have a Project in Mind?</h2>
           <p className="text-gray-300 mb-8">Tell us what you need and we'll get back to you within 24 hours.</p>

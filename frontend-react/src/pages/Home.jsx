@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { fadeUp, fadeLeft, fadeRight, fadeDown, rotateIn, staggerContainer, staggerItem, scaleIn, revealUp, stackReveal, floatAnimation } from '../lib/animations'
+import { motion, useScroll, useTransform, useAnimationControls } from 'framer-motion'
+import { fadeUp, fadeLeft, fadeRight, fadeDown, rotateIn, staggerContainer, staggerItem, scaleIn, revealUp, stackReveal } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import TiltCard from '../components/ui/TiltCard'
@@ -94,6 +94,27 @@ export default function Home() {
   // "What You Get" card's rotating ring — pauses and squares itself up on hover.
   const [ringHovered, setRingHovered] = useState(false)
 
+  // Ring + float are kicked off imperatively in an effect (post-mount, post-paint)
+  // rather than left to the declarative `animate` prop on first render. On a cold
+  // load — first visit straight to "/", nothing cached yet — an `animate` prop with
+  // `repeat: Infinity` can start before layout has settled and silently never begin;
+  // it only kicks in once something (like a route change) forces a fresh mount.
+  // Starting it explicitly in useEffect sidesteps that race entirely.
+  const ringControls = useAnimationControls()
+  const floatControls = useAnimationControls()
+
+  useEffect(() => {
+    floatControls.start({ y: [0, -10, 0], transition: { duration: 4.5, repeat: Infinity, ease: 'easeInOut' } })
+  }, [floatControls])
+
+  useEffect(() => {
+    if (ringHovered) {
+      ringControls.start({ rotate: 0, transition: { duration: 0.5, ease: 'easeOut' } })
+    } else {
+      ringControls.start({ rotate: 360, transition: { duration: 10, repeat: Infinity, ease: 'linear' } })
+    }
+  }, [ringHovered, ringControls])
+
   return (
     <>
       <SEO {...pageSeo['/']} />
@@ -154,15 +175,14 @@ export default function Home() {
                   stops the spin and squares the ring back up flush with the card. */}
               <motion.div
                 className="absolute -inset-4 rounded-2xl border-[3px] border-yellow-400 pointer-events-none"
-                animate={{ rotate: ringHovered ? 0 : 360 }}
-                transition={ringHovered
-                  ? { duration: 0.5, ease: 'easeOut' }
-                  : { duration: 10, repeat: Infinity, ease: 'linear' }}
+                initial={{ rotate: 0 }}
+                animate={ringControls}
               />
 
               {/* Continuous idle float once the card has entered — a small "alive" touch */}
               <motion.div
-                animate={floatAnimation}
+                initial={{ y: 0 }}
+                animate={floatControls}
                 className="relative bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
               >
                 <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4">What You Get</p>
@@ -249,7 +269,9 @@ export default function Home() {
               <p className="text-muted leading-relaxed mb-8">
                 Our team combines product strategy, engineering, and training to help clients launch faster, operate more efficiently, and sustain long-term digital growth.
               </p>
-              <Link to="/about" className="btn-primary">Learn About Us</Link>
+              <MagneticButton>
+                <Link to="/about" className="btn-primary">Learn About Us</Link>
+              </MagneticButton>
             </motion.div>
             <motion.div variants={fadeRight} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}>
               <img src="/images/about-preview.jpg" alt="Sleek Nexus Creative — Building Reliable Technology for South Sudan" className="w-full rounded-xl object-cover" loading="lazy" />
@@ -313,7 +335,9 @@ export default function Home() {
             ))}
           </motion.div>
           <div className="text-center">
-            <Link to="/projects" className="btn-primary">View All Projects</Link>
+            <MagneticButton>
+              <Link to="/projects" className="btn-primary">View All Projects</Link>
+            </MagneticButton>
           </div>
         </div>
       </section>
@@ -372,7 +396,7 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="relative overflow-hidden py-16 sm:py-20 bg-gradient-to-br from-primary to-primary-dark text-white text-center">
+      <section className="relative overflow-hidden py-16 sm:py-20 bg-primary text-white text-center">
         <div className="absolute -top-10 right-[10%] w-72 h-72 bg-accent/20 rounded-full blur-[110px] pointer-events-none" />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6">
           <p className="section-label text-white/70">Work With Us</p>

@@ -27,7 +27,7 @@ export default function Privacy() {
       <SEO {...pageSeo['/privacy']} />
 
       {/* Header */}
-      <section className="bg-gradient-to-br from-dark to-dark-soft text-white py-20 text-center">
+      <section className="bg-dark text-white py-20 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Legal</p>
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Privacy Policy</h1>
