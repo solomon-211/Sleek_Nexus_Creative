@@ -85,7 +85,7 @@ export default function Navbar() {
   const linkClass = ({ isActive }) =>
     `text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 whitespace-nowrap ${
       isActive
-        ? 'text-white bg-white/[0.12] font-semibold shadow-[inset_0_-2px_0_0_#FE9957]'
+        ? 'text-primary font-semibold'
         : 'text-white/80 hover:text-white hover:bg-white/[0.08]'
     }`
 

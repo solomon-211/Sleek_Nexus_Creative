@@ -9,6 +9,7 @@ import MagneticButton from '../components/ui/MagneticButton'
 import ScrollySteps from '../components/ui/ScrollySteps'
 import Hero3DAccent from '../components/ui/Hero3DAccent'
 import AnimatedCounter from '../components/ui/AnimatedCounter'
+import FlipCard from '../components/ui/FlipCard'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -222,14 +223,28 @@ export default function Home() {
             variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
           >
             {services.map(({ icon, title, desc, hash }) => (
-              <motion.div key={title} className="card p-5 sm:p-6" variants={staggerItem}>
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <i className={`fas ${icon} text-primary text-lg`} />
-                </div>
-                <h3 className="font-heading font-bold text-dark mb-2">{title}</h3>
-                <p className="text-muted text-sm leading-relaxed mb-4">{desc}</p>
-                <Link to={`/services${hash}`} className="text-primary text-sm font-semibold hover:underline">Learn More</Link>
-              </motion.div>
+              <FlipCard
+                key={title}
+                className="h-56 sm:h-60"
+                variants={staggerItem}
+                front={
+                  <div className="card p-5 sm:p-6 h-full flex flex-col items-center justify-center text-center cursor-pointer">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                      <i className={`fas ${icon} text-primary text-lg`} />
+                    </div>
+                    <h3 className="font-heading font-bold text-dark text-xl sm:text-2xl leading-snug">{title}</h3>
+                  </div>
+                }
+                back={
+                  <div className="card p-5 sm:p-6 h-full flex flex-col justify-center bg-dark text-white cursor-pointer">
+                    <h3 className="font-heading font-bold mb-2">{title}</h3>
+                    <p className="text-white/70 text-sm leading-relaxed mb-4">{desc}</p>
+                    <Link to={`/services${hash}`} className="text-accent text-sm font-semibold hover:underline" onClick={(e) => e.stopPropagation()}>
+                      Learn More <i className="fas fa-arrow-right text-xs" />
+                    </Link>
+                  </div>
+                }
+              />
             ))}
           </motion.div>
         </div>

@@ -7,6 +7,7 @@ import TiltCard from '../components/ui/TiltCard'
 import MagneticButton from '../components/ui/MagneticButton'
 import AnimatedCounter from '../components/ui/AnimatedCounter'
 import FaqAccordion from '../components/ui/FaqAccordion'
+import FlipCard from '../components/ui/FlipCard'
 
 // ── SDGs SNC directly addresses ──────────────────────────────────────────────
 const sdgs = [
@@ -289,25 +290,34 @@ export default function InnovationHub() {
           </div>
           <div className="grid md:grid-cols-2 gap-7">
             {focusAreas.map(({ icon, color, title, desc, features }, i) => (
-              <motion.div key={title} className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col"
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}>
-                <div className={`bg-gradient-to-br ${color} p-7 text-white`}>
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                    <i className={`fas ${icon} text-white text-xl`} />
+              <FlipCard
+                key={title}
+                className="h-72"
+                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}
+                front={
+                  <div className={`h-full rounded-2xl overflow-hidden border border-gray-100 shadow-sm flex flex-col cursor-pointer bg-gradient-to-br ${color} p-7 text-white justify-center`}>
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i className={`fas ${icon} text-2xl`} />
+                      </div>
+                      <h3 className="text-xl font-heading font-bold leading-tight">{title}</h3>
+                    </div>
+                    <p className="text-white/80 text-sm leading-relaxed">{desc}</p>
                   </div>
-                  <h3 className="text-xl font-heading font-bold leading-tight">{title}</h3>
-                </div>
-                <div className="p-6 flex flex-col flex-1 bg-white">
-                  <p className="text-muted text-sm leading-relaxed mb-5">{desc}</p>
-                  <ul className="space-y-2 flex-1">
-                    {features.map(f => (
-                      <li key={f} className="flex items-center gap-2.5 text-sm text-dark-soft">
-                        <i className="fas fa-check-circle text-primary text-xs flex-shrink-0" /> {f}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
+                }
+                back={
+                  <div className="h-full rounded-2xl overflow-hidden border border-gray-100 shadow-xl flex flex-col cursor-pointer bg-white p-6">
+                    <p className="text-xs font-bold text-primary uppercase tracking-widest mb-4">What's Included</p>
+                    <ul className="space-y-2.5 flex-1">
+                      {features.map(f => (
+                        <li key={f} className="flex items-center gap-2.5 text-sm text-dark-soft">
+                          <i className="fas fa-check-circle text-primary text-xs flex-shrink-0" /> {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                }
+              />
             ))}
           </div>
           <div className="text-center mt-10">
