@@ -121,7 +121,7 @@ export default function About() {
       <SEO {...pageSeo['/about']} />
 
       {/* Header */}
-      <section className="bg-dark text-white py-16 sm:py-24 text-center">
+      <section className="relative overflow-hidden bg-noise bg-dark text-white py-16 sm:py-24 text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Who We Are</p>
@@ -210,7 +210,7 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 sm:py-16 bg-primary text-white">
+      <section className="relative overflow-hidden bg-noise py-12 sm:py-16 bg-primary text-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map(({ value, label }) => (
@@ -261,7 +261,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-14 sm:py-20 bg-dark text-white text-center">
+      <section className="relative overflow-hidden bg-noise py-14 sm:py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Work With Us</h2>
           <p className="text-gray-300 mb-8">Whether you need a digital solution or want to build your tech skills, we're your partner in growth.</p>

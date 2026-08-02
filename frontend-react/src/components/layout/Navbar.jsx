@@ -175,6 +175,18 @@ export default function Navbar() {
             ))}
           </ul>
 
+          {/* ── Command palette trigger ── */}
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event('snc-open-command-palette'))}
+            className="hidden lg:flex items-center gap-2 text-white/60 hover:text-white bg-white/[0.06] hover:bg-white/[0.1] border border-white/10 rounded-lg px-3 py-2 text-sm transition-colors flex-shrink-0"
+            aria-label="Open quick search"
+          >
+            <i className="fas fa-magnifying-glass text-xs" />
+            <span className="text-white/40">Search</span>
+            <kbd className="text-[0.65rem] font-semibold bg-white/10 border border-white/10 rounded px-1.5 py-0.5 ml-1">⌘K</kbd>
+          </button>
+
           {/* ── Get Started CTA ── */}
           <div className="hidden lg:flex items-center flex-shrink-0">
             <Link

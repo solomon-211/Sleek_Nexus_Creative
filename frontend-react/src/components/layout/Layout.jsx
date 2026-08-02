@@ -2,12 +2,15 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import ScrollToTop from '../ui/ScrollToTop'
 import CookieBanner from '../ui/CookieBanner'
+import WhatsAppBubble from '../ui/WhatsAppBubble'
+import CommandPalette from '../ui/CommandPalette'
 import { motion } from 'framer-motion'
 import { pageVariants } from '../../lib/animations'
 
 export default function Layout({ children }) {
   return (
     <div className="flex flex-col min-h-screen">
+      <CommandPalette />
       <ScrollToTop />
       <Navbar />
       <motion.main
@@ -21,6 +24,7 @@ export default function Layout({ children }) {
       </motion.main>
       <Footer />
       <CookieBanner />
+      <WhatsAppBubble />
     </div>
   )
 }

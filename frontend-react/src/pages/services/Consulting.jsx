@@ -92,7 +92,7 @@ export default function Consulting() {
         </div>
       </section>
 
-      <section className="py-20 bg-dark text-white text-center">
+      <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Let's Map Your Digital Future</h2>
           <p className="text-gray-300 mb-8">Free initial consultation — no commitment, just clarity.</p>

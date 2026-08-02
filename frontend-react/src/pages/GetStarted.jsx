@@ -7,7 +7,9 @@ import emailjs from '@emailjs/browser'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import { motion } from 'framer-motion'
-import { fadeUp } from '../lib/animations'
+import { fadeUp, staggerContainer, scaleIn } from '../lib/animations'
+import AnimatedCounter from '../components/ui/AnimatedCounter'
+import FaqAccordion from '../components/ui/FaqAccordion'
 
 const schema = z.object({
   name:        z.string().min(2, 'Full name is required'),
@@ -29,6 +31,20 @@ const steps = [
   { num: '02', icon: 'fa-calendar-check',  title: 'We Book a Discovery Call', desc: 'Within 24 hours we reach out to schedule a free 30-minute call to understand your requirements.' },
   { num: '03', icon: 'fa-file-alt',        title: 'Receive a Proposal',       desc: 'We send a clear proposal with scope, timeline, and pricing — no hidden fees, no surprises.' },
   { num: '04', icon: 'fa-check-circle',    title: 'You Decide',               desc: 'Review the proposal, ask questions, and let us know if you want to move forward. No pressure.' },
+]
+
+const trustStats = [
+  { icon: 'fa-project-diagram', value: 10, suffix: '+', label: 'Projects Delivered' },
+  { icon: 'fa-user-graduate',   value: 50, suffix: '+', label: 'Learners Supported' },
+  { icon: 'fa-handshake',       value: 5,  suffix: '+', label: 'Partner Organizations' },
+  { icon: 'fa-clock',           value: 24, suffix: 'hr', label: 'Average Response Time' },
+]
+
+const readyChecklist = [
+  'A rough idea of the problem you\'re solving (perfect detail not required)',
+  'Any existing branding, logos, or reference sites you like',
+  'A ballpark budget range, even a wide one',
+  'Who will be using it — and roughly how many people',
 ]
 
 export default function GetStarted() {
@@ -77,9 +93,33 @@ export default function GetStarted() {
               style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.02em' }}>
               Let's Build Something<br /><span className="text-primary">That Works</span>
             </h1>
-            <p className="text-muted text-lg leading-relaxed">
+            <p className="text-muted text-lg leading-relaxed mb-6">
               Tell us about your project and we'll get back to you within 24 hours with a free discovery call and a custom proposal — no commitment required.
             </p>
+            <a
+              href="https://wa.me/211925277700?text=Hi%20Sleek%20Nexus%20Creative!%20I%27d%20like%20to%20talk%20about%20a%20project."
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:underline"
+            >
+              <i className="fab fa-whatsapp text-base" /> Prefer to talk now? WhatsApp us instantly
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Trust stats */}
+      <section className="py-10 bg-dark text-white">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}>
+            {trustStats.map(({ icon, value, suffix, label }) => (
+              <motion.div key={label} variants={scaleIn}>
+                <i className={`fas ${icon} text-accent text-xl mb-2 block`} />
+                <strong className="block text-2xl sm:text-3xl font-heading font-black">
+                  <AnimatedCounter value={value} suffix={suffix} />
+                </strong>
+                <span className="text-white/60 text-xs">{label}</span>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -105,6 +145,18 @@ export default function GetStarted() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Before You Reach Out</p>
+            <h2 className="section-title">Common Questions</h2>
+            <p className="section-subtitle">Answers to what people usually ask before starting a project with us.</p>
+          </div>
+          <FaqAccordion items={pageSeo['/get-started'].faq} />
         </div>
       </section>
 
@@ -222,6 +274,34 @@ export default function GetStarted() {
                   <a href="https://wa.me/211925277700" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/80 text-sm hover:text-white transition-colors">
                     <i className="fab fa-whatsapp text-accent" /> WhatsApp Us
                   </a>
+                </div>
+              </div>
+
+              <div className="card p-6">
+                <h3 className="font-heading font-bold text-dark mb-3">What to Have Ready</h3>
+                <p className="text-muted text-sm mb-4">You don't need everything figured out — but these help us give you a sharper proposal.</p>
+                <ul className="space-y-2.5">
+                  {readyChecklist.map(item => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-dark-soft">
+                      <i className="fas fa-square-check text-primary text-xs mt-1 flex-shrink-0" /> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="card p-6 bg-gray-50 border-none">
+                <div className="flex gap-1 text-accent mb-3">
+                  {Array(5).fill(0).map((_, j) => <i key={j} className="fas fa-star text-xs" />)}
+                </div>
+                <p className="text-dark-soft text-sm leading-relaxed italic mb-4">
+                  "SNC built our online course platform from scratch. The team was communicative, delivered on time, and trained our staff to manage it independently. Exactly what we needed."
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs shrink-0">AM</div>
+                  <div>
+                    <p className="font-semibold text-dark text-xs">Akol Mading</p>
+                    <p className="text-muted text-xs">Director, Juba Learning Centre</p>
+                  </div>
                 </div>
               </div>
 

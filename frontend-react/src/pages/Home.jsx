@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform, useAnimationControls } from 'framer-motion'
-import { fadeUp, fadeLeft, fadeRight, fadeDown, rotateIn, staggerContainer, staggerItem, scaleIn, revealUp, stackReveal } from '../lib/animations'
+import { fadeUp, fadeLeft, fadeRight, rotateIn, staggerContainer, staggerItem, scaleIn, revealUp, stackReveal } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import TiltCard from '../components/ui/TiltCard'
 import MagneticButton from '../components/ui/MagneticButton'
+import ScrollySteps from '../components/ui/ScrollySteps'
+import Hero3DAccent from '../components/ui/Hero3DAccent'
+import AnimatedCounter from '../components/ui/AnimatedCounter'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -36,6 +39,8 @@ const projects = [
   { img: '/images/project3.jpg', title: 'Mobile Payments App', desc: 'Simple and secure mobile app enabling small businesses to send and receive payments with ease.', hash: '#project3' },
 ]
 
+const EDUPORTAL_URL = 'https://eduportalss.solomonleek.tech'
+
 const testimonials = [
   { initials: 'AM', name: 'Akol Mading', role: 'Director, Juba Learning Centre', text: 'SNC built our online course platform from scratch. The team was communicative, delivered on time, and trained our staff to manage it independently. Exactly what we needed.' },
   { initials: 'RC', name: 'Rebecca Chol', role: 'Owner, RC Retail Store', text: 'They built us a simple inventory system that actually works on our local network. No unnecessary complexity — just a clean solution that saves us hours every week.' },
@@ -50,35 +55,6 @@ const whyCards = [
   { icon: 'fa-graduation-cap', title: 'Training Included', desc: 'We train your team to use and manage every product we deliver so you stay independent.' },
   { icon: 'fa-clock', title: 'On-Time Delivery', desc: 'We set clear milestones and consistently deliver on time without compromising quality.' },
 ]
-
-// ─── Animated Counter ────────────────────────────────────────────────────────
-
-function AnimatedCounter({ value, suffix }) {
-  const [count, setCount] = useState(0)
-  const ref = useRef(null)
-  const started = useRef(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !started.current) {
-        started.current = true
-        const duration = 1800
-        const steps = 60
-        const increment = value / steps
-        let current = 0
-        const timer = setInterval(() => {
-          current += increment
-          if (current >= value) { setCount(value); clearInterval(timer) }
-          else setCount(Math.floor(current))
-        }, duration / steps)
-      }
-    }, { threshold: 0.3 })
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [value])
-
-  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>
-}
 
 // ─── Home ─────────────────────────────────────────────────────────────────────
 
@@ -135,7 +111,7 @@ export default function Home() {
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-24 w-full">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
-              <p className="section-label text-accent">Technology Built for South Sudan</p>
+              <p className="section-label text-accent">Transforming Ideas Into Digital Reality</p>
               <h1 className="text-dark mb-5 sm:mb-6" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem, 4.2vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
                 <span className="block">We Build Digital Products</span>
                 <span className="block">That Work in</span>
@@ -170,6 +146,11 @@ export default function Home() {
               onMouseEnter={() => setRingHovered(true)}
               onMouseLeave={() => setRingHovered(false)}
             >
+              {/* Abstract 3D wireframe accent — sits furthest back, extending beyond
+                  the card's edges as a subtle brand halo. Desktop-only, lazy-loaded,
+                  and skipped entirely under prefers-reduced-motion. */}
+              <Hero3DAccent className="absolute inset-0 items-center justify-center" />
+
               {/* Rotating yellow ring — sits behind the card, offset outward, so its
                   corners sweep past the card's edges as it spins. Hovering the card
                   stops the spin and squares the ring back up flush with the card. */}
@@ -280,28 +261,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How We Work */}
-      <section className="py-16 sm:py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="text-center mb-10 sm:mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Our Process</p>
-            <h2 className="section-title">How We Work</h2>
-            <p className="section-subtitle">A clear, structured process from your first message to a live product.</p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            {processSteps.map(({ num, icon, title, desc }, i) => (
-              <motion.div key={num} className="card p-5 sm:p-6 text-center" variants={fadeDown} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}>
-                <div className="text-4xl sm:text-5xl font-heading font-black text-primary/10 mb-3">{num}</div>
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <i className={`fas ${icon} text-primary text-lg`} />
-                </div>
-                <h3 className="font-heading font-bold text-dark mb-2">{title}</h3>
-                <p className="text-muted text-sm leading-relaxed">{desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* How We Work — pinned scrollytelling */}
+      <ScrollySteps
+        eyebrow="Our Process"
+        heading="How We Work"
+        subheading="A clear, structured process from your first message to a live product."
+        steps={processSteps}
+      />
 
       {/* Featured Projects */}
       <section className="py-16 sm:py-24">
@@ -338,6 +304,86 @@ export default function Home() {
             <MagneticButton>
               <Link to="/projects" className="btn-primary">View All Projects</Link>
             </MagneticButton>
+          </div>
+        </div>
+      </section>
+
+      {/* Live Product Spotlight — EduPortal South Sudan */}
+      <section className="relative overflow-hidden bg-noise py-16 sm:py-24 bg-dark text-white">
+        <div className="absolute top-0 left-[10%] w-80 h-80 bg-primary/20 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-0 right-[8%] w-72 h-72 bg-accent/15 rounded-full blur-[120px] pointer-events-none" />
+        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }}>
+              <span className="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3.5 py-1.5 mb-5">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
+                </span>
+                <span className="text-white/80 text-xs font-bold uppercase tracking-widest">Live Product</span>
+              </span>
+              <h2 className="display-heading-sm mb-5">Not Just a Case Study — A Real Platform, Live Today</h2>
+              <p className="text-white/70 leading-relaxed mb-4">
+                <strong className="text-white">EduPortal South Sudan</strong> is a full-scale education platform we designed, built, and deployed — helping learners across all 10 states of South Sudan discover schools, apply for scholarships, and track their progress, completely free.
+              </p>
+              <p className="text-white/70 leading-relaxed mb-8">
+                It's in production right now, serving real users. This is the kind of dependable, real-world system we build for every client — see it for yourself.
+              </p>
+              <div className="flex flex-wrap gap-6 mb-8">
+                {[{ icon: 'fa-map-marker-alt', label: '10 States Covered' }, { icon: 'fa-hand-holding-heart', label: 'Free — Always' }, { icon: 'fa-signal', label: 'Live In Production' }].map(({ icon, label }) => (
+                  <div key={label} className="flex items-center gap-2 text-sm text-white/70">
+                    <i className={`fas ${icon} text-accent`} /> {label}
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <MagneticButton>
+                  <a href={EDUPORTAL_URL} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
+                    Visit EduPortal Live <i className="fas fa-arrow-up-right-from-square text-sm" />
+                  </a>
+                </MagneticButton>
+                <MagneticButton>
+                  <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View All Projects</Link>
+                </MagneticButton>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeRight} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}>
+              {/* Browser-chrome mockup — X-Frame-Options on the live site blocks a real
+                  iframe embed, so this is a styled preview frame linking out instead. */}
+              <a
+                href={EDUPORTAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.4)] hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(254,127,45,0.25)] transition-all duration-500"
+              >
+                <div className="flex items-center gap-2 bg-[#1a1a1a] px-4 py-3 border-b border-white/10">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                  <span className="ml-3 flex-1 bg-white/5 rounded-md px-3 py-1 text-white/50 text-xs flex items-center gap-1.5 truncate">
+                    <i className="fas fa-lock text-[0.6rem]" /> eduportalss.solomonleek.tech
+                  </span>
+                  <i className="fas fa-arrow-up-right-from-square text-white/30 text-xs group-hover:text-accent transition-colors" />
+                </div>
+                <div
+                  className="relative p-8 sm:p-10 min-h-[320px] flex flex-col items-center justify-center text-center"
+                  style={{ backgroundImage: 'linear-gradient(135deg, #233D4D 0%, #000000 100%)' }}
+                >
+                  <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 30% 20%, #FE7F2D, transparent 45%), radial-gradient(circle at 80% 80%, #FE9957, transparent 40%)' }} />
+                  <div className="relative w-16 h-16 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center mb-5">
+                    <i className="fas fa-graduation-cap text-accent text-2xl" />
+                  </div>
+                  <p className="relative font-heading font-black text-white text-2xl sm:text-3xl uppercase tracking-tight mb-2">EduPortal South Sudan</p>
+                  <p className="relative text-white/60 text-sm mb-6">Empowering every learner across South Sudan</p>
+                  <div className="relative flex flex-wrap justify-center gap-2">
+                    {['School Discovery', 'Scholarships', 'Progress Tracking'].map(chip => (
+                      <span key={chip} className="text-xs font-semibold text-white/80 bg-white/10 border border-white/15 rounded-full px-3 py-1">{chip}</span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -396,7 +442,7 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="relative overflow-hidden py-16 sm:py-20 bg-primary text-white text-center">
+      <section className="relative overflow-hidden bg-noise py-16 sm:py-20 bg-primary text-white text-center">
         <div className="absolute -top-10 right-[10%] w-72 h-72 bg-accent/20 rounded-full blur-[110px] pointer-events-none" />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6">
           <p className="section-label text-white/70">Work With Us</p>

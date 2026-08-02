@@ -7,6 +7,7 @@ import emailjs from '@emailjs/browser'
 import { fadeUp } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
+import FaqAccordion from '../components/ui/FaqAccordion'
 
 const schema = z.object({
   name: z.string().min(2, 'Full name is required'),
@@ -17,16 +18,8 @@ const schema = z.object({
   message: z.string().min(10, 'Message must be at least 10 characters'),
 })
 
-const faqs = [
-  { q: 'How long does a typical project take?', a: 'Project timelines vary based on complexity. Simple websites take 2–4 weeks, while complex applications may take 3–6 months. We provide detailed timelines during consultation.' },
-  { q: 'What is your pricing structure?', a: 'We offer flexible pricing based on project scope. Contact us for a free consultation and custom quote tailored to your needs and budget.' },
-  { q: 'Do you provide ongoing support?', a: 'Yes! We offer maintenance packages and ongoing support to ensure your solution continues to perform optimally after launch.' },
-  { q: 'Can you work with our existing systems?', a: 'Absolutely. We specialize in integrations and can work with your existing infrastructure to create seamless solutions.' },
-]
-
 export default function Contact() {
   const [status, setStatus] = useState(null)
-  const [openFaq, setOpenFaq] = useState(null)
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({ resolver: zodResolver(schema) })
 
@@ -57,7 +50,7 @@ export default function Contact() {
       <SEO {...pageSeo['/contact']} />
 
       {/* Header */}
-      <section className="bg-dark text-white py-24 text-center">
+      <section className="relative overflow-hidden bg-noise bg-dark text-white py-24 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
             <p className="section-label text-accent">We'd love to hear from you</p>
@@ -189,17 +182,7 @@ export default function Contact() {
             <h2 className="section-title">Frequently Asked Questions</h2>
             <p className="section-subtitle">Find answers to common questions about our services and process.</p>
           </div>
-          <div className="space-y-3">
-            {faqs.map(({ q, a }, i) => (
-              <div key={q} className="card overflow-hidden">
-                <button className="w-full flex items-center justify-between p-5 text-left" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-                  <span className="font-semibold text-dark text-sm">{q}</span>
-                  <i className={`fas fa-chevron-down text-primary text-xs transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                {openFaq === i && <div className="px-5 pb-5 text-sm text-muted leading-relaxed">{a}</div>}
-              </div>
-            ))}
-          </div>
+          <FaqAccordion items={pageSeo['/contact'].faq} />
         </div>
       </section>
     </>

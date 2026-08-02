@@ -4,6 +4,8 @@ import { fadeUp, scaleIn, floatAnimation } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import MagneticButton from '../components/ui/MagneticButton'
+import PricingEstimator from '../components/ui/PricingEstimator'
+import { packages } from '../lib/packages-data'
 
 const services = [
   {
@@ -36,34 +38,13 @@ const services = [
   },
 ]
 
-const packages = [
-  {
-    tier: 'BASIC', label: 'Starter', icon: 'fa-seedling', timeline: '2–4 weeks', popular: false, color: '',
-    desc: 'Perfect for getting your digital presence off the ground quickly and affordably.',
-    features: ['Basic website or simple app', 'Up to 5 pages/screens', 'Mobile-friendly responsive design', 'Basic SEO setup', 'Contact form / WhatsApp integration', '30 days post-launch support'],
-    bestFor: 'Small businesses, shops, personal brands, NGOs starting out',
-  },
-  {
-    tier: 'POPULAR', label: 'Professional', icon: 'fa-rocket', timeline: '1–3 months', popular: true, color: 'text-accent',
-    desc: 'The go-to choice for growing organizations that need powerful, custom-built solutions.',
-    features: ['Custom website or application', 'Up to 15–25 pages/screens', 'Advanced features (dashboards, payments)', 'API integration', 'Admin panel included', '90 days post-launch support', 'Staff training included'],
-    bestFor: 'Growing companies, schools, hospitals, NGOs, startups',
-  },
-  {
-    tier: 'ENTERPRISE', label: 'Premium', icon: 'fa-city', timeline: '3–6+ months', popular: false, color: '',
-    desc: 'Full-scale enterprise solutions built for complex, high-stakes environments.',
-    features: ['Enterprise-level platform', 'Complex system architecture', 'Multiple integrations (payments, SMS)', 'Cloud deployment & DevOps', 'Dedicated development team', '1 year post-launch support', 'Priority support & SLA'],
-    bestFor: 'Banks, telecoms, government institutions, large organizations',
-  },
-]
-
 export default function Services() {
   return (
     <>
       <SEO {...pageSeo['/services']} />
 
       {/* Header */}
-      <section className="bg-dark text-white py-24 text-center">
+      <section className="relative overflow-hidden bg-noise bg-dark text-white py-24 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Enterprise-Grade Technology Solutions</p>
@@ -141,17 +122,20 @@ export default function Services() {
         </section>
       ))}
 
+      {/* Interactive pricing estimator */}
+      <PricingEstimator />
+
       {/* Packages */}
-      <section className="py-24 bg-gray-50">
+      <section id="all-packages" className="py-24 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Service Packages</p>
-            <h2 className="section-title">Find the Right Fit for Your Project</h2>
+            <h2 className="section-title">Or Browse Every Package</h2>
             <p className="section-subtitle">Every project is unique. Browse our packages to understand what's included, then contact us for a tailored quote.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {packages.map(({ tier, label, icon, timeline, popular, desc, features, bestFor }, i) => (
-              <motion.div key={tier} className="h-full" variants={scaleIn} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}>
+              <motion.div id={`pkg-${tier.toLowerCase()}`} key={tier} className="h-full scroll-mt-28" variants={scaleIn} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}>
                 <motion.div
                   animate={popular ? floatAnimation : undefined}
                   className={`card p-8 relative h-full ${popular ? 'border-2 border-primary shadow-xl scale-105' : ''}`}
@@ -189,7 +173,7 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-dark text-white text-center">
+      <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Ready to Accelerate Your Digital Transformation?</h2>
           <p className="text-gray-300 mb-8">Partner with us to unlock innovative solutions that drive growth, efficiency, and competitive advantage.</p>

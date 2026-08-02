@@ -28,10 +28,12 @@ export const pageSeo = {
         address: { '@type': 'PostalAddress', addressLocality: 'Juba', addressCountry: 'SS' },
         contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: 'info@sleeknexuscreative.com', availableLanguage: 'English' },
         sameAs: [
-          'https://www.linkedin.com/company/sleek-nexus-creative',
-          'https://www.facebook.com/sleeknexuscreative',
-          'https://twitter.com/SleekNexus',
-          'https://www.instagram.com/sleeknexuscreative',
+          'https://www.linkedin.com/company/sleek-nexus-creative/',
+          'https://www.facebook.com/share/183ufB9mqx/?mibextid=wwXIfr',
+          'https://twitter.com/SNC',
+          'https://www.instagram.com/sleek_nexus_creative',
+          'https://www.youtube.com/@SNC',
+          'https://www.tiktok.com/@SNC',
         ],
       },
       {
@@ -113,6 +115,14 @@ export const pageSeo = {
     image: 'https://sleeknexuscreative.com/images/about-preview.jpg',
     imageAlt: 'Start a project with Sleek Nexus Creative',
     breadcrumbs: [{ name: 'Get Started', url: '/get-started' }],
+    faq: [
+      { q: 'Do I need to know exactly what I want before reaching out?', a: 'No. Most clients start with a general idea or a problem they need solved. Our discovery call is designed to help shape that into a clear, buildable scope together.' },
+      { q: 'How much does a typical project cost?', a: 'It depends entirely on scope. We offer tiers from a simple starter website to full enterprise systems — every quote is customized after a free consultation, with no hidden fees.' },
+      { q: 'How long does a project take?', a: 'Simple websites typically take 2–4 weeks; custom applications usually take 1–3 months; large enterprise systems can take 3–6+ months. You will get a clear timeline in your proposal.' },
+      { q: 'Is my project idea kept confidential?', a: "Yes. We treat every project brief as confidential, and we're happy to sign an NDA before any detailed discussion if you'd prefer." },
+      { q: "What if I'm not ready to commit yet?", a: 'That\'s completely fine — the discovery call and proposal are free with no obligation. Many people use it just to understand scope and cost before deciding.' },
+      { q: 'Can I request changes after receiving the proposal?', a: 'Absolutely. The proposal is a starting point for discussion, not a final offer — we refine it together until the scope and pricing actually fit your needs.' },
+    ],
   },
 
   '/privacy': {
@@ -206,6 +216,13 @@ export const pageSeo = {
       provider: { '@type': 'Organization', name: 'Sleek Nexus Creative', url: 'https://sleeknexuscreative.com' },
       areaServed: { '@type': 'Country', name: 'South Sudan' },
     },
+    faq: [
+      { q: 'How long does a branding project take?', a: 'A logo and core identity typically takes 2–3 weeks. A full brand system with style guide, templates, and merchandise usually takes 3–5 weeks, depending on revision rounds.' },
+      { q: 'Do I receive the source files?', a: 'Yes. Every project includes the full logo suite in editable and production formats (SVG, PNG, PDF) plus your color, type, and usage guidelines — nothing is locked to us.' },
+      { q: 'How many logo concepts will I see?', a: "We typically present 2–3 distinct directions based on your discovery session, then refine your chosen direction through focused revision rounds until it's right." },
+      { q: 'Can you rebrand an existing organization without losing recognition?', a: "Yes — we call this a refresh. We study what's already working in your current brand and evolve it deliberately, rather than starting from zero." },
+      { q: 'Do you design for both digital and print?', a: 'Yes. Every brand system we deliver is built to work consistently across websites, social media, business cards, signage, and merchandise.' },
+    ],
   },
 
   '/services/consulting': {

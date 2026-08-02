@@ -5,6 +5,8 @@ import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import { fadeUp, staggerContainer, staggerItem } from '../lib/animations'
 import MagneticButton from '../components/ui/MagneticButton'
+import BeforeAfterSlider from '../components/ui/BeforeAfterSlider'
+import AnimatedMetric from '../components/ui/AnimatedMetric'
 
 const filters = ['all', 'web', 'mobile', 'edtech', 'enterprise']
 
@@ -27,6 +29,7 @@ const cases = [
     challenge: 'A Juba-based learning centre needed a simple online platform to deliver courses to enrolled students — requiring video hosting, assessments, progress tracking, and a way to issue certificates.',
     solution: 'We built a straightforward LMS with video lessons, quizzes, and progress dashboards — optimized for low-bandwidth connections and designed so non-technical staff could manage it without ongoing developer support.',
     results: ['Launched with 80+ enrolled students', 'Staff trained to manage platform independently', 'Reduced admin workload for course management', 'Mobile-friendly for low-bandwidth access'],
+    metrics: [{ value: 80, suffix: '+', label: 'Enrolled Students' }],
     tech: ['React', 'Node.js', 'MongoDB', 'DigitalOcean'],
   },
   {
@@ -37,6 +40,7 @@ const cases = [
     challenge: 'A multi-branch retail business was managing inventory and sales across spreadsheets with no central visibility, leading to stock errors and slow reporting.',
     solution: 'Built a web-based inventory and operations system with a central dashboard, stock alerts, sales tracking, and a simple interface that non-technical staff could use from day one.',
     results: ['Eliminated duplicate stock entries', 'Daily reporting time cut by 2+ hours', 'Deployed across 2 branches simultaneously', 'Staff fully trained within one week'],
+    metrics: [{ value: 2, suffix: '+', label: 'Hours Saved Daily' }, { value: 2, suffix: '', label: 'Branches Deployed' }],
     tech: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
   },
   {
@@ -47,6 +51,7 @@ const cases = [
     challenge: 'A secondary school in Juba was managing student records, grades, and attendance manually across paper registers and disconnected spreadsheets, making reporting slow and error-prone.',
     solution: 'Built a web portal for managing student records, grades, and attendance — with teacher dashboards, admin reporting, and a parent-facing view for tracking student progress.',
     results: ['All student records migrated digitally', 'Term reports generated in minutes vs. days', 'Teachers trained and using system independently', 'Reduced administrative errors significantly'],
+    metrics: [],
     tech: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
   },
 ]
@@ -62,7 +67,7 @@ export default function Projects() {
       <SEO {...pageSeo['/projects']} />
 
       {/* Header */}
-      <section className="bg-dark text-white py-24 text-center">
+      <section className="relative overflow-hidden bg-noise bg-dark text-white py-24 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">What We've Built</p>
@@ -133,7 +138,7 @@ export default function Projects() {
             <p className="section-subtitle">A closer look at the challenge, solution, and results behind selected projects.</p>
           </div>
           <div className="space-y-4">
-            {cases.map(({ tag, tagColor, img, client, title, challenge, solution, results, tech }, i) => (
+            {cases.map(({ tag, tagColor, img, client, title, challenge, solution, results, metrics, tech }, i) => (
               <motion.div key={title} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
                 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}>
                 {/* Accordion header */}
@@ -163,19 +168,40 @@ export default function Projects() {
                       className="overflow-hidden"
                     >
                       <div className="px-6 pb-6 border-t border-gray-100 pt-5">
-                        <div className="grid sm:grid-cols-2 gap-5 mb-5">
-                          {[
-                            { label: 'The Challenge', icon: 'fa-exclamation-triangle', content: challenge },
-                            { label: 'Our Solution',  icon: 'fa-lightbulb',            content: solution },
-                          ].map(({ label, icon, content }) => (
-                            <div key={label} className="bg-gray-50 rounded-xl p-4">
-                              <h4 className="text-xs font-bold text-primary uppercase tracking-wide mb-2 flex items-center gap-1.5">
-                                <i className={`fas ${icon} text-[0.65rem]`} /> {label}
-                              </h4>
-                              <p className="text-muted text-sm leading-relaxed">{content}</p>
-                            </div>
-                          ))}
+                        <p className="text-[0.65rem] font-semibold text-muted uppercase tracking-wide mb-2 flex items-center gap-1.5">
+                          <i className="fas fa-arrows-left-right text-[0.6rem]" /> Drag to compare — challenge vs. solution
+                        </p>
+                        <div className="h-64 sm:h-72 mb-5">
+                          <BeforeAfterSlider
+                            before={
+                              <div className="w-full h-full bg-dark text-white p-5 sm:p-6 flex flex-col justify-center">
+                                <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-white/40 mb-2">Before</span>
+                                <h4 className="text-sm font-bold uppercase tracking-wide mb-2 flex items-center gap-1.5 text-accent">
+                                  <i className="fas fa-exclamation-triangle text-[0.65rem]" /> The Challenge
+                                </h4>
+                                <p className="text-white/75 text-sm leading-relaxed">{challenge}</p>
+                              </div>
+                            }
+                            after={
+                              <div className="w-full h-full bg-primary text-white p-5 sm:p-6 flex flex-col justify-center">
+                                <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-white/50 mb-2">After</span>
+                                <h4 className="text-sm font-bold uppercase tracking-wide mb-2 flex items-center gap-1.5 text-white">
+                                  <i className="fas fa-lightbulb text-[0.65rem]" /> Our Solution
+                                </h4>
+                                <p className="text-white/90 text-sm leading-relaxed">{solution}</p>
+                              </div>
+                            }
+                          />
                         </div>
+
+                        {metrics?.length > 0 && (
+                          <div className="grid gap-4 mb-5" style={{ gridTemplateColumns: `repeat(${metrics.length}, minmax(0, 1fr))` }}>
+                            {metrics.map(m => (
+                              <AnimatedMetric key={m.label} value={m.value} suffix={m.suffix} label={m.label} />
+                            ))}
+                          </div>
+                        )}
+
                         <div className="bg-primary/5 border border-primary/15 rounded-xl p-4 mb-4">
                           <h4 className="text-xs font-bold text-primary uppercase tracking-wide mb-3 flex items-center gap-1.5">
                             <i className="fas fa-chart-line text-[0.65rem]" /> Results
@@ -204,7 +230,7 @@ export default function Projects() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-dark text-white text-center">
+      <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Have a Project in Mind?</h2>
           <p className="text-gray-300 mb-8">Tell us what you need and we'll get back to you within 24 hours.</p>

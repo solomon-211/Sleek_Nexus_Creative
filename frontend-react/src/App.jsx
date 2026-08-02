@@ -23,7 +23,7 @@ const Contact    = lazy(() => import('./pages/Contact'))
 const Privacy    = lazy(() => import('./pages/Privacy'))
 const Terms      = lazy(() => import('./pages/Terms'))
 const GetStarted = lazy(() => import('./pages/GetStarted'))
-const NotFound   = lazy(() => import('./pages/index.jsx').then(m => ({ default: m.NotFound })))
+const NotFound   = lazy(() => import('./pages/NotFound'))
 
 // Services sub-pages
 const WebDev     = lazy(() => import('./pages/services/WebDev'))
@@ -81,6 +81,8 @@ function AnimatedRoutes() {
                   <Route path="/projects/client-success" element={<Navigate to="/projects" replace />} />
                   <Route path="/quote"                  element={<Navigate to="/get-started" replace />} />
                   <Route path="/book-consultation"      element={<Navigate to="/get-started" replace />} />
+                  <Route path="/blog"                   element={<Navigate to="/" replace />} />
+                  <Route path="/blog/*"                 element={<Navigate to="/" replace />} />
 
                   <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
       </Routes>

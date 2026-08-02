@@ -1,10 +1,12 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import PageHeader from '../../components/ui/PageHeader'
 import SEO from '../../components/ui/SEO'
 import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
 import MagneticButton from '../../components/ui/MagneticButton'
+import FaqAccordion from '../../components/ui/FaqAccordion'
 
 const offers = [
   { title: 'Logo Design & Visual Identity', desc: 'Memorable marks that represent your organization at a glance.' },
@@ -63,7 +65,42 @@ const brandGallery = [
   },
 ]
 
+const process = [
+  { n: '01', icon: 'fa-comments',        title: 'Discovery',           desc: 'We learn your story, audience, and goals before designing anything.' },
+  { n: '02', icon: 'fa-magnifying-glass', title: 'Research & Strategy', desc: 'Competitive analysis and positioning that shapes every design decision.' },
+  { n: '03', icon: 'fa-pencil-ruler',    title: 'Concept & Design',     desc: 'Logo exploration and visual direction based on your discovery session.' },
+  { n: '04', icon: 'fa-arrows-rotate',   title: 'Refinement',           desc: "Focused revision rounds on your chosen direction until it's exactly right." },
+  { n: '05', icon: 'fa-box-open',        title: 'Delivery',             desc: 'Full logo suite, brand guide, and every source file — yours to keep.' },
+  { n: '06', icon: 'fa-headset',         title: 'Ongoing Support',      desc: 'Extended assets and brand consistency support as your organization grows.' },
+]
+
+const directions = [
+  {
+    key: 'bold',
+    icon: 'fa-bolt',
+    title: 'Bold & Modern',
+    swatches: ['#000000', '#FE7F2D'],
+    blurb: 'High-contrast, confident, and unapologetic — right for brands that want to stand out immediately and lead with energy.',
+  },
+  {
+    key: 'trusted',
+    icon: 'fa-shield-halved',
+    title: 'Trusted & Professional',
+    swatches: ['#233D4D', '#EAECF0'],
+    blurb: 'Clean, structured, and credible — right for institutions, financial services, and organizations where trust comes first.',
+  },
+  {
+    key: 'warm',
+    icon: 'fa-sun',
+    title: 'Warm & Approachable',
+    swatches: ['#FE9957', '#FFFFFF'],
+    blurb: 'Friendly, human, and welcoming — right for education, community, and healthcare brands that need to feel accessible.',
+  },
+]
+
 export default function Branding() {
+  const [selectedDirection, setSelectedDirection] = useState(null)
+
   return (
     <>
       <SEO {...pageSeo['/services/branding']} />
@@ -163,8 +200,33 @@ export default function Branding() {
         </div>
       </section>
 
-      {/* DELIVERABLES */}
+      {/* PROCESS */}
       <section className="py-24">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="text-center mb-14">
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">How We Work</p>
+            <h2 className="section-title">Our Branding Process</h2>
+            <p className="section-subtitle">A structured process that turns your story into a brand people recognize and trust.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {process.map(({ n, icon, title, desc }, i) => (
+              <motion.div key={title} className="card p-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-3xl font-heading font-black text-primary/20">{n}</span>
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <i className={`fas ${icon} text-primary text-sm`} />
+                  </div>
+                </div>
+                <h3 className="font-heading font-bold text-dark mb-2">{title}</h3>
+                <p className="text-muted text-sm leading-relaxed">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DELIVERABLES */}
+      <section className="py-24 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">What You Get</p>
@@ -190,8 +252,66 @@ export default function Branding() {
         </div>
       </section>
 
+      {/* BRAND DIRECTION FINDER */}
+      <section className="py-24">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="text-center mb-14">
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Not Sure Where to Start?</p>
+            <h2 className="section-title">Find Your Brand Direction</h2>
+            <p className="section-subtitle">Pick whichever feels closest to how you want your organization to be seen — we'll shape it from there.</p>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto mb-8">
+            {directions.map(({ key, icon, title, swatches }) => (
+              <button
+                key={key}
+                onClick={() => setSelectedDirection(key)}
+                className={`text-left p-5 rounded-2xl border-2 transition-all duration-200 ${
+                  selectedDirection === key ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-primary/40'
+                }`}
+              >
+                <div className="flex gap-1.5 mb-4">
+                  {swatches.map(c => (
+                    <span key={c} className="w-6 h-6 rounded-full border border-black/10" style={{ backgroundColor: c }} />
+                  ))}
+                </div>
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                  <i className={`fas ${icon} text-primary text-sm`} />
+                </div>
+                <h3 className="font-heading font-bold text-dark text-sm">{title}</h3>
+              </button>
+            ))}
+          </div>
+          <AnimatePresence mode="wait">
+            {selectedDirection && (
+              <motion.div
+                key={selectedDirection}
+                initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.3 }}
+                className="max-w-xl mx-auto text-center bg-gray-50 rounded-2xl p-7"
+              >
+                <p className="text-muted leading-relaxed mb-5">
+                  {directions.find(d => d.key === selectedDirection)?.blurb}
+                </p>
+                <Link to="/contact" className="btn-primary">This Resonates — Start Your Brand Project</Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Questions</p>
+            <h2 className="section-title">Common Branding Questions</h2>
+          </div>
+          <FaqAccordion items={pageSeo['/services/branding'].faq} />
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-20 bg-dark text-white text-center">
+      <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Ready to Build a Brand That Stands Out?</h2>
           <p className="text-gray-300 mb-8">Get a free brand consultation and discover what's possible.</p>

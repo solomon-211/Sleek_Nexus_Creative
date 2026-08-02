@@ -59,7 +59,7 @@ function buildHeadBlock(seo) {
   lines.push(
     '',
     '    <!-- Open Graph (Facebook, LinkedIn, WhatsApp previews) -->',
-    `    <meta property="og:type" content="website" />`,
+    `    <meta property="og:type" content="${escapeAttr(seo.type || 'website')}" />`,
     `    <meta property="og:site_name" content="${SITE_NAME}" />`,
     `    <meta property="og:title" content="${escapeAttr(fullTitle)}" />`,
   )
@@ -74,7 +74,7 @@ function buildHeadBlock(seo) {
     '',
     '    <!-- Twitter / X Card -->',
     `    <meta name="twitter:card" content="summary_large_image" />`,
-    `    <meta name="twitter:site" content="@SleekNexus" />`,
+    `    <meta name="twitter:site" content="@SNC" />`,
     `    <meta name="twitter:title" content="${escapeAttr(fullTitle)}" />`,
   )
   if (seo.description) lines.push(`    <meta name="twitter:description" content="${escapeAttr(seo.description)}" />`)

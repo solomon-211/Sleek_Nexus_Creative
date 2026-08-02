@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
@@ -6,33 +5,8 @@ import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, scaleIn } from '../lib/animations'
 import TiltCard from '../components/ui/TiltCard'
 import MagneticButton from '../components/ui/MagneticButton'
-
-// ── Animated Counter (Hub) ────────────────────────────────────────────────────
-function AnimatedCounter({ value, suffix = '' }) {
-  const [count, setCount] = useState(0)
-  const ref = useRef(null)
-  const started = useRef(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !started.current) {
-        started.current = true
-        const steps = 60
-        const increment = value / steps
-        let current = 0
-        const timer = setInterval(() => {
-          current += increment
-          if (current >= value) { setCount(value); clearInterval(timer) }
-          else setCount(Math.floor(current))
-        }, 1800 / steps)
-      }
-    }, { threshold: 0.3 })
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [value])
-
-  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>
-}
+import AnimatedCounter from '../components/ui/AnimatedCounter'
+import FaqAccordion from '../components/ui/FaqAccordion'
 
 // ── SDGs SNC directly addresses ──────────────────────────────────────────────
 const sdgs = [
@@ -70,6 +44,13 @@ const sdgs = [
     icon: 'fa-handshake',
     title: 'Partnerships for the Goals',
     desc: 'Forging strategic alliances with governments, NGOs, tech companies, and international organisations to co-create digital solutions for sustainable development.',
+  },
+  {
+    num: 3,
+    color: '#A85C32',
+    icon: 'fa-heart-pulse',
+    title: 'Good Health & Well-Being',
+    desc: 'Building health connectivity platforms like HealthHub Bridge — connecting patients and providers for appointment booking, health records, and remote consultations.',
   },
 ]
 
@@ -163,16 +144,57 @@ const impact = [
   { icon: 'fa-flag',          value: null,  display: 'Juba', label: 'Innovation Hub HQ' },
 ]
 
-// ── Partners ──────────────────────────────────────────────────────────────────
-const partners = [
-  { icon: 'fa-landmark',       label: 'Government Institutions' },
-  { icon: 'fa-building',       label: 'Technology Companies' },
-  { icon: 'fa-globe',          label: 'International Organisations' },
-  { icon: 'fa-hands-helping',  label: 'NGOs & Development Partners' },
-  { icon: 'fa-flask',          label: 'Research Institutions' },
-  { icon: 'fa-store',          label: 'Private Sector Orgs' },
-  { icon: 'fa-university',     label: 'Universities & Colleges' },
-  { icon: 'fa-rocket',         label: 'Startup Ecosystems' },
+// ── Innovation in action — real, live proof points, not just projections ──────
+const flagshipProjects = [
+  {
+    badge: 'Live Now',
+    icon: 'fa-graduation-cap',
+    title: 'EduPortal South Sudan',
+    desc: 'A live education platform helping learners across all 10 states discover schools, apply for scholarships, and track their progress — completely free.',
+    cta: 'Visit EduPortal Live',
+    href: 'https://eduportalss.solomonleek.tech',
+    external: true,
+  },
+  {
+    badge: 'Featured Project',
+    icon: 'fa-heart-pulse',
+    title: 'HealthHub Bridge',
+    desc: 'A health connectivity platform bridging patients and healthcare providers — enabling appointment booking, health records, and remote consultations.',
+    cta: 'View Case Study',
+    to: '/projects',
+  },
+]
+
+// ── Ways to get involved — the Hub serves more than just clients ──────────────
+const engagementPaths = [
+  {
+    icon: 'fa-building',
+    title: 'For Organizations',
+    desc: 'Need custom software, a mobile app, or a digital transformation partner? Every SNC engagement starts here.',
+    cta: 'Start a Project',
+    to: '/get-started',
+  },
+  {
+    icon: 'fa-rocket',
+    title: 'For Startups & Innovators',
+    desc: 'Looking for prototyping support or a place to build? Our Innovation Lab launches in Phase II — reach out early to join the first cohort.',
+    cta: 'Get in Touch',
+    to: '/contact',
+  },
+  {
+    icon: 'fa-handshake',
+    title: 'For Partners & Investors',
+    desc: 'Governments, NGOs, and organizations looking to co-create digital impact across South Sudan and Africa.',
+    cta: 'Explore Partnership',
+    to: '/contact',
+  },
+  {
+    icon: 'fa-graduation-cap',
+    title: 'For Students & Researchers',
+    desc: 'Interested in research collaboration, mentorship, or early career opportunities in technology?',
+    cta: 'Reach Out',
+    to: '/contact',
+  },
 ]
 
 // ── Page ──────────────────────────────────────────────────────────────────────
@@ -253,17 +275,6 @@ export default function InnovationHub() {
                 </div>
               </motion.div>
             ))}
-            {/* Filler card — "and more" */}
-            <motion.div
-              className="rounded-2xl border-2 border-dashed border-gray-200 p-6 flex flex-col items-center justify-center text-center gap-3"
-              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.5 }}
-            >
-              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
-                <i className="fas fa-plus text-gray-400 text-lg" />
-              </div>
-              <p className="text-sm font-semibold text-dark">More SDGs Through Impact</p>
-              <p className="text-xs text-muted leading-relaxed">As we grow, our digital solutions will address additional SDGs across health, climate, and governance.</p>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -315,6 +326,24 @@ export default function InnovationHub() {
             <h2 className="section-title">Vision 2040 · 2026–2040</h2>
             <p className="section-subtitle">A phased approach to building South Sudan's leading technology and innovation ecosystem over 15 years.</p>
           </div>
+
+          {/* Timeline connector — purely visual, ties the three phase cards into one journey */}
+          <div className="hidden md:flex items-center justify-center max-w-2xl mx-auto mb-4">
+            {roadmap.map(({ phase, years }) => (
+              <div key={phase} className="flex items-center flex-1">
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <span className="w-3 h-3 rounded-full bg-primary border-2 border-white shadow-[0_0_0_1px_rgba(0,0,0,0.08)]" />
+                  <span className="text-[0.65rem] font-semibold text-muted mt-1.5 whitespace-nowrap">{years.split(' – ')[0]}</span>
+                </div>
+                <div className="flex-1 h-px bg-gray-200 mx-1" />
+              </div>
+            ))}
+            <div className="flex flex-col items-center flex-shrink-0">
+              <span className="w-3 h-3 rounded-full bg-dark border-2 border-white shadow-[0_0_0_1px_rgba(0,0,0,0.08)]" />
+              <span className="text-[0.65rem] font-semibold text-muted mt-1.5">2040</span>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-7">
             {roadmap.map(({ phase, years, title, color, badgeColor, priorities, outcomes }, i) => (
               <TiltCard key={phase} className={`rounded-2xl border-2 ${color} p-7`}
@@ -350,8 +379,43 @@ export default function InnovationHub() {
         </div>
       </section>
 
+      {/* ── INNOVATION IN ACTION — real, live proof, not just a roadmap ─── */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="text-center mb-14">
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Not Just a Vision</p>
+            <h2 className="section-title">Innovation in Action</h2>
+            <p className="section-subtitle">Vision 2040 isn't only a plan — it's already producing real, working platforms today.</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-7">
+            {flagshipProjects.map(({ badge, icon, title, desc, cta, href, to, external }, i) => (
+              <motion.div key={title} className="card p-8" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12 }}>
+                <span className={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-5 ${badge === 'Live Now' ? 'bg-green-100 text-green-700' : 'bg-primary/10 text-primary'}`}>
+                  {badge === 'Live Now' && <span className="w-1.5 h-1.5 rounded-full bg-green-600 animate-pulse" />}
+                  {badge}
+                </span>
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5">
+                  <i className={`fas ${icon} text-primary text-2xl`} />
+                </div>
+                <h3 className="text-xl font-heading font-bold text-dark mb-3">{title}</h3>
+                <p className="text-muted leading-relaxed mb-6">{desc}</p>
+                {external ? (
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary text-sm font-semibold inline-flex items-center gap-2">
+                    {cta} <i className="fas fa-arrow-up-right-from-square text-xs" />
+                  </a>
+                ) : (
+                  <Link to={to} className="text-primary text-sm font-semibold inline-flex items-center gap-2">
+                    {cta} <i className="fas fa-arrow-right text-xs" />
+                  </Link>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── IMPACT BY 2040 ──────────────────────────────────────────────── */}
-      <section className="py-20 bg-primary text-white">
+      <section className="relative overflow-hidden bg-noise py-20 bg-primary text-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-12">
             <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-2">Expected Impact by 2040</p>
@@ -361,7 +425,7 @@ export default function InnovationHub() {
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center"
             variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
           >
-            {impact.map(({ icon, value, suffix, display, label, isNum }, i) => (
+            {impact.map(({ icon, value, suffix, display, label, isNum }) => (
               <motion.div key={label} variants={scaleIn}>
                 <div className="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mx-auto mb-3">
                   <i className={`fas ${icon} text-white text-lg`} />
@@ -376,31 +440,47 @@ export default function InnovationHub() {
         </div>
       </section>
 
-      {/* ── STRATEGIC PARTNERSHIPS ──────────────────────────────────────── */}
-      <section className="py-20 bg-gray-50">
+      {/* ── WAYS TO GET INVOLVED — the Hub serves more than just clients ── */}
+      <section className="py-24 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-12">
+          <div className="text-center mb-14">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Ecosystem Development</p>
-            <h2 className="section-title">Strategic Partnerships</h2>
-            <p className="section-subtitle">Sustainable digital impact is built through collaboration. SNC develops alliances across every sector to co-create solutions that last.</p>
+            <h2 className="section-title">Ways to Get Involved</h2>
+            <p className="section-subtitle">The Hub is built for more than clients — here's how different people engage with it.</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
-            {partners.map(({ icon, label }, i) => (
-              <motion.div key={label} className="card p-5 text-center"
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.08 }}>
-                <i className={`fas ${icon} text-primary text-xl mb-2 block`} />
-                <p className="text-xs font-semibold text-dark-soft leading-tight">{label}</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {engagementPaths.map(({ icon, title, desc, cta, to }, i) => (
+              <motion.div key={title} className="card p-6 flex flex-col" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <i className={`fas ${icon} text-primary text-lg`} />
+                </div>
+                <h3 className="font-heading font-bold text-dark mb-2">{title}</h3>
+                <p className="text-muted text-sm leading-relaxed mb-5 flex-1">{desc}</p>
+                <Link to={to} className="text-primary text-sm font-semibold inline-flex items-center gap-2">
+                  {cta} <i className="fas fa-arrow-right text-xs" />
+                </Link>
               </motion.div>
             ))}
-          </div>
-          <div className="text-center">
-            <Link to="/get-started" className="btn-primary">Become a Strategic Partner</Link>
           </div>
         </div>
       </section>
 
+      {/* ── FAQ ───────────────────────────────────────────────────────────
+           Matches the visible-content-must-back-structured-data rule noted in
+           index.html: this page's FAQPage JSON-LD (see pageSeo['/innovation-hub'])
+           needs real rendered FAQ content, not just schema. */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Questions</p>
+            <h2 className="section-title">About the Innovation Hub</h2>
+          </div>
+          <FaqAccordion items={pageSeo['/innovation-hub'].faq} />
+        </div>
+      </section>
+
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-dark text-white text-center">
+      <section className="relative overflow-hidden bg-noise py-24 bg-dark text-white text-center">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8 }}>
             <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-5 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import NewsletterForm from '../ui/NewsletterForm'
 import MagneticButton from '../ui/MagneticButton'
+import AnimatedCounter from '../ui/AnimatedCounter'
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 
@@ -47,8 +48,16 @@ const socials = [
 const contact = [
   { icon: 'fa-envelope',     label: 'info@sleeknexuscreative.com', href: 'mailto:info@sleeknexuscreative.com' },
   { icon: 'fa-phone',        label: '+211 925 277 700',            href: 'tel:+211925277700' },
-  { icon: 'fa-location-dot', label: 'Juba, South Sudan',           href: null },
+  { icon: 'fa-location-dot', label: 'Juba, South Sudan',           href: 'https://www.google.com/maps/search/?api=1&query=Juba%2C+South+Sudan', external: true },
+  { icon: 'fa-clock',        label: 'Mon–Fri, 9AM–6PM (EAT)',      href: null },
   { icon: 'fa-globe',        label: 'sleeknexuscreative.com',      href: 'https://sleeknexuscreative.com' },
+]
+
+const trustStats = [
+  { icon: 'fa-project-diagram', value: 10, suffix: '+', label: 'Projects Delivered' },
+  { icon: 'fa-user-graduate',   value: 50, suffix: '+', label: 'Learners Supported' },
+  { icon: 'fa-handshake',       value: 5,  suffix: '+', label: 'Partner Organizations' },
+  { icon: 'fa-clock',           value: 24, suffix: 'hr', label: 'Average Response Time' },
 ]
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -57,13 +66,13 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-dark text-white" aria-label="Site footer">
+    <footer className="relative overflow-hidden bg-noise bg-dark text-white" aria-label="Site footer">
 
       {/* Brand accent stripe */}
       <div className="h-1 bg-gradient-to-r from-primary via-accent to-primary" />
 
       {/* Innovation Hub Banner */}
-      <div className="bg-dark-soft border-b border-white/5">
+      <div className="relative overflow-hidden bg-noise bg-dark-soft border-b border-white/5">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -86,6 +95,23 @@ export default function Footer() {
               <i className="fas fa-rocket text-[0.65rem]" /> Explore the Hub
             </Link>
           </MagneticButton>
+        </div>
+      </div>
+
+      {/* Trust stats */}
+      <div className="border-b border-white/5">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+          {trustStats.map(({ icon, value, suffix, label }) => (
+            <div key={label} className="flex items-center justify-center gap-2.5">
+              <i className={`fas ${icon} text-accent text-sm flex-shrink-0`} />
+              <div className="text-left">
+                <strong className="block text-sm font-heading font-bold text-white leading-none">
+                  <AnimatedCounter value={value} suffix={suffix} />
+                </strong>
+                <span className="text-gray-500 text-[0.6rem]">{label}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -115,6 +141,19 @@ export default function Footer() {
             <p className="text-gray-400 text-xs leading-relaxed">
               Building digital products and software solutions that work in the real world — for businesses, startups, and organisations across South Sudan and Africa.
             </p>
+            <a
+              href="https://eduportalss.solomonleek.tech"
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg px-3 py-2 transition-colors w-fit"
+            >
+              <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
+                <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400" />
+              </span>
+              <span className="text-[0.65rem] text-gray-300">
+                <span className="text-white font-semibold">EduPortal South Sudan</span> — live product we built
+              </span>
+            </a>
           </div>
 
           {/* ── Nav columns ── */}
@@ -149,11 +188,11 @@ export default function Footer() {
               <h4 className="text-[0.65rem] font-bold uppercase tracking-widest text-white">Contact</h4>
             </div>
             <ul className="space-y-2.5 mb-5">
-              {contact.map(({ icon, label, href }) => (
+              {contact.map(({ icon, label, href, external }) => (
                 <li key={label} className="flex items-center gap-2.5">
                   <i className={`fas ${icon} text-primary text-xs w-3.5 flex-shrink-0`} />
                   {href
-                    ? <a href={href} className="text-gray-400 text-xs hover:text-white transition-colors">{label}</a>
+                    ? <a href={href} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="text-gray-400 text-xs hover:text-white transition-colors">{label}</a>
                     : <span className="text-gray-400 text-xs">{label}</span>}
                 </li>
               ))}

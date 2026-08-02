@@ -68,7 +68,7 @@ export default function UIUX() {
         </div>
       </section>
 
-      <section className="py-16 bg-dark text-white">
+      <section className="relative overflow-hidden bg-noise py-16 bg-dark text-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
           <p className="text-accent text-sm font-bold uppercase tracking-widest mb-4">Tools We Use</p>
           <div className="flex flex-wrap gap-3 justify-center">
@@ -77,7 +77,7 @@ export default function UIUX() {
         </div>
       </section>
 
-      <section className="py-20 bg-dark text-white text-center">
+      <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-3xl font-heading font-bold mb-4">Ready to Redesign Your Product?</h2>
           <p className="text-gray-300 mb-8">Let's make it beautiful, usable, and built for your real users.</p>
