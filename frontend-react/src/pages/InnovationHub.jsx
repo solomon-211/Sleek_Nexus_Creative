@@ -198,6 +198,25 @@ const engagementPaths = [
   },
 ]
 
+// ── Vision pillars — what the vision statement actually rests on ──────────────
+const visionPillars = [
+  {
+    icon: 'fa-map-marker-alt',
+    title: 'Built Here, For Here',
+    desc: "Every product starts with South Sudan's real conditions — connectivity, devices, and cost — not an assumption imported from somewhere else and retrofitted after the fact.",
+  },
+  {
+    icon: 'fa-check-double',
+    title: 'Proof, Not Promises',
+    desc: "EduPortal and HealthHub Bridge aren't concepts on a roadmap slide — they're live, serving real people today. A vision only means something once it ships.",
+  },
+  {
+    icon: 'fa-people-group',
+    title: 'A Hub, Not Just a Company',
+    desc: "Organizations, startups, students, and partners all have a place here — a digital future this size can't be built by one team alone.",
+  },
+]
+
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function InnovationHub() {
@@ -242,6 +261,37 @@ export default function InnovationHub() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ── VISION STATEMENT ─────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-noise bg-dark text-white py-24">
+        <div className="absolute top-0 right-[10%] w-80 h-80 bg-primary/20 rounded-full blur-[130px] pointer-events-none" />
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8 }}>
+            <p className="text-accent text-sm font-bold uppercase tracking-widest mb-6">Our Vision</p>
+            <h2 className="font-heading font-black uppercase leading-[1.05] mb-8" style={{ fontSize: 'clamp(1.75rem,4vw,3rem)', letterSpacing: '-0.02em' }}>
+              A South Sudan That Builds Its Own Digital Future
+            </h2>
+            <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+              By 2040, we want technology in South Sudan to mean something different — not aid, not an import, not someone else's solution adapted after the fact. We're building toward a country where schools run on systems built by South Sudanese engineers, where startups launch from Juba instead of relocating to build, and where the next generation of technologists doesn't have to leave to find opportunity. That future doesn't start in 2040 — it starts with every platform we ship today.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid sm:grid-cols-3 gap-6 mt-16 text-left"
+            variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
+          >
+            {visionPillars.map(({ icon, title, desc }) => (
+              <motion.div key={title} variants={fadeUp} className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div className="w-11 h-11 rounded-xl bg-primary/20 flex items-center justify-center mb-4">
+                  <i className={`fas ${icon} text-accent`} />
+                </div>
+                <h3 className="font-heading font-bold mb-2">{title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 

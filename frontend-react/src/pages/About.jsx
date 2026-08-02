@@ -7,6 +7,12 @@ import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import MagneticButton from '../components/ui/MagneticButton'
 
+const nameMeaning = [
+  { letter: 'S', word: 'Sleek', value: 'Excellence', desc: "Excellence is not an aspiration — it is our standard. We design with purpose, engineer with precision, and deliver solutions built to last. In a world where \"good enough\" is often accepted, we choose to build technology that earns trust." },
+  { letter: 'N', word: 'Nexus', value: 'Ecosystem', desc: "No single organization builds a country's digital future alone. We connect businesses with practical solutions, schools with tools built for their reality, and young innovators with the mentorship to build meaningful careers at home." },
+  { letter: 'C', word: 'Creative', value: 'Transformation', desc: "We believe transformation means turning ideas into innovation, challenges into opportunities, and potential into measurable impact — empowering people and communities to shape a stronger, digitally independent South Sudan." },
+]
+
 const timeline = [
   { year: '2024', color: 'bg-primary', border: 'border-t-primary', title: 'Founded in Juba', desc: 'Officially registered in South Sudan. First team of 4 co-founders begins operations from a co-working space in Juba. Delivered first client projects and launched the initial training cohort.' },
   { year: '2025', color: 'bg-accent', border: 'border-t-accent', title: 'Growing & Delivering', desc: 'Delivering digital projects for businesses, schools, and NGOs across Juba. Launched the SNC Academy with practical courses in web development, mobile apps, UI/UX, and digital marketing.' },
@@ -127,8 +133,34 @@ export default function About() {
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Who We Are</p>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">About Sleek Nexus Creative</h1>
             <p className="text-gray-300 text-lg leading-relaxed">
-              A technology company based in Juba, South Sudan — building practical digital solutions for businesses, schools, NGOs, and public institutions.
+              Sleek Nexus Creative is a startup technology and innovation firm based in Juba, South Sudan, building digital solutions that work in real-world applications — for businesses, schools, NGOs, and public institutions across the country.
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* What SNC Stands For */}
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="text-center mb-12">
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Our Name</p>
+            <h2 className="section-title">What SNC Stands For</h2>
+            <p className="section-subtitle">Three words, three commitments — the identity behind every product we build.</p>
+          </div>
+          <motion.div
+            className="grid sm:grid-cols-3 gap-6"
+            variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
+          >
+            {nameMeaning.map(({ letter, word, value, desc }) => (
+              <motion.div key={letter} className="card p-7 text-center" variants={staggerItem}>
+                <span className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary font-heading font-black text-2xl mb-5">
+                  {letter}
+                </span>
+                <h3 className="font-heading font-bold text-dark text-lg mb-1">{word}</h3>
+                <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4">{value}</p>
+                <p className="text-muted text-sm leading-relaxed">{desc}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -143,7 +175,7 @@ export default function About() {
                 <i className="fas fa-bullseye text-white text-xl" />
               </div>
               <h2 className="text-xl font-heading font-bold mb-3">Our Mission</h2>
-              <p className="opacity-90 leading-relaxed">To empower individuals, organizations, and communities across South Sudan through practical digital solutions, technology education, and creative innovation — bridging the gap between local needs and modern standards.</p>
+              <p className="opacity-90 leading-relaxed">To empower individuals, institutions, and communities across South Sudan by creating practical digital solutions, nurturing the next generation of technology leaders, and driving creative innovation that solves local challenges, creates opportunities, and builds a digitally empowered nation.</p>
             </motion.div>
             <motion.div className="bg-dark text-white rounded-2xl p-10 border border-white/10"
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}>
@@ -151,7 +183,7 @@ export default function About() {
                 <i className="fas fa-eye text-accent text-xl" />
               </div>
               <h2 className="text-xl font-heading font-bold mb-3">Our Vision</h2>
-              <p className="text-gray-300 leading-relaxed">A South Sudan where every organization can harness the full power of technology, where every young person has access to quality tech education, and where locally-built digital solutions drive economic growth nationwide.</p>
+              <p className="text-gray-300 leading-relaxed">To build a South Sudan that owns its digital future—where local talent creates world-class technology, schools and institutions run on homegrown digital systems, innovation generates opportunities for every young person, and "Built in South Sudan" becomes a global mark of excellence, innovation, and national pride.</p>
             </motion.div>
           </div>
 
