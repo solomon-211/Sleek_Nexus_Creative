@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { fadeUp, scaleIn, floatAnimation } from '../lib/animations'
@@ -6,6 +7,14 @@ import { pageSeo } from '../lib/seo-data'
 import MagneticButton from '../components/ui/MagneticButton'
 import PricingEstimator from '../components/ui/PricingEstimator'
 import { packages } from '../lib/packages-data'
+
+const navItems = [
+  { id: 'software-dev', icon: 'fa-code',         label: 'Software Dev' },
+  { id: 'web-mobile',   icon: 'fa-mobile-alt',   label: 'Web & Mobile' },
+  { id: 'edtech',       icon: 'fa-graduation-cap', label: 'EdTech' },
+  { id: 'consulting',   icon: 'fa-laptop-code',  label: 'Consulting' },
+  { id: 'all-packages', icon: 'fa-box-open',     label: 'Packages' },
+]
 
 const services = [
   {
@@ -39,6 +48,27 @@ const services = [
 ]
 
 export default function Services() {
+  const [activeSection, setActiveSection] = useState('software-dev')
+
+  useEffect(() => {
+    const ids = navItems.map(n => n.id)
+    const observers = ids.map(id => {
+      const el = document.getElementById(id)
+      if (!el) return null
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id) },
+        { rootMargin: '-40% 0px -55% 0px' }
+      )
+      obs.observe(el)
+      return obs
+    })
+    return () => observers.forEach(o => o?.disconnect())
+  }, [])
+
+  const scrollTo = (id) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
   return (
     <>
       <SEO {...pageSeo['/services']} />
@@ -53,6 +83,28 @@ export default function Services() {
           </motion.div>
         </div>
       </section>
+
+      {/* Sticky anchor nav */}
+      <div className="sticky top-[72px] z-20 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-2">
+            {navItems.map(({ id, icon, label }) => (
+              <button
+                key={id}
+                onClick={() => scrollTo(id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition-all duration-200 flex-shrink-0 ${
+                  activeSection === id
+                    ? 'bg-primary text-white shadow-sm'
+                    : 'text-muted hover:text-primary hover:bg-primary/8'
+                }`}
+              >
+                <i className={`fas ${icon} text-xs`} />
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Services */}
       {services.map(({ id, icon, title, img, intro, offers, process, tech, features, benefits }, idx) => (

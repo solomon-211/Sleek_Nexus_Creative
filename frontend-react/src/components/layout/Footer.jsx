@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import NewsletterForm from '../ui/NewsletterForm'
 import MagneticButton from '../ui/MagneticButton'
 import AnimatedCounter from '../ui/AnimatedCounter'
@@ -64,6 +64,7 @@ const trustStats = [
 
 export default function Footer() {
   const year = new Date().getFullYear()
+  const { pathname } = useLocation()
 
   return (
     <footer className="relative overflow-hidden bg-noise bg-dark text-white" aria-label="Site footer">
@@ -171,7 +172,12 @@ export default function Footer() {
                         <i className="fas fa-bolt text-[0.55rem]" />{label}
                       </Link>
                     ) : (
-                      <Link to={to} className="text-xs text-gray-400 hover:text-white hover:pl-1 transition-all duration-150 block">
+                      <Link
+                        to={to}
+                        className={`text-xs hover:text-white hover:pl-1 transition-all duration-150 block ${
+                          pathname === to ? 'text-white font-semibold pl-1' : 'text-gray-400'
+                        }`}
+                      >
                         {label}
                       </Link>
                     )}
