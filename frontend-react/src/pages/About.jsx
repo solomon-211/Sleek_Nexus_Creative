@@ -7,6 +7,22 @@ import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import MagneticButton from '../components/ui/MagneticButton'
 
+// Outer cards slide in first, like photos sliding into a frame; the middle
+// card pops in afterward, once both side cards have settled.
+const slideInLeft = {
+  hidden: { opacity: 0, x: -140, rotate: -5 },
+  show: { opacity: 1, x: 0, rotate: 0, transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] } },
+}
+const slideInRight = {
+  hidden: { opacity: 0, x: 140, rotate: 5 },
+  show: { opacity: 1, x: 0, rotate: 0, transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] } },
+}
+const popInMiddle = {
+  hidden: { opacity: 0, scale: 0.75, y: 20 },
+  show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut', delay: 0.6 } },
+}
+const nameMeaningVariants = [slideInLeft, popInMiddle, slideInRight]
+
 const nameMeaning = [
   { letter: 'S', word: 'Sleek', value: 'Excellence', desc: "Excellence is not an aspiration — it is our standard. We design with purpose, engineer with precision, and deliver solutions built to last. In a world where \"good enough\" is often accepted, we choose to build technology that earns trust." },
   { letter: 'N', word: 'Nexus', value: 'Ecosystem', desc: "No single organization builds a country's digital future alone. We connect businesses with practical solutions, schools with tools built for their reality, and young innovators with the mentorship to build meaningful careers at home." },
@@ -147,12 +163,12 @@ export default function About() {
             <h2 className="section-title">What SNC Stands For</h2>
             <p className="section-subtitle">Three words, three commitments — the identity behind every product we build.</p>
           </div>
-          <motion.div
-            className="grid sm:grid-cols-3 gap-6"
-            variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
-          >
-            {nameMeaning.map(({ letter, word, value, desc }) => (
-              <motion.div key={letter} className="card p-7 text-center" variants={staggerItem}>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {nameMeaning.map(({ letter, word, value, desc }, i) => (
+              <motion.div
+                key={letter} className="card p-7 text-center"
+                variants={nameMeaningVariants[i]} initial="hidden" whileInView="show" viewport={{ once: true }}
+              >
                 <span className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary font-heading font-black text-2xl mb-5">
                   {letter}
                 </span>
@@ -161,7 +177,7 @@ export default function About() {
                 <p className="text-muted text-sm leading-relaxed">{desc}</p>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
