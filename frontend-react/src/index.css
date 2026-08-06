@@ -71,8 +71,8 @@
     background-image:
       radial-gradient(circle at 12% 16%, rgba(254, 127, 45, 0.22), transparent 44%),
       radial-gradient(circle at 88% 24%, rgba(35, 61, 77, 0.18), transparent 40%),
-      radial-gradient(circle at 76% 78%, rgba(254, 153, 87, 0.24), transparent 45%),
-      linear-gradient(150deg, #f9fafc 0%, #f4f6f9 42%, #ffffff 100%);
+      radial-gradient(circle at 76% 78%, rgba(254, 127, 45, 0.24), transparent 45%),
+      linear-gradient(150deg, #EAECF0 0%, #ffffff 100%);
     background-size: 200% 200%;
     animation: aurora-drift 18s ease-in-out infinite;
   }
@@ -95,14 +95,14 @@
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    background: conic-gradient(from 90deg, rgba(254, 127, 45, 0.5), rgba(35, 61, 77, 0.35), rgba(254, 153, 87, 0.55), rgba(254, 127, 45, 0.5));
+    background: conic-gradient(from 90deg, rgba(254, 127, 45, 0.5), rgba(35, 61, 77, 0.35), rgba(254, 127, 45, 0.55), rgba(254, 127, 45, 0.5));
     z-index: -1;
     filter: blur(0.3px);
   }
 
   /* ── Gradient text ── */
   .gradient-text {
-    background: linear-gradient(135deg, #FE7F2D 0%, #FE9957 50%, #FFC08A 100%);
+    background: linear-gradient(135deg, #FE7F2D 0%, #233D4D 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -135,7 +135,7 @@
     animation: glitch-1 0.4s steps(1) infinite;
   }
   .glitch-text:hover::after {
-    color: #FE9957;
+    color: #233D4D;
     animation: glitch-2 0.4s steps(1) infinite;
   }
 

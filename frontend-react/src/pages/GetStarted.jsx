@@ -84,7 +84,7 @@ export default function GetStarted() {
       <SEO {...pageSeo['/get-started']} />
 
       {/* Header */}
-      <section className="relative py-28 sm:py-36 flex items-center overflow-hidden text-white bg-grid-light bg-noise" style={{background:'linear-gradient(160deg,#1a2a35 0%,#000000 60%)'}}>
+      <section className="relative py-28 sm:py-36 flex items-center overflow-hidden text-white bg-grid-light bg-noise" style={{background:'linear-gradient(160deg,#233D4D 0%,#000000 60%)'}}>
         <div className="absolute top-1/4 left-[8%] w-96 h-96 bg-primary/25 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 right-[6%] w-72 h-72 bg-accent/20 rounded-full blur-[110px] pointer-events-none" />
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
@@ -262,22 +262,49 @@ export default function GetStarted() {
             </motion.div>
 
             {/* Partner/support callout — a different path for visitors who aren't
-                here to hire us for a single project, filling out the column so it
-                roughly matches the taller sidebar's height. */}
+                here to hire us for a single project. Mirrors the engagement paths
+                on the Innovation Hub page so the two stay consistent. */}
             <motion.div
-              className="bg-white/5 border border-white/15 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left"
+              className="bg-white/5 border border-white/15 rounded-2xl p-6 sm:p-8"
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center flex-shrink-0">
-                <i className="fas fa-handshake text-accent text-xl" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center flex-shrink-0">
+                  <i className="fas fa-handshake text-accent text-xl" />
+                </div>
+                <div>
+                  <h3 className="text-white font-heading font-bold mb-1">Not Looking to Hire Us?</h3>
+                  <p className="text-white/60 text-sm leading-relaxed">There's more than one way to work with SNC. Here's how organizations, funders, and individuals get involved beyond a single project.</p>
+                </div>
               </div>
-              <div className="flex-1">
-                <h3 className="text-white font-heading font-bold mb-1">Not Looking to Hire Us?</h3>
-                <p className="text-white/60 text-sm leading-relaxed">If you'd rather partner with us, support the Innovation Hub, or explore how your organization can get involved beyond a single project, we'd love to talk.</p>
+
+              <div className="grid sm:grid-cols-2 gap-5 mb-7">
+                {[
+                  { icon: 'fa-building', title: 'Organizations & NGOs', desc: 'Co-create digital impact through joint programs, sponsorships, or bringing your team into an ongoing initiative.' },
+                  { icon: 'fa-hand-holding-dollar', title: 'Investors & Funders', desc: "Support the Innovation Hub's mission to build South Sudan's digital infrastructure and back local tech talent." },
+                  { icon: 'fa-rocket', title: 'Startups & Innovators', desc: 'Looking for prototyping support or a place to build? Reach out early to join the first Innovation Lab cohort.' },
+                  { icon: 'fa-graduation-cap', title: 'Students & Researchers', desc: 'Interested in mentorship, research collaboration, or early career opportunities in tech? We want to hear from you.' },
+                ].map(({ icon, title, desc }) => (
+                  <div key={title} className="flex gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <i className={`fas ${icon} text-accent text-sm`} />
+                    </div>
+                    <div>
+                      <p className="text-white font-semibold text-sm mb-0.5">{title}</p>
+                      <p className="text-white/55 text-xs leading-relaxed">{desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <Link to="/innovation-hub" className="btn-secondary border-white text-white hover:bg-white hover:text-primary flex-shrink-0 whitespace-nowrap">
-                Partner With Us
-              </Link>
+
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                <Link to="/innovation-hub" className="btn-secondary border-white text-white hover:bg-white hover:text-primary whitespace-nowrap">
+                  Explore the Innovation Hub
+                </Link>
+                <a href="mailto:info@sleeknexuscreative.com?subject=Partnership%20Inquiry" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-semibold transition-colors">
+                  Or email us directly <i className="fas fa-arrow-right text-xs" />
+                </a>
+              </div>
             </motion.div>
             </div>
 

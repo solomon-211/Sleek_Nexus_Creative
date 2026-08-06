@@ -144,8 +144,8 @@ export default function Navbar() {
                     className={({ isActive }) =>
                       `flex items-center gap-1.5 text-sm font-bold px-3 py-1.5 rounded-lg transition-all duration-200 whitespace-nowrap border ${
                         isActive
-                          ? 'bg-accent text-white border-accent shadow-[0_0_16px_rgba(254,153,87,0.4)]'
-                          : 'text-accent border-accent/50 hover:bg-accent hover:text-white hover:border-accent hover:shadow-[0_0_16px_rgba(254,153,87,0.3)]'
+                          ? 'bg-accent text-white border-accent shadow-[0_0_16px_rgba(254,127,45,0.4)]'
+                          : 'text-accent border-accent/50 hover:bg-accent hover:text-white hover:border-accent hover:shadow-[0_0_16px_rgba(254,127,45,0.3)]'
                       }`
                     }
                   >
@@ -155,7 +155,7 @@ export default function Navbar() {
                   <button
                     className={`flex items-center gap-1 text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 whitespace-nowrap ${
                       openDropdown === label
-                        ? 'text-white bg-white/[0.12] shadow-[inset_0_-2px_0_0_#FE9957]'
+                        ? 'text-white bg-white/[0.12] shadow-[inset_0_-2px_0_0_#FE7F2D]'
                         : 'text-white/80 hover:text-white hover:bg-white/[0.08]'
                     }`}
                     onClick={() => setOpenDropdown(openDropdown === label ? null : label)}

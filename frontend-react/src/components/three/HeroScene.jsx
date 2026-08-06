@@ -60,7 +60,7 @@ function NetworkField() {
   return (
     <group ref={groupRef}>
       <lineSegments geometry={linesGeometry}>
-        <lineBasicMaterial color="#FE9957" transparent opacity={0.35} />
+        <lineBasicMaterial color="#FE7F2D" transparent opacity={0.35} />
       </lineSegments>
       <points geometry={pointsGeometry}>
         <pointsMaterial color="#FE7F2D" size={0.06} sizeAttenuation transparent opacity={0.9} />

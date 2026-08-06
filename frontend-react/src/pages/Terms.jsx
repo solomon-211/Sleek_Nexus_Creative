@@ -45,7 +45,7 @@ export default function Terms() {
       <SEO {...pageSeo['/terms']} />
 
       {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-20 text-center" style={{background:'linear-gradient(160deg,#1a2a35 0%,#000000 60%)'}}>
+      <section className="relative overflow-hidden bg-noise text-white py-20 text-center" style={{background:'linear-gradient(160deg,#233D4D 0%,#000000 60%)'}}>
         <div className="max-w-3xl mx-auto px-6">
           <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Legal</p>
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-3">Terms of Service</h1>

@@ -50,7 +50,7 @@ export default function Contact() {
       <SEO {...pageSeo['/contact']} />
 
       {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-24 text-center" style={{background:'linear-gradient(160deg,#1a2a35 0%,#000000 60%)'}}>
+      <section className="relative overflow-hidden bg-noise text-white py-24 text-center" style={{background:'linear-gradient(160deg,#233D4D 0%,#000000 60%)'}}>
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
             <p className="section-label text-accent">We'd love to hear from you</p>

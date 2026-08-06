@@ -66,7 +66,7 @@ function Globe() {
           <bufferGeometry>
             <bufferAttribute attach="attributes-position" args={[new Float32Array(points.flatMap(p => [p.x, p.y, p.z])), 3]} />
           </bufferGeometry>
-          <lineBasicMaterial color="#FE9957" transparent opacity={0.55} />
+          <lineBasicMaterial color="#233D4D" transparent opacity={0.55} />
         </line>
       ))}
 
@@ -74,7 +74,7 @@ function Globe() {
       {markers.map(({ name, vec, hub }) => (
         <mesh key={name} position={vec}>
           <sphereGeometry args={[hub ? 0.05 : 0.03, 12, 12]} />
-          <meshBasicMaterial color={hub ? '#FE7F2D' : '#FE9957'} />
+          <meshBasicMaterial color={hub ? '#FE7F2D' : '#233D4D'} />
         </mesh>
       ))}
 

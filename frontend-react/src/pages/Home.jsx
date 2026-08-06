@@ -78,7 +78,7 @@ export default function Home() {
         className="relative min-h-screen flex items-center bg-white overflow-hidden"
         style={{
           backgroundImage: `radial-gradient(ellipse at 70% 20%, rgba(254,127,45,.08), transparent 55%),
-            radial-gradient(ellipse at 10% 90%, rgba(254,153,87,.07), transparent 45%)`,
+            radial-gradient(ellipse at 10% 90%, rgba(35,61,77,.07), transparent 45%)`,
         }}
       >
         {/* Ambient glow orbs — soft color wash over the white background, parallaxed on scroll */}
@@ -133,11 +133,11 @@ export default function Home() {
                   so the color wash stays close to the card instead of bleeding out. */}
               <div
                 className="absolute -inset-3 rounded-[1.75rem] pointer-events-none blur-md opacity-50"
-                style={{ background: 'conic-gradient(from 0deg, #FE7F2D, #FE9957, #233D4D, #FE9957, #FE7F2D)' }}
+                style={{ background: 'conic-gradient(from 0deg, #FE7F2D, #FE7F2D, #233D4D, #FE7F2D, #FE7F2D)' }}
               />
               <div
                 className="absolute -inset-1 rounded-2xl pointer-events-none opacity-40"
-                style={{ background: 'conic-gradient(from 180deg, #FE7F2D, #233D4D, #FE9957, #FE7F2D)' }}
+                style={{ background: 'conic-gradient(from 180deg, #FE7F2D, #233D4D, #FE7F2D, #FE7F2D)' }}
               />
 
               {/* Continuous idle float once the card has entered — a small "alive" touch */}
@@ -376,7 +376,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="group block rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.4)] hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(254,127,45,0.25)] transition-all duration-500"
               >
-                <div className="flex items-center gap-2 bg-[#1a1a1a] px-4 py-3 border-b border-white/10">
+                <div className="flex items-center gap-2 bg-black px-4 py-3 border-b border-white/10">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
@@ -389,7 +389,7 @@ export default function Home() {
                   className="relative p-8 sm:p-10 min-h-[320px] flex flex-col items-center justify-center text-center"
                   style={{ backgroundImage: 'linear-gradient(135deg, #233D4D 0%, #000000 100%)' }}
                 >
-                  <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 30% 20%, #FE7F2D, transparent 45%), radial-gradient(circle at 80% 80%, #FE9957, transparent 40%)' }} />
+                  <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 30% 20%, #FE7F2D, transparent 45%), radial-gradient(circle at 80% 80%, #233D4D, transparent 40%)' }} />
                   <div className="relative w-16 h-16 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center mb-5">
                     <i className="fas fa-graduation-cap text-accent text-2xl" />
                   </div>

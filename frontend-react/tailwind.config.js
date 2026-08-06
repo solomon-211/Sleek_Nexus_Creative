@@ -22,13 +22,17 @@ export default {
         'fade-in-up': 'fade-in-up 0.5s ease forwards',
       },
       colors: {
+        // Brand palette — orange primary, white secondary, black & navy tertiary.
+        // `accent`/`accent-dark`/`primary-dark`/`muted` are kept as tokens (many
+        // components reference them) but now resolve into the same four colors
+        // instead of introducing extra off-palette hues.
         primary: '#FE7F2D',
-        'primary-dark': '#C66323',
-        accent: '#FE9957',
-        'accent-dark': '#CB7A46',
+        'primary-dark': '#233D4D',
+        accent: '#FE7F2D',
+        'accent-dark': '#233D4D',
         dark: '#000000',
         'dark-soft': '#233D4D',
-        muted: '#6E737A',
+        muted: 'rgba(35, 61, 77, 0.65)',
         surface: '#EAECF0',
       },
       fontFamily: {

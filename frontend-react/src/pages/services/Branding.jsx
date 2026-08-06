@@ -94,7 +94,7 @@ const directions = [
     key: 'warm',
     icon: 'fa-sun',
     title: 'Warm & Approachable',
-    swatches: ['#FE9957', '#FFFFFF'],
+    swatches: ['#FE7F2D', '#FFFFFF'],
     blurb: 'Friendly, human, and welcoming — right for education, community, and healthcare brands that need to feel accessible.',
   },
 ]

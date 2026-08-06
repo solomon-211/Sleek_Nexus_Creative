@@ -100,7 +100,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden bg-dark text-white" aria-label="Site footer">
 
       {/* ── Pre-footer CTA band ── */}
-      <div className="relative overflow-hidden bg-[#0a0a0a] border-b-4 border-primary">
+      <div className="relative overflow-hidden bg-dark border-b-4 border-primary">
         {/* Animated orange sweep */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-accent/10 pointer-events-none" />
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
@@ -305,9 +305,9 @@ export default function Footer() {
             style={{
               fontSize: 'clamp(3rem, 14vw, 13rem)',
               letterSpacing: '0.02em',
-              color: '#fdf6f0',
+              color: '#FFFFFF',
               textShadow:
-                '2px 2px 0 #f2a366, 4px 4px 0 #ec9455, 6px 6px 0 #e68544, 8px 8px 0 #e07634, 10px 10px 0 #d3672a, 12px 12px 0 #b85820, 14px 14px 0 #9d4a19, 16px 16px 30px rgba(0,0,0,0.7)',
+                '3px 3px 0px rgba(254,127,45,0.5), 6px 6px 0px rgba(254,127,45,0.3), 9px 9px 0px rgba(254,127,45,0.15), 14px 14px 26px rgba(0,0,0,0.7)',
             }}
           >
             Sleek Nexus Creative

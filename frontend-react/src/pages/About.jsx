@@ -149,7 +149,7 @@ export default function About() {
       <SEO {...pageSeo['/about']} />
 
       {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-16 sm:py-24 text-center" style={{background:'linear-gradient(160deg,#1a2a35 0%,#000000 60%)'}}>
+      <section className="relative overflow-hidden bg-noise text-white py-16 sm:py-24 text-center" style={{background:'linear-gradient(160deg,#233D4D 0%,#000000 60%)'}}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-bold uppercase tracking-widest mb-3">Who We Are</p>

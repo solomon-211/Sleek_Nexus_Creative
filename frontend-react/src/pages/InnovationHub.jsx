@@ -12,28 +12,28 @@ import GlobeAccent from '../components/ui/GlobeAccent'
 const sdgs = [
   {
     num: 4,
-    color: '#8C4619',
+    color: '#000000',
     icon: 'fa-graduation-cap',
     title: 'Quality Education',
     desc: 'Building digital learning platforms, e-learning tools, and tech-enabled education systems that expand access to quality education across South Sudan.',
   },
   {
     num: 8,
-    color: '#8C5430',
+    color: '#233D4D',
     icon: 'fa-briefcase',
     title: 'Decent Work & Economic Growth',
     desc: 'Creating digital jobs, empowering entrepreneurs with software tools, and driving economic growth through technology services and startup support.',
   },
   {
     num: 9,
-    color: '#8C4619',
+    color: '#000000',
     icon: 'fa-industry',
     title: 'Industry, Innovation & Infrastructure',
     desc: 'Delivering scalable software, cloud infrastructure, and digital transformation solutions that modernise industries and build resilient digital infrastructure.',
   },
   {
     num: 10,
-    color: '#8C5430',
+    color: '#233D4D',
     icon: 'fa-balance-scale',
     title: 'Reduced Inequalities',
     desc: 'Bridging the digital divide by making technology accessible to underserved communities, women, and youth across South Sudan and Africa.',
@@ -47,7 +47,7 @@ const sdgs = [
   },
   {
     num: 3,
-    color: '#A85C32',
+    color: '#FE7F2D',
     icon: 'fa-heart-pulse',
     title: 'Good Health & Well-Being',
     desc: 'Building health connectivity platforms like HealthHub Bridge — connecting patients and providers for appointment booking, health records, and remote consultations.',
