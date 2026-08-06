@@ -28,7 +28,7 @@ export default function MobileApps() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Cross-Platform Excellence</p>
-              <h2 className="text-3xl font-heading font-bold text-dark mb-6">Apps Built for Africa's Fastest-Growing Mobile Market</h2>
+              <h2 className="text-3xl md:text-4xl font-heading font-black uppercase text-dark mb-6">Apps Built for Africa's Fastest-Growing Mobile Market</h2>
               <p className="text-muted leading-relaxed mb-4">South Sudan's internet users are almost entirely mobile. We build apps that deliver excellent experiences regardless of device age, network speed, or screen size.</p>
               <p className="text-muted leading-relaxed mb-6">From fintech apps to e-learning platforms to community tools — our mobile solutions are trusted by organizations across South Sudan.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
@@ -79,7 +79,7 @@ export default function MobileApps() {
 
       <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl font-heading font-bold mb-4">Have an App Idea?</h2>
+          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase mb-4">Have an App Idea?</h2>
           <p className="text-gray-300 mb-8">We'll help you turn it into a real product — from concept to App Store.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <MagneticButton>

@@ -31,7 +31,7 @@ export default function UIUX() {
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Design That Converts</p>
-              <h2 className="text-3xl font-heading font-bold text-dark mb-6">Great Design Is More Than How It Looks</h2>
+              <h2 className="text-3xl md:text-4xl font-heading font-black uppercase text-dark mb-6">Great Design Is More Than How It Looks</h2>
               <p className="text-muted leading-relaxed mb-4">Good UI/UX design reduces user friction, increases task completion, and builds trust. We design with South Sudan's users in mind — diverse languages, literacy levels, and device types.</p>
               <p className="text-muted leading-relaxed mb-6">Our design process is research-driven, collaborative, and delivers production-ready Figma files that your developers can implement exactly as designed.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
@@ -79,7 +79,7 @@ export default function UIUX() {
 
       <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl font-heading font-bold mb-4">Ready to Redesign Your Product?</h2>
+          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase mb-4">Ready to Redesign Your Product?</h2>
           <p className="text-gray-300 mb-8">Let's make it beautiful, usable, and built for your real users.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <MagneticButton>

@@ -216,7 +216,7 @@ export default function Home() {
             {/* Large feature cell — spans 2 cols + 2 rows */}
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} transition={{duration:0.5}}
               className="bento-cell lg:col-span-2 lg:row-span-2 relative overflow-hidden group cursor-pointer bg-dark">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-transparent to-accent/20" />
+              <div className="absolute inset-0 bg-primary/15" />
               <div className="absolute inset-0 bg-dots-light opacity-40" />
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-[80px]" />
               <div className="relative h-full flex flex-col justify-between p-8">
@@ -236,7 +236,7 @@ export default function Home() {
             {/* Small cell 1 */}
             <SpotlightCard variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} transition={{duration:0.5,delay:0.1}}
               className="bento-cell group cursor-pointer" spotlightColor="rgba(254,127,45,0.18)">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
+              <div className="absolute inset-0 bg-primary/5" />
               <div className="relative h-full flex flex-col justify-between p-6">
                 <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
                   <i className="fas fa-mobile-alt text-primary text-lg" />
@@ -266,7 +266,7 @@ export default function Home() {
             {/* Wide cell — spans 2 cols */}
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} transition={{duration:0.5,delay:0.3}}
               className="bento-cell sm:col-span-2 lg:col-span-2 relative overflow-hidden group cursor-pointer">
-              <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-primary/5 to-transparent" />
+              <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-primary/5" />
               <div className="relative h-full flex items-center gap-8 p-6">
                 <div className="w-14 h-14 rounded-2xl bg-dark flex items-center justify-center flex-shrink-0">
                   <i className="fas fa-laptop-code text-accent text-xl" />
@@ -302,7 +302,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Who We Are</p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-dark mb-5 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black uppercase text-dark mb-5 leading-tight">
                 Reliable Technology, Built in Juba
               </h2>
               <p className="text-muted leading-relaxed mb-4">
@@ -385,11 +385,7 @@ export default function Home() {
                   </span>
                   <i className="fas fa-arrow-up-right-from-square text-white/30 text-xs group-hover:text-accent transition-colors" />
                 </div>
-                <div
-                  className="relative p-8 sm:p-10 min-h-[320px] flex flex-col items-center justify-center text-center"
-                  style={{ backgroundImage: 'linear-gradient(135deg, #233D4D 0%, #000000 100%)' }}
-                >
-                  <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 30% 20%, #FE7F2D, transparent 45%), radial-gradient(circle at 80% 80%, #233D4D, transparent 40%)' }} />
+                <div className="relative p-8 sm:p-10 min-h-[320px] flex flex-col items-center justify-center text-center bg-dark-soft">
                   <div className="relative w-16 h-16 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center mb-5">
                     <i className="fas fa-graduation-cap text-accent text-2xl" />
                   </div>
@@ -418,7 +414,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {testimonials.map(({ initials, name, role, text }, i) => (
               <motion.div key={name}
-                className="relative rounded-xl p-[2px] bg-gradient-to-br from-primary via-accent to-primary/30"
+                className="relative rounded-xl border border-primary/25"
                 style={{ transformPerspective: 800 }}
                 variants={stackReveal(i)} initial="hidden" whileInView="show" viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}>
@@ -428,7 +424,7 @@ export default function Home() {
                   </div>
                   <p className="text-muted text-sm leading-relaxed italic mb-5 flex-1">"{text}"</p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-sm shrink-0">{initials}</div>
+                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm shrink-0">{initials}</div>
                     <div>
                       <p className="font-semibold text-dark text-sm">{name}</p>
                       <p className="text-muted text-xs">{role}</p>

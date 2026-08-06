@@ -36,10 +36,8 @@ export default {
         surface: '#EAECF0',
       },
       fontFamily: {
-        sans: ['Space Grotesk', 'sans-serif'],
-        heading: ['Sora', 'sans-serif'],
-        // Tall, condensed display face — used sparingly for monumental headlines.
-        tall: ['Bebas Neue', 'sans-serif'],
+        sans: ['Open Sans', 'sans-serif'],
+        heading: ['Roboto', 'sans-serif'],
       },
     },
   },

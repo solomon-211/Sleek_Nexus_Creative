@@ -48,7 +48,7 @@ export default function Terms() {
       <section className="relative overflow-hidden bg-noise text-white py-20 text-center" style={{background:'linear-gradient(160deg,#233D4D 0%,#000000 60%)'}}>
         <div className="max-w-3xl mx-auto px-6">
           <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Legal</p>
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-3">Terms of Service</h1>
+          <h1 className="text-4xl md:text-6xl font-heading font-black uppercase mb-3">Terms of Service</h1>
           <p className="text-accent italic mb-3">"Clear Terms, Fair Practices, Mutual Respect"</p>
           <p className="text-gray-300 text-sm leading-relaxed max-w-2xl mx-auto">These terms govern your use of our services and establish the foundation for our professional relationship. By engaging with Sleek Nexus Creative, you agree to these terms.</p>
         </div>

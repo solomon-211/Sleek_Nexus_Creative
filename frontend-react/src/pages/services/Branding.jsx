@@ -131,7 +131,7 @@ export default function Branding() {
               viewport={{ once: true }} transition={{ duration: 0.5 }}
             >
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Visual Identity</p>
-              <h2 className="text-3xl font-heading font-bold text-dark mb-6">Your Brand Is More Than Your Logo</h2>
+              <h2 className="text-3xl md:text-4xl font-heading font-black uppercase text-dark mb-6">Your Brand Is More Than Your Logo</h2>
               <p className="text-muted leading-relaxed mb-4">
                 A strong brand builds trust before you even speak. We craft visual identities that reflect your
                 organization's mission, values, and audience — designed to work across digital and print.
@@ -318,7 +318,7 @@ export default function Branding() {
       {/* CTA */}
       <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl font-heading font-bold mb-4">Ready to Build a Brand That Stands Out?</h2>
+          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase mb-4">Ready to Build a Brand That Stands Out?</h2>
           <p className="text-gray-300 mb-8">Get a free brand consultation and discover what's possible.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <MagneticButton>

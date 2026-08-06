@@ -32,7 +32,7 @@ export default function Consulting() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Strategic Advisory</p>
-              <h2 className="text-3xl font-heading font-bold text-dark mb-6">Technology Decisions That Move Your Organization Forward</h2>
+              <h2 className="text-3xl md:text-4xl font-heading font-black uppercase text-dark mb-6">Technology Decisions That Move Your Organization Forward</h2>
               <p className="text-muted leading-relaxed mb-4">Many organizations in South Sudan are navigating digital transformation without a clear map. We provide the strategic guidance to help you invest in the right technology, in the right order, with the right partners.</p>
               <p className="text-muted leading-relaxed mb-6">From startups evaluating their first tech stack to established organizations modernizing legacy systems — our consulting engagements are practical, actionable, and context-aware.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
@@ -94,7 +94,7 @@ export default function Consulting() {
 
       <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl font-heading font-bold mb-4">Let's Map Your Digital Future</h2>
+          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase mb-4">Let's Map Your Digital Future</h2>
           <p className="text-gray-300 mb-8">Free initial consultation — no commitment, just clarity.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <MagneticButton>

@@ -303,7 +303,8 @@ export default function Footer() {
           <h2
             className="font-heading uppercase leading-none"
             style={{
-              fontSize: 'clamp(3rem, 14vw, 13rem)',
+              fontSize: 'clamp(2rem, 10vw, 9rem)',
+              fontWeight: 900,
               letterSpacing: '0.02em',
               color: '#FFFFFF',
               textShadow:

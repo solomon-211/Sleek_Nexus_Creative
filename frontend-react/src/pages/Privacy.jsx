@@ -30,7 +30,7 @@ export default function Privacy() {
       <section className="relative overflow-hidden bg-noise text-white py-20 text-center" style={{background:'linear-gradient(160deg,#233D4D 0%,#000000 60%)'}}>
         <div className="max-w-3xl mx-auto px-6">
           <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Legal</p>
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Privacy Policy</h1>
+          <h1 className="text-4xl md:text-6xl font-heading font-black uppercase mb-4">Privacy Policy</h1>
           <p className="text-gray-300">How we collect, use, and protect your information</p>
         </div>
       </section>

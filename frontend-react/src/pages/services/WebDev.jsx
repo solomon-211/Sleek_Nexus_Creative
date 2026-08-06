@@ -30,7 +30,7 @@ export default function WebDev() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">What We Build</p>
-              <h2 className="text-3xl font-heading font-bold text-dark mb-6">Websites That Work — For Real Users, On Real Networks</h2>
+              <h2 className="text-3xl md:text-4xl font-heading font-black uppercase text-dark mb-6">Websites That Work — For Real Users, On Real Networks</h2>
               <p className="text-muted leading-relaxed mb-4">We build websites and web applications optimized for South Sudan's real conditions — low bandwidth, mobile-first users, and organizations that need reliability above all else.</p>
               <p className="text-muted leading-relaxed mb-6">Every project gets a dedicated developer, thorough QA, and a clear handover with documentation and training so your team can manage it confidently.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
@@ -87,7 +87,7 @@ export default function WebDev() {
 
       <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl font-heading font-bold mb-4">Ready to Build Your Website?</h2>
+          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase mb-4">Ready to Build Your Website?</h2>
           <p className="text-gray-300 mb-8">Get a free consultation and custom quote within 24 hours.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <MagneticButton>

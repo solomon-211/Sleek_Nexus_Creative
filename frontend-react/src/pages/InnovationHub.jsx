@@ -58,28 +58,28 @@ const sdgs = [
 const focusAreas = [
   {
     icon: 'fa-laptop-code',
-    color: 'from-primary to-primary-dark',
+    color: 'bg-primary',
     title: 'Custom Software Development',
     desc: 'End-to-end development of web applications, mobile apps, SaaS platforms, and enterprise systems built to solve real business problems.',
     features: ['Web & mobile applications', 'SaaS product development', 'API design & integration', 'Cloud-native architecture'],
   },
   {
     icon: 'fa-pencil-ruler',
-    color: 'from-accent to-accent-dark',
+    color: 'bg-dark-soft',
     title: 'UI/UX & Digital Design',
     desc: 'Human-centred design that turns complex problems into intuitive, beautiful digital experiences — from wireframes to production-ready interfaces.',
     features: ['User research & prototyping', 'Interface & interaction design', 'Design systems & branding', 'Accessibility-first approach'],
   },
   {
     icon: 'fa-cloud',
-    color: 'from-dark-soft to-dark',
+    color: 'bg-dark',
     title: 'Cloud & Infrastructure',
     desc: 'Scalable, secure cloud infrastructure and DevOps pipelines that keep your digital products fast, reliable, and ready to grow.',
     features: ['Cloud deployment & migration', 'DevOps & CI/CD pipelines', 'Cybersecurity assessments', 'Performance optimisation'],
   },
   {
     icon: 'fa-lightbulb',
-    color: 'from-primary to-accent',
+    color: 'bg-primary',
     title: 'Innovation & Consulting',
     desc: 'Strategic technology consulting and innovation lab programs that help organisations identify opportunities, validate ideas, and build digital solutions.',
     features: ['Digital transformation strategy', 'Technology audits & roadmaps', 'Startup incubation & prototyping', 'Innovation workshops & sprints'],
@@ -286,7 +286,7 @@ export default function InnovationHub() {
                 className="h-72"
                 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}
                 front={
-                  <div className={`h-full rounded-2xl overflow-hidden border border-gray-100 shadow-sm flex flex-col cursor-pointer bg-gradient-to-br ${color} p-7 text-white justify-center`}>
+                  <div className={`h-full rounded-2xl overflow-hidden border border-gray-100 shadow-sm flex flex-col cursor-pointer ${color} p-7 text-white justify-center`}>
                     <div className="flex items-center gap-4 mb-3">
                       <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
                         <i className={`fas ${icon} text-2xl`} />

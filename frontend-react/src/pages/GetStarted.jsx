@@ -147,7 +147,7 @@ export default function GetStarted() {
                 style={{ boxShadow: '0 20px 50px -22px rgba(17,17,17,0.18)' }}
                 variants={rotateIn} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12 }}>
                 <span className="text-6xl font-black text-primary/[0.06] font-heading leading-none absolute -top-2 right-4 select-none">{num}</span>
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mb-5 shadow-[0_10px_24px_rgba(254,127,45,0.35)]">
+                <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center mb-5 shadow-[0_10px_24px_rgba(254,127,45,0.35)]">
                   <i className={`fas ${icon} text-white`} />
                 </div>
                 <h3 className="font-heading font-bold text-dark mb-2 text-base">{title}</h3>
@@ -311,7 +311,7 @@ export default function GetStarted() {
             {/* Right — what to expect */}
             <motion.div className="lg:col-span-2 space-y-6"
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}>
-              <div className="radial-frame bg-gradient-to-br from-primary via-primary to-primary-dark rounded-2xl p-8 text-white">
+              <div className="bg-primary rounded-2xl p-8 text-white">
                 <h3 className="text-xl font-heading font-bold mb-2">What to Expect</h3>
                 <p className="text-white/70 text-sm mb-7">Here's what happens after you submit.</p>
                 <div className="space-y-5">

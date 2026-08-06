@@ -78,7 +78,7 @@ export default function Services() {
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Enterprise-Grade Technology Solutions</p>
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">Our Services</h1>
+            <h1 className="text-4xl md:text-6xl font-heading font-black uppercase mb-6">Our Services</h1>
             <p className="text-gray-300 text-lg leading-relaxed">We deliver comprehensive technology services designed to transform your business operations and accelerate growth — from custom software development to strategic IT consulting.</p>
           </motion.div>
         </div>
@@ -115,7 +115,7 @@ export default function Services() {
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5">
                   <i className={`fas ${icon} text-primary text-2xl`} />
                 </div>
-                <h2 className="text-3xl font-heading font-bold text-dark mb-4">{title}</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-black uppercase text-dark mb-4">{title}</h2>
                 <p className="text-muted leading-relaxed mb-6">{intro}</p>
                 <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">

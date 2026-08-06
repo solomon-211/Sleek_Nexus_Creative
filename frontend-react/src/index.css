@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Roboto:wght@600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -86,20 +86,6 @@
     background: linear-gradient(160deg, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.78));
   }
 
-  .radial-frame {
-    position: relative;
-    isolation: isolate;
-  }
-  .radial-frame::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: conic-gradient(from 90deg, rgba(254, 127, 45, 0.5), rgba(35, 61, 77, 0.35), rgba(254, 127, 45, 0.55), rgba(254, 127, 45, 0.5));
-    z-index: -1;
-    filter: blur(0.3px);
-  }
-
   /* ── Gradient text ── */
   .gradient-text {
     background: linear-gradient(135deg, #FE7F2D 0%, #233D4D 100%);
@@ -161,7 +147,7 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(254,127,45,0.3)] hover:shadow-[0_10px_28px_rgba(254,127,45,0.5)] touch-manipulation;
+    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-dark-soft text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(254,127,45,0.3)] hover:shadow-[0_10px_28px_rgba(35,61,77,0.4)] touch-manipulation;
   }
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(254,127,45,0.35)] touch-manipulation;
