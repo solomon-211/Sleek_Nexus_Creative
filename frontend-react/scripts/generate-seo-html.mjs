@@ -67,8 +67,8 @@ function buildHeadBlock(seo) {
   lines.push(
     `    <meta property="og:url" content="${escapeAttr(url)}" />`,
     `    <meta property="og:image" content="${escapeAttr(image)}" />`,
-    `    <meta property="og:image:width" content="1200" />`,
-    `    <meta property="og:image:height" content="630" />`,
+    `    <meta property="og:image:width" content="${seo.imageWidth || 1200}" />`,
+    `    <meta property="og:image:height" content="${seo.imageHeight || 1200}" />`,
     `    <meta property="og:image:alt" content="${escapeAttr(alt)}" />`,
     `    <meta property="og:locale" content="en_US" />`,
     '',

@@ -14,8 +14,10 @@ export const pageSeo = {
     description: 'Sleek Nexus Creative helps organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact. Based in Juba.',
     canonical: '/',
     keywords: 'web development South Sudan, mobile apps Juba, IT consulting South Sudan, e-learning platform South Sudan, software company Juba, Sleek Nexus Creative, SNC technology',
-    image: 'https://sleeknexuscreative.com/images/hero-tech.png',
+    image: 'https://sleeknexuscreative.com/images/hero-tech.jpg',
     imageAlt: 'Sleek Nexus Creative — Technology & Innovation for South Sudan',
+    imageWidth: 2560,
+    imageHeight: 1920,
     schema: [
       {
         '@context': 'https://schema.org',
@@ -53,6 +55,8 @@ export const pageSeo = {
     keywords: 'innovation hub South Sudan, tech hub Juba, software development South Sudan, digital transformation South Sudan, SNC hub, startup incubation South Sudan, SDGs technology',
     image: 'https://sleeknexuscreative.com/images/about-preview.jpg',
     imageAlt: 'SNC Innovation Hub — Technology and Digital Solutions',
+    imageWidth: 1920,
+    imageHeight: 1440,
     breadcrumbs: [{ name: 'Innovation Hub', url: '/innovation-hub' }],
     faq: [
       { q: 'What is the SNC Innovation Hub?', a: 'The SNC Innovation Hub is a technology and innovation ecosystem in Juba, South Sudan that delivers custom software, digital transformation, and startup support — aligned with the UN Sustainable Development Goals.' },
@@ -69,6 +73,8 @@ export const pageSeo = {
     keywords: 'about Sleek Nexus Creative, technology company Juba, software company South Sudan, SNC founders, tech company mission South Sudan',
     image: 'https://sleeknexuscreative.com/images/company-story.jpg',
     imageAlt: 'Sleek Nexus Creative team in Juba, South Sudan',
+    imageWidth: 1920,
+    imageHeight: 1440,
     breadcrumbs: [{ name: 'About', url: '/about' }],
   },
 
@@ -79,6 +85,8 @@ export const pageSeo = {
     keywords: 'software development services South Sudan, web development Juba, mobile app development South Sudan, IT consulting Juba, educational technology South Sudan, custom software South Sudan',
     image: 'https://sleeknexuscreative.com/images/software-dev.jpg',
     imageAlt: 'Software development and IT services in South Sudan',
+    imageWidth: 736,
+    imageHeight: 736,
     breadcrumbs: [{ name: 'Services', url: '/services' }],
   },
 
@@ -104,6 +112,8 @@ export const pageSeo = {
     keywords: 'start a project, hire software developers South Sudan, web development quote, mobile app development Africa',
     image: 'https://sleeknexuscreative.com/images/about-preview.jpg',
     imageAlt: 'Start a project with Sleek Nexus Creative',
+    imageWidth: 1920,
+    imageHeight: 1440,
     breadcrumbs: [{ name: 'Get Started', url: '/get-started' }],
     faq: [
       { q: 'Do I need to know exactly what I want before reaching out?', a: 'No. Most clients start with a general idea or a problem they need solved. Our discovery call is designed to help shape that into a clear, buildable scope together.' },
@@ -140,6 +150,8 @@ export const pageSeo = {
     keywords: 'web development South Sudan, website design Juba, custom web applications, responsive websites South Sudan, e-commerce websites Juba, web developer South Sudan',
     image: 'https://sleeknexuscreative.com/images/web-mobile.jpg',
     imageAlt: 'Web development services by Sleek Nexus Creative',
+    imageWidth: 736,
+    imageHeight: 1308,
     breadcrumbs: [{ name: 'Services', url: '/services' }, { name: 'Web Development', url: '/services/web-dev' }],
     schema: {
       '@context': 'https://schema.org',
@@ -159,6 +171,8 @@ export const pageSeo = {
     keywords: 'mobile app development South Sudan, iOS app development Juba, Android app development, React Native developer South Sudan, offline mobile apps Africa',
     image: 'https://sleeknexuscreative.com/images/web-mobile.jpg',
     imageAlt: 'Mobile app development services by Sleek Nexus Creative',
+    imageWidth: 736,
+    imageHeight: 1308,
     breadcrumbs: [{ name: 'Services', url: '/services' }, { name: 'Mobile App Development', url: '/services/mobile-apps' }],
     schema: {
       '@context': 'https://schema.org',
@@ -178,6 +192,8 @@ export const pageSeo = {
     keywords: 'UI UX design South Sudan, user experience design Juba, product design South Sudan, Figma designer South Sudan, app design services, website design services',
     image: 'https://sleeknexuscreative.com/images/software-dev.jpg',
     imageAlt: 'UI/UX design services by Sleek Nexus Creative',
+    imageWidth: 736,
+    imageHeight: 736,
     breadcrumbs: [{ name: 'Services', url: '/services' }, { name: 'UI/UX Design', url: '/services/ui-ux' }],
     schema: {
       '@context': 'https://schema.org',
@@ -222,6 +238,8 @@ export const pageSeo = {
     keywords: 'IT consulting South Sudan, digital transformation Juba, technology strategy South Sudan, IT consultant Juba, cloud migration services, security audit South Sudan',
     image: 'https://sleeknexuscreative.com/images/consulting.jpg',
     imageAlt: 'IT consulting and digital transformation services by Sleek Nexus Creative',
+    imageWidth: 736,
+    imageHeight: 552,
     breadcrumbs: [{ name: 'Services', url: '/services' }, { name: 'IT Consulting', url: '/services/consulting' }],
     schema: {
       '@context': 'https://schema.org',

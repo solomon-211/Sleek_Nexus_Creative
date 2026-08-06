@@ -10,6 +10,8 @@ const SITE_NAME = 'Sleek Nexus Creative'
  * @param {string}  canonical      - path e.g. "/about"
  * @param {string}  image          - absolute OG image URL
  * @param {string}  imageAlt
+ * @param {number}  imageWidth     - actual pixel width of `image` (defaults to the 1200x1200 logo)
+ * @param {number}  imageHeight    - actual pixel height of `image`
  * @param {string}  type           - "website" | "article"
  * @param {string}  keywords
  * @param {Array}   breadcrumbs    - [{name, url}]
@@ -22,6 +24,8 @@ export default function SEO({
   canonical,
   image = DEFAULT_IMAGE,
   imageAlt,
+  imageWidth = 1200,
+  imageHeight = 1200,
   type = 'website',
   keywords,
   breadcrumbs,
@@ -74,8 +78,8 @@ export default function SEO({
       {description && <meta property="og:description" content={description} />}
       <meta property="og:url" content={url} />
       <meta property="og:image" content={image} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      <meta property="og:image:width" content={String(imageWidth)} />
+      <meta property="og:image:height" content={String(imageHeight)} />
       <meta property="og:image:alt" content={alt} />
       <meta property="og:locale" content="en_US" />
 
