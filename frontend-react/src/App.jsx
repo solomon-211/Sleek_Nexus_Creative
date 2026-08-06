@@ -18,7 +18,6 @@ import InnovationHub from './pages/InnovationHub'
 // Every other page is split into its own chunk and fetched on demand.
 const About      = lazy(() => import('./pages/About'))
 const Services   = lazy(() => import('./pages/Services'))
-const Projects   = lazy(() => import('./pages/Projects'))
 const Contact    = lazy(() => import('./pages/Contact'))
 const Privacy    = lazy(() => import('./pages/Privacy'))
 const Terms      = lazy(() => import('./pages/Terms'))
@@ -43,6 +42,8 @@ function PageWrapper({ children }) {
       initial="initial"
       animate="animate"
       exit="exit"
+      style={{ transformPerspective: 1200, transformOrigin: 'center top' }}
+      className="overflow-x-hidden"
     >
       {children}
     </motion.div>
@@ -59,7 +60,6 @@ function AnimatedRoutes() {
                   <Route path="/innovation-hub" element={<PageWrapper><InnovationHub /></PageWrapper>} />
                   <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
                   <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
-                  <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
                   <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
                   <Route path="/get-started" element={<PageWrapper><GetStarted /></PageWrapper>} />
                   <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
@@ -76,9 +76,8 @@ function AnimatedRoutes() {
                   <Route path="/about/our-story"        element={<Navigate to="/about" replace />} />
                   <Route path="/about/mission-vision"   element={<Navigate to="/about" replace />} />
                   <Route path="/about/team"             element={<Navigate to="/about" replace />} />
-                  <Route path="/projects/portfolio"     element={<Navigate to="/projects" replace />} />
-                  <Route path="/projects/case-studies"  element={<Navigate to="/projects" replace />} />
-                  <Route path="/projects/client-success" element={<Navigate to="/projects" replace />} />
+                  <Route path="/projects"              element={<Navigate to="/" replace />} />
+                  <Route path="/projects/*"             element={<Navigate to="/" replace />} />
                   <Route path="/quote"                  element={<Navigate to="/get-started" replace />} />
                   <Route path="/book-consultation"      element={<Navigate to="/get-started" replace />} />
                   <Route path="/blog"                   element={<Navigate to="/" replace />} />

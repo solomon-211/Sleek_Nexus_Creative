@@ -1,8 +1,9 @@
-import { useState, useRef } from 'react'
+// Team section disabled — useState/useRef/useIntersectionObserver were only used by the commented-out team marquee below.
+// import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, staggerItem, revealUp } from '../lib/animations'
-import { useIntersectionObserver } from '../hooks'
+// import { useIntersectionObserver } from '../hooks'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import MagneticButton from '../components/ui/MagneticButton'
@@ -43,12 +44,15 @@ const values = [
   { icon: 'fa-chart-line',   title: 'Growth Mindset',  desc: 'We invest continuously in our team, embrace new technologies, and treat every challenge as a chance to improve.' },
 ]
 
+// Team members hidden from public site — data kept for future re-enabling.
+/*
 const team = [
   { name: 'Solomon Leek',    role: 'CEO & Founder',   bio: 'Founder of SNC with a background in software engineering and a passion for building practical digital solutions for South Sudan.', img: '/images/Solomon-leek.png', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/solomon-leek' }] },
   { name: 'Gideon Erioluwa', role: 'CTO',             bio: 'Leads technical architecture and development. Experienced in building web and mobile systems with a focus on reliability and performance.', img: '/images/team-member2.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/gideon-erioluwa' }] },
   { name: 'Genesis Goch',    role: 'Lead Developer',  bio: 'Full-stack developer specializing in React and Node.js, focused on writing clean, maintainable code that solves real problems.', img: '/images/team-member3.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/genesis-goch' }] },
   { name: 'Philip Bior',     role: 'UX/UI Designer',  bio: 'Designs user interfaces and experiences for SNC client products, with a focus on simplicity and usability in low-bandwidth environments.', img: '/images/team-member4.jpg', socials: [{ icon: 'fa-linkedin', href: 'https://linkedin.com/in/philip-bior' }] },
 ]
+*/
 
 const stats = [
   { value: '10+', label: 'Projects Delivered' },
@@ -57,12 +61,13 @@ const stats = [
   { value: '1+',  label: 'Years Operating' },
 ]
 
-// ─── Team Marquee ────────────────────────────────────────────────────────────
+// ─── Team Marquee (disabled — not rendered publicly) ─────────────────────────
 // Continuous, seamless, infinite horizontal scroll. The team array is rendered
 // twice back-to-back so the CSS animation loops invisibly. Pressing any card
 // pauses the whole strip — and every card settles into a clean, level resting
 // pose (tilt straightens out, float stops, a slight lift) instead of freezing
 // wherever it happened to be mid-bob. Pressing again resumes the drift.
+/*
 function TeamCard({ member, i, paused, setPaused, containerRef }) {
   const { name, role, bio, img, socials } = member
   const { ref, isIntersecting } = useIntersectionObserver({ root: containerRef, threshold: 0.2 })
@@ -136,6 +141,7 @@ function TeamMarquee({ team }) {
     </div>
   )
 }
+*/
 
 export default function About() {
   return (
@@ -143,10 +149,10 @@ export default function About() {
       <SEO {...pageSeo['/about']} />
 
       {/* Header */}
-      <section className="relative overflow-hidden bg-noise bg-dark text-white py-16 sm:py-24 text-center">
+      <section className="relative overflow-hidden bg-noise text-white py-16 sm:py-24 text-center" style={{background:'linear-gradient(160deg,#1a2a35 0%,#000000 60%)'}}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
-            <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Who We Are</p>
+            <p className="text-accent text-sm font-bold uppercase tracking-widest mb-3">Who We Are</p>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">About Sleek Nexus Creative</h1>
             <p className="text-gray-300 text-lg leading-relaxed">
               Sleek Nexus Creative is a startup technology and innovation firm based in Juba, South Sudan, building digital solutions that work in real-world applications — for businesses, schools, NGOs, and public institutions across the country.
@@ -296,7 +302,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Team — hidden from public site, kept commented out for future re-enabling
       <section className="py-16 sm:py-24 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="text-center mb-10 sm:mb-14">
@@ -307,11 +313,23 @@ export default function About() {
           <TeamMarquee team={team} />
         </div>
       </section>
+      */}
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-noise py-14 sm:py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
-          <h2 className="text-3xl font-heading font-bold mb-4">Work With Us</h2>
+          <h2
+            className="font-heading uppercase leading-[0.9] mb-4"
+            style={{ fontSize: 'clamp(2.5rem,6vw,4.5rem)', fontWeight: 800, textShadow: '3px 3px 0px rgba(254,127,45,0.35), 6px 6px 0px rgba(254,127,45,0.15)' }}
+          >
+            <span className="block text-white">Work</span>
+            <span
+              className="block"
+              style={{ fontSize: 'clamp(2.25rem,5.5vw,4rem)', WebkitTextStroke: '2px #FE7F2D', color: 'transparent', textShadow: '3px 3px 0px rgba(254,127,45,0.25), 6px 6px 0px rgba(0,0,0,0.4)' }}
+            >
+              With Us
+            </span>
+          </h2>
           <p className="text-gray-300 mb-8">Whether you need a digital solution or want to build your tech skills, we're your partner in growth.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <MagneticButton>

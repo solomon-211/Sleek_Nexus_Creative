@@ -16,7 +16,6 @@ const navLinks = [
       { icon: 'fa-laptop-code',  label: 'IT Consulting',      to: '/services/consulting' },
     ],
   },
-  { label: 'Projects', to: '/projects' },
   { label: 'Contact',  to: '/contact' },
   { label: 'Hub',      to: '/innovation-hub', highlight: true },
 ]
@@ -125,7 +124,7 @@ export default function Navbar() {
                 <span className="text-primary">Nexus</span>
                 <span className="text-accent"> Creative</span>
               </span>
-              <span className="hidden sm:block text-[0.6rem] text-white/50 uppercase tracking-widest mt-0.5">Technology &amp; Innovation</span>
+              <span className="hidden sm:block text-[0.65rem] text-white/60 uppercase tracking-widest mt-0.5">Technology &amp; Innovation</span>
             </span>
           </Link>
 
@@ -319,6 +318,18 @@ export default function Navbar() {
                   )}
                 </li>
               ))}
+
+              {/* Search in mobile menu */}
+              <li>
+                <button
+                  type="button"
+                  onClick={() => { setMenuOpen(false); window.dispatchEvent(new Event('snc-open-command-palette')) }}
+                  className="w-full flex items-center gap-2.5 px-6 py-3.5 text-base font-medium border-b border-white/[0.06] text-white/75 hover:text-white hover:bg-white/[0.05] transition-colors"
+                >
+                  <i className="fas fa-magnifying-glass text-accent text-xs w-4 flex-shrink-0" />
+                  Search
+                </button>
+              </li>
 
               {/* Get Started in mobile menu */}
               <li className="px-6 py-4">

@@ -7,9 +7,10 @@ import emailjs from '@emailjs/browser'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import { motion } from 'framer-motion'
-import { fadeUp, staggerContainer, scaleIn } from '../lib/animations'
+import { fadeUp, staggerContainer, scaleIn, rotateIn } from '../lib/animations'
 import AnimatedCounter from '../components/ui/AnimatedCounter'
 import FaqAccordion from '../components/ui/FaqAccordion'
+import GlitchText from '../components/ui/GlitchText'
 
 const schema = z.object({
   name:        z.string().min(2, 'Full name is required'),
@@ -83,65 +84,77 @@ export default function GetStarted() {
       <SEO {...pageSeo['/get-started']} />
 
       {/* Header */}
-      <section className="relative py-24 flex items-center overflow-hidden bg-white border-b border-gray-100">
-        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 right-[10%] w-64 h-64 bg-accent/10 rounded-full blur-[110px] pointer-events-none" />
+      <section className="relative py-28 sm:py-36 flex items-center overflow-hidden text-white bg-grid-light bg-noise" style={{background:'linear-gradient(160deg,#1a2a35 0%,#000000 60%)'}}>
+        <div className="absolute top-1/4 left-[8%] w-96 h-96 bg-primary/25 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-[6%] w-72 h-72 bg-accent/20 rounded-full blur-[110px] pointer-events-none" />
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }} className="max-w-2xl">
-            <p className="text-accent text-sm font-bold uppercase tracking-widest mb-4">Free Consultation · 24hr Response</p>
-            <h1 className="text-dark font-heading font-black uppercase leading-tight mb-5"
-              style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.02em' }}>
-              Let's Build Something<br /><span className="text-primary">That Works</span>
+            <p className="text-accent text-sm font-bold uppercase tracking-widest mb-5 flex items-center gap-3">
+              <span className="w-8 h-px bg-accent" /> Free Consultation · 24hr Response
+            </p>
+            <h1 className="display-heading font-heading mb-6" style={{ letterSpacing: '0.01em' }}>
+              Let's Build<br />
+              <GlitchText className="gradient-text">Something That Works</GlitchText>
             </h1>
-            <p className="text-muted text-lg leading-relaxed mb-6">
+            <p className="text-white/60 text-lg leading-relaxed mb-8 max-w-xl">
               Tell us about your project and we'll get back to you within 24 hours with a free discovery call and a custom proposal — no commitment required.
             </p>
             <a
               href="https://wa.me/211925277700?text=Hi%20Sleek%20Nexus%20Creative!%20I%27d%20like%20to%20talk%20about%20a%20project."
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:underline"
+              className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/15 border border-white/20 rounded-full pl-2 pr-6 py-2 text-sm font-semibold transition-all hover:-translate-y-0.5"
             >
-              <i className="fab fa-whatsapp text-base" /> Prefer to talk now? WhatsApp us instantly
+              <span className="w-9 h-9 rounded-full bg-primary flex items-center justify-center">
+                <i className="fab fa-whatsapp text-white" />
+              </span>
+              Prefer to talk now? WhatsApp us instantly
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* Trust stats */}
-      <section className="py-10 bg-dark text-white">
+      {/* Trust stats — floating bridge card overlapping the hero */}
+      <section className="relative -mt-10 sm:-mt-14 z-10 pb-6">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}>
-            {trustStats.map(({ icon, value, suffix, label }) => (
-              <motion.div key={label} variants={scaleIn}>
-                <i className={`fas ${icon} text-accent text-xl mb-2 block`} />
-                <strong className="block text-2xl sm:text-3xl font-heading font-black">
+          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 bg-white rounded-[1.75rem] shadow-[0_30px_70px_-25px_rgba(17,17,17,0.25)] border-[3px] border-primary/40 p-6 sm:p-8 text-center"
+            variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}>
+            {trustStats.map(({ icon, value, suffix, label }, i) => (
+              <motion.div key={label} variants={scaleIn} className={`relative ${i !== trustStats.length - 1 ? 'sm:border-r sm:border-gray-100' : ''}`}>
+                <i className={`fas ${icon} text-primary text-xl mb-2 block`} />
+                <strong className="block text-2xl sm:text-3xl font-heading font-black text-dark">
                   <AnimatedCounter value={value} suffix={suffix} />
                 </strong>
-                <span className="text-white/60 text-xs">{label}</span>
+                <span className="text-muted text-xs">{label}</span>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-12">
+      {/* How it works — zigzag stepped timeline */}
+      <section className="py-20 sm:py-28 bg-white bg-dots relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
+          <div className="text-center mb-16">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Simple Process</p>
             <h2 className="section-title">How It Works</h2>
             <p className="section-subtitle">From idea to delivered product in four clear steps.</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="hidden lg:block absolute left-0 right-0 top-[13.5rem] h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {steps.map(({ num, icon, title, desc }, i) => (
-              <motion.div key={num} className="relative p-6 rounded-2xl border border-gray-100 bg-gray-50 hover:shadow-md hover:-translate-y-1 transition-all"
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
-                <span className="text-5xl font-black text-gray-100 font-heading leading-none absolute top-4 right-5">{num}</span>
-                <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                  <i className={`fas ${icon} text-primary`} />
+              <motion.div key={num}
+                className={`relative p-7 rounded-[1.5rem] bg-white transition-all duration-300 hover:-translate-y-2 ${i % 2 === 1 ? 'lg:mt-12' : ''}`}
+                style={{ boxShadow: '0 20px 50px -22px rgba(17,17,17,0.18)' }}
+                variants={rotateIn} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12 }}>
+                <span className="text-6xl font-black text-primary/[0.06] font-heading leading-none absolute -top-2 right-4 select-none">{num}</span>
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mb-5 shadow-[0_10px_24px_rgba(254,127,45,0.35)]">
+                  <i className={`fas ${icon} text-white`} />
                 </div>
-                <h3 className="font-heading font-bold text-dark mb-2 text-sm">{title}</h3>
+                <h3 className="font-heading font-bold text-dark mb-2 text-base">{title}</h3>
                 <p className="text-muted text-sm leading-relaxed">{desc}</p>
+                {i < steps.length - 1 && (
+                  <i className="fas fa-arrow-right text-primary/30 text-lg hidden lg:block absolute top-1/2 -right-7 -translate-y-1/2" />
+                )}
               </motion.div>
             ))}
           </div>
@@ -161,14 +174,22 @@ export default function GetStarted() {
       </section>
 
       {/* Form */}
-      <section className="py-16 sm:py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="grid lg:grid-cols-5 gap-10 lg:gap-12">
+      <section className="relative py-20 sm:py-28 bg-dark overflow-hidden">
+        <div className="absolute inset-0 bg-grid-light opacity-40 pointer-events-none" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/15 rounded-full blur-[130px] pointer-events-none" />
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="text-center mb-14">
+            <p className="text-accent text-sm font-bold uppercase tracking-widest mb-2">Let's Talk Details</p>
+            <h2 className="display-heading-sm text-white">Tell Us About <span className="gradient-text">Your Project</span></h2>
+          </div>
+          <div className="grid lg:grid-cols-5 gap-10 lg:gap-12 items-start">
 
             {/* Left — form */}
-            <motion.div className="lg:col-span-3 card p-6 sm:p-8"
+            <div className="lg:col-span-3 space-y-6">
+            <motion.div className="neo-panel p-6 sm:p-10"
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <h2 className="text-2xl font-heading font-bold text-dark mb-2">Tell Us About Your Project</h2>
+              <h3 className="text-xl font-heading font-bold text-dark mb-2">Project Brief</h3>
               <p className="text-muted text-sm mb-6">The more detail you provide, the more accurate our proposal will be.</p>
 
               {status === 'success' && (
@@ -240,10 +261,30 @@ export default function GetStarted() {
               </form>
             </motion.div>
 
+            {/* Partner/support callout — a different path for visitors who aren't
+                here to hire us for a single project, filling out the column so it
+                roughly matches the taller sidebar's height. */}
+            <motion.div
+              className="bg-white/5 border border-white/15 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left"
+              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center flex-shrink-0">
+                <i className="fas fa-handshake text-accent text-xl" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-white font-heading font-bold mb-1">Not Looking to Hire Us?</h3>
+                <p className="text-white/60 text-sm leading-relaxed">If you'd rather partner with us, support Vision 2040, or explore how your organization can get involved beyond a single project, we'd love to talk.</p>
+              </div>
+              <Link to="/innovation-hub" className="btn-secondary border-white text-white hover:bg-white hover:text-primary flex-shrink-0 whitespace-nowrap">
+                Partner With Us
+              </Link>
+            </motion.div>
+            </div>
+
             {/* Right — what to expect */}
             <motion.div className="lg:col-span-2 space-y-6"
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}>
-              <div className="bg-primary rounded-2xl p-8 text-white">
+              <div className="radial-frame bg-gradient-to-br from-primary via-primary to-primary-dark rounded-2xl p-8 text-white">
                 <h3 className="text-xl font-heading font-bold mb-2">What to Expect</h3>
                 <p className="text-white/70 text-sm mb-7">Here's what happens after you submit.</p>
                 <div className="space-y-5">
@@ -287,22 +328,6 @@ export default function GetStarted() {
                     </li>
                   ))}
                 </ul>
-              </div>
-
-              <div className="card p-6 bg-gray-50 border-none">
-                <div className="flex gap-1 text-accent mb-3">
-                  {Array(5).fill(0).map((_, j) => <i key={j} className="fas fa-star text-xs" />)}
-                </div>
-                <p className="text-dark-soft text-sm leading-relaxed italic mb-4">
-                  "SNC built our online course platform from scratch. The team was communicative, delivered on time, and trained our staff to manage it independently. Exactly what we needed."
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs shrink-0">AM</div>
-                  <div>
-                    <p className="font-semibold text-dark text-xs">Akol Mading</p>
-                    <p className="text-muted text-xs">Director, Juba Learning Centre</p>
-                  </div>
-                </div>
               </div>
 
               <div className="card p-6">

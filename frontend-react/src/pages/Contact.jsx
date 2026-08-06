@@ -50,7 +50,7 @@ export default function Contact() {
       <SEO {...pageSeo['/contact']} />
 
       {/* Header */}
-      <section className="relative overflow-hidden bg-noise bg-dark text-white py-24 text-center">
+      <section className="relative overflow-hidden bg-noise text-white py-24 text-center" style={{background:'linear-gradient(160deg,#1a2a35 0%,#000000 60%)'}}>
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
             <p className="section-label text-accent">We'd love to hear from you</p>
@@ -154,8 +154,14 @@ export default function Contact() {
               <div>
                 <p className="font-semibold text-dark mb-3">Connect With Us</p>
                 <div className="flex gap-3">
-                  {[['fa-facebook', 'https://www.facebook.com/share/183ufB9mqx/?mibextid=wwXIfr'], ['fa-twitter', 'https://twitter.com/SNC'], ['fa-linkedin', 'https://www.linkedin.com/company/sleek-nexus-creative/'], ['fa-whatsapp', 'https://wa.me/211925277700'], ['fa-instagram', 'https://www.instagram.com/sleek_nexus_creative?igsh=bmdpanczdzcwNm04&utm_source=qr']].map(([icon, href]) => (
-                    <a key={icon} href={href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-gray-100 hover:bg-primary hover:text-white text-muted flex items-center justify-center transition-all duration-200">
+                  {[
+                    ['fa-facebook', 'https://www.facebook.com/share/183ufB9mqx/?mibextid=wwXIfr', 'Facebook'],
+                    ['fa-twitter', 'https://twitter.com/SNC', 'Twitter'],
+                    ['fa-linkedin', 'https://www.linkedin.com/company/sleek-nexus-creative/', 'LinkedIn'],
+                    ['fa-whatsapp', 'https://wa.me/211925277700', 'WhatsApp'],
+                    ['fa-instagram', 'https://www.instagram.com/sleek_nexus_creative?igsh=bmdpanczdzcwNm04&utm_source=qr', 'Instagram'],
+                  ].map(([icon, href, label]) => (
+                    <a key={icon} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-10 h-10 rounded-xl bg-gray-100 hover:bg-primary hover:text-white text-muted flex items-center justify-center transition-all duration-200">
                       <i className={`fab ${icon} text-sm`} />
                     </a>
                   ))}

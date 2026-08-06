@@ -74,7 +74,7 @@ export default function Services() {
       <SEO {...pageSeo['/services']} />
 
       {/* Header */}
-      <section className="relative overflow-hidden bg-noise bg-dark text-white py-24 text-center">
+      <section className="relative overflow-hidden bg-noise text-white py-24 text-center" style={{background:'linear-gradient(160deg,#1a2a35 0%,#000000 60%)'}}>
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Enterprise-Grade Technology Solutions</p>
@@ -227,14 +227,25 @@ export default function Services() {
       {/* CTA */}
       <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl font-heading font-bold mb-4">Ready to Accelerate Your Digital Transformation?</h2>
+          <h2
+            className="font-heading uppercase leading-[0.95] mb-4"
+            style={{ fontSize: 'clamp(1.9rem,4.5vw,3rem)', fontWeight: 800, textShadow: '3px 3px 0px rgba(254,127,45,0.35), 6px 6px 0px rgba(254,127,45,0.15)' }}
+          >
+            <span className="block text-white">Ready to Accelerate</span>
+            <span
+              className="block"
+              style={{ fontSize: 'clamp(1.6rem,4vw,2.5rem)', WebkitTextStroke: '1.5px #FE7F2D', color: 'transparent', textShadow: '2px 2px 0px rgba(254,127,45,0.25), 4px 4px 0px rgba(0,0,0,0.4)' }}
+            >
+              Your Digital Transformation?
+            </span>
+          </h2>
           <p className="text-gray-300 mb-8">Partner with us to unlock innovative solutions that drive growth, efficiency, and competitive advantage.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <MagneticButton>
               <Link to="/contact" className="btn-primary">Contact Us</Link>
             </MagneticButton>
             <MagneticButton>
-              <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Work</Link>
+              <Link to="/innovation-hub" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Work</Link>
             </MagneticButton>
           </div>
         </div>

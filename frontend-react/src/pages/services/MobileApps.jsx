@@ -86,7 +86,7 @@ export default function MobileApps() {
               <Link to="/contact" className="btn-primary">Get a Free Quote</Link>
             </MagneticButton>
             <MagneticButton>
-              <Link to="/projects" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Projects</Link>
+              <Link to="/innovation-hub" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Work</Link>
             </MagneticButton>
           </div>
         </div>

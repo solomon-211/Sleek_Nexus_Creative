@@ -28,10 +28,19 @@ export const staggerItem = {
   show:   { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
 }
 
+// Cinematic page transition — slide, zoom, fade, and a slight tilt combine into
+// one choreographed move so route changes feel like an app opening a screen
+// rather than a page reloading. Pair with transformPerspective on the wrapper.
 export const pageVariants = {
-  initial: { opacity: 0, y: 12 },
-  animate: { opacity: 1, y: 0,  transition: { duration: 0.35, ease: 'easeOut' } },
-  exit:    { opacity: 0, y: -8, transition: { duration: 0.2,  ease: 'easeIn'  } },
+  initial: { opacity: 0, scale: 0.94, y: 48, rotate: -1.5, filter: 'blur(8px)' },
+  animate: {
+    opacity: 1, scale: 1, y: 0, rotate: 0, filter: 'blur(0px)',
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+  exit: {
+    opacity: 0, scale: 1.06, y: -32, rotate: 1.5, filter: 'blur(6px)',
+    transition: { duration: 0.45, ease: [0.7, 0, 0.84, 0] },
+  },
 }
 
 export const scaleIn = {

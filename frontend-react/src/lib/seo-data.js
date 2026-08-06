@@ -82,16 +82,6 @@ export const pageSeo = {
     breadcrumbs: [{ name: 'Services', url: '/services' }],
   },
 
-  '/projects': {
-    title: 'Our Projects — Portfolio & Case Studies',
-    description: "View Sleek Nexus Creative's portfolio of technology projects in South Sudan — e-learning platforms, business management systems, mobile payment apps, and more.",
-    canonical: '/projects',
-    keywords: 'software projects South Sudan, web development portfolio Juba, mobile app case studies, e-learning platform South Sudan, business management system Juba, SNC portfolio',
-    image: 'https://sleeknexuscreative.com/images/project1.jpg',
-    imageAlt: 'E-Learning Platform project by Sleek Nexus Creative',
-    breadcrumbs: [{ name: 'Projects', url: '/projects' }],
-  },
-
   '/contact': {
     title: 'Contact Us — Juba, South Sudan',
     description: 'Get in touch with Sleek Nexus Creative in Juba, South Sudan. Call +211 925 277 700, email info@sleeknexuscreative.com, or fill out our contact form for a free consultation.',

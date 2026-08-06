@@ -1,15 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Bebas+Neue&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Seamless infinite marquee — track must render its content twice; translating
-   exactly -50% moves the first copy fully out just as the second copy lines up
-   in its place, so the loop point is invisible. */
+/* Seamless infinite marquee */
 @keyframes marquee-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
+}
+
+/* Glitch animation — two offset copies of the text flicker in opposite
+   directions, clipped to horizontal slices, for a CRT-corruption look. */
+@keyframes glitch-1 {
+  0%,100% { clip-path: inset(0 0 95% 0); transform: translate(-3px, 0); }
+  20%     { clip-path: inset(30% 0 50% 0); transform: translate(3px, 0); }
+  40%     { clip-path: inset(60% 0 20% 0); transform: translate(-2px, 0); }
+  60%     { clip-path: inset(10% 0 80% 0); transform: translate(2px, 0); }
+  80%     { clip-path: inset(80% 0 5% 0);  transform: translate(-3px, 0); }
+}
+@keyframes glitch-2 {
+  0%,100% { clip-path: inset(80% 0 5% 0);  transform: translate(3px, 0); }
+  20%     { clip-path: inset(10% 0 70% 0); transform: translate(-3px, 0); }
+  40%     { clip-path: inset(50% 0 30% 0); transform: translate(2px, 0); }
+  60%     { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 0); }
+  80%     { clip-path: inset(0 0 90% 0);   transform: translate(3px, 0); }
+}
+
+/* Diagonal wipe reveal — used for the split CTA section */
+@keyframes wipe-in {
+  from { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+  to   { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* Aurora drift — pans the oversized .aurora-bg gradient mesh slowly */
+@keyframes aurora-drift {
+  0%, 100% { background-position: 0% 0%; }
+  50%      { background-position: 100% 100%; }
+}
+
+/* Liquid button morph — asymmetric border-radius wobble, used by
+   MagneticButton's `liquid` prop for a gooey, blob-like hover feel. */
+@keyframes liquid-morph {
+  0%, 100% { border-radius: 12px; }
+  25%      { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
+  50%      { border-radius: 62% 38% 37% 63% / 59% 56% 44% 41%; }
+  75%      { border-radius: 46% 54% 40% 60% / 55% 45% 60% 40%; }
 }
 
 @layer base {
@@ -28,6 +64,102 @@
 }
 
 @layer components {
+  /* Animated gradient mesh — the radial blobs are baked into an oversized
+     (200%) background canvas, so panning background-position drifts the
+     whole mesh slowly without needing per-blob custom properties. */
+  .aurora-bg {
+    background-image:
+      radial-gradient(circle at 12% 16%, rgba(254, 127, 45, 0.22), transparent 44%),
+      radial-gradient(circle at 88% 24%, rgba(35, 61, 77, 0.18), transparent 40%),
+      radial-gradient(circle at 76% 78%, rgba(254, 153, 87, 0.24), transparent 45%),
+      linear-gradient(150deg, #f9fafc 0%, #f4f6f9 42%, #ffffff 100%);
+    background-size: 200% 200%;
+    animation: aurora-drift 18s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .aurora-bg { animation: none; }
+  }
+
+  .neo-panel {
+    @apply rounded-[1.5rem] border border-white/60 backdrop-blur-sm;
+    box-shadow: 0 26px 70px -32px rgba(17, 17, 17, 0.28);
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.78));
+  }
+
+  .radial-frame {
+    position: relative;
+    isolation: isolate;
+  }
+  .radial-frame::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: conic-gradient(from 90deg, rgba(254, 127, 45, 0.5), rgba(35, 61, 77, 0.35), rgba(254, 153, 87, 0.55), rgba(254, 127, 45, 0.5));
+    z-index: -1;
+    filter: blur(0.3px);
+  }
+
+  /* ── Gradient text ── */
+  .gradient-text {
+    background: linear-gradient(135deg, #FE7F2D 0%, #FE9957 50%, #FFC08A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Text stroke (outline text) ── */
+  .text-stroke {
+    -webkit-text-stroke: 2px currentColor;
+    color: transparent;
+  }
+  .text-stroke-1 {
+    -webkit-text-stroke: 1px currentColor;
+    color: transparent;
+  }
+
+  /* ── Glitch text — hover triggers the two pseudo-element animations ── */
+  .glitch-text {
+    position: relative;
+    display: inline-block;
+  }
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .glitch-text:hover::before {
+    color: #FE7F2D;
+    animation: glitch-1 0.4s steps(1) infinite;
+  }
+  .glitch-text:hover::after {
+    color: #FE9957;
+    animation: glitch-2 0.4s steps(1) infinite;
+  }
+
+  /* ── Liquid button morph — see MagneticButton's `liquid` prop ── */
+  .liquid-hover {
+    transition: transform 0.2s ease;
+  }
+  .liquid-hover:hover {
+    animation: liquid-morph 2.4s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .liquid-hover:hover { animation: none; }
+  }
+
+  /* ── Bento grid cell — used in the services bento layout ── */
+  .bento-cell {
+    @apply bg-white rounded-2xl border border-surface overflow-hidden transition-all duration-300;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .bento-cell:hover {
+    box-shadow: 0 20px 40px -12px rgba(254,127,45,0.2), 0 0 0 1px rgba(254,127,45,0.15);
+    transform: translateY(-2px);
+  }
+
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(254,127,45,0.3)] hover:shadow-[0_10px_28px_rgba(254,127,45,0.5)] touch-manipulation;
   }
@@ -69,16 +201,10 @@
   .card {
     @apply bg-white rounded-xl shadow-sm border border-surface hover:border-primary/20 hover:shadow-[0_16px_36px_-12px_rgba(254,127,45,0.22)] hover:-translate-y-1 transition-all duration-300;
   }
-  .animate-marquee {
-    animation: marquee-scroll 22s linear infinite;
-  }
 }
 
 @layer utilities {
-  /* Subtle film-grain texture for large solid-color section backgrounds (dark
-     bands, footer, CTA banners). Painted via ::before, which — as the first
-     child in DOM order — stays beneath any glow-orb/content siblings that rely
-     on default z-index:auto stacking, so it never needs an explicit z-index. */
+  /* Subtle film-grain texture */
   .bg-noise {
     position: relative;
   }
@@ -90,5 +216,34 @@
     mix-blend-mode: overlay;
     pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Dot-grid background pattern */
+  .bg-dots {
+    background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .bg-dots-light {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Fine grid lines */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .bg-grid-light {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Marquee speed — driven by CSS custom property set on the element */
+  .animate-marquee {
+    animation: marquee-scroll var(--marquee-speed, 22s) linear infinite;
   }
 }

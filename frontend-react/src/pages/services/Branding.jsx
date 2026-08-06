@@ -7,6 +7,7 @@ import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
 import MagneticButton from '../../components/ui/MagneticButton'
 import FaqAccordion from '../../components/ui/FaqAccordion'
+import DragGallery from '../../components/ui/DragGallery'
 
 const offers = [
   { title: 'Logo Design & Visual Identity', desc: 'Memorable marks that represent your organization at a glance.' },
@@ -28,37 +29,37 @@ const deliverables = [
 
 const brandGallery = [
   {
-    src: '/images/Rise leadership Academy.png',
+    src: '/images/rise-leadership-academy.png',
     title: 'Rise Leadership Academy',
     category: 'Brand Identity',
     desc: 'Full brand identity for Rise Leadership Academy — built to inspire and empower the next generation of leaders.',
   },
   {
-    src: '/images/Building the future.png',
+    src: '/images/building-the-future.png',
     title: 'Building the Future',
     category: 'Campaign Design',
     desc: 'Inspirational brand campaign communicating vision and forward momentum.',
   },
   {
-    src: '/images/Honoring.png',
+    src: '/images/honoring-excellence.png',
     title: 'Honoring Excellence',
     category: 'Event Branding',
     desc: 'Ceremonial brand materials for recognition and award programs.',
   },
   {
-    src: '/images/New.png',
+    src: '/images/fresh-identity.png',
     title: 'Fresh Identity',
     category: 'Brand Launch',
     desc: 'Clean, modern brand launch materials built for digital-first audiences.',
   },
   {
-    src: '/images/Brand 2 pdf for white hoodie gold.png',
+    src: '/images/white-hoodie-gold-print.png',
     title: 'White Hoodie — Gold Print',
     category: 'Brand Merchandise',
     desc: 'Brand applied to physical merchandise — hoodies, apparel, and print materials.',
   },
   {
-    src: '/images/Orange T-shirt.png',
+    src: '/images/orange-t-shirt.png',
     title: 'Orange T-Shirt',
     category: 'Brand Merchandise',
     desc: 'Branded apparel design — vibrant orange tee with bold logo placement.',
@@ -157,10 +158,10 @@ export default function Branding() {
         </div>
       </section>
 
-      {/* BRAND WORK GALLERY */}
+      {/* BRAND WORK GALLERY — drag to explore */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Our Work</p>
             <h2 className="section-title">Brand Showcase</h2>
             <p className="section-subtitle">
@@ -168,19 +169,23 @@ export default function Branding() {
               to campaign materials and merchandise.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {brandGallery.map(({ src, title, category, desc }, i) => (
-              <motion.div
+          <p className="flex items-center justify-center gap-2 text-xs font-semibold text-muted uppercase tracking-widest mb-6">
+            <i className="fas fa-arrows-left-right" /> Drag to explore
+          </p>
+        </div>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <DragGallery>
+            {brandGallery.map(({ src, title, category, desc }) => (
+              <div
                 key={title}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300"
-                variants={fadeUp} initial="hidden" whileInView="show"
-                viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 w-[280px] sm:w-[320px] flex-shrink-0"
               >
-                <div className="relative overflow-hidden h-64">
+                <div className="relative overflow-hidden h-56 sm:h-64">
                   <img
                     src={src}
                     alt={title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    draggable={false}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
@@ -194,9 +199,9 @@ export default function Branding() {
                   <h3 className="font-heading font-bold text-dark mt-1 mb-2">{title}</h3>
                   <p className="text-muted text-sm leading-relaxed">{desc}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </div>
+          </DragGallery>
         </div>
       </section>
 

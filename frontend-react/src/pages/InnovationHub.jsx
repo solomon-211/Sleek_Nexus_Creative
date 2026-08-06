@@ -1,13 +1,15 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { fadeUp, staggerContainer, scaleIn } from '../lib/animations'
 import TiltCard from '../components/ui/TiltCard'
 import MagneticButton from '../components/ui/MagneticButton'
 import AnimatedCounter from '../components/ui/AnimatedCounter'
 import FaqAccordion from '../components/ui/FaqAccordion'
 import FlipCard from '../components/ui/FlipCard'
+import GlobeAccent from '../components/ui/GlobeAccent'
 
 // ── SDGs SNC directly addresses ──────────────────────────────────────────────
 const sdgs = [
@@ -161,8 +163,8 @@ const flagshipProjects = [
     icon: 'fa-heart-pulse',
     title: 'HealthHub Bridge',
     desc: 'A health connectivity platform bridging patients and healthcare providers — enabling appointment booking, health records, and remote consultations.',
-    cta: 'View Case Study',
-    to: '/projects',
+    cta: 'Ask About This Project',
+    to: '/contact',
   },
 ]
 
@@ -220,6 +222,12 @@ const visionPillars = [
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function InnovationHub() {
+  // Horizontal scroll-jacking: the roadmap row is pinned in the viewport while
+  // a tall wrapper scrolls past, translating the row left one phase at a time.
+  const roadmapScrollRef = useRef(null)
+  const { scrollYProgress: roadmapProgress } = useScroll({ target: roadmapScrollRef, offset: ['start start', 'end end'] })
+  const roadmapX = useTransform(roadmapProgress, [0, 1], ['0%', `-${((roadmap.length - 1) / roadmap.length) * 100}%`])
+
   return (
     <>
       <SEO {...pageSeo['/innovation-hub']} />
@@ -378,17 +386,17 @@ export default function InnovationHub() {
         </div>
       </section>
 
-      {/* ── VISION 2040 ROADMAP ────────────────────────────────────────── */}
+      {/* ── VISION 2040 ROADMAP — horizontal scroll-jacking ──────────────── */}
       <section className="py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-16">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Implementation Roadmap</p>
             <h2 className="section-title">Vision 2040 · 2026–2040</h2>
-            <p className="section-subtitle">A phased approach to building South Sudan's leading technology and innovation ecosystem over 15 years.</p>
+            <p className="section-subtitle">A phased approach to building South Sudan's leading technology and innovation ecosystem over 15 years. Scroll to move through each phase.</p>
           </div>
 
           {/* Timeline connector — purely visual, ties the three phase cards into one journey */}
-          <div className="hidden md:flex items-center justify-center max-w-2xl mx-auto mb-4">
+          <div className="hidden md:flex items-center justify-center max-w-2xl mx-auto">
             {roadmap.map(({ phase, years }) => (
               <div key={phase} className="flex items-center flex-1">
                 <div className="flex flex-col items-center flex-shrink-0">
@@ -403,38 +411,49 @@ export default function InnovationHub() {
               <span className="text-[0.65rem] font-semibold text-muted mt-1.5">2040</span>
             </div>
           </div>
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-7">
-            {roadmap.map(({ phase, years, title, color, badgeColor, priorities, outcomes }, i) => (
-              <TiltCard key={phase} className={`rounded-2xl border-2 ${color} p-7`}
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.15 }}>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className={`text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full ${badgeColor}`}>{phase}</span>
-                  <span className="text-xs font-semibold text-muted">{years}</span>
+        {/* Pinned horizontal strip — breaks out of the max-w container so each
+            phase can occupy the full viewport width as it scrolls past. */}
+        <div ref={roadmapScrollRef} style={{ height: `${roadmap.length * 100}vh` }} className="relative mt-8">
+          <div className="sticky top-0 h-screen overflow-hidden flex items-center">
+            {/* Scroll progress bar */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gray-100 z-10">
+              <motion.div className="h-full bg-primary" style={{ scaleX: roadmapProgress, transformOrigin: '0% 0%' }} />
+            </div>
+            <motion.div className="flex h-full" style={{ x: roadmapX, width: `${roadmap.length * 100}%` }}>
+              {roadmap.map(({ phase, years, title, color, badgeColor, priorities, outcomes }) => (
+                <div key={phase} style={{ flex: `0 0 ${100 / roadmap.length}%` }} className="h-full flex items-center justify-center px-6">
+                  <TiltCard className={`max-w-xl w-full rounded-2xl border-2 ${color} p-8 sm:p-10 bg-white`}>
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className={`text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full ${badgeColor}`}>{phase}</span>
+                      <span className="text-xs font-semibold text-muted">{years}</span>
+                    </div>
+                    <h3 className="font-heading font-bold text-dark text-2xl mb-5">{title}</h3>
+                    <div className="mb-6">
+                      <p className="text-xs font-bold text-primary uppercase tracking-wide mb-2">Priorities</p>
+                      <ul className="space-y-1.5">
+                        {priorities.map(p => (
+                          <li key={p} className="flex items-start gap-2 text-sm text-dark-soft">
+                            <i className="fas fa-arrow-right text-primary text-[0.65rem] mt-1 flex-shrink-0" /> {p}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-muted uppercase tracking-wide mb-2">Expected Outcomes</p>
+                      <ul className="space-y-1.5">
+                        {outcomes.map(o => (
+                          <li key={o} className="flex items-start gap-2 text-sm text-dark-soft font-medium">
+                            <i className="fas fa-check-circle text-green-600 text-[0.65rem] mt-1 flex-shrink-0" /> {o}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </TiltCard>
                 </div>
-                <h3 className="font-heading font-bold text-dark text-lg mb-4">{title}</h3>
-                <div className="mb-5">
-                  <p className="text-xs font-bold text-primary uppercase tracking-wide mb-2">Priorities</p>
-                  <ul className="space-y-1.5">
-                    {priorities.map(p => (
-                      <li key={p} className="flex items-start gap-2 text-xs text-dark-soft">
-                        <i className="fas fa-arrow-right text-primary text-[0.6rem] mt-0.5 flex-shrink-0" /> {p}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-muted uppercase tracking-wide mb-2">Expected Outcomes</p>
-                  <ul className="space-y-1.5">
-                    {outcomes.map(o => (
-                      <li key={o} className="flex items-start gap-2 text-xs text-dark-soft font-medium">
-                        <i className="fas fa-check-circle text-green-600 text-[0.6rem] mt-0.5 flex-shrink-0" /> {o}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </TiltCard>
-            ))}
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
@@ -470,6 +489,35 @@ export default function InnovationHub() {
                 )}
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── OUR REACH — interactive globe ─────────────────────────────────── */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+              <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Beyond Juba</p>
+              <h2 className="section-title">Our Reach</h2>
+              <p className="text-muted leading-relaxed mb-6 max-w-lg">
+                We're based in Juba, building for organizations across all of South Sudan — with Vision 2040 aimed at regional reach across Africa. The connections below aren't offices; they're the ambition the roadmap is built toward.
+              </p>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+                {['Juba (HQ)', 'Nairobi', 'Kampala', 'Addis Ababa', 'Kinshasa', 'Cairo'].map((city, i) => (
+                  <span key={city} className="flex items-center gap-2">
+                    <span className={`w-2 h-2 rounded-full ${i === 0 ? 'bg-primary' : 'bg-accent'}`} />
+                    {city}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+            <motion.div
+              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ delay: 0.15 }}
+              className="relative h-[380px] lg:h-[440px]"
+            >
+              <GlobeAccent className="absolute inset-0" />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -546,8 +594,17 @@ export default function InnovationHub() {
             <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-5 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">
               Vision 2040
             </span>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 leading-tight">
-              Building Digital Infrastructure for South Sudan
+            <h2
+              className="font-heading uppercase leading-[0.95] mb-6"
+              style={{ fontSize: 'clamp(2rem,5vw,3.5rem)', fontWeight: 800, textShadow: '3px 3px 0px rgba(254,127,45,0.35), 6px 6px 0px rgba(254,127,45,0.15)' }}
+            >
+              <span className="block text-white">Building Digital Infrastructure</span>
+              <span
+                className="block"
+                style={{ fontSize: 'clamp(1.75rem,4.5vw,3rem)', WebkitTextStroke: '1.5px #FE7F2D', color: 'transparent', textShadow: '2px 2px 0px rgba(254,127,45,0.25), 4px 4px 0px rgba(0,0,0,0.4)' }}
+              >
+                for South Sudan
+              </span>
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-10">
               Through the SNC Innovation Hub, we are building an ecosystem where technology solves real problems, businesses grow digitally, and communities benefit from innovation — aligned with the UN SDGs.
