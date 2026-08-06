@@ -273,7 +273,7 @@ export default function GetStarted() {
               </div>
               <div className="flex-1">
                 <h3 className="text-white font-heading font-bold mb-1">Not Looking to Hire Us?</h3>
-                <p className="text-white/60 text-sm leading-relaxed">If you'd rather partner with us, support Vision 2040, or explore how your organization can get involved beyond a single project, we'd love to talk.</p>
+                <p className="text-white/60 text-sm leading-relaxed">If you'd rather partner with us, support the Innovation Hub, or explore how your organization can get involved beyond a single project, we'd love to talk.</p>
               </div>
               <Link to="/innovation-hub" className="btn-secondary border-white text-white hover:bg-white hover:text-primary flex-shrink-0 whitespace-nowrap">
                 Partner With Us

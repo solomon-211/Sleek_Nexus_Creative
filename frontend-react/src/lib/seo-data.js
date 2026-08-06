@@ -11,7 +11,7 @@
 export const pageSeo = {
   '/': {
     title: 'Sleek Nexus Creative — Technology & Innovation for South Sudan',
-    description: 'Sleek Nexus Creative helps organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact. Based in Juba.',
+    description: 'Sleek Nexus Creative is a Juba-based studio helping organizations — in South Sudan and beyond — launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact.',
     canonical: '/',
     keywords: 'web development South Sudan, mobile apps Juba, IT consulting South Sudan, e-learning platform South Sudan, software company Juba, Sleek Nexus Creative, SNC technology',
     image: 'https://sleeknexuscreative.com/images/hero-tech.jpg',
@@ -25,7 +25,7 @@ export const pageSeo = {
         name: 'Sleek Nexus Creative',
         url: 'https://sleeknexuscreative.com',
         logo: 'https://sleeknexuscreative.com/images/snc-logo.png',
-        description: 'Sleek Nexus Creative is a technology and innovation company based in Juba, South Sudan, building websites, mobile apps, e-learning platforms, and digital solutions for organizations across Africa.',
+        description: 'Sleek Nexus Creative is a technology and innovation company based in Juba, South Sudan, building websites, mobile apps, e-learning platforms, and digital solutions for organizations in South Sudan and beyond.',
         foundingDate: '2024',
         address: { '@type': 'PostalAddress', addressLocality: 'Juba', addressCountry: 'SS' },
         contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: 'info@sleeknexuscreative.com', availableLanguage: 'English' },
@@ -160,7 +160,7 @@ export const pageSeo = {
       name: 'Web Development',
       description: 'Custom website and web application development, including responsive design, progressive web apps, e-commerce platforms, and API integration.',
       provider: { '@type': 'Organization', name: 'Sleek Nexus Creative', url: 'https://sleeknexuscreative.com' },
-      areaServed: { '@type': 'Country', name: 'South Sudan' },
+      areaServed: [{ '@type': 'Country', name: 'South Sudan' }, { '@type': 'Place', name: 'Worldwide' }],
     },
   },
 
@@ -181,7 +181,7 @@ export const pageSeo = {
       name: 'Mobile App Development',
       description: 'Native and cross-platform mobile app development for iOS and Android, including offline-capable and low-bandwidth-optimized apps.',
       provider: { '@type': 'Organization', name: 'Sleek Nexus Creative', url: 'https://sleeknexuscreative.com' },
-      areaServed: { '@type': 'Country', name: 'South Sudan' },
+      areaServed: [{ '@type': 'Country', name: 'South Sudan' }, { '@type': 'Place', name: 'Worldwide' }],
     },
   },
 
@@ -202,7 +202,7 @@ export const pageSeo = {
       name: 'UI/UX Design',
       description: 'User research, wireframing, prototyping, and high-fidelity UI design for web and mobile products.',
       provider: { '@type': 'Organization', name: 'Sleek Nexus Creative', url: 'https://sleeknexuscreative.com' },
-      areaServed: { '@type': 'Country', name: 'South Sudan' },
+      areaServed: [{ '@type': 'Country', name: 'South Sudan' }, { '@type': 'Place', name: 'Worldwide' }],
     },
   },
 
@@ -220,7 +220,7 @@ export const pageSeo = {
       name: 'Branding & Identity',
       description: 'Logo design, brand strategy, visual identity systems, and brand style guides for organizations.',
       provider: { '@type': 'Organization', name: 'Sleek Nexus Creative', url: 'https://sleeknexuscreative.com' },
-      areaServed: { '@type': 'Country', name: 'South Sudan' },
+      areaServed: [{ '@type': 'Country', name: 'South Sudan' }, { '@type': 'Place', name: 'Worldwide' }],
     },
     faq: [
       { q: 'How long does a branding project take?', a: 'A logo and core identity typically takes 2–3 weeks. A full brand system with style guide, templates, and merchandise usually takes 3–5 weeks, depending on revision rounds.' },
@@ -248,7 +248,7 @@ export const pageSeo = {
       name: 'IT Consulting & Digital Transformation',
       description: 'Technology strategy, digital transformation planning, system architecture design, security audits, and cloud migration advisory services.',
       provider: { '@type': 'Organization', name: 'Sleek Nexus Creative', url: 'https://sleeknexuscreative.com' },
-      areaServed: { '@type': 'Country', name: 'South Sudan' },
+      areaServed: [{ '@type': 'Country', name: 'South Sudan' }, { '@type': 'Place', name: 'Worldwide' }],
     },
   },
 }

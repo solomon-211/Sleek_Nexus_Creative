@@ -1,12 +1,9 @@
-import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { fadeUp, staggerContainer, scaleIn } from '../lib/animations'
-import TiltCard from '../components/ui/TiltCard'
+import { motion } from 'framer-motion'
+import { fadeUp, staggerContainer } from '../lib/animations'
 import MagneticButton from '../components/ui/MagneticButton'
-import AnimatedCounter from '../components/ui/AnimatedCounter'
 import FaqAccordion from '../components/ui/FaqAccordion'
 import FlipCard from '../components/ui/FlipCard'
 import GlobeAccent from '../components/ui/GlobeAccent'
@@ -89,64 +86,6 @@ const focusAreas = [
   },
 ]
 
-// ── Roadmap ───────────────────────────────────────────────────────────────────
-const roadmap = [
-  {
-    phase: 'Phase I',
-    years: '2026 – 2030',
-    title: 'Foundation & Growth',
-    color: 'border-primary bg-primary/5',
-    badgeColor: 'bg-primary text-white',
-    priorities: [
-      'Establish SNC operations and governance',
-      'Build core software & digital service portfolio',
-      'Deliver 15+ technology projects',
-      'Develop strategic technology partnerships',
-      'Launch innovation consulting practice',
-    ],
-    outcomes: ['15+ projects delivered', '30+ clients served', '5+ strategic partnerships', 'Operational hub in Juba'],
-  },
-  {
-    phase: 'Phase II',
-    years: '2030 – 2035',
-    title: 'Innovation & Expansion',
-    color: 'border-accent bg-accent/5',
-    badgeColor: 'bg-accent text-white',
-    priorities: [
-      'Launch SNC Innovation Lab & prototyping centre',
-      'Introduce startup incubation & acceleration',
-      'Expand into regional African markets',
-      'Build proprietary SaaS products',
-      'Organise hackathons & innovation challenges',
-    ],
-    outcomes: ['50+ projects delivered', '20+ startups supported', 'Regional market presence', 'Innovation Lab fully operational'],
-  },
-  {
-    phase: 'Phase III',
-    years: '2035 – 2040',
-    title: 'National Impact & Scale',
-    color: 'border-dark bg-dark/5',
-    badgeColor: 'bg-dark text-white',
-    priorities: [
-      'Scale digital solutions across South Sudan',
-      'Launch Future Foresight & R&D Centre',
-      'Expand national & international partnerships',
-      'Strengthen financial sustainability',
-    ],
-    outcomes: ['150+ projects & products', '500+ jobs created', 'National digital infrastructure leader', 'Pan-African technology brand'],
-  },
-]
-
-// ── Impact metrics ────────────────────────────────────────────────────────────
-const impact = [
-  { icon: 'fa-code',          value: 150,   suffix: '+',     label: 'Digital Products Built by 2040', isNum: true },
-  { icon: 'fa-store',         value: 20,    suffix: '+',     label: 'Startups Supported', isNum: true },
-  { icon: 'fa-briefcase',     value: 500,   suffix: '+',     label: 'Jobs & Opportunities Created', isNum: true },
-  { icon: 'fa-globe-africa',  value: null,  display: 'Africa', label: 'Regional Market Reach' },
-  { icon: 'fa-handshake',     value: 30,    suffix: '+',     label: 'Strategic Partnerships', isNum: true },
-  { icon: 'fa-flag',          value: null,  display: 'Juba', label: 'Innovation Hub HQ' },
-]
-
 // ── Innovation in action — real, live proof points, not just projections ──────
 const flagshipProjects = [
   {
@@ -204,8 +143,8 @@ const engagementPaths = [
 const visionPillars = [
   {
     icon: 'fa-map-marker-alt',
-    title: 'Built Here, For Here',
-    desc: "Every product starts with South Sudan's real conditions — connectivity, devices, and cost — not an assumption imported from somewhere else and retrofitted after the fact.",
+    title: 'Built Here, Built to Scale',
+    desc: "Every product is engineered against South Sudan's real conditions — low bandwidth, limited devices, real infrastructure gaps. That discipline doesn't disappear once a client is based outside the country.",
   },
   {
     icon: 'fa-check-double',
@@ -222,12 +161,6 @@ const visionPillars = [
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function InnovationHub() {
-  // Horizontal scroll-jacking: the roadmap row is pinned in the viewport while
-  // a tall wrapper scrolls past, translating the row left one phase at a time.
-  const roadmapScrollRef = useRef(null)
-  const { scrollYProgress: roadmapProgress } = useScroll({ target: roadmapScrollRef, offset: ['start start', 'end end'] })
-  const roadmapX = useTransform(roadmapProgress, [0, 1], ['0%', `-${((roadmap.length - 1) / roadmap.length) * 100}%`])
-
   return (
     <>
       <SEO {...pageSeo['/innovation-hub']} />
@@ -241,7 +174,7 @@ export default function InnovationHub() {
           <div className="max-w-4xl">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.85 }}>
               <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-6 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">
-                SNC · Vision 2040
+                SNC Innovation Hub
               </span>
               <h1 className="text-dark font-heading font-black uppercase leading-[0.95] mb-6"
                 style={{ fontSize: 'clamp(2.25rem,5.5vw,4.25rem)', letterSpacing: '-0.02em' }}>
@@ -249,11 +182,11 @@ export default function InnovationHub() {
                 <span className="text-accent">Hub</span>
               </h1>
               <p className="text-muted text-lg leading-relaxed mb-4 max-w-2xl">
-                A technology and innovation ecosystem in Juba, South Sudan — building digital products, delivering software solutions, and driving transformation aligned with the UN Sustainable Development Goals.
+                Headquartered in Juba, South Sudan — building digital products, delivering software solutions, and driving transformation for organizations at home and abroad, aligned with the UN Sustainable Development Goals.
               </p>
               <p className="text-accent font-semibold mb-8">
                 <i className="fas fa-globe-africa mr-2" />
-                SDG-aligned · South Sudan &amp; Africa · Vision 2040
+                SDG-aligned · Juba-Based · Serving Clients Worldwide
               </p>
               <div className="flex flex-wrap gap-4">
                 <MagneticButton>
@@ -279,10 +212,10 @@ export default function InnovationHub() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-bold uppercase tracking-widest mb-6">Our Vision</p>
             <h2 className="font-heading font-black uppercase leading-[1.05] mb-8" style={{ fontSize: 'clamp(1.75rem,4vw,3rem)', letterSpacing: '-0.02em' }}>
-              A South Sudan That Builds Its Own Digital Future
+              Built in Juba. Built for Anywhere.
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
-              By 2040, we want technology in South Sudan to mean something different — not aid, not an import, not someone else's solution adapted after the fact. We're building toward a country where schools run on systems built by South Sudanese engineers, where startups launch from Juba instead of relocating to build, and where the next generation of technologists doesn't have to leave to find opportunity. That future doesn't start in 2040 — it starts with every platform we ship today.
+              Sleek Nexus Creative is headquartered in Juba, South Sudan — and that's where our engineering discipline comes from: building for real bandwidth constraints, real device limitations, and real infrastructure gaps. But our work isn't limited to South Sudan. We design and ship digital products for organizations across the region and internationally, bringing that same reliability-first standard to every client, wherever they're based.
             </p>
           </motion.div>
 
@@ -386,85 +319,13 @@ export default function InnovationHub() {
         </div>
       </section>
 
-      {/* ── VISION 2040 ROADMAP — horizontal scroll-jacking ──────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-16">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Implementation Roadmap</p>
-            <h2 className="section-title">Vision 2040 · 2026–2040</h2>
-            <p className="section-subtitle">A phased approach to building South Sudan's leading technology and innovation ecosystem over 15 years. Scroll to move through each phase.</p>
-          </div>
-
-          {/* Timeline connector — purely visual, ties the three phase cards into one journey */}
-          <div className="hidden md:flex items-center justify-center max-w-2xl mx-auto">
-            {roadmap.map(({ phase, years }) => (
-              <div key={phase} className="flex items-center flex-1">
-                <div className="flex flex-col items-center flex-shrink-0">
-                  <span className="w-3 h-3 rounded-full bg-primary border-2 border-white shadow-[0_0_0_1px_rgba(0,0,0,0.08)]" />
-                  <span className="text-[0.65rem] font-semibold text-muted mt-1.5 whitespace-nowrap">{years.split(' – ')[0]}</span>
-                </div>
-                <div className="flex-1 h-px bg-gray-200 mx-1" />
-              </div>
-            ))}
-            <div className="flex flex-col items-center flex-shrink-0">
-              <span className="w-3 h-3 rounded-full bg-dark border-2 border-white shadow-[0_0_0_1px_rgba(0,0,0,0.08)]" />
-              <span className="text-[0.65rem] font-semibold text-muted mt-1.5">2040</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Pinned horizontal strip — breaks out of the max-w container so each
-            phase can occupy the full viewport width as it scrolls past. */}
-        <div ref={roadmapScrollRef} style={{ height: `${roadmap.length * 100}vh` }} className="relative mt-8">
-          <div className="sticky top-0 h-screen overflow-hidden flex items-center">
-            {/* Scroll progress bar */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gray-100 z-10">
-              <motion.div className="h-full bg-primary" style={{ scaleX: roadmapProgress, transformOrigin: '0% 0%' }} />
-            </div>
-            <motion.div className="flex h-full" style={{ x: roadmapX, width: `${roadmap.length * 100}%` }}>
-              {roadmap.map(({ phase, years, title, color, badgeColor, priorities, outcomes }) => (
-                <div key={phase} style={{ flex: `0 0 ${100 / roadmap.length}%` }} className="h-full flex items-center justify-center px-6">
-                  <TiltCard className={`max-w-xl w-full rounded-2xl border-2 ${color} p-8 sm:p-10 bg-white`}>
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className={`text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full ${badgeColor}`}>{phase}</span>
-                      <span className="text-xs font-semibold text-muted">{years}</span>
-                    </div>
-                    <h3 className="font-heading font-bold text-dark text-2xl mb-5">{title}</h3>
-                    <div className="mb-6">
-                      <p className="text-xs font-bold text-primary uppercase tracking-wide mb-2">Priorities</p>
-                      <ul className="space-y-1.5">
-                        {priorities.map(p => (
-                          <li key={p} className="flex items-start gap-2 text-sm text-dark-soft">
-                            <i className="fas fa-arrow-right text-primary text-[0.65rem] mt-1 flex-shrink-0" /> {p}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-muted uppercase tracking-wide mb-2">Expected Outcomes</p>
-                      <ul className="space-y-1.5">
-                        {outcomes.map(o => (
-                          <li key={o} className="flex items-start gap-2 text-sm text-dark-soft font-medium">
-                            <i className="fas fa-check-circle text-green-600 text-[0.65rem] mt-1 flex-shrink-0" /> {o}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </TiltCard>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── INNOVATION IN ACTION — real, live proof, not just a roadmap ─── */}
+      {/* ── INNOVATION IN ACTION — real, live proof points ───────────────── */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
             <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Not Just a Vision</p>
             <h2 className="section-title">Innovation in Action</h2>
-            <p className="section-subtitle">Vision 2040 isn't only a plan — it's already producing real, working platforms today.</p>
+            <p className="section-subtitle">This isn't only a plan — it's already producing real, working platforms today.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-7">
             {flagshipProjects.map(({ badge, icon, title, desc, cta, href, to, external }, i) => (
@@ -501,7 +362,7 @@ export default function InnovationHub() {
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Beyond Juba</p>
               <h2 className="section-title">Our Reach</h2>
               <p className="text-muted leading-relaxed mb-6 max-w-lg">
-                We're based in Juba, building for organizations across all of South Sudan — with Vision 2040 aimed at regional reach across Africa. The connections below aren't offices; they're the ambition the roadmap is built toward.
+                We're headquartered in Juba, South Sudan — but our work isn't limited to South Sudan. We build and support digital products for organizations across the region and beyond. The connections below reflect that reach, not physical offices.
               </p>
               <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
                 {['Juba (HQ)', 'Nairobi', 'Kampala', 'Addis Ababa', 'Kinshasa', 'Cairo'].map((city, i) => (
@@ -519,32 +380,6 @@ export default function InnovationHub() {
               <GlobeAccent className="absolute inset-0" />
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* ── IMPACT BY 2040 ──────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-noise py-20 bg-primary text-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-12">
-            <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-2">Expected Impact by 2040</p>
-            <h2 className="text-3xl font-heading font-bold">What We Are Building Toward</h2>
-          </div>
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center"
-            variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
-          >
-            {impact.map(({ icon, value, suffix, display, label, isNum }) => (
-              <motion.div key={label} variants={scaleIn}>
-                <div className="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <i className={`fas ${icon} text-white text-lg`} />
-                </div>
-                <div className="text-2xl font-heading font-black mb-1">
-                  {isNum ? <AnimatedCounter value={value} suffix={suffix} /> : display}
-                </div>
-                <div className="text-white/70 text-xs leading-tight">{label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
@@ -592,7 +427,7 @@ export default function InnovationHub() {
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8 }}>
             <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-5 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">
-              Vision 2040
+              SNC Innovation Hub
             </span>
             <h2
               className="font-heading uppercase leading-[0.95] mb-6"
@@ -603,7 +438,7 @@ export default function InnovationHub() {
                 className="block"
                 style={{ fontSize: 'clamp(1.75rem,4.5vw,3rem)', WebkitTextStroke: '1.5px #FE7F2D', color: 'transparent', textShadow: '2px 2px 0px rgba(254,127,45,0.25), 4px 4px 0px rgba(0,0,0,0.4)' }}
               >
-                for South Sudan
+                From Juba, for Anywhere
               </span>
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-10">

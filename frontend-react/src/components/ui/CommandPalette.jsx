@@ -12,7 +12,7 @@ const PAGES = [
   { icon: 'fa-palette', label: 'Branding & Identity', hint: 'Logos, brand systems', to: '/services/branding' },
   { icon: 'fa-laptop-code', label: 'IT Consulting', hint: 'Strategy & digital transformation', to: '/services/consulting' },
   { icon: 'fa-envelope', label: 'Contact', hint: 'Get in touch with the team', to: '/contact' },
-  { icon: 'fa-bolt', label: 'Innovation Hub', hint: 'Vision 2040, real projects & SDG roadmap', to: '/innovation-hub' },
+  { icon: 'fa-bolt', label: 'Innovation Hub', hint: 'Real projects, SDG alignment & our mission', to: '/innovation-hub' },
   { icon: 'fa-rocket', label: 'Get Started', hint: 'Start your project', to: '/get-started' },
   { icon: 'fa-shield-halved', label: 'Privacy Policy', hint: 'Legal', to: '/privacy' },
   { icon: 'fa-file-contract', label: 'Terms of Service', hint: 'Legal', to: '/terms' },

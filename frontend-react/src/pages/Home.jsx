@@ -108,7 +108,7 @@ export default function Home() {
                 ]} />
               </h1>
               <p className="text-muted text-base sm:text-lg leading-relaxed mb-7 sm:mb-8">
-                Sleek Nexus Creative helps organizations in South Sudan launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact.
+                Sleek Nexus Creative is a Juba-based studio helping organizations — in South Sudan and beyond — launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact.
               </p>
               <div className="flex flex-wrap gap-3 mb-8 sm:mb-12">
                 <MagneticButton liquid>
@@ -303,10 +303,10 @@ export default function Home() {
             <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Who We Are</p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-dark mb-5 leading-tight">
-                Building Reliable Technology for South Sudanese Organizations
+                Reliable Technology, Built in Juba
               </h2>
               <p className="text-muted leading-relaxed mb-4">
-                Based in Juba, we partner with businesses, schools, NGOs, and public initiatives to design practical, scalable digital systems for local realities.
+                Headquartered in Juba, South Sudan, we partner with businesses, schools, NGOs, and organizations — locally and internationally — to design practical, scalable digital systems built for real-world conditions.
               </p>
               <p className="text-muted leading-relaxed mb-8">
                 Our team combines product strategy, engineering, and training to help clients launch faster, operate more efficiently, and sustain long-term digital growth.
@@ -316,7 +316,7 @@ export default function Home() {
               </MagneticButton>
             </motion.div>
             <motion.div variants={fadeRight} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}>
-              <img src="/images/about-preview.jpg" alt="Sleek Nexus Creative — Building Reliable Technology for South Sudan" className="w-full rounded-xl object-cover" loading="lazy" />
+              <img src="/images/about-preview.jpg" alt="Sleek Nexus Creative — Reliable Technology, Built in Juba" className="w-full rounded-xl object-cover" loading="lazy" />
             </motion.div>
           </div>
         </div>

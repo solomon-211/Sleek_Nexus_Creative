@@ -9,7 +9,7 @@ import MagneticButton from '../../components/ui/MagneticButton'
 const offers = ['Technology Strategy & Roadmapping', 'Digital Transformation Planning', 'System Architecture Design', 'Security Audits & Compliance', 'Cloud Migration Services', 'Vendor Selection & Evaluation', 'Performance Optimization', 'IT Policy & Governance']
 
 const benefits = [
-  { icon: 'fa-lightbulb', title: 'Expert Guidance', desc: 'Combined experience across software, infrastructure, and digital transformation for organizations of all sizes in South Sudan.' },
+  { icon: 'fa-lightbulb', title: 'Expert Guidance', desc: 'Combined experience across software, infrastructure, and digital transformation for organizations of all sizes, in South Sudan and beyond.' },
   { icon: 'fa-shield-alt', title: 'Security First', desc: 'We assess your current security posture and build a practical roadmap to enterprise-grade protection.' },
   { icon: 'fa-chart-line', title: 'Measurable ROI', desc: 'Every recommendation includes a cost-benefit analysis so you know what you are investing and what you will gain.' },
   { icon: 'fa-handshake', title: 'Vendor-Neutral', desc: 'We recommend what is best for you, not what earns us a commission. Honest, independent technology advice.' },

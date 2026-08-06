@@ -155,7 +155,7 @@ export default function About() {
             <p className="text-accent text-sm font-bold uppercase tracking-widest mb-3">Who We Are</p>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">About Sleek Nexus Creative</h1>
             <p className="text-gray-300 text-lg leading-relaxed">
-              Sleek Nexus Creative is a startup technology and innovation firm based in Juba, South Sudan, building digital solutions that work in real-world applications — for businesses, schools, NGOs, and public institutions across the country.
+              Sleek Nexus Creative is a startup technology and innovation firm based in Juba, South Sudan, building digital solutions that work in real-world applications — for businesses, schools, NGOs, and public institutions in South Sudan and beyond.
             </p>
           </motion.div>
         </div>
@@ -197,7 +197,7 @@ export default function About() {
                 <i className="fas fa-bullseye text-white text-xl" />
               </div>
               <h2 className="text-xl font-heading font-bold mb-3">Our Mission</h2>
-              <p className="opacity-90 leading-relaxed">To empower individuals, institutions, and communities across South Sudan by creating practical digital solutions, nurturing the next generation of technology leaders, and driving creative innovation that solves local challenges, creates opportunities, and builds a digitally empowered nation.</p>
+              <p className="opacity-90 leading-relaxed">To empower individuals, institutions, and communities — across South Sudan and beyond — by creating practical digital solutions, nurturing the next generation of technology leaders, and driving creative innovation that solves real problems and creates lasting opportunity.</p>
             </motion.div>
             <motion.div className="bg-dark text-white rounded-2xl p-10 border border-white/10"
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}>
@@ -205,7 +205,7 @@ export default function About() {
                 <i className="fas fa-eye text-accent text-xl" />
               </div>
               <h2 className="text-xl font-heading font-bold mb-3">Our Vision</h2>
-              <p className="text-gray-300 leading-relaxed">To build a South Sudan that owns its digital future—where local talent creates world-class technology, schools and institutions run on homegrown digital systems, innovation generates opportunities for every young person, and "Built in South Sudan" becomes a global mark of excellence, innovation, and national pride.</p>
+              <p className="text-gray-300 leading-relaxed">To prove that world-class technology can be built from Juba — where local talent creates products that compete globally, schools and institutions run on systems built by people who understand their reality, and "Built in South Sudan" becomes a mark of excellence recognized far beyond our borders.</p>
             </motion.div>
           </div>
 
@@ -213,7 +213,7 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75 }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Our Story</p>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark mb-6">Born in Juba, Built for South Sudan</h2>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark mb-6">Born in Juba, Built for Anywhere</h2>
               <p className="text-muted leading-relaxed mb-4">In 2024, a group of young South Sudanese technologists gathered with one shared frustration: brilliant talent in South Sudan was going unrecognized, unequipped, and underserved by the digital economy.</p>
               <p className="text-muted leading-relaxed mb-4">Organizations across Juba needed websites, apps, and digital systems — but had nowhere local to turn for quality, affordable, context-aware solutions.</p>
               <p className="text-muted leading-relaxed">We started with two laptops, one co-working space, and an unshakeable belief that <strong className="text-primary">Africa's youngest nation deserved the best technology.</strong></p>

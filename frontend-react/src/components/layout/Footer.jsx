@@ -143,8 +143,8 @@ export default function Footer() {
               <i className="fas fa-bolt text-primary text-xs" />
             </div>
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.15em] text-primary">Flagship · Vision 2040</span>
-              <p className="text-white/80 text-xs font-semibold leading-tight">SNC Innovation Hub — Technology &amp; Digital Solutions for South Sudan</p>
+              <span className="text-xs font-black uppercase tracking-[0.15em] text-primary">Flagship</span>
+              <p className="text-white/80 text-xs font-semibold leading-tight">SNC Innovation Hub — Technology &amp; Digital Solutions, Juba-Based &amp; Beyond</p>
             </div>
           </div>
           <Link
@@ -201,7 +201,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-white/80 text-sm leading-relaxed max-w-xs">
-              Building digital products and software solutions that work in the real world — for businesses, startups, and organisations across South Sudan.
+              Building digital products and software solutions that work in the real world — for businesses, startups, and organisations in South Sudan and beyond.
             </p>
 
             {/* Live product badge */}
