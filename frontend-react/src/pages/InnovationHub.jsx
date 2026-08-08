@@ -177,7 +177,7 @@ export default function InnovationHub() {
                 SNC Innovation Hub
               </span>
               <h1 className="text-dark font-heading font-black uppercase leading-[0.95] mb-6"
-                style={{ fontSize: 'clamp(2.25rem,5.5vw,4.25rem)', letterSpacing: '-0.02em' }}>
+                style={{ fontSize: 'clamp(2.75rem,6vw,4.25rem)', letterSpacing: '-0.02em' }}>
                 <span className="text-dark">Technology &amp; Innovation</span><br />
                 <span className="text-accent">Hub</span>
               </h1>
@@ -211,7 +211,7 @@ export default function InnovationHub() {
         <div className="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-bold uppercase tracking-widest mb-6">Our Vision</p>
-            <h2 className="font-heading font-black uppercase leading-[1.05] mb-8" style={{ fontSize: 'clamp(1.75rem,4vw,3rem)', letterSpacing: '-0.02em' }}>
+            <h2 className="font-heading font-black uppercase leading-[1.05] mb-8" style={{ fontSize: 'clamp(2.25rem,4.5vw,3rem)', letterSpacing: '-0.02em' }}>
               Built in Juba. Built for Anywhere.
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
@@ -431,12 +431,12 @@ export default function InnovationHub() {
             </span>
             <h2
               className="font-heading uppercase leading-[0.95] mb-6"
-              style={{ fontSize: 'clamp(2rem,5vw,3.5rem)', fontWeight: 800, textShadow: '3px 3px 0px rgba(254,127,45,0.35), 6px 6px 0px rgba(254,127,45,0.15)' }}
+              style={{ fontSize: 'clamp(2.5rem,5.5vw,3.5rem)', fontWeight: 800, textShadow: '3px 3px 0px rgba(254,127,45,0.35), 6px 6px 0px rgba(254,127,45,0.15)' }}
             >
               <span className="block text-white">Building Digital Infrastructure</span>
               <span
                 className="block"
-                style={{ fontSize: 'clamp(1.75rem,4.5vw,3rem)', WebkitTextStroke: '1.5px #FE7F2D', color: 'transparent', textShadow: '2px 2px 0px rgba(254,127,45,0.25), 4px 4px 0px rgba(0,0,0,0.4)' }}
+                style={{ fontSize: 'clamp(2.25rem,5vw,3rem)', WebkitTextStroke: '1.5px #FE7F2D', color: 'transparent', textShadow: '2px 2px 0px rgba(254,127,45,0.25), 4px 4px 0px rgba(0,0,0,0.4)' }}
               >
                 From Juba, for Anywhere
               </span>

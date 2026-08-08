@@ -95,7 +95,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
               <p className="section-label text-accent">Based in Juba, South Sudan</p>
-              <h1 className="text-dark mb-5 sm:mb-6 font-heading" style={{ fontWeight: 900, fontSize: 'clamp(2rem, 4.2vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
+              <h1 className="text-dark mb-5 sm:mb-6 font-heading" style={{ fontWeight: 900, fontSize: 'clamp(2.5rem, 4.5vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
                 <KineticHeadline lines={[
                   ['We', 'Build', 'Digital', 'Products'],
                   ['That', 'Work', 'in'],
@@ -490,7 +490,7 @@ export default function Home() {
               <h2
                 className="font-heading uppercase leading-[0.9] mb-6"
                 style={{
-                  fontSize: 'clamp(4rem,9vw,8rem)',
+                  fontSize: 'clamp(4.5rem,9.5vw,8rem)',
                   fontWeight: 800,
                   textShadow: '4px 4px 0px rgba(254,127,45,0.35), 8px 8px 0px rgba(254,127,45,0.15)',
                 }}
@@ -499,7 +499,7 @@ export default function Home() {
                 <span
                   className="block"
                   style={{
-                    fontSize: 'clamp(3rem, 7vw, 6rem)',
+                    fontSize: 'clamp(3.5rem, 7.5vw, 6rem)',
                     WebkitTextStroke: '2px #FE7F2D',
                     color: 'transparent',
                     textShadow: '4px 4px 0px rgba(254,127,45,0.25), 8px 8px 0px rgba(0,0,0,0.4)',

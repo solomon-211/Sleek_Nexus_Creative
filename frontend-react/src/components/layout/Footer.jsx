@@ -117,7 +117,7 @@ export default function Footer() {
             <p className="text-primary text-sm font-black uppercase tracking-widest mb-3">Ready to start?</p>
             <h2
               className="font-heading uppercase leading-none text-white"
-              style={{ fontSize: 'clamp(3rem, 7vw, 6.5rem)', fontWeight: 800, textShadow: '3px 3px 0 #FE7F2D, 6px 6px 0 rgba(254,127,45,0.3)' }}
+              style={{ fontSize: 'clamp(3.25rem, 7.5vw, 6.5rem)', fontWeight: 800, textShadow: '3px 3px 0 #FE7F2D, 6px 6px 0 rgba(254,127,45,0.3)' }}
             >Let's Build Something Real.</h2>
           </div>
           <Link
@@ -303,7 +303,7 @@ export default function Footer() {
           <h2
             className="font-heading uppercase leading-none"
             style={{
-              fontSize: 'clamp(2rem, 10vw, 9rem)',
+              fontSize: 'clamp(2.5rem, 10vw, 9rem)',
               fontWeight: 900,
               letterSpacing: '0.02em',
               color: '#FFFFFF',

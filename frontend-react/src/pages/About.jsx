@@ -320,12 +320,12 @@ export default function About() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <h2
             className="font-heading uppercase leading-[0.9] mb-4"
-            style={{ fontSize: 'clamp(2.5rem,6vw,4.5rem)', fontWeight: 800, textShadow: '3px 3px 0px rgba(254,127,45,0.35), 6px 6px 0px rgba(254,127,45,0.15)' }}
+            style={{ fontSize: 'clamp(3rem,6.5vw,4.5rem)', fontWeight: 800, textShadow: '3px 3px 0px rgba(254,127,45,0.35), 6px 6px 0px rgba(254,127,45,0.15)' }}
           >
             <span className="block text-white">Work</span>
             <span
               className="block"
-              style={{ fontSize: 'clamp(2.25rem,5.5vw,4rem)', WebkitTextStroke: '2px #FE7F2D', color: 'transparent', textShadow: '3px 3px 0px rgba(254,127,45,0.25), 6px 6px 0px rgba(0,0,0,0.4)' }}
+              style={{ fontSize: 'clamp(2.75rem,6vw,4rem)', WebkitTextStroke: '2px #FE7F2D', color: 'transparent', textShadow: '3px 3px 0px rgba(254,127,45,0.25), 6px 6px 0px rgba(0,0,0,0.4)' }}
             >
               With Us
             </span>

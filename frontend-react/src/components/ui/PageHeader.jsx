@@ -51,7 +51,7 @@ export default function PageHeader({ label, title, desc, breadcrumb, actions, co
           {/* Title — blurs into sharp focus slightly after the rest of the block starts fading in */}
           <motion.h1
             className="font-heading font-black uppercase text-dark leading-[0.95] mb-0"
-            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(2.5rem, 5.5vw, 3.5rem)', letterSpacing: '-0.02em' }}
             initial={{ opacity: 0, filter: 'blur(10px)', y: 8 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}

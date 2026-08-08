@@ -229,12 +229,12 @@ export default function Services() {
         <div className="max-w-2xl mx-auto px-6">
           <h2
             className="font-heading uppercase leading-[0.95] mb-4"
-            style={{ fontSize: 'clamp(1.9rem,4.5vw,3rem)', fontWeight: 800, textShadow: '3px 3px 0px rgba(254,127,45,0.35), 6px 6px 0px rgba(254,127,45,0.15)' }}
+            style={{ fontSize: 'clamp(2.25rem,5vw,3rem)', fontWeight: 800, textShadow: '3px 3px 0px rgba(254,127,45,0.35), 6px 6px 0px rgba(254,127,45,0.15)' }}
           >
             <span className="block text-white">Ready to Accelerate</span>
             <span
               className="block"
-              style={{ fontSize: 'clamp(1.6rem,4vw,2.5rem)', WebkitTextStroke: '1.5px #FE7F2D', color: 'transparent', textShadow: '2px 2px 0px rgba(254,127,45,0.25), 4px 4px 0px rgba(0,0,0,0.4)' }}
+              style={{ fontSize: 'clamp(2rem,4.5vw,2.5rem)', WebkitTextStroke: '1.5px #FE7F2D', color: 'transparent', textShadow: '2px 2px 0px rgba(254,127,45,0.25), 4px 4px 0px rgba(0,0,0,0.4)' }}
             >
               Your Digital Transformation?
             </span>
