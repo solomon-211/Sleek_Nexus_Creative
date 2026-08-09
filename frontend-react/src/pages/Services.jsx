@@ -6,6 +6,8 @@ import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import MagneticButton from '../components/ui/MagneticButton'
 import PricingEstimator from '../components/ui/PricingEstimator'
+import PackageComparisonTable from '../components/ui/PackageComparisonTable'
+import TiltCard from '../components/ui/TiltCard'
 import { packages } from '../lib/packages-data'
 
 const navItems = [
@@ -188,7 +190,8 @@ export default function Services() {
           <div className="grid md:grid-cols-3 gap-8">
             {packages.map(({ tier, label, icon, timeline, popular, desc, features, bestFor }, i) => (
               <motion.div id={`pkg-${tier.toLowerCase()}`} key={tier} className="h-full scroll-mt-28" variants={scaleIn} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}>
-                <motion.div
+                <TiltCard
+                  max={6}
                   animate={popular ? floatAnimation : undefined}
                   className={`card p-8 relative h-full ${popular ? 'border-2 border-primary shadow-xl scale-105' : ''}`}
                 >
@@ -213,10 +216,15 @@ export default function Services() {
                     <i className="fas fa-users text-primary mr-1" /> {bestFor}
                   </p>
                   <Link to="/contact" className={popular ? 'btn-primary w-full justify-center' : 'btn-secondary w-full justify-center'}>Get a Free Quote</Link>
-                </motion.div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>
+
+          <div className="mt-10">
+            <PackageComparisonTable packages={packages} />
+          </div>
+
           <p className="text-center text-sm text-muted mt-8">
             <i className="fas fa-shield-alt text-primary mr-1" />
             All packages include a <strong>free initial consultation</strong>. Pricing is customized to your exact requirements — <Link to="/contact" className="text-primary hover:underline">reach out</Link> and we'll build a proposal just for you.

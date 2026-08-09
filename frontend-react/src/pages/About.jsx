@@ -150,6 +150,7 @@ export default function About() {
 
       {/* Header */}
       <section className="relative overflow-hidden bg-noise text-white py-16 sm:py-24 text-center" style={{background:'linear-gradient(160deg,#233D4D 0%,#000000 60%)'}}>
+        <div className="absolute inset-0 bg-motif-light opacity-[0.06] pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-bold uppercase tracking-widest mb-3">Who We Are</p>
@@ -188,8 +189,9 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 sm:py-24">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+      <section className="relative overflow-hidden py-16 sm:py-24">
+        <div className="absolute inset-0 bg-motif opacity-[0.05] pointer-events-none" />
+        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <motion.div className="bg-primary text-white rounded-2xl p-10"
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75 }}>

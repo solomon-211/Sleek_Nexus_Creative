@@ -8,6 +8,7 @@ import { fadeUp } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import FaqAccordion from '../components/ui/FaqAccordion'
+import AnimatedCheckmark from '../components/ui/AnimatedCheckmark'
 
 const schema = z.object({
   name: z.string().min(2, 'Full name is required'),
@@ -71,9 +72,13 @@ export default function Contact() {
               <p className="text-muted text-sm mb-6">Fill out the form below and we'll get back to you within 24 hours.</p>
 
               {status === 'success' && (
-                <div className="bg-green-50 border border-green-200 text-green-700 rounded-xl p-4 mb-6 text-sm flex items-center gap-2">
-                  <i className="fas fa-check-circle" /> Message sent successfully! We'll be in touch soon.
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}
+                  className="bg-green-50 border border-green-200 text-green-700 rounded-xl p-4 mb-6 text-sm flex items-center gap-3"
+                >
+                  <AnimatedCheckmark className="w-8 h-8 text-green-600 flex-shrink-0" />
+                  Message sent successfully! We'll be in touch soon.
+                </motion.div>
               )}
               {status === 'error' && (
                 <div className="bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 mb-6 text-sm flex items-center gap-2">

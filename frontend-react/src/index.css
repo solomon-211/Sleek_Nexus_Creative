@@ -204,6 +204,20 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
+  /* Diamond-lattice motif — a restrained geometric pattern (the kind of
+     repeating diamond/rhombus tiling common across many African textile
+     traditions) rather than a generic dot-grid, so the site's texture reads
+     as considered rather than borrowed from any SaaS template. Kept abstract
+     and simple on purpose — geometric, not literal illustration. */
+  .bg-motif {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 4L56 30L30 56L4 30Z' fill='none' stroke='%23FE7F2D' stroke-width='1.25'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+  }
+  .bg-motif-light {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 4L56 30L30 56L4 30Z' fill='none' stroke='%23FFFFFF' stroke-width='1.25'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+  }
+
   /* Dot-grid background pattern */
   .bg-dots {
     background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);

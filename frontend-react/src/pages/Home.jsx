@@ -12,6 +12,8 @@ import GlitchText from '../components/ui/GlitchText'
 import MarqueeTicker from '../components/ui/MarqueeTicker'
 import SpotlightCard from '../components/ui/SpotlightCard'
 import KineticHeadline from '../components/ui/KineticHeadline'
+import TiltCard from '../components/ui/TiltCard'
+import RevealLink from '../components/ui/RevealLink'
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 const counters = [
@@ -226,9 +228,9 @@ export default function Home() {
                 <div>
                   <h3 className="font-heading text-white text-5xl uppercase leading-none mb-3">Software<br/>Development</h3>
                   <p className="text-white/60 text-sm leading-relaxed mb-5 max-w-sm">Custom platforms engineered for speed, reliability, and clear business outcomes.</p>
-                  <Link to="/services#software-dev" className="inline-flex items-center gap-2 text-accent font-bold text-sm hover:gap-3 transition-all">
+                  <RevealLink to="/services#software-dev" className="inline-flex items-center gap-2 text-accent font-bold text-sm hover:gap-3 transition-all">
                     Explore <i className="fas fa-arrow-right text-xs" />
-                  </Link>
+                  </RevealLink>
                 </div>
               </div>
             </motion.div>
@@ -275,9 +277,9 @@ export default function Home() {
                   <h3 className="font-heading font-black text-dark text-2xl uppercase leading-tight mb-1">IT Consulting &amp; Digital Transformation</h3>
                   <p className="text-muted text-sm">Strategy and implementation that de-risks delivery and accelerates growth.</p>
                 </div>
-                <Link to="/services#consulting" className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 hover:bg-primary flex items-center justify-center text-primary hover:text-white transition-all group-hover:scale-110">
+                <RevealLink to="/services#consulting" className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 hover:bg-primary flex items-center justify-center text-primary hover:text-white transition-all group-hover:scale-110">
                   <i className="fas fa-arrow-right" />
-                </Link>
+                </RevealLink>
               </div>
             </motion.div>
 
@@ -285,12 +287,12 @@ export default function Home() {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} transition={{duration:0.5,delay:0.4}}
               className="bento-cell relative overflow-hidden bg-dark-soft flex items-center justify-center cursor-pointer group">
               <div className="absolute inset-0 bg-dots-light opacity-20" />
-              <Link to="/services" className="relative flex flex-col items-center gap-3 text-center p-6">
+              <RevealLink to="/services" className="relative flex flex-col items-center gap-3 text-center p-6">
                 <div className="w-12 h-12 rounded-full border-2 border-white/20 group-hover:border-primary flex items-center justify-center transition-colors">
                   <i className="fas fa-plus text-white group-hover:text-primary transition-colors" />
                 </div>
                 <span className="text-white font-heading font-bold text-sm uppercase tracking-widest">All Services</span>
-              </Link>
+              </RevealLink>
             </motion.div>
           </div>
         </div>
@@ -413,9 +415,9 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {testimonials.map(({ initials, name, role, text }, i) => (
-              <motion.div key={name}
+              <TiltCard key={name}
+                max={6}
                 className="relative rounded-xl border border-primary/25"
-                style={{ transformPerspective: 800 }}
                 variants={stackReveal(i)} initial="hidden" whileInView="show" viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}>
                 <div className="bg-white rounded-[10px] p-5 sm:p-6 h-full flex flex-col">
@@ -431,7 +433,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </TiltCard>
             ))}
           </div>
         </div>
@@ -458,6 +460,53 @@ export default function Home() {
                 <p className="text-muted text-sm leading-relaxed">{desc}</p>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── How We're Different — addresses the actual decision a buyer is
+           weighing (foreign agency vs. freelancer vs. us) instead of leaving
+           it implied. ── */}
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="text-center mb-10 sm:mb-14">
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">The Real Comparison</p>
+            <h2 className="section-title">Agency, Freelancer, Or Us?</h2>
+            <p className="section-subtitle">Here's how the three options actually compare — no exaggeration, just what each one realistically gives you.</p>
+          </div>
+
+          <motion.div
+            className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm overflow-x-auto"
+            variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6 }}
+          >
+            <table className="w-full border-collapse min-w-[640px]">
+              <thead>
+                <tr className="border-b border-gray-100">
+                  <th className="text-left p-4 sm:p-5 text-xs font-black uppercase tracking-widest text-muted w-1/4">What You're Weighing</th>
+                  <th className="p-4 sm:p-5 text-center text-sm font-heading font-bold text-muted">Foreign Agency</th>
+                  <th className="p-4 sm:p-5 text-center text-sm font-heading font-bold text-muted">Independent Freelancer</th>
+                  <th className="p-4 sm:p-5 text-center bg-primary/5">
+                    <span className="block font-heading font-bold text-dark">Sleek Nexus Creative</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: 'Local Context', agency: "Works from assumptions about local conditions", freelancer: 'May understand context, but working alone', us: "Based in Juba — we build against South Sudan's real infrastructure, not a guess" },
+                  { label: 'Team & Accountability', agency: 'A full team, but distant and hard to reach', freelancer: 'One person — no backup if unavailable', us: 'A registered team with real structure and accountability' },
+                  { label: 'Pricing', agency: 'International rates, often several times local cost', freelancer: 'Cheap upfront, but quality and follow-through vary', us: 'Built for local budgets, with transparent, tiered pricing' },
+                  { label: 'Post-Launch Support', agency: 'Often a separate contract, slow across time zones', freelancer: 'Support usually ends once the invoice is paid', us: 'Included support (30 days–1 year by tier) plus staff training' },
+                  { label: 'Communication', agency: 'Account managers and time-zone lag', freelancer: 'Direct, but no process behind it', us: 'Same time zone, direct access to the people actually building it' },
+                ].map(({ label, agency, freelancer, us }, i) => (
+                  <tr key={label} className={i % 2 === 1 ? 'bg-gray-50/60' : ''}>
+                    <td className="p-4 sm:p-5 text-sm font-semibold text-dark-soft">{label}</td>
+                    <td className="p-4 sm:p-5 text-center text-sm text-muted">{agency}</td>
+                    <td className="p-4 sm:p-5 text-center text-sm text-muted">{freelancer}</td>
+                    <td className="p-4 sm:p-5 text-center text-sm text-dark bg-primary/5 font-medium">{us}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </motion.div>
         </div>
       </section>
