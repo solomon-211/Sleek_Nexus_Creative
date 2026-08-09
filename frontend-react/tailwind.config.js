@@ -32,7 +32,10 @@ export default {
         'accent-dark': '#233D4D',
         dark: '#000000',
         'dark-soft': '#233D4D',
-        muted: 'rgba(35, 61, 77, 0.65)',
+        // 0.72 alpha, not the visually-closer 0.65, because 0.65 only reaches
+        // 4.04:1 contrast against white — under WCAG AA's 4.5:1 minimum for
+        // normal-size text. 0.72 clears it at 4.92:1.
+        muted: 'rgba(35, 61, 77, 0.72)',
         surface: '#EAECF0',
       },
       fontFamily: {

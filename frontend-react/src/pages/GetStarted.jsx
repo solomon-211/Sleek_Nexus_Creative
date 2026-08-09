@@ -206,54 +206,54 @@ export default function GetStarted() {
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-dark mb-1.5">Full Name *</label>
-                    <input {...register('name')} className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${errors.name ? 'border-red-400' : 'border-gray-200'}`} placeholder="Your full name" />
-                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                    <label htmlFor="gs-name" className="block text-sm font-medium text-dark mb-1.5">Full Name *</label>
+                    <input id="gs-name" {...register('name')} aria-invalid={!!errors.name} aria-describedby={errors.name ? 'gs-name-error' : undefined} className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${errors.name ? 'border-red-400' : 'border-gray-200'}`} placeholder="Your full name" />
+                    {errors.name && <p id="gs-name-error" className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-dark mb-1.5">Email Address *</label>
-                    <input {...register('email')} type="email" className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${errors.email ? 'border-red-400' : 'border-gray-200'}`} placeholder="your@email.com" />
-                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                    <label htmlFor="gs-email" className="block text-sm font-medium text-dark mb-1.5">Email Address *</label>
+                    <input id="gs-email" {...register('email')} type="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'gs-email-error' : undefined} className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${errors.email ? 'border-red-400' : 'border-gray-200'}`} placeholder="your@email.com" />
+                    {errors.email && <p id="gs-email-error" className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-dark mb-1.5">Phone / WhatsApp</label>
-                    <input {...register('phone')} type="tel" className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" placeholder="+211 xxx xxx xxx" />
+                    <label htmlFor="gs-phone" className="block text-sm font-medium text-dark mb-1.5">Phone / WhatsApp</label>
+                    <input id="gs-phone" {...register('phone')} type="tel" className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" placeholder="+211 xxx xxx xxx" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-dark mb-1.5">Organization</label>
-                    <input {...register('company')} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" placeholder="Your organization" />
+                    <label htmlFor="gs-company" className="block text-sm font-medium text-dark mb-1.5">Organization</label>
+                    <input id="gs-company" {...register('company')} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" placeholder="Your organization" />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-dark mb-1.5">Service Needed *</label>
-                  <select {...register('service')} className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${errors.service ? 'border-red-400' : 'border-gray-200'}`}>
+                  <label htmlFor="gs-service" className="block text-sm font-medium text-dark mb-1.5">Service Needed *</label>
+                  <select id="gs-service" {...register('service')} aria-invalid={!!errors.service} aria-describedby={errors.service ? 'gs-service-error' : undefined} className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${errors.service ? 'border-red-400' : 'border-gray-200'}`}>
                     <option value="">Select a service</option>
                     {services.map(s => <option key={s} value={s}>{s}</option>)}
                   </select>
-                  {errors.service && <p className="text-red-500 text-xs mt-1">{errors.service.message}</p>}
+                  {errors.service && <p id="gs-service-error" className="text-red-500 text-xs mt-1">{errors.service.message}</p>}
                 </div>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-dark mb-1.5">Budget Range</label>
-                    <select {...register('budget')} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors">
+                    <label htmlFor="gs-budget" className="block text-sm font-medium text-dark mb-1.5">Budget Range</label>
+                    <select id="gs-budget" {...register('budget')} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors">
                       <option value="">Select budget</option>
                       {budgets.map(b => <option key={b} value={b}>{b}</option>)}
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-dark mb-1.5">Timeline</label>
-                    <select {...register('timeline')} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors">
+                    <label htmlFor="gs-timeline" className="block text-sm font-medium text-dark mb-1.5">Timeline</label>
+                    <select id="gs-timeline" {...register('timeline')} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors">
                       <option value="">Select timeline</option>
                       {timelines.map(t => <option key={t} value={t}>{t}</option>)}
                     </select>
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-dark mb-1.5">Project Description *</label>
-                  <textarea {...register('description')} rows={5} className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-none ${errors.description ? 'border-red-400' : 'border-gray-200'}`} placeholder="Describe your project — what problem does it solve, who uses it, and what features do you need?" />
-                  {errors.description && <p className="text-red-500 text-xs mt-1">{errors.description.message}</p>}
+                  <label htmlFor="gs-description" className="block text-sm font-medium text-dark mb-1.5">Project Description *</label>
+                  <textarea id="gs-description" {...register('description')} rows={5} aria-invalid={!!errors.description} aria-describedby={errors.description ? 'gs-description-error' : undefined} className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-none ${errors.description ? 'border-red-400' : 'border-gray-200'}`} placeholder="Describe your project — what problem does it solve, who uses it, and what features do you need?" />
+                  {errors.description && <p id="gs-description-error" className="text-red-500 text-xs mt-1">{errors.description.message}</p>}
                 </div>
                 <button type="submit" disabled={isSubmitting} className="btn-primary w-full justify-center py-3 disabled:opacity-60">
                   {isSubmitting ? <><i className="fas fa-spinner fa-spin" /> Sending...</> : 'Submit Project Brief'}

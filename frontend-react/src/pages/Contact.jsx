@@ -84,29 +84,29 @@ export default function Contact() {
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-dark mb-1.5">Full Name *</label>
-                    <input {...register('name')} className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${errors.name ? 'border-red-400' : 'border-gray-200'}`} placeholder="Your full name" />
-                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                    <label htmlFor="contact-name" className="block text-sm font-medium text-dark mb-1.5">Full Name *</label>
+                    <input id="contact-name" {...register('name')} aria-invalid={!!errors.name} aria-describedby={errors.name ? 'contact-name-error' : undefined} className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${errors.name ? 'border-red-400' : 'border-gray-200'}`} placeholder="Your full name" />
+                    {errors.name && <p id="contact-name-error" className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-dark mb-1.5">Email Address *</label>
-                    <input {...register('email')} type="email" className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${errors.email ? 'border-red-400' : 'border-gray-200'}`} placeholder="your@email.com" />
-                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                    <label htmlFor="contact-email" className="block text-sm font-medium text-dark mb-1.5">Email Address *</label>
+                    <input id="contact-email" {...register('email')} type="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'contact-email-error' : undefined} className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${errors.email ? 'border-red-400' : 'border-gray-200'}`} placeholder="your@email.com" />
+                    {errors.email && <p id="contact-email-error" className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-dark mb-1.5">Phone Number</label>
-                    <input {...register('phone')} type="tel" className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" placeholder="+211 xxx xxx xxx" />
+                    <label htmlFor="contact-phone" className="block text-sm font-medium text-dark mb-1.5">Phone Number</label>
+                    <input id="contact-phone" {...register('phone')} type="tel" className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" placeholder="+211 xxx xxx xxx" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-dark mb-1.5">Company / Organization</label>
-                    <input {...register('company')} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" placeholder="Your organization" />
+                    <label htmlFor="contact-company" className="block text-sm font-medium text-dark mb-1.5">Company / Organization</label>
+                    <input id="contact-company" {...register('company')} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" placeholder="Your organization" />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-dark mb-1.5">Service Interested In</label>
-                  <select {...register('service')} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors">
+                  <label htmlFor="contact-service" className="block text-sm font-medium text-dark mb-1.5">Service Interested In</label>
+                  <select id="contact-service" {...register('service')} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors">
                     <option value="">Select a service</option>
                     <option value="software-dev">Software Development</option>
                     <option value="web-mobile">Web & Mobile Apps</option>
@@ -116,9 +116,9 @@ export default function Contact() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-dark mb-1.5">Your Message *</label>
-                  <textarea {...register('message')} rows={5} className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-none ${errors.message ? 'border-red-400' : 'border-gray-200'}`} placeholder="Tell us about your project..." />
-                  {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
+                  <label htmlFor="contact-message" className="block text-sm font-medium text-dark mb-1.5">Your Message *</label>
+                  <textarea id="contact-message" {...register('message')} rows={5} aria-invalid={!!errors.message} aria-describedby={errors.message ? 'contact-message-error' : undefined} className={`w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-none ${errors.message ? 'border-red-400' : 'border-gray-200'}`} placeholder="Tell us about your project..." />
+                  {errors.message && <p id="contact-message-error" className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
                 </div>
                 <button type="submit" disabled={isSubmitting} className="btn-primary w-full justify-center py-3 disabled:opacity-60">
                   {isSubmitting ? <><i className="fas fa-spinner fa-spin" /> Sending...</> : <><i className="fas fa-paper-plane" /> Send Message</>}

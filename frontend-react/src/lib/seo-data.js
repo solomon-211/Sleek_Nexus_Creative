@@ -16,8 +16,8 @@ export const pageSeo = {
     keywords: 'web development South Sudan, mobile apps Juba, IT consulting South Sudan, e-learning platform South Sudan, software company Juba, Sleek Nexus Creative, SNC technology',
     image: 'https://sleeknexuscreative.com/images/hero-tech.jpg',
     imageAlt: 'Sleek Nexus Creative — Technology & Innovation for South Sudan',
-    imageWidth: 2560,
-    imageHeight: 1920,
+    imageWidth: 1600,
+    imageHeight: 1200,
     schema: [
       {
         '@context': 'https://schema.org',
@@ -55,8 +55,8 @@ export const pageSeo = {
     keywords: 'innovation hub South Sudan, tech hub Juba, software development South Sudan, digital transformation South Sudan, SNC hub, startup incubation South Sudan, SDGs technology',
     image: 'https://sleeknexuscreative.com/images/about-preview.jpg',
     imageAlt: 'SNC Innovation Hub — Technology and Digital Solutions',
-    imageWidth: 1920,
-    imageHeight: 1440,
+    imageWidth: 1600,
+    imageHeight: 1200,
     breadcrumbs: [{ name: 'Innovation Hub', url: '/innovation-hub' }],
     faq: [
       { q: 'What is the SNC Innovation Hub?', a: 'The SNC Innovation Hub is a technology and innovation ecosystem in Juba, South Sudan that delivers custom software, digital transformation, and startup support — aligned with the UN Sustainable Development Goals.' },
@@ -73,8 +73,8 @@ export const pageSeo = {
     keywords: 'about Sleek Nexus Creative, technology company Juba, software company South Sudan, SNC founders, tech company mission South Sudan',
     image: 'https://sleeknexuscreative.com/images/company-story.jpg',
     imageAlt: 'Sleek Nexus Creative team in Juba, South Sudan',
-    imageWidth: 1920,
-    imageHeight: 1440,
+    imageWidth: 1600,
+    imageHeight: 1200,
     breadcrumbs: [{ name: 'About', url: '/about' }],
   },
 
@@ -112,8 +112,8 @@ export const pageSeo = {
     keywords: 'start a project, hire software developers South Sudan, web development quote, mobile app development Africa',
     image: 'https://sleeknexuscreative.com/images/about-preview.jpg',
     imageAlt: 'Start a project with Sleek Nexus Creative',
-    imageWidth: 1920,
-    imageHeight: 1440,
+    imageWidth: 1600,
+    imageHeight: 1200,
     breadcrumbs: [{ name: 'Get Started', url: '/get-started' }],
     faq: [
       { q: 'Do I need to know exactly what I want before reaching out?', a: 'No. Most clients start with a general idea or a problem they need solved. Our discovery call is designed to help shape that into a clear, buildable scope together.' },

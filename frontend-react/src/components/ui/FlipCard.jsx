@@ -29,10 +29,16 @@ export default function FlipCard({ front, back, className = '', ...motionProps }
       ref={ref}
       className={`relative ${className}`}
       style={{ perspective: 1200 }}
+      role="button"
+      tabIndex={0}
+      aria-pressed={flipped}
       onMouseEnter={() => setFlipped(true)}
       onMouseMove={handleMouseMove}
       onMouseLeave={() => { setFlipped(false); tiltX.set(0) }}
+      onFocus={() => setFlipped(true)}
+      onBlur={() => { setFlipped(false); tiltX.set(0) }}
       onClick={() => setFlipped(f => !f)}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFlipped(f => !f) } }}
       {...motionProps}
     >
       <motion.div
