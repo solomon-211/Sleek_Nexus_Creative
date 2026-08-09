@@ -120,7 +120,7 @@ export default function Branding() {
               viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
             >
               <img
-                src="/images/Rise leadership Academy.png"
+                src="/images/rise-leadership-academy.png"
                 alt="Rise Leadership Academy Logo"
                 className="rounded-2xl shadow-xl w-full h-[420px] object-cover"
                 loading="lazy"
