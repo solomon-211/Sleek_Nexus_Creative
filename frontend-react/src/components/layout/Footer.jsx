@@ -35,9 +35,7 @@ const socials = [
   { href: 'https://www.facebook.com/share/183ufB9mqx/?mibextid=wwXIfr',                           icon: 'fab fa-facebook-f',  label: 'Facebook',  bg: '#1877f2' },
   { href: 'https://twitter.com/SNC',                                                               icon: 'fab fa-x-twitter',   label: 'Twitter',   bg: '#1D2128' },
   { href: 'https://www.linkedin.com/company/sleek-nexus-creative/',                               icon: 'fab fa-linkedin-in', label: 'LinkedIn',  bg: '#0a66c2' },
-  { href: 'https://wa.me/211925277700',                                                            icon: 'fab fa-whatsapp',    label: 'WhatsApp',  bg: '#25d366' },
   { href: 'https://www.instagram.com/sleek_nexus_creative?igsh=bmdpanczdzcwNm04&utm_source=qr', icon: 'fab fa-instagram',   label: 'Instagram', bg: '#e1306c' },
-  { href: 'https://www.tiktok.com/@SNC',                                                          icon: 'fab fa-tiktok',      label: 'TikTok',    bg: '#1D2128' },
   { href: 'https://www.youtube.com/@SNC',                                                         icon: 'fab fa-youtube',     label: 'YouTube',   bg: '#ff0000' },
 ]
 
@@ -127,50 +125,46 @@ export default function Footer() {
                Company and Services already do as row 1. ── */}
           <div className="sm:col-span-2 lg:col-span-3 grid grid-cols-2 gap-x-8 gap-y-8">
             {navColumns.map(({ heading, links }) => (
-              <div key={heading} className="flex justify-center">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-white mb-4 border-b border-white/10 pb-2">
-                    {heading}
-                  </p>
-                  <ul className="space-y-2.5">
-                    {links.map(({ label, to }) => (
-                      <li key={label}>
-                        <Link
-                          to={to}
-                          className={`text-sm transition-colors hover:text-primary ${
-                            pathname === to ? 'text-primary font-semibold' : 'text-white/70'
-                          }`}
-                        >
-                          {label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div key={heading}>
+                <p className="text-xs font-bold uppercase tracking-widest text-white mb-4 border-b border-white/10 pb-2">
+                  {heading}
+                </p>
+                <ul className="space-y-2.5">
+                  {links.map(({ label, to }) => (
+                    <li key={label}>
+                      <Link
+                        to={to}
+                        className={`text-sm transition-colors hover:text-primary ${
+                          pathname === to ? 'text-primary font-semibold' : 'text-white/70'
+                        }`}
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
 
-            <div className="flex justify-center">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-white mb-4 border-b border-white/10 pb-2">
-                  Follow Us
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {socials.map(({ href, icon, label, bg }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                      title={label}
-                      className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs transition-opacity hover:opacity-80"
-                      style={{ backgroundColor: bg }}
-                    >
-                      <i className={icon} />
-                    </a>
-                  ))}
-                </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-white mb-4 border-b border-white/10 pb-2">
+                Follow Us
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {socials.map(({ href, icon, label, bg }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    title={label}
+                    className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs transition-opacity hover:opacity-80"
+                    style={{ backgroundColor: bg }}
+                  >
+                    <i className={icon} />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
