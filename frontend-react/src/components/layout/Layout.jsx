@@ -2,7 +2,6 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import ScrollToTop from '../ui/ScrollToTop'
 import CookieBanner from '../ui/CookieBanner'
-import CommandPalette from '../ui/CommandPalette'
 import { TransitionProvider } from '../ui/TransitionOverlay'
 import { motion } from 'framer-motion'
 import { pageVariants } from '../../lib/animations'
@@ -17,7 +16,6 @@ export default function Layout({ children }) {
         >
           Skip to main content
         </a>
-        <CommandPalette />
         <ScrollToTop />
         <Navbar />
         <motion.main

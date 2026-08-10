@@ -5,7 +5,6 @@ import { fadeUp, fadeLeft, fadeRight, rotateIn, staggerContainer, scaleIn, stack
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import MagneticButton from '../components/ui/MagneticButton'
-import ScrollySteps from '../components/ui/ScrollySteps'
 import AnimatedCounter from '../components/ui/AnimatedCounter'
 import GlitchText from '../components/ui/GlitchText'
 import MarqueeTicker from '../components/ui/MarqueeTicker'
@@ -288,13 +287,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How We Work — pinned scrollytelling */}
-      <ScrollySteps
-        eyebrow="Our Process"
-        heading="How We Work"
-        subheading="A clear, structured process from your first message to a live product."
-        steps={processSteps}
-      />
+      {/* How We Work — process steps */}
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="text-center mb-10 sm:mb-14">
+            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Our Process</p>
+            <h2 className="section-title">How We Work</h2>
+            <p className="section-subtitle">A clear, structured process from your first message to a live product.</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {processSteps.map(({ num, icon, title, desc }, i) => (
+              <motion.div key={num}
+                className="relative card p-6"
+                variants={rotateIn} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <span className="text-6xl font-black text-primary/[0.08] font-heading leading-none absolute top-3 right-4 select-none">{num}</span>
+                <div className="relative w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5">
+                  <i className={`fas ${icon} text-primary text-lg`} />
+                </div>
+                <h3 className="relative font-heading font-black text-dark text-lg mb-2">{title}</h3>
+                <p className="relative text-muted text-sm leading-relaxed">{desc}</p>
+                {i < processSteps.length - 1 && (
+                  <i className="fas fa-arrow-right text-primary/30 text-lg hidden lg:block absolute top-1/2 -right-3 -translate-y-1/2 z-10" />
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Live Product Spotlight — EduPortal South Sudan */}
       <section className="relative overflow-hidden bg-noise py-16 sm:py-24 bg-dark text-white">

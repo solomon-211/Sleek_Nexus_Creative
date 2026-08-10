@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import SearchBar from '../ui/SearchBar'
 
 // ── Nav data ──────────────────────────────────────────────────────────────────
 const navLinks = [
@@ -34,7 +35,7 @@ function DropdownMenu({ items }) {
         <li key={to}>
           <Link
             to={to}
-            className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-dark-soft hover:text-primary hover:bg-primary/[0.06] transition-colors rounded-lg mx-1"
+            className="flex items-center gap-2.5 px-4 py-2.5 text-sm uppercase text-dark-soft hover:text-primary hover:bg-primary/[0.06] transition-colors rounded-lg mx-1"
           >
             <i className={`fas ${icon} text-primary w-4 text-xs flex-shrink-0`} />
             {label}
@@ -51,22 +52,15 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null)
   const [mobileOpen,   setMobileOpen]   = useState(null)
   const [scrolled,     setScrolled]     = useState(false)
-  const [progress,     setProgress]     = useState(0)
   const location = useLocation()
   const navRef   = useRef(null)
 
   // Close menus on route change
   useEffect(() => { setMenuOpen(false); setOpenDropdown(null); setMobileOpen(null) }, [location])
 
-  // Scroll progress bar + scrolled shadow
+  // Scrolled shadow
   useEffect(() => {
-    const onScroll = () => {
-      const doc = document.documentElement
-      const scrollTop = window.scrollY
-      const max = doc.scrollHeight - window.innerHeight || 1
-      setProgress(Math.min((scrollTop / max) * 100, 100))
-      setScrolled(scrollTop > 40)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -82,7 +76,7 @@ export default function Navbar() {
 
   // Desktop link style
   const linkClass = ({ isActive }) =>
-    `text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 whitespace-nowrap ${
+    `text-sm font-medium uppercase px-3 py-2 rounded-lg transition-all duration-200 whitespace-nowrap ${
       isActive
         ? 'text-primary font-semibold'
         : 'text-white/80 hover:text-white hover:bg-white/[0.08]'
@@ -95,12 +89,6 @@ export default function Navbar() {
         scrolled ? 'shadow-[0_4px_24px_rgba(0,0,0,0.25)]' : ''
       }`}
     >
-      {/* Scroll progress bar — flat primary color */}
-      <div
-        className="absolute top-0 left-0 h-[3px] bg-primary rounded-r-sm transition-[width] duration-100"
-        style={{ width: `${progress}%` }}
-      />
-
       {/* Bottom border accent */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-primary/40" />
 
@@ -119,7 +107,7 @@ export default function Navbar() {
               className="h-[46px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
             <span className="flex flex-col leading-none">
-              <span className="text-[0.8rem] sm:text-[0.95rem] font-extrabold font-heading whitespace-nowrap">
+              <span className="text-[0.8rem] sm:text-[0.95rem] font-extrabold font-heading uppercase whitespace-nowrap">
                 <span className="text-accent">Sleek </span>
                 <span className="text-primary">Nexus</span>
                 <span className="text-accent"> Creative</span>
@@ -142,7 +130,7 @@ export default function Navbar() {
                   <NavLink
                     to={to}
                     className={({ isActive }) =>
-                      `flex items-center gap-1.5 text-sm font-bold px-3 py-1.5 rounded-lg transition-all duration-200 whitespace-nowrap border ${
+                      `flex items-center gap-1.5 text-sm font-bold uppercase px-3 py-1.5 rounded-lg transition-all duration-200 whitespace-nowrap border ${
                         isActive
                           ? 'bg-accent text-white border-accent'
                           : 'text-accent border-accent/50 hover:bg-accent hover:text-white hover:border-accent'
@@ -153,7 +141,7 @@ export default function Navbar() {
                   </NavLink>
                 ) : dropdown ? (
                   <button
-                    className={`flex items-center gap-1 text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 whitespace-nowrap ${
+                    className={`flex items-center gap-1 text-sm font-medium uppercase px-3 py-2 rounded-lg transition-all duration-200 whitespace-nowrap ${
                       openDropdown === label
                         ? 'text-white bg-white/[0.12] shadow-[inset_0_-2px_0_0_#FE7F2D]'
                         : 'text-white/80 hover:text-white hover:bg-white/[0.08]'
@@ -174,27 +162,18 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* ── Command palette trigger ── */}
-          <button
-            type="button"
-            onClick={() => window.dispatchEvent(new Event('snc-open-command-palette'))}
-            className="hidden lg:flex items-center gap-2 text-white/60 hover:text-white bg-white/[0.06] hover:bg-white/[0.1] border border-white/10 rounded-lg px-3 py-2 text-sm transition-colors flex-shrink-0"
-            aria-label="Open quick search"
-          >
-            <i className="fas fa-magnifying-glass text-xs" />
-            <span className="text-white/40">Search</span>
-            <kbd className="text-[0.65rem] font-semibold bg-white/10 border border-white/10 rounded px-1.5 py-0.5 ml-1">⌘K</kbd>
-          </button>
-
           {/* ── Get Started CTA ── */}
           <div className="hidden lg:flex items-center flex-shrink-0">
             <Link
               to="/get-started"
-              className="btn-primary text-sm"
+              className="btn-primary text-sm uppercase"
             >
               Get Started
             </Link>
           </div>
+
+          {/* ── Search bar ── */}
+          <SearchBar className="hidden lg:block w-36 flex-shrink-0" />
 
           {/* ── Hamburger ── */}
           <button
@@ -248,7 +227,7 @@ export default function Navbar() {
                     <>
                       {/* Dropdown toggle */}
                       <button
-                        className="w-full flex items-center justify-between px-6 py-3.5 text-base font-medium border-b border-white/[0.06] text-white/80 hover:text-white hover:bg-white/[0.05] transition-colors"
+                        className="w-full flex items-center justify-between px-6 py-3.5 text-base font-medium uppercase border-b border-white/[0.06] text-white/80 hover:text-white hover:bg-white/[0.05] transition-colors"
                         onClick={() => setMobileOpen(mobileOpen === label ? null : label)}
                       >
                         {label}
@@ -270,7 +249,7 @@ export default function Navbar() {
                                 <Link
                                   to={dt}
                                   onClick={() => setMenuOpen(false)}
-                                  className="flex items-center gap-2.5 px-10 py-3 text-sm text-white/65 hover:text-white hover:bg-white/[0.06] border-b border-white/[0.04] transition-colors"
+                                  className="flex items-center gap-2.5 px-10 py-3 text-sm uppercase text-white/65 hover:text-white hover:bg-white/[0.06] border-b border-white/[0.04] transition-colors"
                                 >
                                   <i className={`fas ${icon} text-accent w-4 text-xs flex-shrink-0`} />
                                   {dl}
@@ -287,7 +266,7 @@ export default function Navbar() {
                       to={to}
                       onClick={() => setMenuOpen(false)}
                       className={({ isActive }) =>
-                        `flex items-center gap-2 w-full px-6 py-3.5 text-base font-bold border-b border-white/[0.06] transition-colors ${
+                        `flex items-center gap-2 w-full px-6 py-3.5 text-base font-bold uppercase border-b border-white/[0.06] transition-colors ${
                           isActive
                             ? 'text-accent bg-accent/10'
                             : 'text-accent hover:bg-accent/10'
@@ -306,7 +285,7 @@ export default function Navbar() {
                       end={to === '/'}
                       onClick={() => setMenuOpen(false)}
                       className={({ isActive }) =>
-                        `block w-full px-6 py-3.5 text-base font-medium border-b border-white/[0.06] transition-colors ${
+                        `block w-full px-6 py-3.5 text-base font-medium uppercase border-b border-white/[0.06] transition-colors ${
                           isActive
                             ? 'text-white bg-white/[0.08] border-l-[3px] border-l-primary pl-[calc(1.5rem-3px)]'
                             : 'text-white/75 hover:text-white hover:bg-white/[0.05]'
@@ -319,23 +298,16 @@ export default function Navbar() {
                 </li>
               ))}
 
-              {/* Search in mobile menu */}
-              <li>
-                <button
-                  type="button"
-                  onClick={() => { setMenuOpen(false); window.dispatchEvent(new Event('snc-open-command-palette')) }}
-                  className="w-full flex items-center gap-2.5 px-6 py-3.5 text-base font-medium border-b border-white/[0.06] text-white/75 hover:text-white hover:bg-white/[0.05] transition-colors"
-                >
-                  <i className="fas fa-magnifying-glass text-accent text-xs w-4 flex-shrink-0" />
-                  Search
-                </button>
-              </li>
-
               {/* Get Started in mobile menu */}
               <li className="px-6 py-4">
-                <Link to="/get-started" className="btn-primary text-sm w-full justify-center">
+                <Link to="/get-started" className="btn-primary text-sm uppercase w-full justify-center">
                   Get Started
                 </Link>
+              </li>
+
+              {/* Search in mobile menu */}
+              <li className="px-6 pb-4">
+                <SearchBar className="w-full" onNavigate={() => setMenuOpen(false)} />
               </li>
             </ul>
           </motion.div>

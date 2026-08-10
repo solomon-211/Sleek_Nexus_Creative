@@ -6,7 +6,6 @@ import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import MagneticButton from '../components/ui/MagneticButton'
 import PricingEstimator from '../components/ui/PricingEstimator'
-import PackageComparisonTable from '../components/ui/PackageComparisonTable'
 import TiltCard from '../components/ui/TiltCard'
 import { packages } from '../lib/packages-data'
 
@@ -219,10 +218,6 @@ export default function Services() {
                 </TiltCard>
               </motion.div>
             ))}
-          </div>
-
-          <div className="mt-10">
-            <PackageComparisonTable packages={packages} />
           </div>
 
           <p className="text-center text-sm text-muted mt-8">
