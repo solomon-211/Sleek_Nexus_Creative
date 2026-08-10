@@ -20,7 +20,7 @@ const navItems = [
 
 const Section = ({ id, icon, title, children }) => (
   <section id={id} className="mb-10 scroll-mt-24">
-    <h2 className="text-xl font-heading font-bold text-dark mb-4 flex items-center gap-2">
+    <h2 className="text-2xl font-heading font-black uppercase text-dark mb-4 flex items-center gap-2">
       <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
         <i className={`fas ${icon} text-primary text-xs`} />
       </span>
@@ -45,7 +45,7 @@ export default function Terms() {
       <SEO {...pageSeo['/terms']} />
 
       {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-20 text-center" style={{background:'linear-gradient(160deg,#233D4D 0%,#000000 60%)'}}>
+      <section className="relative overflow-hidden bg-noise text-white py-20 text-center bg-[#215E61]">
         <div className="max-w-3xl mx-auto px-6">
           <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Legal</p>
           <h1 className="text-4xl md:text-6xl font-heading font-black uppercase mb-3">Terms of Service</h1>

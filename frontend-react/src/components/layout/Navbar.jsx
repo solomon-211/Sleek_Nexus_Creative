@@ -91,18 +91,18 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 bg-dark ${
-        scrolled ? 'shadow-[0_4px_24px_rgba(0,0,0,0.4)]' : ''
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 bg-[#215E61] ${
+        scrolled ? 'shadow-[0_4px_24px_rgba(0,0,0,0.25)]' : ''
       }`}
     >
-      {/* Scroll progress bar */}
+      {/* Scroll progress bar — flat primary color */}
       <div
-        className="absolute top-0 left-0 h-[3px] bg-gradient-to-r from-primary to-accent rounded-r-sm transition-[width] duration-100"
+        className="absolute top-0 left-0 h-[3px] bg-primary rounded-r-sm transition-[width] duration-100"
         style={{ width: `${progress}%` }}
       />
 
-      {/* Bottom border — subtle maroon accent line */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      {/* Bottom border accent */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-primary/40" />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-[72px] gap-4">
@@ -144,8 +144,8 @@ export default function Navbar() {
                     className={({ isActive }) =>
                       `flex items-center gap-1.5 text-sm font-bold px-3 py-1.5 rounded-lg transition-all duration-200 whitespace-nowrap border ${
                         isActive
-                          ? 'bg-accent text-white border-accent shadow-[0_0_16px_rgba(254,127,45,0.4)]'
-                          : 'text-accent border-accent/50 hover:bg-accent hover:text-white hover:border-accent hover:shadow-[0_0_16px_rgba(254,127,45,0.3)]'
+                          ? 'bg-accent text-white border-accent'
+                          : 'text-accent border-accent/50 hover:bg-accent hover:text-white hover:border-accent'
                       }`
                     }
                   >
@@ -190,7 +190,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center flex-shrink-0">
             <Link
               to="/get-started"
-              className="btn-primary text-sm shadow-[0_0_20px_rgba(254,127,45,0.3)] hover:shadow-[0_0_28px_rgba(254,127,45,0.45)]"
+              className="btn-primary text-sm"
             >
               Get Started
             </Link>
@@ -223,7 +223,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden fixed inset-0 bg-black/50"
+            className="lg:hidden fixed inset-0 bg-[#1D2128]/50"
             style={{ top: '72px', zIndex: 9997 }}
             onClick={() => setMenuOpen(false)}
           />
@@ -239,7 +239,7 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
             style={{ zIndex: 9998 }}
-            className="lg:hidden relative border-t border-white/10 bg-dark shadow-[0_16px_40px_rgba(0,0,0,0.4)] max-h-[calc(100vh-72px)] overflow-y-auto"
+            className="lg:hidden relative border-t border-white/10 bg-[#215E61] shadow-[0_16px_40px_rgba(0,0,0,0.2)] max-h-[calc(100vh-72px)] overflow-y-auto"
           >
             <ul className="py-2">
               {navLinks.map(({ label, to, dropdown, highlight }) => (
@@ -263,7 +263,7 @@ export default function Navbar() {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.15 }}
-                            className="bg-black/20 list-none overflow-hidden"
+                            className="bg-white/10 list-none overflow-hidden"
                           >
                             {dropdown.map(({ icon, label: dl, to: dt }) => (
                               <li key={dt}>

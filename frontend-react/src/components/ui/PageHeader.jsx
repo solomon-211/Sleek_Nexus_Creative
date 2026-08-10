@@ -22,10 +22,6 @@ export default function PageHeader({ label, title, desc, breadcrumb, actions, co
           plain white first section, so the hero needs its own identity
           rather than fading straight into the content that follows. */}
       <div className="absolute inset-0 bg-motif opacity-[0.05] pointer-events-none" />
-      {/* Glow orbs — soft color wash over the tinted background */}
-      <div className="absolute top-0 right-1/4 w-72 h-72 bg-primary/15 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-accent/15 rounded-full blur-[110px] pointer-events-none" />
-
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 28 }}

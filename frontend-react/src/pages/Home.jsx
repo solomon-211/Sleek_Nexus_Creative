@@ -1,16 +1,14 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useScroll, useTransform, useAnimationControls } from 'framer-motion'
+import { motion, useAnimationControls } from 'framer-motion'
 import { fadeUp, fadeLeft, fadeRight, rotateIn, staggerContainer, scaleIn, stackReveal } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import MagneticButton from '../components/ui/MagneticButton'
 import ScrollySteps from '../components/ui/ScrollySteps'
-import Hero3DAccent from '../components/ui/Hero3DAccent'
 import AnimatedCounter from '../components/ui/AnimatedCounter'
 import GlitchText from '../components/ui/GlitchText'
 import MarqueeTicker from '../components/ui/MarqueeTicker'
-import SpotlightCard from '../components/ui/SpotlightCard'
 import KineticHeadline from '../components/ui/KineticHeadline'
 import TiltCard from '../components/ui/TiltCard'
 import RevealLink from '../components/ui/RevealLink'
@@ -50,14 +48,6 @@ const whyCards = [
 // ─── Home ─────────────────────────────────────────────────────────────────────
 
 export default function Home() {
-  // Parallax: the background glow orbs drift at a fraction of scroll speed while the
-  // hero content scrolls at normal speed — the classic "background slower than
-  // foreground" parallax effect, scoped to the hero section only.
-  const heroRef = useRef(null)
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
-  const orb1Y = useTransform(scrollYProgress, [0, 1], [0, 120])
-  const orb2Y = useTransform(scrollYProgress, [0, 1], [0, -80])
-
   // Float is kicked off imperatively in an effect (post-mount, post-paint) rather
   // than left to the declarative `animate` prop on first render. On a cold load —
   // first visit straight to "/", nothing cached yet — an `animate` prop with
@@ -76,22 +66,10 @@ export default function Home() {
 
       {/* Hero */}
       <section
-        ref={heroRef}
         className="relative min-h-screen flex items-center bg-white overflow-hidden"
-        style={{
-          backgroundImage: `radial-gradient(ellipse at 70% 20%, rgba(254,127,45,.08), transparent 55%),
-            radial-gradient(ellipse at 10% 90%, rgba(35,61,77,.07), transparent 45%)`,
-        }}
       >
-        {/* Ambient glow orbs — soft color wash over the white background, parallaxed on scroll */}
-        <motion.div style={{ y: orb1Y }} className="absolute top-1/4 right-[8%] w-96 h-96 bg-primary/10 rounded-full blur-[130px] pointer-events-none" />
-        <motion.div style={{ y: orb2Y }} className="absolute bottom-0 left-[5%] w-80 h-80 bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
-        {/* Giant background wordmark */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-          <span className="font-heading text-[22vw] uppercase leading-none text-stroke-1 text-primary/5 whitespace-nowrap">SNC</span>
-        </div>
         {/* Dot grid overlay */}
-        <div className="absolute inset-0 bg-dots opacity-30 pointer-events-none" />
+        <div className="absolute inset-0 bg-dots opacity-20 pointer-events-none" />
 
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-24 w-full">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -104,7 +82,7 @@ export default function Home() {
                   ['the', (
                     <span key="real-world" className="relative inline-block">
                       <span className="text-accent">Real World</span>
-                      <span className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary rounded-full" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-primary rounded-full" />
                     </span>
                   )],
                 ]} />
@@ -126,23 +104,10 @@ export default function Home() {
               variants={fadeRight} initial="hidden" animate="show" transition={{ duration: 0.8, delay: 0.3 }}
               className="relative"
             >
-              {/* Abstract 3D wireframe accent — sits furthest back, extending beyond
-                  the card's edges as a subtle brand halo. Desktop-only, lazy-loaded,
-                  and skipped entirely under prefers-reduced-motion. */}
-              <Hero3DAccent className="absolute inset-0 items-center justify-center" />
+              {/* Card border accent — flat primary color */}
+              <div className="absolute -inset-[2px] rounded-2xl pointer-events-none border-2 border-primary/20" />
 
-              {/* Static gradient glow — both layers now still, kept small and subtle
-                  so the color wash stays close to the card instead of bleeding out. */}
-              <div
-                className="absolute -inset-3 rounded-[1.75rem] pointer-events-none blur-md opacity-50"
-                style={{ background: 'conic-gradient(from 0deg, #FE7F2D, #FE7F2D, #233D4D, #FE7F2D, #FE7F2D)' }}
-              />
-              <div
-                className="absolute -inset-1 rounded-2xl pointer-events-none opacity-40"
-                style={{ background: 'conic-gradient(from 180deg, #FE7F2D, #233D4D, #FE7F2D, #FE7F2D)' }}
-              />
-
-              {/* Continuous idle float once the card has entered — a small "alive" touch */}
+              {/* Continuous idle float */}
               <motion.div
                 initial={{ y: 0 }}
                 animate={floatControls}
@@ -220,7 +185,6 @@ export default function Home() {
               className="bento-cell lg:col-span-2 lg:row-span-2 relative overflow-hidden group cursor-pointer bg-dark">
               <div className="absolute inset-0 bg-primary/15" />
               <div className="absolute inset-0 bg-dots-light opacity-40" />
-              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-[80px]" />
               <div className="relative h-full flex flex-col justify-between p-8">
                 <div className="w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center">
                   <i className="fas fa-code text-primary text-2xl" />
@@ -236,8 +200,8 @@ export default function Home() {
             </motion.div>
 
             {/* Small cell 1 */}
-            <SpotlightCard variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} transition={{duration:0.5,delay:0.1}}
-              className="bento-cell group cursor-pointer" spotlightColor="rgba(254,127,45,0.18)">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} transition={{duration:0.5,delay:0.1}}
+              className="bento-cell group cursor-pointer relative overflow-hidden">
               <div className="absolute inset-0 bg-primary/5" />
               <div className="relative h-full flex flex-col justify-between p-6">
                 <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -248,11 +212,11 @@ export default function Home() {
                   <p className="text-muted text-xs leading-relaxed">Responsive products for all devices.</p>
                 </div>
               </div>
-            </SpotlightCard>
+            </motion.div>
 
             {/* Small cell 2 */}
-            <SpotlightCard variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} transition={{duration:0.5,delay:0.2}}
-              className="bento-cell group cursor-pointer bg-primary" spotlightColor="rgba(255,255,255,0.25)">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} transition={{duration:0.5,delay:0.2}}
+              className="bento-cell group cursor-pointer bg-primary relative overflow-hidden">
               <div className="absolute inset-0 bg-grid-light opacity-30" />
               <div className="relative h-full flex flex-col justify-between p-6">
                 <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center">
@@ -263,7 +227,7 @@ export default function Home() {
                   <p className="text-white/70 text-xs leading-relaxed">Digital learning tools that expand access.</p>
                 </div>
               </div>
-            </SpotlightCard>
+            </motion.div>
 
             {/* Wide cell — spans 2 cols */}
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} transition={{duration:0.5,delay:0.3}}
@@ -334,8 +298,6 @@ export default function Home() {
 
       {/* Live Product Spotlight — EduPortal South Sudan */}
       <section className="relative overflow-hidden bg-noise py-16 sm:py-24 bg-dark text-white">
-        <div className="absolute top-0 left-[10%] w-80 h-80 bg-primary/20 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-0 right-[8%] w-72 h-72 bg-accent/15 rounded-full blur-[120px] pointer-events-none" />
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }}>
@@ -464,53 +426,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── How We're Different — addresses the actual decision a buyer is
-           weighing (foreign agency vs. freelancer vs. us) instead of leaving
-           it implied. ── */}
-      <section className="py-16 sm:py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="text-center mb-10 sm:mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">The Real Comparison</p>
-            <h2 className="section-title">Agency, Freelancer, Or Us?</h2>
-            <p className="section-subtitle">Here's how the three options actually compare — no exaggeration, just what each one realistically gives you.</p>
-          </div>
-
-          <motion.div
-            className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm overflow-x-auto"
-            variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6 }}
-          >
-            <table className="w-full border-collapse min-w-[640px]">
-              <thead>
-                <tr className="border-b border-gray-100">
-                  <th className="text-left p-4 sm:p-5 text-xs font-black uppercase tracking-widest text-muted w-1/4">What You're Weighing</th>
-                  <th className="p-4 sm:p-5 text-center text-sm font-heading font-bold text-muted">Foreign Agency</th>
-                  <th className="p-4 sm:p-5 text-center text-sm font-heading font-bold text-muted">Independent Freelancer</th>
-                  <th className="p-4 sm:p-5 text-center bg-primary/5">
-                    <span className="block font-heading font-bold text-dark">Sleek Nexus Creative</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { label: 'Local Context', agency: "Works from assumptions about local conditions", freelancer: 'May understand context, but working alone', us: "Based in Juba — we build against South Sudan's real infrastructure, not a guess" },
-                  { label: 'Team & Accountability', agency: 'A full team, but distant and hard to reach', freelancer: 'One person — no backup if unavailable', us: 'A registered team with real structure and accountability' },
-                  { label: 'Pricing', agency: 'International rates, often several times local cost', freelancer: 'Cheap upfront, but quality and follow-through vary', us: 'Built for local budgets, with transparent, tiered pricing' },
-                  { label: 'Post-Launch Support', agency: 'Often a separate contract, slow across time zones', freelancer: 'Support usually ends once the invoice is paid', us: 'Included support (30 days–1 year by tier) plus staff training' },
-                  { label: 'Communication', agency: 'Account managers and time-zone lag', freelancer: 'Direct, but no process behind it', us: 'Same time zone, direct access to the people actually building it' },
-                ].map(({ label, agency, freelancer, us }, i) => (
-                  <tr key={label} className={i % 2 === 1 ? 'bg-gray-50/60' : ''}>
-                    <td className="p-4 sm:p-5 text-sm font-semibold text-dark-soft">{label}</td>
-                    <td className="p-4 sm:p-5 text-center text-sm text-muted">{agency}</td>
-                    <td className="p-4 sm:p-5 text-center text-sm text-muted">{freelancer}</td>
-                    <td className="p-4 sm:p-5 text-center text-sm text-dark bg-primary/5 font-medium">{us}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ── CTA ── */}
       <section className="relative overflow-hidden">
         {/* Left half — dark, Right half — primary */}
@@ -521,12 +436,10 @@ export default function Home() {
         {/* Diagonal divider */}
         <div className="absolute inset-0 bg-primary" style={{clipPath:'polygon(45% 0, 100% 0, 100% 100%, 55% 100%)'}} />
         <div className="absolute inset-0 bg-dark" style={{clipPath:'polygon(0 0, 55% 0, 45% 100%, 0 100%)'}} />
-        {/* Noise + glow */}
+        {/* Noise */}
         <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none" />
-        <div className="absolute top-0 left-[20%] w-72 h-72 bg-accent/20 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 right-[20%] w-72 h-72 bg-white/10 rounded-full blur-[100px] pointer-events-none" />
         {/* Top accent line */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-primary/40" />
 
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-28">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -534,31 +447,25 @@ export default function Home() {
             {/* Left — dark side */}
             <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{once:true}} className="text-white">
               <p className="inline-flex items-center gap-2 text-primary text-sm font-black uppercase tracking-widest mb-6">
-                <span className="w-6 h-px bg-primary" /> Work With Us
+                <span className="w-6 h-px bg-primary" /> Start Here
               </p>
               <h2
                 className="font-heading uppercase leading-[0.9] mb-6"
                 style={{
                   fontSize: 'clamp(4.5rem,9.5vw,8rem)',
                   fontWeight: 800,
-                  textShadow: '4px 4px 0px rgba(254,127,45,0.35), 8px 8px 0px rgba(254,127,45,0.15)',
                 }}
               >
-                <span className="block text-white">Have a</span>
+                <span className="block text-white">Let's Build</span>
                 <span
-                  className="block"
-                  style={{
-                    fontSize: 'clamp(3.5rem, 7.5vw, 6rem)',
-                    WebkitTextStroke: '2px #FE7F2D',
-                    color: 'transparent',
-                    textShadow: '4px 4px 0px rgba(254,127,45,0.25), 8px 8px 0px rgba(0,0,0,0.4)',
-                  }}
-                >Project?</span>
+                  className="block text-white"
+                  style={{ fontSize: 'clamp(3.5rem, 7.5vw, 6rem)' }}
+                >Something Real.</span>
               </h2>
-              <p className="text-white/70 text-base sm:text-lg mb-8 max-w-sm">Tell us what you need. We'll assess it honestly, scope it clearly, and build it right.</p>
+              <p className="text-white/70 text-base sm:text-lg mb-8 max-w-sm">Submit a project brief and hear back within 24 hours — a clear scope, a straight timeline, and pricing that makes sense.</p>
               <MagneticButton>
-                <Link to="/contact" className="inline-flex items-center gap-2 bg-white text-dark hover:bg-gray-100 font-bold px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5 shadow-xl">
-                  Get in Touch <i className="fas fa-arrow-right" />
+                <Link to="/get-started" className="inline-flex items-center gap-2 bg-white text-dark hover:bg-gray-100 font-bold px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5 shadow-xl">
+                  Start a Project <i className="fas fa-arrow-right" />
                 </Link>
               </MagneticButton>
             </motion.div>

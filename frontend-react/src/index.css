@@ -64,34 +64,23 @@
 }
 
 @layer components {
-  /* Animated gradient mesh — the radial blobs are baked into an oversized
-     (200%) background canvas, so panning background-position drifts the
-     whole mesh slowly without needing per-blob custom properties. */
+  /* aurora-bg — removed (no gradients) */
   .aurora-bg {
-    background-image:
-      radial-gradient(circle at 12% 16%, rgba(254, 127, 45, 0.22), transparent 44%),
-      radial-gradient(circle at 88% 24%, rgba(35, 61, 77, 0.18), transparent 40%),
-      radial-gradient(circle at 76% 78%, rgba(254, 127, 45, 0.24), transparent 45%),
-      linear-gradient(150deg, #EAECF0 0%, #ffffff 100%);
-    background-size: 200% 200%;
-    animation: aurora-drift 18s ease-in-out infinite;
+    background-color: #F4F2F2;
   }
   @media (prefers-reduced-motion: reduce) {
     .aurora-bg { animation: none; }
   }
 
   .neo-panel {
-    @apply rounded-[1.5rem] border border-white/60 backdrop-blur-sm;
-    box-shadow: 0 26px 70px -32px rgba(17, 17, 17, 0.28);
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.78));
+    @apply rounded-[1.5rem] border border-gray-200;
+    background: #ffffff;
+    box-shadow: 0 4px 20px -8px rgba(33,94,97,0.12);
   }
 
-  /* ── Gradient text ── */
+  /* ── Gradient text — replaced with flat primary color ── */
   .gradient-text {
-    background: linear-gradient(135deg, #FE7F2D 0%, #233D4D 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #FF9E20;
   }
 
   /* ── Text stroke (outline text) ── */
@@ -117,11 +106,11 @@
     pointer-events: none;
   }
   .glitch-text:hover::before {
-    color: #FE7F2D;
+    color: #FF9E20;
     animation: glitch-1 0.4s steps(1) infinite;
   }
   .glitch-text:hover::after {
-    color: #233D4D;
+    color: #215E61;
     animation: glitch-2 0.4s steps(1) infinite;
   }
 
@@ -142,15 +131,15 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
   }
   .bento-cell:hover {
-    box-shadow: 0 20px 40px -12px rgba(254,127,45,0.2), 0 0 0 1px rgba(254,127,45,0.15);
+    box-shadow: 0 20px 40px -12px rgba(255,158,32,0.2), 0 0 0 1px rgba(255,158,32,0.15);
     transform: translateY(-2px);
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-dark-soft text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(254,127,45,0.3)] hover:shadow-[0_10px_28px_rgba(35,61,77,0.4)] touch-manipulation;
+    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-dark-soft text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(255,158,32,0.28)] hover:shadow-[0_10px_28px_rgba(33,94,97,0.35)] touch-manipulation;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(254,127,45,0.35)] touch-manipulation;
+    @apply inline-flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(255,158,32,0.3)] touch-manipulation;
   }
   .section-title {
     @apply font-heading uppercase text-dark mb-4;
@@ -185,7 +174,7 @@
     letter-spacing: 0.15em;
   }
   .card {
-    @apply bg-white rounded-xl shadow-sm border border-surface hover:border-primary/20 hover:shadow-[0_16px_36px_-12px_rgba(254,127,45,0.22)] hover:-translate-y-1 transition-all duration-300;
+    @apply bg-white rounded-xl shadow-sm border border-surface hover:border-primary/20 hover:shadow-[0_16px_36px_-12px_rgba(255,158,32,0.18)] hover:-translate-y-1 transition-all duration-300;
   }
 }
 
@@ -210,7 +199,7 @@
      as considered rather than borrowed from any SaaS template. Kept abstract
      and simple on purpose — geometric, not literal illustration. */
   .bg-motif {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 4L56 30L30 56L4 30Z' fill='none' stroke='%23FE7F2D' stroke-width='1.25'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 4L56 30L30 56L4 30Z' fill='none' stroke='%23FF9E20' stroke-width='1.25'/%3E%3C/svg%3E");
     background-size: 60px 60px;
   }
   .bg-motif-light {
@@ -218,9 +207,9 @@
     background-size: 60px 60px;
   }
 
-  /* Dot-grid background pattern */
+  /* Dot-grid background pattern — flat semi-transparent dots */
   .bg-dots {
-    background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(33,94,97,0.1) 1px, transparent 1px);
     background-size: 24px 24px;
   }
   .bg-dots-light {

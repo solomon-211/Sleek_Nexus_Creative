@@ -76,7 +76,7 @@ export default function Services() {
       <SEO {...pageSeo['/services']} />
 
       {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-24 text-center" style={{background:'linear-gradient(160deg,#233D4D 0%,#000000 60%)'}}>
+      <section className="relative overflow-hidden bg-noise text-white py-24 text-center bg-[#215E61]">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Enterprise-Grade Technology Solutions</p>
@@ -241,8 +241,8 @@ export default function Services() {
           >
             <span className="block text-white">Ready to Accelerate</span>
             <span
-              className="block"
-              style={{ fontSize: 'clamp(2rem,4.5vw,2.5rem)', WebkitTextStroke: '1.5px #FE7F2D', color: 'transparent', textShadow: '2px 2px 0px rgba(254,127,45,0.25), 4px 4px 0px rgba(0,0,0,0.4)' }}
+              className="block text-white"
+              style={{ fontSize: 'clamp(2rem,4.5vw,2.5rem)' }}
             >
               Your Digital Transformation?
             </span>

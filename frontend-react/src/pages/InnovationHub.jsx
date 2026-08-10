@@ -142,17 +142,23 @@ const engagementPaths = [
 // ── Vision pillars — what the vision statement actually rests on ──────────────
 const visionPillars = [
   {
+    num: '01',
     icon: 'fa-map-marker-alt',
+    color: '#FE7F2D',
     title: 'Built Here, Built to Scale',
     desc: "Every product is engineered against South Sudan's real conditions — low bandwidth, limited devices, real infrastructure gaps. That discipline doesn't disappear once a client is based outside the country.",
   },
   {
+    num: '02',
     icon: 'fa-check-double',
+    color: '#233D4D',
     title: 'Proof, Not Promises',
     desc: "EduPortal and HealthHub Bridge aren't concepts on a roadmap slide — they're live, serving real people today. A vision only means something once it ships.",
   },
   {
+    num: '03',
     icon: 'fa-people-group',
+    color: '#000000',
     title: 'A Hub, Not Just a Company',
     desc: "Organizations, startups, students, and partners all have a place here — a digital future this size can't be built by one team alone.",
   },
@@ -167,9 +173,6 @@ export default function InnovationHub() {
 
       {/* ── HERO ──────────────────────────────────────────────────────── */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-white border-b border-gray-100">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
-
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 py-28 w-full">
           <div className="max-w-4xl">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.85 }}>
@@ -207,7 +210,6 @@ export default function InnovationHub() {
 
       {/* ── VISION STATEMENT ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-noise bg-dark text-white py-24">
-        <div className="absolute top-0 right-[10%] w-80 h-80 bg-primary/20 rounded-full blur-[130px] pointer-events-none" />
         <div className="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-bold uppercase tracking-widest mb-6">Our Vision</p>
@@ -218,18 +220,31 @@ export default function InnovationHub() {
               Sleek Nexus Creative is headquartered in Juba, South Sudan — and that's where our engineering discipline comes from: building for real bandwidth constraints, real device limitations, and real infrastructure gaps. But our work isn't limited to South Sudan. We design and ship digital products for organizations across the region and internationally, bringing that same reliability-first standard to every client, wherever they're based.
             </p>
           </motion.div>
+        </div>
 
+        {/* Cards get their own full-width container — matching the SDGs
+            section's max-w-[1400px] exactly, rather than inheriting the
+            narrower max-w-4xl sized for the paragraph above — otherwise
+            identical card markup still renders narrower columns here. */}
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 mt-16">
           <motion.div
-            className="grid sm:grid-cols-3 gap-6 mt-16 text-left"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left"
             variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
           >
-            {visionPillars.map(({ icon, title, desc }) => (
-              <motion.div key={title} variants={fadeUp} className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                <div className="w-11 h-11 rounded-xl bg-primary/20 flex items-center justify-center mb-4">
-                  <i className={`fas ${icon} text-accent`} />
+            {visionPillars.map(({ num, icon, color, title, desc }) => (
+              <motion.div key={title} variants={fadeUp} className="rounded-2xl border border-white/10 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col">
+                <div className="p-5 flex items-center gap-4" style={{ backgroundColor: color }}>
+                  <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i className={`fas ${icon} text-white text-2xl`} />
+                  </div>
+                  <div>
+                    <p className="text-white/70 text-xs font-bold uppercase tracking-widest">Pillar {num}</p>
+                    <h3 className="text-white font-heading font-bold text-base leading-tight">{title}</h3>
+                  </div>
                 </div>
-                <h3 className="font-heading font-bold mb-2">{title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
+                <div className="p-5 bg-white flex-1 min-h-[110px]">
+                  <p className="text-dark-soft text-sm leading-relaxed">{desc}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -262,7 +277,7 @@ export default function InnovationHub() {
                     <h3 className="text-white font-heading font-bold text-base leading-tight">{title}</h3>
                   </div>
                 </div>
-                <div className="p-5 bg-white flex-1">
+                <div className="p-5 bg-white flex-1 min-h-[110px]">
                   <p className="text-muted text-sm leading-relaxed">{desc}</p>
                 </div>
               </motion.div>
@@ -435,8 +450,8 @@ export default function InnovationHub() {
             >
               <span className="block text-white">Building Digital Infrastructure</span>
               <span
-                className="block"
-                style={{ fontSize: 'clamp(2.25rem,5vw,3rem)', WebkitTextStroke: '1.5px #FE7F2D', color: 'transparent', textShadow: '2px 2px 0px rgba(254,127,45,0.25), 4px 4px 0px rgba(0,0,0,0.4)' }}
+                className="block text-white"
+                style={{ fontSize: 'clamp(2.25rem,5vw,3rem)' }}
               >
                 From Juba, for Anywhere
               </span>

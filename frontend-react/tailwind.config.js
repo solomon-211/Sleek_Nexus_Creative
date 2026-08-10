@@ -22,21 +22,17 @@ export default {
         'fade-in-up': 'fade-in-up 0.5s ease forwards',
       },
       colors: {
-        // Brand palette — orange primary, white secondary, black & navy tertiary.
-        // `accent`/`accent-dark`/`primary-dark`/`muted` are kept as tokens (many
-        // components reference them) but now resolve into the same four colors
-        // instead of introducing extra off-palette hues.
-        primary: '#FE7F2D',
-        'primary-dark': '#233D4D',
-        accent: '#FE7F2D',
-        'accent-dark': '#233D4D',
-        dark: '#000000',
-        'dark-soft': '#233D4D',
-        // 0.72 alpha, not the visually-closer 0.65, because 0.65 only reaches
-        // 4.04:1 contrast against white — under WCAG AA's 4.5:1 minimum for
-        // normal-size text. 0.72 clears it at 4.92:1.
-        muted: 'rgba(35, 61, 77, 0.72)',
-        surface: '#EAECF0',
+        // Brand palette — #FF9E20 orange primary, #215E61 teal dark, #1D2128 near-black, #F4F2F2 off-white
+        primary:      '#FF9E20',        // warm orange — CTAs, highlights, icons
+        'primary-dark': '#215E61',      // deep teal — hover states, dark CTAs
+        accent:       '#FF9E20',        // alias kept for backwards compat
+        'accent-dark': '#215E61',
+        dark:         '#215E61',        // teal replaces near-black as the "dark" tone
+        'dark-soft':  '#215E61',        // used on body text, nav, footers
+        'near-black': '#1D2128',        // use sparingly — only truly dark elements
+        muted:        'rgba(33,94,97,0.65)',  // teal at reduced opacity for body text
+        surface:      '#F4F2F2',        // off-white — card backgrounds, section fills
+        light:        '#F4F2F2',        // alias
       },
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],

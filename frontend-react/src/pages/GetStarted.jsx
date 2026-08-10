@@ -85,9 +85,7 @@ export default function GetStarted() {
       <SEO {...pageSeo['/get-started']} />
 
       {/* Header */}
-      <section className="relative py-28 sm:py-36 flex items-center overflow-hidden text-white bg-grid-light bg-noise" style={{background:'linear-gradient(160deg,#233D4D 0%,#000000 60%)'}}>
-        <div className="absolute top-1/4 left-[8%] w-96 h-96 bg-primary/25 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 right-[6%] w-72 h-72 bg-accent/20 rounded-full blur-[110px] pointer-events-none" />
+      <section className="relative py-28 sm:py-36 flex items-center overflow-hidden text-white bg-[#215E61]">
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }} className="max-w-2xl">
             <p className="text-accent text-sm font-bold uppercase tracking-widest mb-5 flex items-center gap-3">
@@ -95,7 +93,7 @@ export default function GetStarted() {
             </p>
             <h1 className="display-heading font-heading mb-6" style={{ letterSpacing: '0.01em' }}>
               Let's Build<br />
-              <GlitchText className="gradient-text">Something That Works</GlitchText>
+              <GlitchText className="text-primary">Something That Works</GlitchText>
             </h1>
             <p className="text-white/60 text-lg leading-relaxed mb-8 max-w-xl">
               Tell us about your project and we'll get back to you within 24 hours with a free discovery call and a custom proposal — no commitment required.
@@ -117,7 +115,7 @@ export default function GetStarted() {
       {/* Trust stats — floating bridge card overlapping the hero */}
       <section className="relative -mt-10 sm:-mt-14 z-10 pb-6">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 bg-white rounded-[1.75rem] shadow-[0_30px_70px_-25px_rgba(17,17,17,0.25)] border-[3px] border-primary/40 p-6 sm:p-8 text-center"
+          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 bg-white rounded-[1.75rem] shadow-[0_30px_70px_-25px_rgba(17,17,17,0.25)] border border-gray-100 p-6 sm:p-8 text-center"
             variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}>
             {trustStats.map(({ icon, value, suffix, label }, i) => (
               <motion.div key={label} variants={scaleIn} className={`relative ${i !== trustStats.length - 1 ? 'sm:border-r sm:border-gray-100' : ''}`}>
@@ -140,7 +138,7 @@ export default function GetStarted() {
             <h2 className="section-title">How It Works</h2>
             <p className="section-subtitle">From idea to delivered product in four clear steps.</p>
           </div>
-          <div className="hidden lg:block absolute left-0 right-0 top-[13.5rem] h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          <div className="hidden lg:block absolute left-0 right-0 top-[13.5rem] h-px bg-primary/20" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {steps.map(({ num, icon, title, desc }, i) => (
               <motion.div key={num}
@@ -177,12 +175,10 @@ export default function GetStarted() {
       {/* Form */}
       <section className="relative py-20 sm:py-28 bg-dark overflow-hidden">
         <div className="absolute inset-0 bg-grid-light opacity-40 pointer-events-none" />
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/15 rounded-full blur-[130px] pointer-events-none" />
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
             <p className="text-accent text-sm font-bold uppercase tracking-widest mb-2">Let's Talk Details</p>
-            <h2 className="display-heading-sm text-white">Tell Us About <span className="gradient-text">Your Project</span></h2>
+            <h2 className="display-heading-sm text-white">Tell Us About <span className="text-primary">Your Project</span></h2>
           </div>
           <div className="grid lg:grid-cols-5 gap-10 lg:gap-12 items-start">
 

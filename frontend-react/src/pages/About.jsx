@@ -149,7 +149,7 @@ export default function About() {
       <SEO {...pageSeo['/about']} />
 
       {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-16 sm:py-24 text-center" style={{background:'linear-gradient(160deg,#233D4D 0%,#000000 60%)'}}>
+      <section className="relative overflow-hidden bg-noise text-white py-16 sm:py-24 text-center bg-[#215E61]">
         <div className="absolute inset-0 bg-motif-light opacity-[0.06] pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
@@ -198,7 +198,7 @@ export default function About() {
               <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-5">
                 <i className="fas fa-bullseye text-white text-xl" />
               </div>
-              <h2 className="text-xl font-heading font-bold mb-3">Our Mission</h2>
+              <h2 className="text-xl md:text-2xl font-heading font-black uppercase mb-3">Our Mission</h2>
               <p className="opacity-90 leading-relaxed">To empower individuals, institutions, and communities — across South Sudan and beyond — by creating practical digital solutions, nurturing the next generation of technology leaders, and driving creative innovation that solves real problems and creates lasting opportunity.</p>
             </motion.div>
             <motion.div className="bg-dark text-white rounded-2xl p-10 border border-white/10"
@@ -206,7 +206,7 @@ export default function About() {
               <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-5">
                 <i className="fas fa-eye text-accent text-xl" />
               </div>
-              <h2 className="text-xl font-heading font-bold mb-3">Our Vision</h2>
+              <h2 className="text-xl md:text-2xl font-heading font-black uppercase mb-3">Our Vision</h2>
               <p className="text-gray-300 leading-relaxed">To prove that world-class technology can be built from Juba — where local talent creates products that compete globally, schools and institutions run on systems built by people who understand their reality, and "Built in South Sudan" becomes a mark of excellence recognized far beyond our borders.</p>
             </motion.div>
           </div>
@@ -326,8 +326,8 @@ export default function About() {
           >
             <span className="block text-white">Work</span>
             <span
-              className="block"
-              style={{ fontSize: 'clamp(2.75rem,6vw,4rem)', WebkitTextStroke: '2px #FE7F2D', color: 'transparent', textShadow: '3px 3px 0px rgba(254,127,45,0.25), 6px 6px 0px rgba(0,0,0,0.4)' }}
+              className="block text-white"
+              style={{ fontSize: 'clamp(2.75rem,6vw,4rem)' }}
             >
               With Us
             </span>

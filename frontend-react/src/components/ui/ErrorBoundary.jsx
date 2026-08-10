@@ -45,7 +45,7 @@ export default class ErrorBoundary extends Component {
             <span className="text-gray-400 font-normal ml-1">Error</span>
           </div>
 
-          <h1 className="text-2xl font-heading font-bold text-dark mb-3">Something went wrong</h1>
+          <h1 className="text-2xl md:text-3xl font-heading font-black uppercase text-dark mb-3">Something went wrong</h1>
           <p className="text-muted text-sm leading-relaxed mb-2">
             An unexpected error occurred on this page. We've been notified and will fix it shortly.
           </p>

@@ -188,7 +188,7 @@ export default function Branding() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
                     <span className="text-white text-xs font-bold uppercase tracking-widest bg-primary px-3 py-1 rounded-full">
                       {category}
                     </span>

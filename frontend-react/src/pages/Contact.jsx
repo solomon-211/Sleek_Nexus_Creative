@@ -51,7 +51,7 @@ export default function Contact() {
       <SEO {...pageSeo['/contact']} />
 
       {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-24 text-center" style={{background:'linear-gradient(160deg,#233D4D 0%,#000000 60%)'}}>
+      <section className="relative overflow-hidden bg-noise text-white py-24 text-center bg-[#215E61]">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
             <p className="section-label text-accent">We'd love to hear from you</p>
@@ -68,7 +68,7 @@ export default function Contact() {
 
             {/* Form */}
             <motion.div className="lg:col-span-3 card p-5 sm:p-8" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <h2 className="text-2xl font-heading font-bold text-dark mb-2">Send Us a Message</h2>
+              <h2 className="text-2xl md:text-3xl font-heading font-black uppercase text-dark mb-2">Send Us a Message</h2>
               <p className="text-muted text-sm mb-6">Fill out the form below and we'll get back to you within 24 hours.</p>
 
               {status === 'success' && (
@@ -134,7 +134,7 @@ export default function Contact() {
             {/* Info */}
             <motion.div className="lg:col-span-2 space-y-6" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
               <div>
-                <h2 className="text-2xl font-heading font-bold text-dark mb-2">Contact Information</h2>
+                <h2 className="text-2xl md:text-3xl font-heading font-black uppercase text-dark mb-2">Contact Information</h2>
                 <p className="text-muted text-sm mb-6">Reach out to us through any of these channels.</p>
                 <div className="space-y-4">
                   {[
