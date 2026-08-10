@@ -200,7 +200,7 @@ export default function Services() {
                     <i className={`fas ${icon} text-primary text-lg`} />
                   </div>
                   <span className="text-xs font-black uppercase tracking-widest text-muted">{tier}</span>
-                  <h3 className="text-xl font-heading font-bold text-dark mt-1 mb-2">{label}</h3>
+                  <h3 className="text-2xl font-heading font-black text-dark mt-1 mb-2">{label}</h3>
                   <p className="text-muted text-sm mb-4">{desc}</p>
                   <div className="inline-flex items-center gap-1.5 text-xs text-muted border border-gray-200 rounded-full px-3 py-1 mb-5">
                     <i className="fas fa-clock text-primary" /> {timeline} delivery

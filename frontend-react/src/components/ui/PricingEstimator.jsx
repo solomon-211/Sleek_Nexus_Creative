@@ -147,7 +147,7 @@ export default function PricingEstimator() {
                   transition={{ duration: 0.3, ease: 'easeOut' }}
                 >
                   <p className="text-xs font-bold uppercase tracking-widest text-muted mb-2">Step {step + 1} of {QUESTIONS.length}{question.multi ? ' · Select any that apply' : ''}</p>
-                  <h3 className="text-xl sm:text-2xl font-heading font-bold text-dark mb-6">{question.label}</h3>
+                  <h3 className="text-xl sm:text-2xl font-heading font-black text-dark mb-6">{question.label}</h3>
                   <div className="grid sm:grid-cols-2 gap-3">
                     {question.options.map(opt => (
                       <button
@@ -193,7 +193,7 @@ export default function PricingEstimator() {
                 <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <i className={`fas ${recommended.icon} text-primary text-2xl`} />
                 </div>
-                <h3 className="text-2xl font-heading font-bold text-dark mb-2">{recommended.label} Package</h3>
+                <h3 className="text-2xl font-heading font-black text-dark mb-2">{recommended.label} Package</h3>
                 <p className="text-muted text-sm max-w-md mx-auto">{recommended.desc}</p>
               </div>
               <ul className="grid sm:grid-cols-2 gap-2 mb-6 max-w-lg mx-auto">

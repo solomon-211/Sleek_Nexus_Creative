@@ -90,7 +90,7 @@ export default function ScrollySteps({ eyebrow, heading, subheading, steps }) {
                     <i className={`fas ${step.icon} text-primary text-xl`} />
                   </div>
                 </div>
-                <h3 className="text-2xl font-heading font-bold text-dark mb-3">{step.title}</h3>
+                <h3 className="text-2xl font-heading font-black text-dark mb-3">{step.title}</h3>
                 <p className="text-muted leading-relaxed">{step.desc}</p>
               </motion.div>
             </AnimatePresence>

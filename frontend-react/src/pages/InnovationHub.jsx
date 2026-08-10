@@ -306,7 +306,7 @@ export default function InnovationHub() {
                       <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
                         <i className={`fas ${icon} text-2xl`} />
                       </div>
-                      <h3 className="text-xl font-heading font-bold leading-tight">{title}</h3>
+                      <h3 className="text-2xl font-heading font-black leading-tight">{title}</h3>
                     </div>
                     <p className="text-white/80 text-sm leading-relaxed">{desc}</p>
                   </div>
@@ -352,7 +352,7 @@ export default function InnovationHub() {
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5">
                   <i className={`fas ${icon} text-primary text-2xl`} />
                 </div>
-                <h3 className="text-xl font-heading font-bold text-dark mb-3">{title}</h3>
+                <h3 className="text-2xl font-heading font-black text-dark mb-3">{title}</h3>
                 <p className="text-muted leading-relaxed mb-6">{desc}</p>
                 {external ? (
                   <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary text-sm font-semibold inline-flex items-center gap-2">

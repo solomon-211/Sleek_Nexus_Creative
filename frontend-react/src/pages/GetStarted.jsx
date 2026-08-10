@@ -203,7 +203,7 @@ export default function GetStarted() {
             <div className="lg:col-span-3 space-y-6">
             <motion.div className="neo-panel p-6 sm:p-10"
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <h3 className="text-xl font-heading font-bold text-dark mb-2">Project Brief</h3>
+              <h3 className="text-2xl font-heading font-black text-dark mb-2">Project Brief</h3>
               <p className="text-muted text-sm mb-6">The more detail you provide, the more accurate our proposal will be.</p>
 
               {status === 'success' && (
@@ -339,7 +339,7 @@ export default function GetStarted() {
             <motion.div className="lg:col-span-2 space-y-6"
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}>
               <div className="bg-primary rounded-2xl p-8 text-white">
-                <h3 className="text-xl font-heading font-bold mb-2">What to Expect</h3>
+                <h3 className="text-2xl font-heading font-black mb-2">What to Expect</h3>
                 <p className="text-white/70 text-sm mb-7">Here's what happens after you submit.</p>
                 <div className="space-y-5">
                   {[

@@ -2,7 +2,6 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import ScrollToTop from '../ui/ScrollToTop'
 import CookieBanner from '../ui/CookieBanner'
-import WhatsAppBubble from '../ui/WhatsAppBubble'
 import CommandPalette from '../ui/CommandPalette'
 import { TransitionProvider } from '../ui/TransitionOverlay'
 import { motion } from 'framer-motion'
@@ -33,7 +32,6 @@ export default function Layout({ children }) {
         </motion.main>
         <Footer />
         <CookieBanner />
-        <WhatsAppBubble />
       </div>
     </TransitionProvider>
   )

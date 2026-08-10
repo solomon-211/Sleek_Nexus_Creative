@@ -249,7 +249,7 @@ export default function About() {
                   <span className={`relative inline-block text-xs font-black tracking-wide px-3 py-1.5 rounded-full text-white mb-4 ${color}`}>
                     {year}
                   </span>
-                  <h3 className="relative font-heading font-bold text-dark text-xl mb-2">{title}</h3>
+                  <h3 className="relative font-heading font-black text-dark text-2xl mb-2">{title}</h3>
                   <p className="relative text-muted text-sm leading-relaxed">{desc}</p>
                 </div>
 

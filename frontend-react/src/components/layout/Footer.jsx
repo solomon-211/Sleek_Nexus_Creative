@@ -35,7 +35,7 @@ const socials = [
   { href: 'https://www.facebook.com/share/183ufB9mqx/?mibextid=wwXIfr',                           icon: 'fab fa-facebook-f',  label: 'Facebook',  bg: '#1877f2' },
   { href: 'https://twitter.com/SNC',                                                               icon: 'fab fa-x-twitter',   label: 'Twitter',   bg: '#1D2128' },
   { href: 'https://www.linkedin.com/company/sleek-nexus-creative/',                               icon: 'fab fa-linkedin-in', label: 'LinkedIn',  bg: '#0a66c2' },
-  { href: 'https://www.instagram.com/sleek_nexus_creative?igsh=bmdpanczdzcwNm04&utm_source=qr', icon: 'fab fa-instagram',   label: 'Instagram', bg: '#e1306c' },
+  { href: 'https://www.instagram.com/sleek_nexus_creative?igsh=bmdpanczdzcwNm04&utm_source=qr', icon: 'fab fa-instagram',   label: 'Instagram', bg: '#E4405F' },
   { href: 'https://www.youtube.com/@SNC',                                                         icon: 'fab fa-youtube',     label: 'YouTube',   bg: '#ff0000' },
 ]
 
@@ -82,7 +82,7 @@ export default function Footer() {
 
       {/* ── Main body ── */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pb-12 border-b border-white/10">
 
           {/* ── Brand column ── */}
           <div className="sm:col-span-2 lg:col-span-1 flex flex-col gap-5">
@@ -123,7 +123,7 @@ export default function Footer() {
                height comes from its tallest cell — that's what keeps Legal and
                Follow Us starting on the same line as each other, the same way
                Company and Services already do as row 1. ── */}
-          <div className="sm:col-span-2 lg:col-span-3 grid grid-cols-2 gap-x-8 gap-y-8">
+          <div className="sm:col-span-2 lg:col-span-2 grid grid-cols-2 gap-x-8 gap-y-8">
             {navColumns.map(({ heading, links }) => (
               <div key={heading}>
                 <p className="text-xs font-bold uppercase tracking-widest text-white mb-4 border-b border-white/10 pb-2">

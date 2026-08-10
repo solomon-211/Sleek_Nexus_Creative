@@ -81,7 +81,7 @@ export default function Consulting() {
           <div className="grid md:grid-cols-3 gap-6">
             {engagements.map(({ type, duration, desc }, i) => (
               <motion.div key={type} className="card p-8" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
-                <h3 className="font-heading font-bold text-dark text-xl mb-2">{type}</h3>
+                <h3 className="font-heading font-black text-dark text-2xl mb-2">{type}</h3>
                 <div className="inline-flex items-center gap-1.5 text-xs text-muted border border-gray-200 rounded-full px-3 py-1 mb-4">
                   <i className="fas fa-clock text-primary" /> {duration}
                 </div>

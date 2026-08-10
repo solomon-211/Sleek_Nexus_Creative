@@ -433,38 +433,40 @@ export default function Home() {
           <div className="w-1/2 bg-dark" />
           <div className="w-1/2 bg-primary" />
         </div>
-        {/* Diagonal divider */}
-        <div className="absolute inset-0 bg-primary" style={{clipPath:'polygon(45% 0, calc(100% - 48px) 0, 100% 48px, 100% calc(100% - 48px), calc(100% - 48px) 100%, 55% 100%)'}} />
-        <div className="absolute inset-0 bg-dark" style={{clipPath:'polygon(0 48px, 48px 0, 55% 0, 45% 100%, 0 100%)'}} />
+        {/* Divider — orange is a triangle-tipped pennant (point + rectangle),
+            dark has a matching V-notch cut into its right edge so the two
+            interlock with no gap. */}
+        <div className="absolute inset-0 bg-primary" style={{clipPath:'polygon(64% 0%, calc(100% - 48px) 0%, 100% 48px, 100% calc(100% - 48px), calc(100% - 48px) 100%, 64% 100%, 48% 50%)'}} />
+        <div className="absolute inset-0 bg-dark" style={{clipPath:'polygon(0 48px, 48px 0, 64% 0, 48% 50%, 64% 100%, 48px 100%, 0 calc(100% - 48px))'}} />
         {/* Noise */}
         <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none" />
-        {/* Top accent line */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-primary/40" />
+        {/* Bottom accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary/40" />
 
-        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-28">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-14">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
 
             {/* Left — dark side */}
             <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{once:true}} className="text-white">
-              <p className="inline-flex items-center gap-2 text-primary text-sm font-black uppercase tracking-widest mb-6">
-                <span className="w-6 h-px bg-primary" /> Start Here
+              <p className="inline-flex items-center gap-2 text-primary text-xs font-black uppercase tracking-widest mb-3">
+                <span className="w-5 h-px bg-primary" /> Start Here
               </p>
               <h2
-                className="font-heading uppercase leading-[0.9] mb-6"
+                className="font-heading uppercase leading-[0.9] mb-4"
                 style={{
-                  fontSize: 'clamp(4.5rem,9.5vw,8rem)',
+                  fontSize: 'clamp(2.5rem,5.5vw,4.5rem)',
                   fontWeight: 800,
                 }}
               >
                 <span className="block text-white">Let's Build</span>
                 <span
                   className="block text-white"
-                  style={{ fontSize: 'clamp(3.5rem, 7.5vw, 6rem)' }}
+                  style={{ fontSize: 'clamp(1.75rem, 3.5vw, 3rem)' }}
                 >Something Real.</span>
               </h2>
-              <p className="text-white/70 text-base sm:text-lg mb-8 max-w-sm">Submit a project brief and hear back within 24 hours — a clear scope, a straight timeline, and pricing that makes sense.</p>
+              <p className="text-white/70 text-sm mb-5 max-w-sm">Submit a project brief and hear back within 24 hours — a clear scope, a straight timeline, and pricing that makes sense.</p>
               <MagneticButton>
-                <Link to="/get-started" className="inline-flex items-center gap-2 bg-white text-dark hover:bg-gray-100 font-bold px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5 shadow-xl">
+                <Link to="/get-started" className="inline-flex items-center gap-2 bg-white text-dark hover:bg-gray-100 font-bold text-sm px-6 py-3 rounded-xl transition-all hover:-translate-y-0.5 shadow-xl">
                   Start a Project <i className="fas fa-arrow-right" />
                 </Link>
               </MagneticButton>
@@ -472,8 +474,8 @@ export default function Home() {
 
             {/* Right — primary side */}
             <motion.div variants={fadeRight} initial="hidden" whileInView="show" viewport={{once:true}} className="text-white flex flex-col items-center">
-              <p className="text-white/70 text-sm font-black uppercase tracking-widest mb-5 text-center">What's Included</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <p className="text-white/70 text-xs font-black uppercase tracking-widest mb-3 text-center">What's Included</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {[
                   { icon: 'fa-comments',      label: 'Free initial consultation' },
                   { icon: 'fa-file-alt',       label: 'Honest project scoping' },
@@ -484,11 +486,11 @@ export default function Home() {
                 ].map(({ icon, label }, i) => (
                   <motion.div key={label}
                     initial={{opacity:0, y:16}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{delay: i * 0.07, duration: 0.5}}
-                    className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/15 hover:border-white/30 rounded-xl px-4 py-3 transition-all duration-200 group">
-                    <div className="w-8 h-8 rounded-lg bg-white/20 group-hover:bg-white/30 flex items-center justify-center flex-shrink-0 transition-colors">
-                      <i className={`fas ${icon} text-white text-xs`} />
+                    className="flex items-center gap-2.5 bg-white/10 backdrop-blur-sm border border-white/15 hover:border-white/30 rounded-lg px-3 py-2 transition-all duration-200 group">
+                    <div className="w-6 h-6 rounded-md bg-white/20 group-hover:bg-white/30 flex items-center justify-center flex-shrink-0 transition-colors">
+                      <i className={`fas ${icon} text-white text-[0.65rem]`} />
                     </div>
-                    <span className="text-white font-medium text-sm">{label}</span>
+                    <span className="text-white font-medium text-xs">{label}</span>
                   </motion.div>
                 ))}
               </div>
