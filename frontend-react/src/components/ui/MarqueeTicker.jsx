@@ -10,7 +10,7 @@ export default function MarqueeTicker({ items = [], speed = 22, className = '', 
       aria-hidden="true"
     >
       <div
-        className="flex w-max motion-safe:animate-marquee hover:[animation-play-state:paused]"
+        className="flex w-max animate-marquee motion-reduce:[animation-play-state:paused] [@media(hover:hover)]:hover:[animation-play-state:paused]"
         style={{ '--marquee-speed': `${speed}s` }}
       >
         {[...items, ...items].map((item, i) => (

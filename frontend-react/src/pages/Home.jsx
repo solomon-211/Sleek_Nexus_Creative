@@ -434,8 +434,8 @@ export default function Home() {
           <div className="w-1/2 bg-primary" />
         </div>
         {/* Diagonal divider */}
-        <div className="absolute inset-0 bg-primary" style={{clipPath:'polygon(45% 0, 100% 0, 100% 100%, 55% 100%)'}} />
-        <div className="absolute inset-0 bg-dark" style={{clipPath:'polygon(0 0, 55% 0, 45% 100%, 0 100%)'}} />
+        <div className="absolute inset-0 bg-primary" style={{clipPath:'polygon(45% 0, calc(100% - 48px) 0, 100% 48px, 100% calc(100% - 48px), calc(100% - 48px) 100%, 55% 100%)'}} />
+        <div className="absolute inset-0 bg-dark" style={{clipPath:'polygon(0 48px, 48px 0, 55% 0, 45% 100%, 0 100%)'}} />
         {/* Noise */}
         <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none" />
         {/* Top accent line */}

@@ -1,0 +1,26 @@
+name = "snc-backend"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# Serves the API at https://api.sleeknexuscreative.com — requires
+# sleeknexuscreative.com to be an active zone on this Cloudflare account.
+# Remove this block (and just use the default workers.dev URL) if the
+# domain isn't on Cloudflare yet.
+routes = [
+  { pattern = "api.sleeknexuscreative.com", custom_domain = true }
+]
+
+[vars]
+CORS_ORIGIN = "https://sleeknexuscreative.com,http://localhost:5173"
+
+# Optional — powers the per-IP rate limit in src/routes/messages.js.
+# Create it with: npx wrangler kv namespace create RATE_LIMIT_KV
+# then paste the returned id below. The API still works without this,
+# it just skips rate limiting until it's configured.
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT_KV"
+# id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# Secrets — never put real values here. Set them with:
+#   npx wrangler secret put SUPABASE_URL
+#   npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY

@@ -1,0 +1,22 @@
+{
+  "name": "snc-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Cloudflare Worker API for Sleek Nexus Creative — receives contact and project-brief form submissions and stores them in Supabase.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "hono": "^4.6.9",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "wrangler": "^3.86.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

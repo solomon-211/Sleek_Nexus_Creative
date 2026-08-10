@@ -107,7 +107,7 @@ export default function Footer() {
             </p>
 
             {/* Contact info */}
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {contact.map(({ icon, label, href }) => (
                 <li key={label} className="flex items-center gap-2.5">
                   <i className={`fas ${icon} text-primary text-xs w-4 flex-shrink-0`} />
@@ -127,46 +127,50 @@ export default function Footer() {
                Company and Services already do as row 1. ── */}
           <div className="sm:col-span-2 lg:col-span-3 grid grid-cols-2 gap-x-8 gap-y-8">
             {navColumns.map(({ heading, links }) => (
-              <div key={heading}>
-                <p className="text-xs font-bold uppercase tracking-widest text-white mb-4 border-b border-white/10 pb-2">
-                  {heading}
-                </p>
-                <ul className="space-y-2.5">
-                  {links.map(({ label, to }) => (
-                    <li key={label}>
-                      <Link
-                        to={to}
-                        className={`text-sm transition-colors hover:text-primary ${
-                          pathname === to ? 'text-primary font-semibold' : 'text-white/70'
-                        }`}
-                      >
-                        {label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+              <div key={heading} className="flex justify-center">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-white mb-4 border-b border-white/10 pb-2">
+                    {heading}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {links.map(({ label, to }) => (
+                      <li key={label}>
+                        <Link
+                          to={to}
+                          className={`text-sm transition-colors hover:text-primary ${
+                            pathname === to ? 'text-primary font-semibold' : 'text-white/70'
+                          }`}
+                        >
+                          {label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
 
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-white mb-4 border-b border-white/10 pb-2">
-                Follow Us
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {socials.map(({ href, icon, label, bg }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    title={label}
-                    className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs transition-opacity hover:opacity-80"
-                    style={{ backgroundColor: bg }}
-                  >
-                    <i className={icon} />
-                  </a>
-                ))}
+            <div className="flex justify-center">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-white mb-4 border-b border-white/10 pb-2">
+                  Follow Us
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {socials.map(({ href, icon, label, bg }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      title={label}
+                      className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs transition-opacity hover:opacity-80"
+                      style={{ backgroundColor: bg }}
+                    >
+                      <i className={icon} />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

@@ -12,6 +12,7 @@ import AnimatedCounter from '../components/ui/AnimatedCounter'
 import FaqAccordion from '../components/ui/FaqAccordion'
 import GlitchText from '../components/ui/GlitchText'
 import AnimatedCheckmark from '../components/ui/AnimatedCheckmark'
+import { submitMessage } from '../lib/api'
 
 const schema = z.object({
   name:        z.string().min(2, 'Full name is required'),
@@ -22,6 +23,7 @@ const schema = z.object({
   budget:      z.string().optional(),
   timeline:    z.string().optional(),
   description: z.string().min(20, 'Please describe your project (at least 20 characters)'),
+  website:     z.string().optional(), // honeypot — real visitors leave this blank
 })
 
 const services  = ['Web Development', 'Mobile App', 'UI/UX Design', 'Branding', 'IT Consulting', 'E-Learning Platform', 'Enterprise Software', 'Not Sure Yet']
@@ -57,8 +59,20 @@ export default function GetStarted() {
   })
 
   const onSubmit = async (data) => {
-    try {
-      await emailjs.send(
+    const [dbResult, emailResult] = await Promise.allSettled([
+      submitMessage({
+        type:     'get_started',
+        name:     data.name,
+        email:    data.email,
+        phone:    data.phone,
+        company:  data.company,
+        service:  data.service,
+        budget:   data.budget,
+        timeline: data.timeline,
+        message:  data.description,
+        website:  data.website,
+      }),
+      emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID,
         {
@@ -72,10 +86,13 @@ export default function GetStarted() {
           message:     data.description,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
+      ),
+    ])
+
+    if (dbResult.status === 'fulfilled' || emailResult.status === 'fulfilled') {
       setStatus('success')
       reset()
-    } catch {
+    } else {
       setStatus('error')
     }
   }
@@ -205,6 +222,15 @@ export default function GetStarted() {
               )}
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                {/* Honeypot — hidden from real visitors, bots tend to fill every field */}
+                <input
+                  {...register('website')}
+                  type="text"
+                  tabIndex="-1"
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] w-px h-px overflow-hidden"
+                />
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="gs-name" className="block text-sm font-medium text-dark mb-1.5">Full Name *</label>
