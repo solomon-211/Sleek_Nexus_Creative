@@ -35,8 +35,8 @@ export default {
         light:        '#F4F2F2',        // alias
       },
       fontFamily: {
-        sans: ['Space Grotesk', 'sans-serif'],
-        heading: ['Space Grotesk', 'sans-serif'],
+        sans: ['Inter Variable', 'Inter', 'sans-serif'],
+        heading: ['Inter Variable', 'Inter', 'sans-serif'],
       },
     },
   },

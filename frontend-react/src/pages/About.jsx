@@ -215,7 +215,7 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75 }}>
               <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Our Story</p>
-              <h2 className="text-3xl md:text-5xl font-heading font-black uppercase text-dark mb-6">Born in Juba, Built for Anywhere</h2>
+              <h2 className="text-4xl md:text-6xl font-heading font-black uppercase text-dark mb-6">Born in Juba, Built for Anywhere</h2>
               <p className="text-muted leading-relaxed mb-4">In 2024, a group of young South Sudanese technologists gathered with one shared frustration: brilliant talent in South Sudan was going unrecognized, unequipped, and underserved by the digital economy.</p>
               <p className="text-muted leading-relaxed mb-4">Organizations across Juba needed websites, apps, and digital systems — but had nowhere local to turn for quality, affordable, context-aware solutions.</p>
               <p className="text-muted leading-relaxed">We started with two laptops, one co-working space, and an unshakeable belief that <strong className="text-primary">Africa's youngest nation deserved the best technology.</strong></p>
