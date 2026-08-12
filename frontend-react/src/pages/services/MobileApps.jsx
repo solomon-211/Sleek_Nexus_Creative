@@ -42,7 +42,7 @@ export default function MobileApps() {
               <Link to="/contact" className="btn-primary">Start Your App</Link>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-              <img src="/images/web-mobile.jpg" alt="Mobile App Development" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
+              <img src="/images/mobile-development.jpg" alt="Mobile App Development" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
             </motion.div>
           </div>
         </div>

@@ -44,7 +44,7 @@ export default function WebDev() {
               <Link to="/contact" className="btn-primary">Request a Quote</Link>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-              <img src="/images/web-mobile.jpg" alt="Web Development" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
+              <img src="/images/web-development.jpg" alt="Web Development" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
             </motion.div>
           </div>
         </div>
