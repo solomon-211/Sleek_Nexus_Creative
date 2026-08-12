@@ -33,7 +33,7 @@ const navColumns = [
 
 const socials = [
   { href: 'https://www.facebook.com/share/183ufB9mqx/?mibextid=wwXIfr',                           icon: 'fab fa-facebook-f',  label: 'Facebook',  bg: '#1877f2' },
-  { href: 'https://twitter.com/SNC',                                                               icon: 'fab fa-x-twitter',   label: 'Twitter',   bg: '#1D2128' },
+  { href: 'https://twitter.com/SNC',                                                               icon: 'fab fa-x-twitter',   label: 'Twitter',   bg: '#000000' },
   { href: 'https://www.linkedin.com/company/sleek-nexus-creative/',                               icon: 'fab fa-linkedin-in', label: 'LinkedIn',  bg: '#0a66c2' },
   { href: 'https://www.instagram.com/sleek_nexus_creative?igsh=bmdpanczdzcwNm04&utm_source=qr', icon: 'fab fa-instagram',   label: 'Instagram', bg: '#E4405F' },
   { href: 'https://www.youtube.com/@SNC',                                                         icon: 'fab fa-youtube',     label: 'YouTube',   bg: '#ff0000' },
@@ -53,7 +53,7 @@ export default function Footer() {
   const { pathname } = useLocation()
 
   return (
-    <footer className="bg-[#215E61] text-white" aria-label="Site footer">
+    <footer className="bg-[#233D4D] text-white" aria-label="Site footer">
 
       {/* ── CTA band ── */}
       <div className="border-b border-white/10">
@@ -71,7 +71,7 @@ export default function Footer() {
             <div className="sm:text-right">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-primary hover:bg-[#e88e1a] text-white font-bold text-sm px-8 py-4 rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 bg-primary hover:bg-[#D86C26] text-white font-bold text-sm px-8 py-4 rounded-lg transition-colors"
               >
                 Get in Touch <i className="fas fa-arrow-right" />
               </Link>

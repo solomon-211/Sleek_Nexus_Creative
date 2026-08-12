@@ -149,7 +149,7 @@ export default function About() {
       <SEO {...pageSeo['/about']} />
 
       {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-16 sm:py-24 text-center bg-[#215E61]">
+      <section className="relative overflow-hidden bg-noise text-white py-16 sm:py-24 text-center bg-[#233D4D]">
         <div className="absolute inset-0 bg-motif-light opacity-[0.06] pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>

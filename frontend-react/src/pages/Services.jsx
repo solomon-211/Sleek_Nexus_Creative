@@ -75,7 +75,7 @@ export default function Services() {
       <SEO {...pageSeo['/services']} />
 
       {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-24 text-center bg-[#215E61]">
+      <section className="relative overflow-hidden bg-noise text-white py-24 text-center bg-[#233D4D]">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Enterprise-Grade Technology Solutions</p>

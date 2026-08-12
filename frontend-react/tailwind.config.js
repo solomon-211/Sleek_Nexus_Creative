@@ -22,17 +22,17 @@ export default {
         'fade-in-up': 'fade-in-up 0.5s ease forwards',
       },
       colors: {
-        // Brand palette — #FF9E20 orange primary, #215E61 teal dark, #1D2128 near-black, #F4F2F2 off-white
-        primary:      '#FF9E20',        // warm orange — CTAs, highlights, icons
-        'primary-dark': '#215E61',      // deep teal — hover states, dark CTAs
-        accent:       '#FF9E20',        // alias kept for backwards compat
-        'accent-dark': '#215E61',
-        dark:         '#215E61',        // teal replaces near-black as the "dark" tone
-        'dark-soft':  '#215E61',        // used on body text, nav, footers
-        'near-black': '#1D2128',        // use sparingly — only truly dark elements
-        muted:        'rgba(33,94,97,0.65)',  // teal at reduced opacity for body text
-        surface:      '#F4F2F2',        // off-white — card backgrounds, section fills
-        light:        '#F4F2F2',        // alias
+        // Brand palette — #FE7F2D orange, #233D4D navy, #000000 black, #EAECF0 grey
+        primary:      '#FE7F2D',        // orange — CTAs, highlights, icons
+        'primary-dark': '#233D4D',      // navy — hover states, dark CTAs
+        accent:       '#FE7F2D',        // alias kept for backwards compat
+        'accent-dark': '#233D4D',
+        dark:         '#233D4D',        // navy — the "dark" tone
+        'dark-soft':  '#233D4D',        // used on body text, nav, footers
+        'near-black': '#000000',        // use sparingly — only truly dark elements
+        muted:        'rgba(35,61,77,0.65)',  // navy at reduced opacity for body text
+        surface:      '#EAECF0',        // grey — card backgrounds, section fills
+        light:        '#EAECF0',        // alias
       },
       fontFamily: {
         sans: ['Inter Variable', 'Inter', 'sans-serif'],

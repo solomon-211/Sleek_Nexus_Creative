@@ -85,7 +85,7 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 bg-[#215E61] ${
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 bg-[#233D4D] ${
         scrolled ? 'shadow-[0_4px_24px_rgba(0,0,0,0.25)]' : ''
       }`}
     >
@@ -202,7 +202,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden fixed inset-0 bg-[#1D2128]/50"
+            className="lg:hidden fixed inset-0 bg-[#000000]/50"
             style={{ top: '72px', zIndex: 9997 }}
             onClick={() => setMenuOpen(false)}
           />
@@ -218,7 +218,7 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
             style={{ zIndex: 9998 }}
-            className="lg:hidden relative border-t border-white/10 bg-[#215E61] shadow-[0_16px_40px_rgba(0,0,0,0.2)] max-h-[calc(100vh-72px)] overflow-y-auto"
+            className="lg:hidden relative border-t border-white/10 bg-[#233D4D] shadow-[0_16px_40px_rgba(0,0,0,0.2)] max-h-[calc(100vh-72px)] overflow-y-auto"
           >
             <ul className="py-2">
               {navLinks.map(({ label, to, dropdown, highlight }) => (

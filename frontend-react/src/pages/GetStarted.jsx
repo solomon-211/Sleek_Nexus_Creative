@@ -102,7 +102,7 @@ export default function GetStarted() {
       <SEO {...pageSeo['/get-started']} />
 
       {/* Header */}
-      <section className="relative py-28 sm:py-36 flex items-center overflow-hidden text-white bg-[#215E61]">
+      <section className="relative py-28 sm:py-36 flex items-center overflow-hidden text-white bg-[#233D4D]">
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }} className="max-w-2xl">
             <p className="text-accent text-sm font-bold uppercase tracking-widest mb-5 flex items-center gap-3">
