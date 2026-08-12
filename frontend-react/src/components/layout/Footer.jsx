@@ -53,7 +53,7 @@ export default function Footer() {
   const { pathname } = useLocation()
 
   return (
-    <footer className="bg-[#233D4D] text-white" aria-label="Site footer">
+    <footer className="bg-[#233D4D] text-white border-t-4 border-primary" aria-label="Site footer">
 
       {/* ── CTA band ── */}
       <div className="border-b border-white/10">
