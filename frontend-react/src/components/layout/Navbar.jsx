@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import SearchBar from '../ui/SearchBar'
 
 // ── Nav data ──────────────────────────────────────────────────────────────────
 const navLinks = [
@@ -172,9 +171,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* ── Search bar ── */}
-          <SearchBar className="hidden lg:block w-36 flex-shrink-0" />
-
           {/* ── Hamburger ── */}
           <button
             type="button"
@@ -305,10 +301,6 @@ export default function Navbar() {
                 </Link>
               </li>
 
-              {/* Search in mobile menu */}
-              <li className="px-6 pb-4">
-                <SearchBar className="w-full" onNavigate={() => setMenuOpen(false)} />
-              </li>
             </ul>
           </motion.div>
         )}
