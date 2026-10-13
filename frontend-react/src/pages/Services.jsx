@@ -4,10 +4,12 @@ import { motion } from 'framer-motion'
 import { fadeUp, scaleIn, floatAnimation } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
-import MagneticButton from '../components/ui/MagneticButton'
 import PricingEstimator from '../components/ui/PricingEstimator'
 import TiltCard from '../components/ui/TiltCard'
 import { packages } from '../lib/packages-data'
+import Img from '../components/ui/Img'
+import PageHeader from '../components/ui/PageHeader'
+import CtaBand from '../components/ui/CtaBand'
 
 const navItems = [
   { id: 'software-dev', icon: 'fa-code',         label: 'Software Dev' },
@@ -74,33 +76,32 @@ export default function Services() {
     <>
       <SEO {...pageSeo['/services']} />
 
-      {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-24 text-center bg-[#233D4D]">
-        <div className="max-w-3xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
-            <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Enterprise-Grade Technology Solutions</p>
-            <h1 className="text-4xl md:text-6xl font-heading font-black uppercase mb-6">Our Services</h1>
-            <p className="text-gray-300 text-lg leading-relaxed">We deliver comprehensive technology services designed to transform your business operations and accelerate growth — from custom software development to strategic IT consulting.</p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHeader
+        tone="dark"
+        label="Enterprise-Grade Technology Solutions"
+        title="Our Services"
+        desc="We deliver comprehensive technology services designed to transform your business operations and accelerate growth — from custom software development to strategic IT consulting."
+      />
 
       {/* Sticky anchor nav */}
       <div className="sticky top-[72px] z-20 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="container-page">
           <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-2">
             {navItems.map(({ id, icon, label }) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition-all duration-200 flex-shrink-0 ${
+                className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition-all duration-200 flex-shrink-0 ${
                   activeSection === id
-                    ? 'bg-primary text-white shadow-sm'
+                    ? 'text-primary'
                     : 'text-muted hover:text-primary hover:bg-primary/8'
                 }`}
               >
-                <i className={`fas ${icon} text-xs`} />
+                <i className={`fas ${icon} text-xs transition-transform duration-200 ${activeSection === id ? 'scale-110' : ''}`} />
                 {label}
+                {activeSection === id && (
+                  <span className="absolute bottom-0 left-2 right-2 h-[2px] bg-primary rounded-full" />
+                )}
               </button>
             ))}
           </div>
@@ -109,14 +110,14 @@ export default function Services() {
 
       {/* Services */}
       {services.map(({ id, icon, title, img, intro, offers, process, tech, features, benefits }, idx) => (
-        <section key={id} id={id} className={`py-24 ${idx % 2 !== 0 ? 'bg-gray-50' : ''}`}>
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+        <section key={id} id={id} className={`py-16 sm:py-24 ${idx % 2 !== 0 ? 'bg-gray-50' : ''}`}>
+          <div className="container-page">
             <div className={`grid lg:grid-cols-2 gap-16 items-center ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
               <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75 }} className={idx % 2 !== 0 ? 'lg:order-2' : ''}>
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5">
                   <i className={`fas ${icon} text-primary text-2xl`} />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-black uppercase text-dark mb-4">{title}</h2>
+                <h2 className="section-title">{title}</h2>
                 <p className="text-muted leading-relaxed mb-6">{intro}</p>
                 <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
@@ -168,7 +169,7 @@ export default function Services() {
                 <Link to="/contact" className="btn-primary">Request a Quote</Link>
               </motion.div>
               <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.25 }} className={idx % 2 !== 0 ? 'lg:order-1' : ''}>
-                <img src={img} alt={title} className="rounded-2xl shadow-xl w-full object-cover h-80 lg:h-[420px]" loading="lazy" />
+                <Img src={img} alt={title} className="rounded-2xl shadow-xl w-full object-cover h-80 lg:h-[420px]" loading="lazy" />
               </motion.div>
             </div>
           </div>
@@ -179,10 +180,10 @@ export default function Services() {
       <PricingEstimator />
 
       {/* Packages */}
-      <section id="all-packages" className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section id="all-packages" className="py-16 sm:py-24 bg-gray-50">
+        <div className="container-page">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Service Packages</p>
+            <p className="eyebrow">Service Packages</p>
             <h2 className="section-title">Or Browse Every Package</h2>
             <p className="section-subtitle">Every project is unique. Browse our packages to understand what's included, then contact us for a tailored quote.</p>
           </div>
@@ -228,31 +229,12 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
-        <div className="max-w-2xl mx-auto px-6">
-          <h2
-            className="font-heading uppercase leading-[0.95] mb-4"
-            style={{ fontSize: 'clamp(2.25rem,5vw,3rem)', fontWeight: 800, textShadow: '3px 3px 0px rgba(254,127,45,0.35), 6px 6px 0px rgba(254,127,45,0.15)' }}
-          >
-            <span className="block text-white">Ready to Accelerate</span>
-            <span
-              className="block text-white"
-              style={{ fontSize: 'clamp(2rem,4.5vw,2.5rem)' }}
-            >
-              Your Digital Transformation?
-            </span>
-          </h2>
-          <p className="text-gray-300 mb-8">Partner with us to unlock innovative solutions that drive growth, efficiency, and competitive advantage.</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <MagneticButton>
-              <Link to="/contact" className="btn-primary">Contact Us</Link>
-            </MagneticButton>
-            <MagneticButton>
-              <Link to="/innovation-hub" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Work</Link>
-            </MagneticButton>
-          </div>
-        </div>
-      </section>
+      <CtaBand
+        title="Ready to Accelerate Your Digital Transformation?"
+        desc="Partner with us to unlock innovative solutions that drive growth, efficiency, and competitive advantage."
+        primary={{ to: '/contact', label: "Contact Us" }}
+        secondary={{ to: '/work', label: "View Our Work" }}
+      />
     </>
   )
 }

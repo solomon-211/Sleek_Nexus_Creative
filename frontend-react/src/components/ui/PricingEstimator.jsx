@@ -120,9 +120,9 @@ export default function PricingEstimator() {
 
   return (
     <section className="py-16 sm:py-24">
-      <div className="max-w-3xl mx-auto px-6 lg:px-10">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="text-center mb-10 sm:mb-12">
-          <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Not Sure Where to Start?</p>
+          <p className="eyebrow">Not Sure Where to Start?</p>
           <h2 className="section-title">Find Your Package in 30 Seconds</h2>
           <p className="section-subtitle">Answer a few quick questions and we'll point you to the right starting tier.</p>
         </div>

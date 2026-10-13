@@ -69,6 +69,26 @@ Paste the returned `id` into the commented-out `[[kv_namespaces]]` block in
 `wrangler.toml`, uncomment it, and redeploy. Without this the API still
 works — it just skips rate limiting.
 
+## 6. Optional — email the team on every submission
+
+Without this, a submission is saved to Supabase and the frontend sends the
+notification itself through EmailJS. With it, the Worker sends the email —
+after validation, the honeypot, and the rate limit — and the frontend skips
+EmailJS entirely.
+
+1. Create a [Resend](https://resend.com) account and verify
+   `sleeknexuscreative.com` as a sending domain.
+2. `npx wrangler secret put RESEND_API_KEY`
+3. Check `NOTIFY_TO` / `NOTIFY_FROM` in `wrangler.toml`, then `npm run deploy`.
+
+The response's `notified` field reports whether the email went out.
+
+## Tests
+
+```
+npm test
+```
+
 ## API
 
 `POST /api/messages`
@@ -93,7 +113,7 @@ leave it blank; forms should render it visually hidden.
 
 | Status | Meaning |
 |---|---|
-| 201 | Saved |
+| 201 | Saved — body is `{ "ok": true, "notified": true | false }` |
 | 400 | Missing/invalid field, or malformed JSON |
 | 404 | Unknown route |
 | 405 | Wrong HTTP method |

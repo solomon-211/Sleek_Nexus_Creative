@@ -4,7 +4,8 @@ import PageHeader from '../../components/ui/PageHeader'
 import SEO from '../../components/ui/SEO'
 import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
-import MagneticButton from '../../components/ui/MagneticButton'
+import Img from '../../components/ui/Img'
+import CtaBand from '../../components/ui/CtaBand'
 
 const offers = ['User Research & Personas', 'Wireframing & Prototyping', 'High-Fidelity UI Design', 'Design Systems & Component Libraries', 'Usability Testing', 'Mobile & Web App Design', 'Branding Integration', 'Figma Handoff for Developers']
 
@@ -23,15 +24,15 @@ export default function UIUX() {
       <SEO {...pageSeo['/services/ui-ux']} />
       <PageHeader label="Services" title="UI/UX Design" desc="Human-centered design that makes digital products intuitive, accessible, and beautiful — built for your users, not just aesthetics." />
 
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24">
+        <div className="container-page">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-              <img src="/images/software-dev.jpg" alt="UI/UX Design" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
+              <Img src="/images/software-dev.jpg" alt="UI/UX Design" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Design That Converts</p>
-              <h2 className="text-3xl md:text-4xl font-heading font-black uppercase text-dark mb-6">Great Design Is More Than How It Looks</h2>
+              <p className="eyebrow">Design That Converts</p>
+              <h2 className="section-title">Great Design Is More Than How It Looks</h2>
               <p className="text-muted leading-relaxed mb-4">Good UI/UX design reduces user friction, increases task completion, and builds trust. We design with South Sudan's users in mind — diverse languages, literacy levels, and device types.</p>
               <p className="text-muted leading-relaxed mb-6">Our design process is research-driven, collaborative, and delivers production-ready Figma files that your developers can implement exactly as designed.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
@@ -48,10 +49,10 @@ export default function UIUX() {
         </div>
       </section>
 
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="container-page">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Our Approach</p>
+            <p className="eyebrow">Our Approach</p>
             <h2 className="section-title">Design Principles We Live By</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -68,8 +69,8 @@ export default function UIUX() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-noise py-16 bg-dark text-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
+      <section className="relative overflow-hidden bg-noise py-16 sm:py-24 bg-dark text-white">
+        <div className="container-page text-center">
           <p className="text-accent text-sm font-bold uppercase tracking-widest mb-4">Tools We Use</p>
           <div className="flex flex-wrap gap-3 justify-center">
             {tools.map(t => <span key={t} className="bg-white/10 text-white text-sm font-semibold px-4 py-2 rounded-full">{t}</span>)}
@@ -77,20 +78,12 @@ export default function UIUX() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
-        <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase mb-4">Ready to Redesign Your Product?</h2>
-          <p className="text-gray-300 mb-8">Let's make it beautiful, usable, and built for your real users.</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <MagneticButton>
-              <Link to="/contact" className="btn-primary">Get a Free Consultation</Link>
-            </MagneticButton>
-            <MagneticButton>
-              <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">All Services</Link>
-            </MagneticButton>
-          </div>
-        </div>
-      </section>
+      <CtaBand
+        title="Ready to Redesign Your Product?"
+        desc={"Let's make it beautiful, usable, and built for your real users."}
+        primary={{ to: '/contact', label: "Get a Free Consultation" }}
+        secondary={{ to: '/services', label: "All Services" }}
+      />
     </>
   )
 }

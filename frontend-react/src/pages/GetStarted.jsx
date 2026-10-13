@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import emailjs from '@emailjs/browser'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import { motion } from 'framer-motion'
@@ -12,7 +11,8 @@ import AnimatedCounter from '../components/ui/AnimatedCounter'
 import FaqAccordion from '../components/ui/FaqAccordion'
 import GlitchText from '../components/ui/GlitchText'
 import AnimatedCheckmark from '../components/ui/AnimatedCheckmark'
-import { submitMessage } from '../lib/api'
+import { sendLead } from '../lib/api'
+import { whatsappUrl, companyStats, PHONE_DISPLAY, PHONE_E164, EMAIL } from '../lib/site'
 
 const schema = z.object({
   name:        z.string().min(2, 'Full name is required'),
@@ -37,10 +37,9 @@ const steps = [
   { num: '04', icon: 'fa-check-circle',    title: 'You Decide',               desc: 'Review the proposal, ask questions, and let us know if you want to move forward. No pressure.' },
 ]
 
+// The first three match Home and About; the fourth is specific to this page.
 const trustStats = [
-  { icon: 'fa-project-diagram', value: 10, suffix: '+', label: 'Projects Delivered' },
-  { icon: 'fa-user-graduate',   value: 50, suffix: '+', label: 'Learners Supported' },
-  { icon: 'fa-handshake',       value: 5,  suffix: '+', label: 'Partner Organizations' },
+  ...companyStats.slice(0, 3),
   { icon: 'fa-clock',           value: 24, suffix: 'hr', label: 'Average Response Time' },
 ]
 
@@ -53,14 +52,16 @@ const readyChecklist = [
 
 export default function GetStarted() {
   const [status, setStatus] = useState(null)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
     resolver: zodResolver(schema),
   })
 
   const onSubmit = async (data) => {
-    const [dbResult, emailResult] = await Promise.allSettled([
-      submitMessage({
+    setStatus(null)
+    try {
+      await sendLead({
         type:     'get_started',
         name:     data.name,
         email:    data.email,
@@ -71,28 +72,11 @@ export default function GetStarted() {
         timeline: data.timeline,
         message:  data.description,
         website:  data.website,
-      }),
-      emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID,
-        {
-          from_name:   data.name,
-          from_email:  data.email,
-          phone:       data.phone    || 'N/A',
-          company:     data.company  || 'N/A',
-          service:     data.service,
-          budget:      data.budget   || 'N/A',
-          timeline:    data.timeline || 'N/A',
-          message:     data.description,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      ),
-    ])
-
-    if (dbResult.status === 'fulfilled' || emailResult.status === 'fulfilled') {
+      })
       setStatus('success')
       reset()
-    } else {
+    } catch (err) {
+      setErrorMessage(err.message)
       setStatus('error')
     }
   }
@@ -102,13 +86,13 @@ export default function GetStarted() {
       <SEO {...pageSeo['/get-started']} />
 
       {/* Header */}
-      <section className="relative py-28 sm:py-36 flex items-center overflow-hidden text-white bg-[#233D4D]">
-        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
+      <section className="relative py-28 sm:py-36 flex items-center overflow-hidden text-white bg-dark">
+        <div className="relative container-page w-full">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }} className="max-w-2xl">
             <p className="text-accent text-sm font-bold uppercase tracking-widest mb-5 flex items-center gap-3">
               <span className="w-8 h-px bg-accent" /> Free Consultation · 24hr Response
             </p>
-            <h1 className="display-heading font-heading mb-6" style={{ letterSpacing: '0.01em' }}>
+            <h1 className="display-heading mb-6">
               Let's Build<br />
               <GlitchText className="text-primary">Something That Works</GlitchText>
             </h1>
@@ -116,7 +100,7 @@ export default function GetStarted() {
               Tell us about your project and we'll get back to you within 24 hours with a free discovery call and a custom proposal — no commitment required.
             </p>
             <a
-              href="https://wa.me/211925277700?text=Hi%20Sleek%20Nexus%20Creative!%20I%27d%20like%20to%20talk%20about%20a%20project."
+              href={whatsappUrl("Hi Sleek Nexus Creative! I'd like to talk about a project.")}
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/15 border border-white/20 rounded-full pl-2 pr-6 py-2 text-sm font-semibold transition-all hover:-translate-y-0.5"
             >
@@ -131,12 +115,12 @@ export default function GetStarted() {
 
       {/* Trust stats — floating bridge card overlapping the hero */}
       <section className="relative -mt-10 sm:-mt-14 z-10 pb-6">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 bg-white rounded-[1.75rem] shadow-[0_30px_70px_-25px_rgba(17,17,17,0.25)] border border-gray-100 p-6 sm:p-8 text-center"
+        <div className="container-page">
+          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 bg-white rounded-[1.75rem] shadow-[0_30px_70px_-25px_rgba(35,61,77,0.25)] border border-gray-100 p-6 sm:p-8 text-center"
             variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}>
             {trustStats.map(({ icon, value, suffix, label }, i) => (
               <motion.div key={label} variants={scaleIn} className={`relative ${i !== trustStats.length - 1 ? 'sm:border-r sm:border-gray-100' : ''}`}>
-                <i className={`fas ${icon} text-primary text-xl mb-2 block`} />
+                <i className={`fas ${icon} text-primary text-xl mb-2 block mx-auto`} />
                 <strong className="block text-2xl sm:text-3xl font-heading font-black text-dark">
                   <AnimatedCounter value={value} suffix={suffix} />
                 </strong>
@@ -148,10 +132,10 @@ export default function GetStarted() {
       </section>
 
       {/* How it works — zigzag stepped timeline */}
-      <section className="py-20 sm:py-28 bg-white bg-dots relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative">
+      <section className="py-16 sm:py-24 bg-white bg-dots relative overflow-hidden">
+        <div className="container-page relative">
           <div className="text-center mb-16">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Simple Process</p>
+            <p className="eyebrow">Simple Process</p>
             <h2 className="section-title">How It Works</h2>
             <p className="section-subtitle">From idea to delivered product in four clear steps.</p>
           </div>
@@ -160,7 +144,7 @@ export default function GetStarted() {
             {steps.map(({ num, icon, title, desc }, i) => (
               <motion.div key={num}
                 className={`relative p-7 rounded-[1.5rem] bg-white transition-all duration-300 hover:-translate-y-2 ${i % 2 === 1 ? 'lg:mt-12' : ''}`}
-                style={{ boxShadow: '0 20px 50px -22px rgba(17,17,17,0.18)' }}
+                style={{ boxShadow: '0 20px 50px -22px rgba(35,61,77,0.18)' }}
                 variants={rotateIn} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12 }}>
                 <span className="text-6xl font-black text-primary/[0.06] font-heading leading-none absolute -top-2 right-4 select-none">{num}</span>
                 <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center mb-5 shadow-[0_10px_24px_rgba(254,127,45,0.35)]">
@@ -181,7 +165,7 @@ export default function GetStarted() {
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Before You Reach Out</p>
+            <p className="eyebrow">Before You Reach Out</p>
             <h2 className="section-title">Common Questions</h2>
             <p className="section-subtitle">Answers to what people usually ask before starting a project with us.</p>
           </div>
@@ -189,21 +173,23 @@ export default function GetStarted() {
         </div>
       </section>
 
-      {/* Form */}
-      <section className="relative py-20 sm:py-28 bg-dark overflow-hidden">
-        <div className="absolute inset-0 bg-grid-light opacity-40 pointer-events-none" />
-        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
-            <p className="text-accent text-sm font-bold uppercase tracking-widest mb-2">Let's Talk Details</p>
-            <h2 className="display-heading-sm text-white">Tell Us About <span className="text-primary">Your Project</span></h2>
+      {/* Form — one "brief desk": the form and everything you might want
+          beside it share a single raised panel, navy rail on the right. */}
+      <section className="aurora-bg border-t border-gray-200 py-16 sm:py-24">
+        <div className="container-page">
+          <div className="text-center mb-10 sm:mb-14">
+            <p className="eyebrow">Let's Talk Details</p>
+            <h2 className="section-title">Tell Us About <span className="text-primary">Your Project</span></h2>
+            <p className="section-subtitle">Fill in what you can. A few honest sentences are enough for us to start.</p>
           </div>
-          <div className="grid lg:grid-cols-5 gap-10 lg:gap-12 items-start">
 
-            {/* Left — form */}
-            <div className="lg:col-span-3 space-y-6">
-            <motion.div className="neo-panel p-6 sm:p-10"
-              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <h3 className="text-2xl font-heading font-black text-dark mb-2">Project Brief</h3>
+          <motion.div
+            className="grid lg:grid-cols-5 bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-[0_30px_70px_-25px_rgba(35,61,77,0.35)]"
+            variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}
+          >
+            {/* Left — the form */}
+            <div className="lg:col-span-3 p-6 sm:p-10 border-t-4 border-primary">
+                <h3 className="text-2xl font-heading font-black text-dark mb-2">Project Brief</h3>
               <p className="text-muted text-sm mb-6">The more detail you provide, the more accurate our proposal will be.</p>
 
               {status === 'success' && (
@@ -216,8 +202,12 @@ export default function GetStarted() {
                 </motion.div>
               )}
               {status === 'error' && (
-                <div className="bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 mb-6 text-sm flex items-center gap-2">
-                  <i className="fas fa-exclamation-circle" /> Something went wrong. Please try again or email us directly.
+                <div role="alert" className="bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 mb-6 text-sm flex items-start gap-2">
+                  <i className="fas fa-exclamation-circle mt-0.5" />
+                  <span>
+                    {errorMessage || 'Something went wrong. Please try again.'}{' '}
+                    <a href={whatsappUrl("Hi Sleek Nexus Creative! I tried to submit a project brief but it didn't go through.")} target="_blank" rel="noopener noreferrer" className="font-semibold underline">Message us on WhatsApp instead</a>.
+                  </span>
                 </div>
               )}
 
@@ -286,111 +276,109 @@ export default function GetStarted() {
                   {isSubmitting ? <><i className="fas fa-spinner fa-spin" /> Sending...</> : 'Submit Project Brief'}
                 </button>
               </form>
-            </motion.div>
-
-            {/* Partner/support callout — a different path for visitors who aren't
-                here to hire us for a single project. Mirrors the engagement paths
-                on the Innovation Hub page so the two stay consistent. */}
-            <motion.div
-              className="bg-white/5 border border-white/15 rounded-2xl p-6 sm:p-8"
-              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center flex-shrink-0">
-                  <i className="fas fa-handshake text-accent text-xl" />
-                </div>
-                <div>
-                  <h3 className="text-white font-heading font-bold mb-1">Not Looking to Hire Us?</h3>
-                  <p className="text-white/60 text-sm leading-relaxed">There's more than one way to work with SNC. Here's how organizations, funders, and individuals get involved beyond a single project.</p>
-                </div>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-5 mb-7">
-                {[
-                  { icon: 'fa-building', title: 'Organizations & NGOs', desc: 'Co-create digital impact through joint programs, sponsorships, or bringing your team into an ongoing initiative.' },
-                  { icon: 'fa-hand-holding-dollar', title: 'Investors & Funders', desc: "Support the Innovation Hub's mission to build South Sudan's digital infrastructure and back local tech talent." },
-                  { icon: 'fa-rocket', title: 'Startups & Innovators', desc: 'Looking for prototyping support or a place to build? Reach out early to join the first Innovation Lab cohort.' },
-                  { icon: 'fa-graduation-cap', title: 'Students & Researchers', desc: 'Interested in mentorship, research collaboration, or early career opportunities in tech? We want to hear from you.' },
-                ].map(({ icon, title, desc }) => (
-                  <div key={title} className="flex gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                      <i className={`fas ${icon} text-accent text-sm`} />
-                    </div>
-                    <div>
-                      <p className="text-white font-semibold text-sm mb-0.5">{title}</p>
-                      <p className="text-white/55 text-xs leading-relaxed">{desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-                <Link to="/innovation-hub" className="btn-secondary border-white text-white hover:bg-white hover:text-primary whitespace-nowrap">
-                  Explore the Innovation Hub
-                </Link>
-                <a href="mailto:info@sleeknexuscreative.com?subject=Partnership%20Inquiry" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-semibold transition-colors">
-                  Or email us directly <i className="fas fa-arrow-right text-xs" />
-                </a>
-              </div>
-            </motion.div>
             </div>
 
-            {/* Right — what to expect */}
-            <motion.div className="lg:col-span-2 space-y-6"
-              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}>
-              <div className="bg-primary rounded-2xl p-8 text-white">
-                <h3 className="text-2xl font-heading font-black mb-2">What to Expect</h3>
-                <p className="text-white/70 text-sm mb-7">Here's what happens after you submit.</p>
-                <div className="space-y-5">
+            {/* Right — navy rail: other ways in, and how to prepare */}
+            <aside className="lg:col-span-2 relative bg-noise bg-dark text-white p-6 sm:p-10 flex flex-col gap-8">
+              <div>
+                <p className="text-accent text-xs font-bold uppercase tracking-widest mb-2">Prefer to Talk First?</p>
+                <p className="text-white/70 text-sm leading-relaxed mb-5">Skip the form — call, email, or message us and we'll take it from there.</p>
+                <div className="space-y-2.5">
                   {[
-                    { icon: 'fa-clock',         title: 'Response within 24 hours', desc: 'We confirm receipt and book a free discovery call at a time that works for you.' },
-                    { icon: 'fa-comments',       title: 'Free discovery call',      desc: 'A 30–45 minute call to understand your goals, users, and technical requirements.' },
-                    { icon: 'fa-file-invoice',   title: 'Custom proposal',          desc: 'A clear document with scope, timeline, deliverables, and transparent pricing.' },
-                    { icon: 'fa-check-circle',   title: 'You decide',               desc: 'No pressure. Review the proposal and let us know if you want to move forward.' },
-                  ].map(({ icon, title, desc }) => (
-                    <div key={title} className="flex gap-4">
-                      <div className="w-9 h-9 bg-white/15 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <i className={`fas ${icon} text-white text-sm`} />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-sm mb-0.5">{title}</p>
-                        <p className="text-white/65 text-sm leading-relaxed">{desc}</p>
-                      </div>
-                    </div>
+                    { icon: 'fas fa-phone',    label: PHONE_DISPLAY, href: `tel:${PHONE_E164}` },
+                    { icon: 'fas fa-envelope', label: EMAIL,         href: `mailto:${EMAIL}` },
+                    { icon: 'fab fa-whatsapp', label: 'Chat on WhatsApp', href: whatsappUrl(), external: true },
+                  ].map(({ icon, label, href, external }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      className="group flex items-center gap-3 bg-white/5 border border-white/10 hover:border-primary/60 hover:bg-white/10 rounded-xl px-3 sm:px-4 py-3 text-[0.8125rem] sm:text-sm font-semibold text-white transition-all duration-200"
+                    >
+                      <span className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+                        <i className={`${icon} text-white text-sm`} />
+                      </span>
+                      <span className="flex-1 min-w-0 truncate">{label}</span>
+                      <i className="fas fa-arrow-right text-white/40 text-xs hidden sm:inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent" />
+                    </a>
                   ))}
-                </div>
-                <div className="mt-8 pt-6 border-t border-white/20 space-y-2">
-                  <a href="tel:+211925277700" className="flex items-center gap-2 text-white/80 text-sm hover:text-white transition-colors">
-                    <i className="fas fa-phone text-accent" /> +211 925 277 700
-                  </a>
-                  <a href="mailto:info@sleeknexuscreative.com" className="flex items-center gap-2 text-white/80 text-sm hover:text-white transition-colors">
-                    <i className="fas fa-envelope text-accent" /> info@sleeknexuscreative.com
-                  </a>
-                  <a href="https://wa.me/211925277700" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/80 text-sm hover:text-white transition-colors">
-                    <i className="fab fa-whatsapp text-accent" /> WhatsApp Us
-                  </a>
                 </div>
               </div>
 
-              <div className="card p-6">
-                <h3 className="font-heading font-bold text-dark mb-3">What to Have Ready</h3>
-                <p className="text-muted text-sm mb-4">You don't need everything figured out — but these help us give you a sharper proposal.</p>
-                <ul className="space-y-2.5">
+              <div className="border-t border-white/10 pt-8">
+                <p className="text-accent text-xs font-bold uppercase tracking-widest mb-2">What to Have Ready</p>
+                <p className="text-white/70 text-sm leading-relaxed mb-4">You don't need everything figured out — but these help us give you a sharper proposal.</p>
+                <ul className="space-y-3">
                   {readyChecklist.map(item => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-dark-soft">
-                      <i className="fas fa-square-check text-primary text-xs mt-1 flex-shrink-0" /> {item}
+                    <li key={item} className="flex items-start gap-3 text-sm text-white/90 leading-relaxed">
+                      <i className="fas fa-check-circle text-accent mt-0.5 flex-shrink-0" /> {item}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="card p-6">
-                <h3 className="font-heading font-bold text-dark mb-3">Not sure what you need?</h3>
-                <p className="text-muted text-sm mb-4">Browse our service packages for guidance on scope and pricing.</p>
-                <Link to="/services" className="btn-secondary w-full justify-center">View Service Packages</Link>
+              <div className="border-t border-white/10 pt-8 mt-auto">
+                <p className="text-white font-heading font-bold mb-1">Not sure what you need?</p>
+                <p className="text-white/70 text-sm leading-relaxed mb-4">Browse our service packages for guidance on scope and pricing.</p>
+                <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary w-full justify-center">View Service Packages</Link>
               </div>
-            </motion.div>
+            </aside>
+          </motion.div>
+
+          {/* Other ways to work with SNC — for visitors who aren't here to hire
+              us for a single project. Mirrors the Innovation Hub's paths. */}
+          <motion.div
+            className="mt-8 bg-white rounded-2xl border border-gray-200 p-6 sm:p-10"
+            variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-8">
+              <div className="max-w-2xl">
+                <p className="eyebrow">Beyond a Single Project</p>
+                <h3 className="font-heading font-black uppercase text-dark text-2xl mb-2">Not Looking to Hire Us?</h3>
+                <p className="text-muted text-sm leading-relaxed">There's more than one way to work with SNC. Here's how organizations, funders, and individuals get involved.</p>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                <Link to="/innovation-hub" className="btn-secondary whitespace-nowrap">Explore the Innovation Hub</Link>
+                <a href={`mailto:${EMAIL}?subject=Partnership%20Inquiry`} className="inline-flex items-center gap-2 text-dark hover:text-primary text-sm font-semibold transition-colors">
+                  Or email us directly <i className="fas fa-arrow-right text-xs" />
+                </a>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {[
+                { icon: 'fa-building', title: 'Organizations & NGOs', desc: 'Co-create digital impact through joint programs, sponsorships, or bringing your team into an ongoing initiative.' },
+                { icon: 'fa-hand-holding-dollar', title: 'Investors & Funders', desc: "Support the Innovation Hub's mission to build South Sudan's digital infrastructure and back local tech talent." },
+                { icon: 'fa-rocket', title: 'Startups & Innovators', desc: 'Looking for prototyping support or a place to build? Reach out early to join the first Innovation Lab cohort.' },
+                { icon: 'fa-graduation-cap', title: 'Students & Researchers', desc: 'Interested in mentorship, research collaboration, or early career opportunities in tech? We want to hear from you.' },
+              ].map(({ icon, title, desc }) => (
+                <div key={title} className="bg-gray-50 rounded-xl p-5 border border-transparent hover:border-primary/30 transition-colors duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <i className={`fas ${icon} text-primary`} />
+                  </div>
+                  <p className="font-heading font-bold text-dark text-sm mb-1.5">{title}</p>
+                  <p className="text-muted text-xs leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Orange band — separates the page from the navy footer, and offers the
+          one thing a hesitant visitor might still want: proof. */}
+      <section className="relative overflow-hidden bg-primary text-white">
+        <div className="absolute inset-0 bg-motif-light opacity-[0.12] pointer-events-none" />
+        <div className="relative container-page py-10 sm:py-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div>
+            <p className="text-white/80 text-xs font-bold uppercase tracking-widest mb-2">Not Ready Yet?</p>
+            <h2 className="font-heading font-black uppercase text-white text-2xl sm:text-3xl leading-tight" style={{ letterSpacing: '-0.02em' }}>
+              See what we've built before you decide.
+            </h2>
           </div>
+          <Link to="/work" className="btn-light whitespace-nowrap flex-shrink-0">
+            View Our Work <i className="fas fa-arrow-right text-sm" />
+          </Link>
         </div>
       </section>
     </>

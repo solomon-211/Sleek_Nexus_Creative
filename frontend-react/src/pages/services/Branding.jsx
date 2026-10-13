@@ -5,9 +5,11 @@ import PageHeader from '../../components/ui/PageHeader'
 import SEO from '../../components/ui/SEO'
 import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
-import MagneticButton from '../../components/ui/MagneticButton'
 import FaqAccordion from '../../components/ui/FaqAccordion'
 import DragGallery from '../../components/ui/DragGallery'
+import Img from '../../components/ui/Img'
+import { brandWork as brandGallery } from '../../lib/work-data'
+import CtaBand from '../../components/ui/CtaBand'
 
 const offers = [
   { title: 'Logo Design & Visual Identity', desc: 'Memorable marks that represent your organization at a glance.' },
@@ -25,45 +27,6 @@ const deliverables = [
   { icon: 'fa-palette', title: 'Color System', desc: 'Primary and secondary palettes with hex codes, CMYK, and usage guidelines.' },
   { icon: 'fa-font', title: 'Typography', desc: 'Heading and body font pairings with sizing scales and web-safe alternatives.' },
   { icon: 'fa-book', title: 'Brand Guide', desc: 'A comprehensive PDF guide your entire team can follow consistently.' },
-]
-
-const brandGallery = [
-  {
-    src: '/images/rise-leadership-academy.png',
-    title: 'Rise Leadership Academy',
-    category: 'Brand Identity',
-    desc: 'Full brand identity for Rise Leadership Academy — built to inspire and empower the next generation of leaders.',
-  },
-  {
-    src: '/images/building-the-future.png',
-    title: 'Building the Future',
-    category: 'Campaign Design',
-    desc: 'Inspirational brand campaign communicating vision and forward momentum.',
-  },
-  {
-    src: '/images/honoring-excellence.png',
-    title: 'Honoring Excellence',
-    category: 'Event Branding',
-    desc: 'Ceremonial brand materials for recognition and award programs.',
-  },
-  {
-    src: '/images/fresh-identity.png',
-    title: 'Fresh Identity',
-    category: 'Brand Launch',
-    desc: 'Clean, modern brand launch materials built for digital-first audiences.',
-  },
-  {
-    src: '/images/white-hoodie-gold-print.png',
-    title: 'White Hoodie — Gold Print',
-    category: 'Brand Merchandise',
-    desc: 'Brand applied to physical merchandise — hoodies, apparel, and print materials.',
-  },
-  {
-    src: '/images/orange-t-shirt.png',
-    title: 'Orange T-Shirt',
-    category: 'Brand Merchandise',
-    desc: 'Branded apparel design — vibrant orange tee with bold logo placement.',
-  },
 ]
 
 const process = [
@@ -112,14 +75,14 @@ export default function Branding() {
       />
 
       {/* INTRO SECTION */}
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24">
+        <div className="container-page">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
               variants={fadeUp} initial="hidden" whileInView="show"
               viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <img
+              <Img
                 src="/images/rise-leadership-academy.png"
                 alt="Rise Leadership Academy Logo"
                 className="rounded-2xl shadow-xl w-full h-[420px] object-cover"
@@ -130,8 +93,8 @@ export default function Branding() {
               variants={fadeUp} initial="hidden" whileInView="show"
               viewport={{ once: true }} transition={{ duration: 0.5 }}
             >
-              <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Visual Identity</p>
-              <h2 className="text-3xl md:text-4xl font-heading font-black uppercase text-dark mb-6">Your Brand Is More Than Your Logo</h2>
+              <p className="eyebrow">Visual Identity</p>
+              <h2 className="section-title">Your Brand Is More Than Your Logo</h2>
               <p className="text-muted leading-relaxed mb-4">
                 A strong brand builds trust before you even speak. We craft visual identities that reflect your
                 organization's mission, values, and audience — designed to work across digital and print.
@@ -159,10 +122,10 @@ export default function Branding() {
       </section>
 
       {/* BRAND WORK GALLERY — drag to explore */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="container-page">
           <div className="text-center mb-8">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Our Work</p>
+            <p className="eyebrow">Our Work</p>
             <h2 className="section-title">Brand Showcase</h2>
             <p className="section-subtitle">
               Real branding work delivered for real organizations — from full corporate identities
@@ -173,7 +136,7 @@ export default function Branding() {
             <i className="fas fa-arrows-left-right" /> Drag to explore
           </p>
         </div>
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+        <div className="container-page">
           <DragGallery>
             {brandGallery.map(({ src, title, category, desc }) => (
               <div
@@ -181,9 +144,10 @@ export default function Branding() {
                 className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 w-[280px] sm:w-[320px] flex-shrink-0"
               >
                 <div className="relative overflow-hidden h-56 sm:h-64">
-                  <img
+                  <Img
                     src={src}
                     alt={title}
+                    sizes="320px"
                     draggable={false}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none"
                     loading="lazy"
@@ -206,10 +170,10 @@ export default function Branding() {
       </section>
 
       {/* PROCESS */}
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24">
+        <div className="container-page">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">How We Work</p>
+            <p className="eyebrow">How We Work</p>
             <h2 className="section-title">Our Branding Process</h2>
             <p className="section-subtitle">A structured process that turns your story into a brand people recognize and trust.</p>
           </div>
@@ -231,10 +195,10 @@ export default function Branding() {
       </section>
 
       {/* DELIVERABLES */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="container-page">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">What You Get</p>
+            <p className="eyebrow">What You Get</p>
             <h2 className="section-title">Brand Deliverables</h2>
             <p className="section-subtitle">Every branding package includes a complete set of assets you'll actually use.</p>
           </div>
@@ -258,10 +222,10 @@ export default function Branding() {
       </section>
 
       {/* BRAND DIRECTION FINDER */}
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24">
+        <div className="container-page">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Not Sure Where to Start?</p>
+            <p className="eyebrow">Not Sure Where to Start?</p>
             <h2 className="section-title">Find Your Brand Direction</h2>
             <p className="section-subtitle">Pick whichever feels closest to how you want your organization to be seen — we'll shape it from there.</p>
           </div>
@@ -308,7 +272,7 @@ export default function Branding() {
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Questions</p>
+            <p className="eyebrow">Questions</p>
             <h2 className="section-title">Common Branding Questions</h2>
           </div>
           <FaqAccordion items={pageSeo['/services/branding'].faq} />
@@ -316,22 +280,12 @@ export default function Branding() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
-        <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase mb-4">Ready to Build a Brand That Stands Out?</h2>
-          <p className="text-gray-300 mb-8">Get a free brand consultation and discover what's possible.</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <MagneticButton>
-              <Link to="/contact" className="btn-primary">Get a Free Quote</Link>
-            </MagneticButton>
-            <MagneticButton>
-              <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">
-                All Services
-              </Link>
-            </MagneticButton>
-          </div>
-        </div>
-      </section>
+      <CtaBand
+        title="Ready to Build a Brand That Stands Out?"
+        desc={"Get a free brand consultation and discover what's possible."}
+        primary={{ to: '/contact', label: "Get a Free Quote" }}
+        secondary={{ to: '/services', label: "All Services" }}
+      />
     </>
   )
 }

@@ -1,19 +1,23 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { GA_ID, OPEN_SETTINGS_EVENT, getConsent, setConsent } from '../../lib/analytics'
 
-const CONSENT_KEY = 'snc_cookie_consent'
-
+// Only rendered at all when analytics is configured — with no measurement ID
+// the site sets no optional cookies, so there is nothing to ask about.
 export default function CookieBanner() {
-  const [visible, setVisible]     = useState(false)
-  const [expanded, setExpanded]   = useState(false)
+  const [visible, setVisible]   = useState(() => Boolean(GA_ID) && !getConsent())
+  const [expanded, setExpanded] = useState(false)
 
-  // Only show after hydration to avoid SSR mismatch
+  // Lets the footer's "Cookie settings" link reopen the banner so a visitor
+  // can change their mind later.
   useEffect(() => {
-    if (!localStorage.getItem(CONSENT_KEY)) setVisible(true)
+    if (!GA_ID) return
+    const open = () => setVisible(true)
+    window.addEventListener(OPEN_SETTINGS_EVENT, open)
+    return () => window.removeEventListener(OPEN_SETTINGS_EVENT, open)
   }, [])
 
-  const accept  = () => { localStorage.setItem(CONSENT_KEY, 'accepted');  setVisible(false) }
-  const decline = () => { localStorage.setItem(CONSENT_KEY, 'declined');  setVisible(false) }
+  const choose = (value) => { setConsent(value); setVisible(false) }
 
   if (!visible) return null
 
@@ -27,7 +31,7 @@ export default function CookieBanner() {
     >
       <style>{`@keyframes slideUp { from { transform: translateY(100%); opacity:0; } to { transform: translateY(0); opacity:1; } }`}</style>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-4">
+      <div className="container-page py-4">
         {/* Main row */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
           <div className="flex items-start gap-3 flex-1">
@@ -35,34 +39,33 @@ export default function CookieBanner() {
             <div>
               <p className="text-white text-sm font-semibold mb-0.5">We value your privacy</p>
               <p className="text-gray-400 text-xs leading-relaxed">
-                We use cookies to enhance your experience, analyze traffic, and personalize content.{' '}
+                With your permission, we use analytics cookies to see which pages are useful and improve the site. Nothing is collected unless you accept.{' '}
                 <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>
                 {' · '}
-                <button onClick={() => setExpanded(e => !e)} className="text-primary hover:underline text-xs">
+                <button onClick={() => setExpanded(e => !e)} aria-expanded={expanded} className="text-primary hover:underline text-xs">
                   {expanded ? 'Hide details' : 'Cookie details'}
                 </button>
               </p>
             </div>
           </div>
           <div className="flex gap-2.5 flex-shrink-0">
-            <button onClick={decline}
-              className="text-xs font-semibold text-gray-300 hover:text-white border border-white/15 hover:border-white/30 px-4 py-2 rounded-lg transition-all">
+            <button onClick={() => choose('declined')}
+              className="text-xs font-semibold text-white/70 hover:text-white border border-white/15 hover:border-white/30 px-4 py-2 rounded-lg transition-all">
               Decline
             </button>
-            <button onClick={accept}
-              className="text-xs font-semibold bg-primary hover:bg-primary-dark text-white px-5 py-2 rounded-lg transition-colors shadow-lg">
-              Accept All
+            <button onClick={() => choose('accepted')}
+              className="text-xs font-semibold bg-primary hover:bg-white hover:text-dark text-white px-5 py-2 rounded-lg transition-colors shadow-lg">
+              Accept
             </button>
           </div>
         </div>
 
-        {/* Expanded cookie details */}
+        {/* Expanded cookie details — lists only what the site actually uses */}
         {expanded && (
-          <div className="mt-4 grid sm:grid-cols-3 gap-3 pt-4 border-t border-white/10">
+          <div className="mt-4 grid sm:grid-cols-2 gap-3 pt-4 border-t border-white/10">
             {[
-              { icon: 'fa-cog', title: 'Essential', desc: 'Required for the website to function. Cannot be disabled.', always: true },
-              { icon: 'fa-chart-bar', title: 'Analytics', desc: 'Help us understand how visitors use the site to improve the experience.' },
-              { icon: 'fa-bullseye', title: 'Marketing', desc: 'Used to deliver relevant content and measure campaign effectiveness.' },
+              { icon: 'fa-cog', title: 'Essential', desc: 'Remembers this cookie choice on your device. No tracking, and required for the site to work.', always: true },
+              { icon: 'fa-chart-bar', title: 'Analytics', desc: 'Google Analytics — anonymous page-view statistics. Loaded only if you press Accept.' },
             ].map(({ icon, title, desc, always }) => (
               <div key={title} className="flex items-start gap-3 bg-white/5 rounded-lg p-3">
                 <i className={`fas ${icon} text-primary text-sm mt-0.5 flex-shrink-0`} />

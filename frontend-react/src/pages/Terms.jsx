@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/ui/SEO'
+import PageHeader from '../components/ui/PageHeader'
 import { pageSeo } from '../lib/seo-data'
 
 const navItems = [
@@ -44,18 +45,18 @@ export default function Terms() {
     <>
       <SEO {...pageSeo['/terms']} />
 
-      {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-20 text-center bg-[#233D4D]">
-        <div className="max-w-3xl mx-auto px-6">
-          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Legal</p>
-          <h1 className="text-4xl md:text-6xl font-heading font-black uppercase mb-3">Terms of Service</h1>
-          <p className="text-accent italic mb-3">"Clear Terms, Fair Practices, Mutual Respect"</p>
-          <p className="text-gray-300 text-sm leading-relaxed max-w-2xl mx-auto">These terms govern your use of our services and establish the foundation for our professional relationship. By engaging with Sleek Nexus Creative, you agree to these terms.</p>
-        </div>
-      </section>
+      <PageHeader
+        tone="dark"
+        compact
+        label="Legal"
+        title="Terms of Service"
+        desc="These terms govern your use of our services and establish the foundation for our professional relationship. By engaging with Sleek Nexus Creative, you agree to these terms."
+      >
+        <p className="text-accent italic mt-4">"Clear Terms, Fair Practices, Mutual Respect"</p>
+      </PageHeader>
 
-      <section className="py-16">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24">
+        <div className="container-page">
           <div className="grid lg:grid-cols-[280px_1fr] gap-12">
 
             {/* Sticky sidebar */}
@@ -187,7 +188,7 @@ export default function Terms() {
               </Section>
 
               <div className="bg-dark rounded-2xl p-6 text-white text-center mt-10">
-                <i className="fas fa-handshake text-primary text-2xl mb-3 block" />
+                <i className="fas fa-handshake text-primary text-2xl mb-3 block mx-auto" />
                 <p className="font-semibold mb-1">Acknowledgment</p>
                 <p className="text-gray-400 text-sm">By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
               </div>
@@ -196,7 +197,7 @@ export default function Terms() {
         </div>
       </section>
 
-      <section className="py-12 bg-gray-50 text-center">
+      <section className="py-12 sm:py-16 bg-gray-50 text-center">
         <div className="max-w-xl mx-auto px-6">
           <p className="text-muted text-sm mb-4">Have questions about our terms?</p>
           <Link to="/contact" className="btn-primary">Contact Us</Link>

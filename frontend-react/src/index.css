@@ -62,9 +62,26 @@
 }
 
 @layer components {
-  /* aurora-bg — removed (no gradients) */
+  /* ── Layout primitives ─────────────────────────────────────────────────
+     The site's one content width and gutter, and its one eyebrow label.
+     Use these instead of re-typing the utilities, so pages can't drift. */
+  .container-page {
+    @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10;
+  }
+  /* Small orange label above a section heading. */
+  .eyebrow {
+    @apply text-primary text-sm font-bold uppercase tracking-widest mb-2;
+  }
+
+  /* aurora-bg — subtle animated gradient mesh */
   .aurora-bg {
     background-color: #EAECF0;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 20% 40%, rgba(254,127,45,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 20%, rgba(35,61,77,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 50% at 60% 80%, rgba(254,127,45,0.06) 0%, transparent 50%);
+    background-size: 200% 200%;
+    animation: aurora-drift 12s ease-in-out infinite;
   }
   @media (prefers-reduced-motion: reduce) {
     .aurora-bg { animation: none; }
@@ -139,12 +156,24 @@
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(254,127,45,0.3)] touch-manipulation;
   }
+  /* White button — the primary action when the background is navy or orange. */
+  .btn-light {
+    @apply inline-flex items-center justify-center gap-2 bg-white text-dark hover:bg-gray-100 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 shadow-[0_10px_28px_rgba(35,61,77,0.25)] touch-manipulation;
+  }
   .section-title {
     @apply font-heading uppercase text-dark mb-4;
     font-weight: 900;
     font-size: clamp(2.25rem, 4vw, 2.75rem);
     letter-spacing: -0.02em;
     line-height: 1.05;
+  }
+  /* Heading of the navy call-to-action that closes a page (see CtaBand). */
+  .cta-heading {
+    @apply font-heading uppercase text-white;
+    font-weight: 800;
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
   }
   .section-subtitle {
     @apply text-muted text-base md:text-lg max-w-2xl mx-auto;
@@ -172,7 +201,7 @@
     letter-spacing: 0.15em;
   }
   .card {
-    @apply bg-white rounded-xl shadow-sm border border-surface hover:border-primary/20 hover:shadow-[0_16px_36px_-12px_rgba(254,127,45,0.18)] hover:-translate-y-1 transition-all duration-300;
+    @apply bg-white rounded-xl shadow-sm border border-surface hover:border-primary/20 hover:shadow-[0_12px_28px_-10px_rgba(254,127,45,0.15)] transition-all duration-300;
   }
 }
 
@@ -197,7 +226,7 @@
      as considered rather than borrowed from any SaaS template. Kept abstract
      and simple on purpose — geometric, not literal illustration. */
   .bg-motif {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 4L56 30L30 56L4 30Z' fill='none' stroke='%23FF9E20' stroke-width='1.25'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 4L56 30L30 56L4 30Z' fill='none' stroke='%23FE7F2D' stroke-width='1.25'/%3E%3C/svg%3E");
     background-size: 60px 60px;
   }
   .bg-motif-light {

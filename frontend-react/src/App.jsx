@@ -1,9 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { AnimatePresence, MotionConfig, motion } from 'framer-motion'
 import { HelmetProvider } from 'react-helmet-async'
-import { motion } from 'framer-motion'
 import { pageVariants } from './lib/animations'
 import Layout from './components/layout/Layout'
 import ErrorBoundary from './components/ui/ErrorBoundary'
@@ -12,12 +10,11 @@ import PageLoader from './components/ui/PageLoader'
 // Home loads eagerly — it's the landing page and should paint instantly.
 import Home from './pages/Home'
 
-// Innovation Hub — flagship page, loads eagerly alongside Home
-import InnovationHub from './pages/InnovationHub'
-
 // Every other page is split into its own chunk and fetched on demand.
+const InnovationHub = lazy(() => import('./pages/InnovationHub'))
 const About      = lazy(() => import('./pages/About'))
 const Services   = lazy(() => import('./pages/Services'))
+const Work       = lazy(() => import('./pages/Work'))
 const Contact    = lazy(() => import('./pages/Contact'))
 const Privacy    = lazy(() => import('./pages/Privacy'))
 const Terms      = lazy(() => import('./pages/Terms'))
@@ -30,10 +27,6 @@ const MobileApps = lazy(() => import('./pages/services/MobileApps'))
 const UIUX       = lazy(() => import('./pages/services/UIUX'))
 const Branding   = lazy(() => import('./pages/services/Branding'))
 const Consulting = lazy(() => import('./pages/services/Consulting'))
-
-const queryClient = new QueryClient({
-  defaultOptions: { queries: { staleTime: 1000 * 60 * 5, retry: 1 } },
-})
 
 function PageWrapper({ children }) {
   return (
@@ -60,6 +53,7 @@ function AnimatedRoutes() {
                   <Route path="/innovation-hub" element={<PageWrapper><InnovationHub /></PageWrapper>} />
                   <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
                   <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
+                  <Route path="/work" element={<PageWrapper><Work /></PageWrapper>} />
                   <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
                   <Route path="/get-started" element={<PageWrapper><GetStarted /></PageWrapper>} />
                   <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
@@ -76,8 +70,8 @@ function AnimatedRoutes() {
                   <Route path="/about/our-story"        element={<Navigate to="/about" replace />} />
                   <Route path="/about/mission-vision"   element={<Navigate to="/about" replace />} />
                   <Route path="/about/team"             element={<Navigate to="/about" replace />} />
-                  <Route path="/projects"              element={<Navigate to="/" replace />} />
-                  <Route path="/projects/*"             element={<Navigate to="/" replace />} />
+                  <Route path="/projects"              element={<Navigate to="/work" replace />} />
+                  <Route path="/projects/*"             element={<Navigate to="/work" replace />} />
                   <Route path="/quote"                  element={<Navigate to="/get-started" replace />} />
                   <Route path="/book-consultation"      element={<Navigate to="/get-started" replace />} />
                   <Route path="/blog"                   element={<Navigate to="/" replace />} />
@@ -92,7 +86,10 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
+      {/* reducedMotion="user": visitors whose OS is set to reduce motion get
+          fades instead of slides, tilts, and floats — site-wide, without each
+          component having to check for itself. */}
+      <MotionConfig reducedMotion="user">
         <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <ErrorBoundary>
             <Layout>
@@ -102,7 +99,7 @@ export default function App() {
             </Layout>
           </ErrorBoundary>
         </BrowserRouter>
-      </QueryClientProvider>
+      </MotionConfig>
     </HelmetProvider>
   )
 }

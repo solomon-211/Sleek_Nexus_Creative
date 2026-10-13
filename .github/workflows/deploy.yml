@@ -25,11 +25,23 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+
+      # The API is deployed separately (see backend/README.md), but its tests
+      # gate this workflow so a broken form endpoint is caught on every push.
+      - name: Test backend
+        working-directory: backend
+        run: |
+          npm ci
+          npm test
 
       - name: Install dependencies
         working-directory: frontend-react
         run: npm ci
+
+      - name: Lint
+        working-directory: frontend-react
+        run: npm run lint
 
       - name: Build
         working-directory: frontend-react
@@ -40,6 +52,10 @@ jobs:
           VITE_EMAILJS_NEWSLETTER_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_NEWSLETTER_TEMPLATE_ID }}
           VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
           VITE_API_URL: ${{ vars.VITE_API_URL }}
+          # Optional. Leave unset to ship with no analytics and no cookie banner.
+          VITE_GA_MEASUREMENT_ID: ${{ vars.VITE_GA_MEASUREMENT_ID }}
+          # Optional. Set to "true" to publish the team section on the About page.
+          VITE_SHOW_TEAM: ${{ vars.VITE_SHOW_TEAM }}
 
       - name: Copy CNAME to dist
         run: cp CNAME frontend-react/dist/CNAME

@@ -1,3 +1,5 @@
+> **Outdated.** This describes an earlier plan (static HTML on AWS S3, Lambda, MongoDB). The site as built is a React app on GitHub Pages with a Cloudflare Worker + Supabase backend — see [README.md](README.md).
+
 # Sleek Nexus Creative — Web Application Launch Roadmap
 
 A complete step-by-step guide to launching, connecting, and growing the Sleek Nexus Creative web platform.

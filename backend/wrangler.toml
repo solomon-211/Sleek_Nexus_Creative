@@ -11,7 +11,11 @@ routes = [
 ]
 
 [vars]
-CORS_ORIGIN = "https://sleeknexuscreative.com,http://localhost:5173"
+CORS_ORIGIN = "https://sleeknexuscreative.com,https://www.sleeknexuscreative.com,http://localhost:5173"
+# Where lead notifications go, and the verified Resend sender they come from.
+# These two are not secret; the API key is (see below).
+NOTIFY_TO = "info@sleeknexuscreative.com"
+NOTIFY_FROM = "SNC Website <noreply@sleeknexuscreative.com>"
 
 # Optional — powers the per-IP rate limit in src/routes/messages.js.
 # Create it with: npx wrangler kv namespace create RATE_LIMIT_KV
@@ -24,3 +28,4 @@ CORS_ORIGIN = "https://sleeknexuscreative.com,http://localhost:5173"
 # Secrets — never put real values here. Set them with:
 #   npx wrangler secret put SUPABASE_URL
 #   npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY
+#   npx wrangler secret put RESEND_API_KEY      (optional — enables lead emails)

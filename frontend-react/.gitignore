@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Built by scripts/generate-icons.mjs on every dev start and build
+src/icons.generated.css
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

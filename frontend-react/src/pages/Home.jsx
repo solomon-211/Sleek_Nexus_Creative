@@ -11,14 +11,12 @@ import MarqueeTicker from '../components/ui/MarqueeTicker'
 import KineticHeadline from '../components/ui/KineticHeadline'
 import TiltCard from '../components/ui/TiltCard'
 import RevealLink from '../components/ui/RevealLink'
+import Img from '../components/ui/Img'
+import { EDUPORTAL_URL } from '../lib/work-data'
+import { companyStats } from '../lib/site'
 // ─── Data ────────────────────────────────────────────────────────────────────
 
-const counters = [
-  { icon: 'fa-project-diagram', value: 10, suffix: '+', label: 'Projects Delivered' },
-  { icon: 'fa-user-graduate', value: 50, suffix: '+', label: 'Learners Supported' },
-  { icon: 'fa-handshake', value: 5, suffix: '+', label: 'Partner Organizations' },
-  { icon: 'fa-calendar-check', value: 1, suffix: '+', label: 'Years of Excellence' },
-]
+const counters = companyStats
 
 const processSteps = [
   { num: '01', icon: 'fa-comments', title: 'Discovery Call', desc: 'We listen to your goals, challenges, and requirements to understand exactly what you need.' },
@@ -27,7 +25,6 @@ const processSteps = [
   { num: '04', icon: 'fa-rocket', title: 'Launch & Support', desc: 'We deploy your product and provide ongoing support, training, and maintenance.' },
 ]
 
-const EDUPORTAL_URL = 'https://eduportalss.solomonleek.tech'
 
 const testimonials = [
   { initials: 'AM', name: 'Akol Mading', role: 'Director, Juba Learning Centre', text: 'SNC built our online course platform from scratch. The team was communicative, delivered on time, and trained our staff to manage it independently. Exactly what we needed.' },
@@ -65,12 +62,17 @@ export default function Home() {
 
       {/* Hero */}
       <section
-        className="relative min-h-screen flex items-center bg-white overflow-hidden"
+        className="relative min-h-screen flex items-center overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #f8f9fb 0%, #eef0f4 50%, #f5f6f8 100%)'
+        }}
       >
         {/* Dot grid overlay */}
-        <div className="absolute inset-0 bg-dots opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-dots opacity-30 pointer-events-none" />
+        {/* Soft radial glow top-right */}
+        <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(254,127,45,0.08) 0%, transparent 70%)' }} />
 
-        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-24 w-full">
+        <div className="relative container-page py-20 sm:py-24 w-full">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
               <p className="section-label text-accent">Based in Juba, South Sudan</p>
@@ -87,30 +89,30 @@ export default function Home() {
                 ]} />
               </h1>
               <p className="text-muted text-base sm:text-lg leading-relaxed mb-7 sm:mb-8">
-                Sleek Nexus Creative is a Juba-based studio helping organizations — in South Sudan and beyond — launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact.
+                Bring us the problem slowing your organization down — paper records, customers you can't reach online, systems that fail when the network drops. We'll design, build, and launch the website, app, or platform that fixes it, train your team to run it, and stay with you after launch.
               </p>
               <div className="flex flex-wrap gap-3 mb-8 sm:mb-12">
                 <MagneticButton liquid>
-                  <Link to="/contact" className="btn-primary">Start Your Project</Link>
+                  <Link to="/contact" className="btn-primary text-base px-7 py-3.5">Start Your Project</Link>
                 </MagneticButton>
                 <MagneticButton liquid>
-                  <Link to="/services" className="btn-secondary">View Our Services</Link>
+                  <Link to="/services" className="btn-secondary text-base px-7 py-3.5">View Our Services</Link>
                 </MagneticButton>
               </div>
             </motion.div>
 
-            <motion.aside
+              <motion.aside
               variants={fadeRight} initial="hidden" animate="show" transition={{ duration: 0.8, delay: 0.3 }}
               className="relative"
             >
-              {/* Card border accent — flat primary color */}
-              <div className="absolute -inset-[2px] rounded-2xl pointer-events-none border-2 border-primary/20" />
+              {/* Card glow border */}
+              <div className="absolute -inset-[1px] rounded-2xl pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(254,127,45,0.35), rgba(35,61,77,0.15), rgba(254,127,45,0.2))', borderRadius: '1rem' }} />
 
               {/* Continuous idle float */}
               <motion.div
                 initial={{ y: 0 }}
                 animate={floatControls}
-                className="relative bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
+                className="relative bg-white/95 backdrop-blur-sm border border-white rounded-2xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(35,61,77,0.12),0_4px_16px_rgba(254,127,45,0.08)]"
               >
                 <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4">What You Get</p>
                 <ul className="space-y-3 mb-6">
@@ -146,8 +148,8 @@ export default function Home() {
       </div>
 
       {/* ── Orbital Stats ── */}
-      <section className="py-12 sm:py-16 bg-white border-b border-gray-100 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+      <section className="py-12 sm:py-16 bg-gray-50 border-b border-gray-100 overflow-hidden">
+        <div className="container-page">
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center"
             variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
@@ -169,9 +171,9 @@ export default function Home() {
 
       {/* ── Bento Services Grid ── */}
       <section className="py-16 sm:py-24 aurora-bg">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="container-page">
           <motion.div className="text-center mb-10 sm:mb-14" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">What We Do</p>
+            <p className="eyebrow">What We Do</p>
             <h2 className="section-title">Our Services</h2>
             <p className="section-subtitle">From concept to launch, we design systems that solve real operational and community problems.</p>
           </motion.div>
@@ -181,15 +183,14 @@ export default function Home() {
 
             {/* Large feature cell — spans 2 cols + 2 rows */}
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} transition={{duration:0.5}}
-              className="bento-cell lg:col-span-2 lg:row-span-2 relative overflow-hidden group cursor-pointer bg-dark">
-              <div className="absolute inset-0 bg-primary/15" />
+              className="bento-cell row-span-2 lg:col-span-2 relative overflow-hidden group cursor-pointer bg-dark">
               <div className="absolute inset-0 bg-dots-light opacity-40" />
-              <div className="relative h-full flex flex-col justify-between p-8">
+              <div className="relative h-full flex flex-col justify-between p-6 sm:p-8">
                 <div className="w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center">
                   <i className="fas fa-code text-primary text-2xl" />
                 </div>
                 <div>
-                  <h3 className="font-heading text-white text-5xl uppercase leading-none mb-3">Software<br/>Development</h3>
+                  <h3 className="font-heading font-black text-white text-3xl sm:text-5xl uppercase leading-none mb-3" style={{ letterSpacing: '-0.02em' }}>Software<br/>Development</h3>
                   <p className="text-white/60 text-sm leading-relaxed mb-5 max-w-sm">Custom platforms engineered for speed, reliability, and clear business outcomes.</p>
                   <RevealLink to="/services#software-dev" className="inline-flex items-center gap-2 text-accent font-bold text-sm hover:gap-3 transition-all">
                     Explore <i className="fas fa-arrow-right text-xs" />
@@ -263,11 +264,11 @@ export default function Home() {
 
       {/* About Preview */}
       <section className="py-16 sm:py-24">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="container-page">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Who We Are</p>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black uppercase text-dark mb-5 leading-tight">
+              <p className="eyebrow">Who We Are</p>
+              <h2 className="section-title">
                 Reliable Technology, Built in Juba
               </h2>
               <p className="text-muted leading-relaxed mb-4">
@@ -281,7 +282,7 @@ export default function Home() {
               </MagneticButton>
             </motion.div>
             <motion.div variants={fadeRight} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}>
-              <img src="/images/about-preview.jpg" alt="Sleek Nexus Creative — Reliable Technology, Built in Juba" className="w-full rounded-xl object-cover" loading="lazy" />
+              <Img src="/images/about-preview.jpg" alt="Sleek Nexus Creative — Reliable Technology, Built in Juba" className="w-full rounded-xl object-cover" loading="lazy" />
             </motion.div>
           </div>
         </div>
@@ -289,9 +290,9 @@ export default function Home() {
 
       {/* How We Work — process steps */}
       <section className="py-16 sm:py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="container-page">
           <div className="text-center mb-10 sm:mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Our Process</p>
+            <p className="eyebrow">Our Process</p>
             <h2 className="section-title">How We Work</h2>
             <p className="section-subtitle">A clear, structured process from your first message to a live product.</p>
           </div>
@@ -319,7 +320,7 @@ export default function Home() {
 
       {/* Live Product Spotlight — EduPortal South Sudan */}
       <section className="relative overflow-hidden bg-noise py-16 sm:py-24 bg-dark text-white">
-        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="relative container-page">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <span className="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3.5 py-1.5 mb-5">
@@ -347,7 +348,7 @@ export default function Home() {
                   </a>
                 </MagneticButton>
                 <MagneticButton>
-                  <Link to="/contact" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">Get in Touch</Link>
+                  <Link to="/work" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">See All Our Work</Link>
                 </MagneticButton>
               </div>
             </motion.div>
@@ -361,10 +362,10 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="group block rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.4)] hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(254,127,45,0.25)] transition-all duration-500"
               >
-                <div className="flex items-center gap-2 bg-black px-4 py-3 border-b border-white/10">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                <div className="flex items-center gap-2 bg-gray-900 px-4 py-3 border-b border-white/10">
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                   <span className="ml-3 flex-1 bg-white/5 rounded-md px-3 py-1 text-white/50 text-xs flex items-center gap-1.5 truncate">
                     <i className="fas fa-lock text-[0.6rem]" /> eduportalss.solomonleek.tech
                   </span>
@@ -390,9 +391,9 @@ export default function Home() {
 
       {/* Testimonials */}
       <section className="py-16 sm:py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="container-page">
           <div className="text-center mb-10 sm:mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Client Stories</p>
+            <p className="eyebrow">Client Stories</p>
             <h2 className="section-title">What Our Clients Say</h2>
             <p className="section-subtitle">Trusted by businesses, schools, and organizations across South Sudan.</p>
           </div>
@@ -424,9 +425,9 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <section className="py-16 sm:py-24">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="container-page">
           <div className="text-center mb-10 sm:mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Why SNC</p>
+            <p className="eyebrow">Why SNC</p>
             <h2 className="section-title">Why Choose Us</h2>
             <p className="section-subtitle">We're based here, we understand the context, and we stay involved after launch.</p>
           </div>
@@ -435,7 +436,7 @@ export default function Home() {
             variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
           >
             {whyCards.map(({ icon, title, desc }) => (
-              <motion.div key={title} className="card p-5 sm:p-6" variants={rotateIn}>
+              <motion.div key={title} className="card p-5 sm:p-6 hover:-translate-y-1" variants={rotateIn}>
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <i className={`fas ${icon} text-primary text-lg`} />
                 </div>
@@ -448,23 +449,23 @@ export default function Home() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="relative overflow-hidden">
-        {/* Left half — dark, Right half — primary */}
-        <div className="absolute inset-0 flex">
+      <section className="relative overflow-hidden bg-dark">
+        {/* Left half — dark, Right half — primary (side-by-side layout only) */}
+        <div className="absolute inset-0 hidden lg:flex">
           <div className="w-1/2 bg-dark" />
           <div className="w-1/2 bg-primary" />
         </div>
         {/* Divider — orange is a triangle-tipped pennant (point + rectangle),
             dark has a matching V-notch cut into its right edge so the two
             interlock with no gap. */}
-        <div className="absolute inset-0 bg-primary" style={{clipPath:'polygon(64% 0%, calc(100% - 48px) 0%, 100% 48px, 100% calc(100% - 48px), calc(100% - 48px) 100%, 64% 100%, 48% 50%)'}} />
-        <div className="absolute inset-0 bg-dark" style={{clipPath:'polygon(0 48px, 48px 0, 64% 0, 48% 50%, 64% 100%, 48px 100%, 0 calc(100% - 48px))'}} />
+        <div className="absolute inset-0 bg-primary hidden lg:block" style={{clipPath:'polygon(64% 0%, calc(100% - 48px) 0%, 100% 48px, 100% calc(100% - 48px), calc(100% - 48px) 100%, 64% 100%, 48% 50%)'}} />
+        <div className="absolute inset-0 bg-dark hidden lg:block" style={{clipPath:'polygon(0 48px, 48px 0, 64% 0, 48% 50%, 64% 100%, 48px 100%, 0 calc(100% - 48px))'}} />
         {/* Noise */}
         <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none" />
         {/* Bottom accent line */}
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary/40" />
 
-        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-14">
+        <div className="relative container-page py-10 sm:py-14">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
 
             {/* Left — dark side */}
@@ -487,23 +488,21 @@ export default function Home() {
               </h2>
               <p className="text-white/70 text-sm mb-5 max-w-sm">Submit a project brief and hear back within 24 hours — a clear scope, a straight timeline, and pricing that makes sense.</p>
               <MagneticButton>
-                <Link to="/get-started" className="inline-flex items-center gap-2 bg-white text-dark hover:bg-gray-100 font-bold text-sm px-6 py-3 rounded-xl transition-all hover:-translate-y-0.5 shadow-xl">
+                <Link to="/get-started" className="btn-light">
                   Start a Project <i className="fas fa-arrow-right" />
                 </Link>
               </MagneticButton>
             </motion.div>
 
             {/* Right — primary side */}
-            <motion.div variants={fadeRight} initial="hidden" whileInView="show" viewport={{once:true}} className="text-white flex flex-col items-center">
-              <p className="text-white/70 text-xs font-black uppercase tracking-widest mb-3 text-center">What's Included</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <motion.div variants={fadeRight} initial="hidden" whileInView="show" viewport={{once:true}} className="text-white flex flex-col items-start lg:items-center">
+              <p className="text-white/70 text-xs font-black uppercase tracking-widest mb-3 lg:text-center">Before You Commit</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full lg:w-auto">
                 {[
-                  { icon: 'fa-comments',      label: 'Free initial consultation' },
-                  { icon: 'fa-file-alt',       label: 'Honest project scoping' },
-                  { icon: 'fa-clock',          label: 'On-time delivery' },
-                  { icon: 'fa-headset',        label: 'Post-launch support' },
-                  { icon: 'fa-graduation-cap', label: 'Staff training included' },
-                  { icon: 'fa-tag',            label: 'Transparent pricing' },
+                  { icon: 'fa-comments', label: 'Free initial consultation' },
+                  { icon: 'fa-file-alt', label: 'Honest project scoping' },
+                  { icon: 'fa-tag',      label: 'Transparent pricing' },
+                  { icon: 'fa-handshake', label: 'No obligation to proceed' },
                 ].map(({ icon, label }, i) => (
                   <motion.div key={label}
                     initial={{opacity:0, y:16}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{delay: i * 0.07, duration: 0.5}}

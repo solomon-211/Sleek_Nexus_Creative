@@ -1,25 +1,53 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import { generateIcons } from './scripts/generate-icons.mjs'
+
+// Keeps src/icons.generated.css in step with the `fa-*` classes used in the
+// source — see scripts/generate-icons.mjs for what it produces and why.
+function iconSubset() {
+  return {
+    name: 'snc-icon-subset',
+    buildStart() {
+      generateIcons()
+    },
+    configureServer(server) {
+      const regenerate = (file) => {
+        if (!/[\\/]src[\\/].*\.jsx?$/.test(file)) return
+        try {
+          generateIcons()
+        } catch (err) {
+          // A half-typed icon name mid-edit shouldn't kill the dev server.
+          server.config.logger.warn(err.message)
+        }
+      }
+      server.watcher.on('change', regenerate)
+      server.watcher.on('add', regenerate)
+    },
+  }
+}
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    iconSubset(),
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'favicon.svg', 'favicon-16x16.png', 'favicon-32x32.png', 'favicon-192x192.png'],
+      includeAssets: ['favicon-32.png', 'apple-touch-icon.png'],
       manifest: {
         name: 'Sleek Nexus Creative',
         short_name: 'SNC',
         description: 'Technology, innovation, and leadership organisation in Juba, South Sudan.',
         start_url: '/',
         display: 'standalone',
-        background_color: '#000000',
+        background_color: '#233D4D',
         theme_color: '#FE7F2D',
+        // Built by scripts/generate-app-icons.mjs from the logo.
         icons: [
-          { src: '/favicon-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any maskable' },
-          { src: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+          { src: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+          { src: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+          { src: '/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
       },
       workbox: {
@@ -62,7 +90,10 @@ export default defineConfig({
           if (/[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom|scheduler)[\\/]/.test(id)) return 'react-vendor'
           if (id.includes('framer-motion')) return 'motion-vendor'
           if (/(react-hook-form|@hookform|zod)/.test(id)) return 'form-vendor'
-          if (/(@tanstack|axios)/.test(id)) return 'data-vendor'
+          // Only fetched if a form has to fall back to browser-side email
+          // (see sendLead in src/lib/api.js) — keep it out of 'vendor', which
+          // every page loads.
+          if (id.includes('@emailjs')) return 'email-vendor'
           // Isolated from the generic 'vendor' bucket on purpose: three.js is only
           // ever reached via Hero3DAccent's dynamic import(), and 'vendor' also
           // carries eagerly-loaded deps (react-helmet-async, etc.) used on every

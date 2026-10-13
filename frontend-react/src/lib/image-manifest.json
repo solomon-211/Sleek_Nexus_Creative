@@ -1,0 +1,201 @@
+{
+  "/images/Solomon-leek.png": {
+    "w": 433,
+    "h": 577,
+    "widths": [
+      128
+    ]
+  },
+  "/images/about-preview.jpg": {
+    "w": 1600,
+    "h": 1200,
+    "widths": [
+      128,
+      640,
+      1280
+    ]
+  },
+  "/images/building-the-future.png": {
+    "w": 800,
+    "h": 1067,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/company-story.jpg": {
+    "w": 1600,
+    "h": 1200,
+    "widths": [
+      128,
+      640,
+      1280
+    ]
+  },
+  "/images/consulting.jpg": {
+    "w": 736,
+    "h": 552,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/edtech.jpg": {
+    "w": 736,
+    "h": 414,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/fresh-identity.png": {
+    "w": 800,
+    "h": 1067,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/hero-tech.jpg": {
+    "w": 1600,
+    "h": 1200,
+    "widths": [
+      128,
+      640,
+      1280
+    ]
+  },
+  "/images/honoring-excellence.png": {
+    "w": 800,
+    "h": 1067,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/mobile-development.jpg": {
+    "w": 480,
+    "h": 600,
+    "widths": [
+      128
+    ]
+  },
+  "/images/orange-t-shirt.png": {
+    "w": 800,
+    "h": 1067,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/project-ecommerce.jpg": {
+    "w": 736,
+    "h": 736,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/project-student-system.jpg": {
+    "w": 735,
+    "h": 445,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/project2.jpg": {
+    "w": 736,
+    "h": 552,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/project3.jpg": {
+    "w": 685,
+    "h": 1200,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/project6.jpg": {
+    "w": 736,
+    "h": 920,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/rise-leadership-academy.png": {
+    "w": 800,
+    "h": 1067,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/snc-logo.png": {
+    "w": 1200,
+    "h": 1200,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/software-dev.jpg": {
+    "w": 736,
+    "h": 736,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/team-member2.jpg": {
+    "w": 640,
+    "h": 474,
+    "widths": [
+      128
+    ]
+  },
+  "/images/team-member3.jpg": {
+    "w": 1280,
+    "h": 1022,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/team-member4.jpg": {
+    "w": 720,
+    "h": 960,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/web-development.jpg": {
+    "w": 576,
+    "h": 1024,
+    "widths": [
+      128
+    ]
+  },
+  "/images/web-mobile.jpg": {
+    "w": 736,
+    "h": 1308,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/white-hoodie-gold-print.png": {
+    "w": 800,
+    "h": 1067,
+    "widths": [
+      128,
+      640
+    ]
+  }
+}

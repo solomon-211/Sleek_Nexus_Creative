@@ -11,7 +11,7 @@
 export const pageSeo = {
   '/': {
     title: 'Sleek Nexus Creative — Technology & Innovation for South Sudan',
-    description: 'Sleek Nexus Creative is a Juba-based studio helping organizations — in South Sudan and beyond — launch dependable websites, apps, and platforms that scale, perform, and deliver measurable impact.',
+    description: 'Bring us the problem slowing your organization down. From Juba, Sleek Nexus Creative designs, builds, and launches the website, app, or platform that fixes it — and supports you after launch.',
     canonical: '/',
     keywords: 'web development South Sudan, mobile apps Juba, IT consulting South Sudan, e-learning platform South Sudan, software company Juba, Sleek Nexus Creative, SNC technology',
     image: 'https://sleeknexuscreative.com/images/hero-tech.jpg',
@@ -32,10 +32,7 @@ export const pageSeo = {
         sameAs: [
           'https://www.linkedin.com/company/sleek-nexus-creative/',
           'https://www.facebook.com/share/183ufB9mqx/?mibextid=wwXIfr',
-          'https://twitter.com/SNC',
           'https://www.instagram.com/sleek_nexus_creative',
-          'https://www.youtube.com/@SNC',
-          'https://www.tiktok.com/@SNC',
         ],
       },
       {
@@ -43,7 +40,6 @@ export const pageSeo = {
         '@type': 'WebSite',
         name: 'Sleek Nexus Creative',
         url: 'https://sleeknexuscreative.com',
-        potentialAction: { '@type': 'SearchAction', target: 'https://sleeknexuscreative.com/?s={search_term_string}', 'query-input': 'required name=search_term_string' },
       },
     ],
   },
@@ -88,6 +84,18 @@ export const pageSeo = {
     imageWidth: 736,
     imageHeight: 736,
     breadcrumbs: [{ name: 'Services', url: '/services' }],
+  },
+
+  '/work': {
+    title: 'Our Work — Platforms & Brand Identities',
+    description: 'See what Sleek Nexus Creative has built: EduPortal South Sudan, a live education platform covering all 10 states, plus brand identity, campaign, and merchandise design.',
+    canonical: '/work',
+    keywords: 'Sleek Nexus Creative portfolio, EduPortal South Sudan, software projects South Sudan, brand identity Juba, web development portfolio Juba',
+    image: 'https://sleeknexuscreative.com/images/rise-leadership-academy.png',
+    imageAlt: 'Brand identity work by Sleek Nexus Creative',
+    imageWidth: 800,
+    imageHeight: 1067,
+    breadcrumbs: [{ name: 'Work', url: '/work' }],
   },
 
   '/contact': {

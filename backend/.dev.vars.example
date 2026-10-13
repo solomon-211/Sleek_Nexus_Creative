@@ -4,3 +4,11 @@
 SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_KEEP_SECRET
 CORS_ORIGIN=http://localhost:5173
+
+# Optional — email the team on every saved submission (https://resend.com).
+# Leave these unset and the API still saves to Supabase; the frontend then
+# falls back to sending the notification itself through EmailJS.
+# NOTIFY_FROM must be on a domain verified in Resend.
+RESEND_API_KEY=re_your_api_key_KEEP_SECRET
+NOTIFY_TO=info@sleeknexuscreative.com
+NOTIFY_FROM=SNC Website <noreply@sleeknexuscreative.com>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import Img from '../ui/Img'
 
 // ── Nav data ──────────────────────────────────────────────────────────────────
 const navLinks = [
@@ -16,6 +17,7 @@ const navLinks = [
       { icon: 'fa-laptop-code',  label: 'IT Consulting',      to: '/services/consulting' },
     ],
   },
+  { label: 'Work',     to: '/work' },
   { label: 'Contact',  to: '/contact' },
   { label: 'Hub',      to: '/innovation-hub', highlight: true },
 ]
@@ -54,8 +56,16 @@ export default function Navbar() {
   const location = useLocation()
   const navRef   = useRef(null)
 
-  // Close menus on route change
-  useEffect(() => { setMenuOpen(false); setOpenDropdown(null); setMobileOpen(null) }, [location])
+  // Close menus on route change. Done during render (comparing against the
+  // last-seen location) rather than in an effect, so the closed menu is part
+  // of the same paint as the new page instead of a follow-up re-render.
+  const [lastLocationKey, setLastLocationKey] = useState(location.key)
+  if (lastLocationKey !== location.key) {
+    setLastLocationKey(location.key)
+    setMenuOpen(false)
+    setOpenDropdown(null)
+    setMobileOpen(null)
+  }
 
   // Scrolled shadow
   useEffect(() => {
@@ -84,14 +94,14 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 bg-[#233D4D] ${
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 bg-dark ${
         scrolled ? 'shadow-[0_4px_24px_rgba(0,0,0,0.25)]' : ''
       }`}
     >
       {/* Bottom border accent */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-primary/40" />
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div className="container-page">
         <div className="flex items-center justify-between h-[72px] gap-4">
 
           {/* ── Logo ── */}
@@ -100,9 +110,10 @@ export default function Navbar() {
             className="flex items-center gap-3 flex-shrink-0 group"
             aria-label="Sleek Nexus Creative Home"
           >
-            <img
+            <Img
               src="/images/snc-logo.png"
               alt="Sleek Nexus Creative"
+              sizes="46px"
               className="h-[46px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
             <span className="flex flex-col leading-none">
@@ -214,7 +225,7 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
             style={{ zIndex: 9998 }}
-            className="lg:hidden relative border-t border-white/10 bg-[#233D4D] shadow-[0_16px_40px_rgba(0,0,0,0.2)] max-h-[calc(100vh-72px)] overflow-y-auto"
+            className="lg:hidden relative border-t border-white/10 bg-dark shadow-[0_16px_40px_rgba(0,0,0,0.2)] max-h-[calc(100vh-72px)] overflow-y-auto"
           >
             <ul className="py-2">
               {navLinks.map(({ label, to, dropdown, highlight }) => (

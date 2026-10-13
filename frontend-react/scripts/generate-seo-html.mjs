@@ -74,7 +74,6 @@ function buildHeadBlock(seo) {
     '',
     '    <!-- Twitter / X Card -->',
     `    <meta name="twitter:card" content="summary_large_image" />`,
-    `    <meta name="twitter:site" content="@SNC" />`,
     `    <meta name="twitter:title" content="${escapeAttr(fullTitle)}" />`,
   )
   if (seo.description) lines.push(`    <meta name="twitter:description" content="${escapeAttr(seo.description)}" />`)
@@ -149,7 +148,20 @@ function run() {
     writeFileSync(outPath, html)
   }
 
-  console.log(`[generate-seo-html] Generated ${routes.length} static HTML files with page-specific SEO:`)
+  // sitemap.xml comes from the same route list, so a page added to
+  // seo-data.js is in the sitemap on the next build with no second file to
+  // remember. Just <loc>: Google ignores <priority>/<changefreq>, and a
+  // <lastmod> stamped with the build date on every page would be untrue.
+  const sitemap = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...routes.map((route) => `  <url><loc>${escapeAttr(BASE_URL + (pageSeo[route].canonical || route))}</loc></url>`),
+    '</urlset>',
+    '',
+  ].join('\n')
+  writeFileSync(join(DIST_DIR, 'sitemap.xml'), sitemap)
+
+  console.log(`[generate-seo-html] Wrote sitemap.xml (${routes.length} URLs) and ${routes.length} static HTML files with page-specific SEO:`)
   for (const route of routes) console.log(`  ${route === '/' ? '/' : route} -> dist${outputPathFor(route).slice(DIST_DIR.length).replace(/\\/g, '/')}`)
 }
 

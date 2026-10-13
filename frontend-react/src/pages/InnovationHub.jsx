@@ -7,12 +7,13 @@ import MagneticButton from '../components/ui/MagneticButton'
 import FaqAccordion from '../components/ui/FaqAccordion'
 import FlipCard from '../components/ui/FlipCard'
 import GlobeAccent from '../components/ui/GlobeAccent'
+import CtaBand from '../components/ui/CtaBand'
 
 // ── SDGs SNC directly addresses ──────────────────────────────────────────────
 const sdgs = [
   {
     num: 4,
-    color: '#000000',
+    color: '#233D4D',
     icon: 'fa-graduation-cap',
     title: 'Quality Education',
     desc: 'Building digital learning platforms, e-learning tools, and tech-enabled education systems that expand access to quality education across South Sudan.',
@@ -26,7 +27,7 @@ const sdgs = [
   },
   {
     num: 9,
-    color: '#000000',
+    color: '#233D4D',
     icon: 'fa-industry',
     title: 'Industry, Innovation & Infrastructure',
     desc: 'Delivering scalable software, cloud infrastructure, and digital transformation solutions that modernise industries and build resilient digital infrastructure.',
@@ -158,7 +159,7 @@ const visionPillars = [
   {
     num: '03',
     icon: 'fa-people-group',
-    color: '#000000',
+    color: '#233D4D',
     title: 'A Hub, Not Just a Company',
     desc: "Organizations, startups, students, and partners all have a place here — a digital future this size can't be built by one team alone.",
   },
@@ -173,7 +174,7 @@ export default function InnovationHub() {
 
       {/* ── HERO ──────────────────────────────────────────────────────── */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-white border-b border-gray-100">
-        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 py-28 w-full">
+        <div className="relative container-page py-28 w-full">
           <div className="max-w-4xl">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.85 }}>
               <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-6 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">
@@ -198,7 +199,7 @@ export default function InnovationHub() {
                   </Link>
                 </MagneticButton>
                 <MagneticButton>
-                  <a href="#focus" className="inline-flex items-center gap-2 border-2 border-primary/30 text-primary hover:border-primary font-semibold px-8 py-3.5 rounded-lg transition-all">
+                  <a href="#focus" className="btn-secondary text-base px-8 py-3.5">
                     Explore the Hub
                   </a>
                 </MagneticButton>
@@ -209,14 +210,14 @@ export default function InnovationHub() {
       </section>
 
       {/* ── VISION STATEMENT ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-noise bg-dark text-white py-24">
-        <div className="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
+      <section className="relative overflow-hidden bg-noise bg-dark text-white py-16 sm:py-24">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8 }}>
-            <p className="text-accent text-sm font-bold uppercase tracking-widest mb-6">Our Vision</p>
-            <h2 className="font-heading font-black uppercase leading-[1.05] mb-8" style={{ fontSize: 'clamp(2.25rem,4.5vw,3rem)', letterSpacing: '-0.02em' }}>
+            <p className="eyebrow">Our Vision</p>
+            <h2 className="display-heading-sm mb-6">
               Built in Juba. Built for Anywhere.
             </h2>
-            <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+            <p className="text-white/70 text-lg leading-relaxed max-w-3xl mx-auto">
               Sleek Nexus Creative is headquartered in Juba, South Sudan — and that's where our engineering discipline comes from: building for real bandwidth constraints, real device limitations, and real infrastructure gaps. But our work isn't limited to South Sudan. We design and ship digital products for organizations across the region and internationally, bringing that same reliability-first standard to every client, wherever they're based.
             </p>
           </motion.div>
@@ -226,7 +227,7 @@ export default function InnovationHub() {
             section's max-w-[1400px] exactly, rather than inheriting the
             narrower max-w-4xl sized for the paragraph above — otherwise
             identical card markup still renders narrower columns here. */}
-        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 mt-16">
+        <div className="relative container-page mt-16">
           <motion.div
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left"
             variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
@@ -252,10 +253,10 @@ export default function InnovationHub() {
       </section>
 
       {/* ── SDGs SECTION ──────────────────────────────────────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="container-page">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Global Alignment</p>
+            <p className="eyebrow">Global Alignment</p>
             <h2 className="section-title">SDGs We Are Addressing</h2>
             <p className="section-subtitle">
               Every digital product and solution we build is intentionally aligned with the UN Sustainable Development Goals — creating technology that drives real, measurable impact.
@@ -287,10 +288,10 @@ export default function InnovationHub() {
       </section>
 
       {/* ── FOCUS AREAS ───────────────────────────────────────────────── */}
-      <section id="focus" className="py-24 bg-gray-50 scroll-mt-20">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section id="focus" className="py-16 sm:py-24 bg-gray-50 scroll-mt-20">
+        <div className="container-page">
           <div className="text-center mb-16">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">What We Build</p>
+            <p className="eyebrow">What We Build</p>
             <h2 className="section-title">Core Technology Focus Areas</h2>
             <p className="section-subtitle">Four interconnected technology disciplines that form the foundation of everything we build and deliver.</p>
           </div>
@@ -335,18 +336,18 @@ export default function InnovationHub() {
       </section>
 
       {/* ── INNOVATION IN ACTION — real, live proof points ───────────────── */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="container-page">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Not Just a Vision</p>
+            <p className="eyebrow">Not Just a Vision</p>
             <h2 className="section-title">Innovation in Action</h2>
             <p className="section-subtitle">This isn't only a plan — it's already producing real, working platforms today.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-7">
             {flagshipProjects.map(({ badge, icon, title, desc, cta, href, to, external }, i) => (
               <motion.div key={title} className="card p-8" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12 }}>
-                <span className={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-5 ${badge === 'Live Now' ? 'bg-green-100 text-green-700' : 'bg-primary/10 text-primary'}`}>
-                  {badge === 'Live Now' && <span className="w-1.5 h-1.5 rounded-full bg-green-600 animate-pulse" />}
+                <span className={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-5 ${badge === 'Live Now' ? 'bg-dark text-white' : 'bg-primary/10 text-primary'}`}>
+                  {badge === 'Live Now' && <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />}
                   {badge}
                 </span>
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5">
@@ -370,11 +371,11 @@ export default function InnovationHub() {
       </section>
 
       {/* ── OUR REACH — interactive globe ─────────────────────────────────── */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24 bg-white overflow-hidden">
+        <div className="container-page">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Beyond Juba</p>
+              <p className="eyebrow">Beyond Juba</p>
               <h2 className="section-title">Our Reach</h2>
               <p className="text-muted leading-relaxed mb-6 max-w-lg">
                 We're headquartered in Juba, South Sudan — but our work isn't limited to South Sudan. We build and support digital products for organizations across the region and beyond. The connections below reflect that reach, not physical offices.
@@ -390,7 +391,7 @@ export default function InnovationHub() {
             </motion.div>
             <motion.div
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ delay: 0.15 }}
-              className="relative h-[380px] lg:h-[440px]"
+              className="relative hidden lg:block h-[440px]"
             >
               <GlobeAccent className="absolute inset-0" />
             </motion.div>
@@ -399,10 +400,10 @@ export default function InnovationHub() {
       </section>
 
       {/* ── WAYS TO GET INVOLVED — the Hub serves more than just clients ── */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="container-page">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Ecosystem Development</p>
+            <p className="eyebrow">Ecosystem Development</p>
             <h2 className="section-title">Ways to Get Involved</h2>
             <p className="section-subtitle">The Hub is built for more than clients — here's how different people engage with it.</p>
           </div>
@@ -430,7 +431,7 @@ export default function InnovationHub() {
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Questions</p>
+            <p className="eyebrow">Questions</p>
             <h2 className="section-title">About the Innovation Hub</h2>
           </div>
           <FaqAccordion items={pageSeo['/innovation-hub'].faq} />
@@ -438,42 +439,13 @@ export default function InnovationHub() {
       </section>
 
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-noise py-24 bg-dark text-white text-center">
-        <div className="max-w-3xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8 }}>
-            <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-5 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">
-              SNC Innovation Hub
-            </span>
-            <h2
-              className="font-heading uppercase leading-[0.95] mb-6"
-              style={{ fontSize: 'clamp(2.5rem,5.5vw,3.5rem)', fontWeight: 800, textShadow: '3px 3px 0px rgba(254,127,45,0.35), 6px 6px 0px rgba(254,127,45,0.15)' }}
-            >
-              <span className="block text-white">Building Digital Infrastructure</span>
-              <span
-                className="block text-white"
-                style={{ fontSize: 'clamp(2.25rem,5vw,3rem)' }}
-              >
-                From Juba, for Anywhere
-              </span>
-            </h2>
-            <p className="text-gray-300 text-lg leading-relaxed mb-10">
-              Through the SNC Innovation Hub, we are building an ecosystem where technology solves real problems, businesses grow digitally, and communities benefit from innovation — aligned with the UN SDGs.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <MagneticButton>
-                <Link to="/get-started" className="btn-primary text-base px-8 py-3.5">
-                  Start a Project
-                </Link>
-              </MagneticButton>
-              <MagneticButton>
-                <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-white/30 text-white hover:border-white font-semibold px-8 py-3.5 rounded-lg transition-all">
-                  Talk to Us
-                </Link>
-              </MagneticButton>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <CtaBand
+        label="SNC Innovation Hub"
+        title="Building Digital Infrastructure From Juba, for Anywhere"
+        desc="Through the SNC Innovation Hub, we are building an ecosystem where technology solves real problems, businesses grow digitally, and communities benefit from innovation — aligned with the UN SDGs."
+        primary={{ to: '/get-started', label: "Start a Project" }}
+        secondary={{ to: '/contact', label: "Talk to Us" }}
+      />
     </>
   )
 }

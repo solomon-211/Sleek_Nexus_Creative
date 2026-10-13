@@ -4,7 +4,8 @@ import PageHeader from '../../components/ui/PageHeader'
 import SEO from '../../components/ui/SEO'
 import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
-import MagneticButton from '../../components/ui/MagneticButton'
+import Img from '../../components/ui/Img'
+import CtaBand from '../../components/ui/CtaBand'
 
 const offers = ['Technology Strategy & Roadmapping', 'Digital Transformation Planning', 'System Architecture Design', 'Security Audits & Compliance', 'Cloud Migration Services', 'Vendor Selection & Evaluation', 'Performance Optimization', 'IT Policy & Governance']
 
@@ -27,12 +28,12 @@ export default function Consulting() {
       <SEO {...pageSeo['/services/consulting']} />
       <PageHeader label="Services" title="Digital Consulting" desc="Strategic technology advisory to help your organization navigate digital transformation with confidence and clarity." />
 
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24">
+        <div className="container-page">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Strategic Advisory</p>
-              <h2 className="text-3xl md:text-4xl font-heading font-black uppercase text-dark mb-6">Technology Decisions That Move Your Organization Forward</h2>
+              <p className="eyebrow">Strategic Advisory</p>
+              <h2 className="section-title">Technology Decisions That Move Your Organization Forward</h2>
               <p className="text-muted leading-relaxed mb-4">Many organizations in South Sudan are navigating digital transformation without a clear map. We provide the strategic guidance to help you invest in the right technology, in the right order, with the right partners.</p>
               <p className="text-muted leading-relaxed mb-6">From startups evaluating their first tech stack to established organizations modernizing legacy systems — our consulting engagements are practical, actionable, and context-aware.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
@@ -46,16 +47,16 @@ export default function Consulting() {
               <Link to="/contact" className="btn-primary">Book a Consultation</Link>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-              <img src="/images/consulting.jpg" alt="Digital Consulting" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
+              <Img src="/images/consulting.jpg" alt="Digital Consulting" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
             </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="container-page">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Why Us</p>
+            <p className="eyebrow">Why Us</p>
             <h2 className="section-title">What Sets Our Consulting Apart</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -72,10 +73,10 @@ export default function Consulting() {
         </div>
       </section>
 
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24">
+        <div className="container-page">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Engagement Types</p>
+            <p className="eyebrow">Engagement Types</p>
             <h2 className="section-title">How We Work Together</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -92,20 +93,12 @@ export default function Consulting() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
-        <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase mb-4">Let's Map Your Digital Future</h2>
-          <p className="text-gray-300 mb-8">Free initial consultation — no commitment, just clarity.</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <MagneticButton>
-              <Link to="/contact" className="btn-primary">Book a Consultation</Link>
-            </MagneticButton>
-            <MagneticButton>
-              <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">All Services</Link>
-            </MagneticButton>
-          </div>
-        </div>
-      </section>
+      <CtaBand
+        title={"Let's Map Your Digital Future"}
+        desc="Free initial consultation — no commitment, just clarity."
+        primary={{ to: '/contact', label: "Book a Consultation" }}
+        secondary={{ to: '/services', label: "All Services" }}
+      />
     </>
   )
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/ui/SEO'
+import PageHeader from '../components/ui/PageHeader'
 import { pageSeo } from '../lib/seo-data'
 
 const sections = [
@@ -26,17 +27,16 @@ export default function Privacy() {
     <>
       <SEO {...pageSeo['/privacy']} />
 
-      {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-20 text-center bg-[#233D4D]">
-        <div className="max-w-3xl mx-auto px-6">
-          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Legal</p>
-          <h1 className="text-4xl md:text-6xl font-heading font-black uppercase mb-4">Privacy Policy</h1>
-          <p className="text-gray-300">How we collect, use, and protect your information</p>
-        </div>
-      </section>
+      <PageHeader
+        tone="dark"
+        compact
+        label="Legal"
+        title="Privacy Policy"
+        desc="How we collect, use, and protect your information"
+      />
 
-      <section className="py-16">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24">
+        <div className="container-page">
           <div className="grid lg:grid-cols-[280px_1fr] gap-12">
 
             {/* Sticky sidebar */}
@@ -54,7 +54,7 @@ export default function Privacy() {
                   ))}
                 </ul>
                 <div className="mt-4 pt-4 border-t border-gray-100 text-xs text-muted flex items-center gap-2">
-                  <i className="fas fa-calendar-alt text-primary" /> Last Updated: January 2024
+                  <i className="fas fa-calendar-alt text-primary" /> Last Updated: October 2026
                 </div>
               </div>
             </aside>
@@ -63,7 +63,7 @@ export default function Privacy() {
             <div className="prose prose-slate max-w-none">
               <div className="bg-primary/5 border border-primary/20 rounded-xl p-4 mb-8 text-sm text-dark flex items-start gap-3">
                 <i className="fas fa-calendar-alt text-primary mt-0.5" />
-                <span><strong>Last Updated:</strong> January 2024</span>
+                <span><strong>Last Updated:</strong> October 2026</span>
               </div>
 
               <p className="text-muted leading-relaxed mb-8">At Sleek Nexus Creative, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
@@ -75,7 +75,7 @@ export default function Privacy() {
               <h3 className="font-semibold text-dark mb-2">Personal Information</h3>
               <p className="text-muted text-sm leading-relaxed mb-3">We may collect personal information that you voluntarily provide when you:</p>
               <ul className="space-y-1.5 mb-4 text-muted text-sm">
-                {['Fill out contact forms or request information', 'Subscribe to our newsletter', 'Apply for internships or job positions', 'Enroll in our courses or training programs', 'Submit project requests or inquiries'].map(i => (
+                {['Fill out our contact form or request information', 'Submit a project brief', 'Contact us by email, phone, or WhatsApp'].map(i => (
                   <li key={i} className="flex items-start gap-2"><i className="fas fa-check text-primary text-xs mt-1 flex-shrink-0" />{i}</li>
                 ))}
               </ul>
@@ -92,7 +92,7 @@ export default function Privacy() {
                 2. How We Use Your Information
               </h2>
               <ul className="space-y-1.5 mb-8 text-muted text-sm">
-                {['Respond to your inquiries and provide customer support', 'Process applications for internships, jobs, or courses', 'Send newsletters and marketing communications (with your consent)', 'Improve our website, services, and user experience', 'Analyze website traffic and usage patterns', 'Comply with legal obligations and protect our rights', 'Prevent fraud and enhance security'].map(i => (
+                {['Respond to your inquiries and provide customer support', 'Improve our website, services, and user experience', 'Analyze website traffic and usage patterns', 'Comply with legal obligations and protect our rights', 'Prevent fraud and enhance security'].map(i => (
                   <li key={i} className="flex items-start gap-2"><i className="fas fa-check text-primary text-xs mt-1 flex-shrink-0" />{i}</li>
                 ))}
               </ul>
@@ -126,9 +126,9 @@ export default function Privacy() {
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"><i className="fas fa-cookie-bite text-primary text-xs" /></span>
                 5. Cookies and Tracking Technologies
               </h2>
-              <p className="text-muted text-sm leading-relaxed mb-3">We use cookies and similar tracking technologies. Types of cookies we use:</p>
-              <div className="grid sm:grid-cols-3 gap-3 mb-8">
-                {[['Essential Cookies', 'Required for website functionality'], ['Analytics Cookies', 'Help us understand how visitors use our site'], ['Preference Cookies', 'Remember your settings and preferences']].map(([title, desc]) => (
+              <p className="text-muted text-sm leading-relaxed mb-3">We keep this to a minimum. Analytics is switched on only if you choose Accept in the cookie banner, and you can change that choice at any time from the Cookies link in the footer. What we use:</p>
+              <div className="grid sm:grid-cols-2 gap-3 mb-8">
+                {[['Essential Storage', 'Remembers your cookie choice on your device'], ['Analytics Cookies', 'Google Analytics, only with your consent — shows us which pages visitors find useful']].map(([title, desc]) => (
                   <div key={title} className="bg-gray-50 rounded-xl p-4 text-center">
                     <p className="font-semibold text-dark text-sm mb-1">{title}</p>
                     <p className="text-muted text-xs">{desc}</p>
@@ -149,7 +149,7 @@ export default function Privacy() {
                     </tr>
                   </thead>
                   <tbody>
-                    {[['Contact Inquiries', '2 years after last contact'], ['Newsletter Subscriptions', 'Until you unsubscribe'], ['Job Applications', '1 year after application'], ['Course Enrollments', '5 years for certification records'], ['Project Records', '7 years for legal/tax purposes'], ['Website Analytics', 'Anonymized after 26 months']].map(([type, period]) => (
+                    {[['Contact Inquiries', '2 years after last contact'], ['Project Records', '7 years for legal/tax purposes'], ['Website Analytics', 'Anonymized after 26 months']].map(([type, period]) => (
                       <tr key={type} className="border border-gray-100">
                         <td className="p-3 text-muted">{type}</td>
                         <td className="p-3 text-muted">{period}</td>
@@ -189,8 +189,8 @@ export default function Privacy() {
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"><i className="fas fa-envelope text-primary text-xs" /></span>
                 10. Email Communications
               </h2>
-              <p className="text-muted text-sm leading-relaxed mb-3">You can unsubscribe from marketing emails at any time by clicking "unsubscribe" in any email or contacting us at <a href="mailto:info@sleeknexuscreative.com" className="text-primary hover:underline">info@sleeknexuscreative.com</a>.</p>
-              <p className="text-muted text-sm leading-relaxed mb-8">Note: You cannot opt out of transactional emails related to services you've purchased.</p>
+              <p className="text-muted text-sm leading-relaxed mb-3">We email you to reply to your enquiry or about a project we are working on together. We do not run a marketing mailing list. If you would like us to stop contacting you, tell us at <a href="mailto:info@sleeknexuscreative.com" className="text-primary hover:underline">info@sleeknexuscreative.com</a>.</p>
+              <p className="text-muted text-sm leading-relaxed mb-8">Note: while a project is active, we will still send the messages needed to deliver it.</p>
 
               <h2 id="breach" className="text-2xl font-heading font-black uppercase text-dark mt-10 mb-4 flex items-center gap-2 scroll-mt-24">
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"><i className="fas fa-exclamation-triangle text-primary text-xs" /></span>
@@ -218,7 +218,7 @@ export default function Privacy() {
               </div>
 
               <div className="bg-dark rounded-2xl p-6 text-white text-center">
-                <i className="fas fa-shield-alt text-primary text-2xl mb-3 block" />
+                <i className="fas fa-shield-alt text-primary text-2xl mb-3 block mx-auto" />
                 <p className="font-semibold mb-1">Your privacy matters to us.</p>
                 <p className="text-gray-400 text-sm">We are committed to transparency and protecting your personal information. If you have any concerns about how we handle your data, please don't hesitate to reach out.</p>
               </div>
@@ -237,7 +237,7 @@ export default function Privacy() {
         </div>
       </section>
 
-      <section className="py-12 bg-gray-50 text-center">
+      <section className="py-12 sm:py-16 bg-gray-50 text-center">
         <div className="max-w-xl mx-auto px-6">
           <p className="text-muted text-sm mb-4">Have questions about our privacy practices?</p>
           <Link to="/contact" className="btn-primary">Contact Us</Link>

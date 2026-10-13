@@ -4,7 +4,8 @@ import PageHeader from '../../components/ui/PageHeader'
 import SEO from '../../components/ui/SEO'
 import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
-import MagneticButton from '../../components/ui/MagneticButton'
+import Img from '../../components/ui/Img'
+import CtaBand from '../../components/ui/CtaBand'
 
 const offers = ['iOS & Android App Development', 'Cross-Platform Apps (React Native / Flutter)', 'Mobile UI/UX Design', 'Offline-Capable Apps', 'Push Notifications & Real-Time Features', 'Payment & SMS Integration', 'App Store & Play Store Submission', 'Maintenance & Version Updates']
 
@@ -23,12 +24,12 @@ export default function MobileApps() {
       <SEO {...pageSeo['/services/mobile-apps']} />
       <PageHeader label="Services" title="Mobile App Development" desc="Native and cross-platform mobile apps built for South Sudan's real users — offline-capable, lightweight, and production-ready." />
 
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24">
+        <div className="container-page">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Cross-Platform Excellence</p>
-              <h2 className="text-3xl md:text-4xl font-heading font-black uppercase text-dark mb-6">Apps Built for Africa's Fastest-Growing Mobile Market</h2>
+              <p className="eyebrow">Cross-Platform Excellence</p>
+              <h2 className="section-title">Apps Built for Africa's Fastest-Growing Mobile Market</h2>
               <p className="text-muted leading-relaxed mb-4">South Sudan's internet users are almost entirely mobile. We build apps that deliver excellent experiences regardless of device age, network speed, or screen size.</p>
               <p className="text-muted leading-relaxed mb-6">From fintech apps to e-learning platforms to community tools — our mobile solutions are trusted by organizations across South Sudan.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
@@ -42,16 +43,16 @@ export default function MobileApps() {
               <Link to="/contact" className="btn-primary">Start Your App</Link>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-              <img src="/images/mobile-development.jpg" alt="Mobile App Development" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
+              <Img src="/images/mobile-development.jpg" alt="Mobile App Development" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
             </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="container-page">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Built for Real Conditions</p>
+            <p className="eyebrow">Built for Real Conditions</p>
             <h2 className="section-title">Key Capabilities</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -68,8 +69,8 @@ export default function MobileApps() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-noise py-16 bg-dark text-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
+      <section className="relative overflow-hidden bg-noise py-16 sm:py-24 bg-dark text-white">
+        <div className="container-page text-center">
           <p className="text-accent text-sm font-bold uppercase tracking-widest mb-4">Our Stack</p>
           <div className="flex flex-wrap gap-3 justify-center">
             {techs.map(t => <span key={t} className="bg-white/10 text-white text-sm font-semibold px-4 py-2 rounded-full">{t}</span>)}
@@ -77,20 +78,12 @@ export default function MobileApps() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
-        <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase mb-4">Have an App Idea?</h2>
-          <p className="text-gray-300 mb-8">We'll help you turn it into a real product — from concept to App Store.</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <MagneticButton>
-              <Link to="/contact" className="btn-primary">Get a Free Quote</Link>
-            </MagneticButton>
-            <MagneticButton>
-              <Link to="/innovation-hub" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">View Our Work</Link>
-            </MagneticButton>
-          </div>
-        </div>
-      </section>
+      <CtaBand
+        title="Have an App Idea?"
+        desc={"We'll help you turn it into a real product — from concept to App Store."}
+        primary={{ to: '/contact', label: "Get a Free Quote" }}
+        secondary={{ to: '/work', label: "View Our Work" }}
+      />
     </>
   )
 }

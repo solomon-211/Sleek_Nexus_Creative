@@ -4,7 +4,8 @@ import PageHeader from '../../components/ui/PageHeader'
 import SEO from '../../components/ui/SEO'
 import { pageSeo } from '../../lib/seo-data'
 import { fadeUp } from '../../lib/animations'
-import MagneticButton from '../../components/ui/MagneticButton'
+import Img from '../../components/ui/Img'
+import CtaBand from '../../components/ui/CtaBand'
 
 const offers = ['Custom Website Development', 'Responsive Web Design', 'Progressive Web Apps (PWA)', 'E-Commerce Platforms', 'CMS Development (WordPress, Custom)', 'API Development & Integration', 'Landing Pages & Marketing Sites', 'Web App Dashboards & Portals']
 
@@ -25,12 +26,12 @@ export default function WebDev() {
       <SEO {...pageSeo['/services/web-dev']} />
       <PageHeader label="Services" title="Web Development" desc="Custom, responsive, and high-performing websites and web applications built for South Sudan and beyond." />
 
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24">
+        <div className="container-page">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <p className="text-primary text-sm font-bold uppercase tracking-widest mb-3">What We Build</p>
-              <h2 className="text-3xl md:text-4xl font-heading font-black uppercase text-dark mb-6">Websites That Work — For Real Users, On Real Networks</h2>
+              <p className="eyebrow">What We Build</p>
+              <h2 className="section-title">Websites That Work — For Real Users, On Real Networks</h2>
               <p className="text-muted leading-relaxed mb-4">We build websites and web applications optimized for South Sudan's real conditions — low bandwidth, mobile-first users, and organizations that need reliability above all else.</p>
               <p className="text-muted leading-relaxed mb-6">Every project gets a dedicated developer, thorough QA, and a clear handover with documentation and training so your team can manage it confidently.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
@@ -44,15 +45,15 @@ export default function WebDev() {
               <Link to="/contact" className="btn-primary">Request a Quote</Link>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-              <img src="/images/web-development.jpg" alt="Web Development" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
+              <Img src="/images/web-development.jpg" alt="Web Development" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Tech Stack */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="container-page text-center">
           <p className="text-primary text-sm font-bold uppercase tracking-widest mb-4">Our Stack</p>
           <h2 className="section-title">Technologies We Use</h2>
           <div className="flex flex-wrap gap-3 justify-center mt-8">
@@ -62,10 +63,10 @@ export default function WebDev() {
       </section>
 
       {/* Process */}
-      <section className="py-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-24">
+        <div className="container-page">
           <div className="text-center mb-14">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">How We Work</p>
+            <p className="eyebrow">How We Work</p>
             <h2 className="section-title">Our Development Process</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -85,20 +86,12 @@ export default function WebDev() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-noise py-20 bg-dark text-white text-center">
-        <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-heading font-black uppercase mb-4">Ready to Build Your Website?</h2>
-          <p className="text-gray-300 mb-8">Get a free consultation and custom quote within 24 hours.</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <MagneticButton>
-              <Link to="/contact" className="btn-primary">Get a Free Quote</Link>
-            </MagneticButton>
-            <MagneticButton>
-              <Link to="/innovation-hub" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">See Our Work</Link>
-            </MagneticButton>
-          </div>
-        </div>
-      </section>
+      <CtaBand
+        title="Ready to Build Your Website?"
+        desc="Get a free consultation and custom quote within 24 hours."
+        primary={{ to: '/contact', label: "Get a Free Quote" }}
+        secondary={{ to: '/work', label: "See Our Work" }}
+      />
     </>
   )
 }

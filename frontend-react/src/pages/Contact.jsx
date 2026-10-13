@@ -3,13 +3,14 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useState } from 'react'
-import emailjs from '@emailjs/browser'
 import { fadeUp } from '../lib/animations'
 import SEO from '../components/ui/SEO'
+import PageHeader from '../components/ui/PageHeader'
 import { pageSeo } from '../lib/seo-data'
 import FaqAccordion from '../components/ui/FaqAccordion'
 import AnimatedCheckmark from '../components/ui/AnimatedCheckmark'
-import { submitMessage } from '../lib/api'
+import { sendLead } from '../lib/api'
+import { whatsappUrl, socials, EMAIL, PHONE_DISPLAY, PHONE_E164 } from '../lib/site'
 
 const schema = z.object({
   name: z.string().min(2, 'Full name is required'),
@@ -21,14 +22,20 @@ const schema = z.object({
   website: z.string().optional(), // honeypot — real visitors leave this blank
 })
 
+// Mirrors the service pages under /services, plus the two catch-alls. Values
+// are the readable labels so the notification email needs no lookup.
+const SERVICE_OPTIONS = ['Web Development', 'Mobile Apps', 'UI/UX Design', 'Branding', 'IT Consulting', 'Educational Technology', 'Other']
+
 export default function Contact() {
   const [status, setStatus] = useState(null)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({ resolver: zodResolver(schema) })
 
   const onSubmit = async (data) => {
-    const [dbResult, emailResult] = await Promise.allSettled([
-      submitMessage({
+    setStatus(null)
+    try {
+      await sendLead({
         type: 'contact',
         name: data.name,
         email: data.email,
@@ -37,26 +44,11 @@ export default function Contact() {
         service: data.service,
         message: data.message,
         website: data.website,
-      }),
-      emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID,
-        {
-          from_name: data.name,
-          from_email: data.email,
-          phone: data.phone || 'N/A',
-          company: data.company || 'N/A',
-          service: data.service || 'N/A',
-          message: data.message,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      ),
-    ])
-
-    if (dbResult.status === 'fulfilled' || emailResult.status === 'fulfilled') {
+      })
       setStatus('success')
       reset()
-    } else {
+    } catch (err) {
+      setErrorMessage(err.message)
       setStatus('error')
     }
   }
@@ -65,20 +57,16 @@ export default function Contact() {
     <>
       <SEO {...pageSeo['/contact']} />
 
-      {/* Header */}
-      <section className="relative overflow-hidden bg-noise text-white py-24 text-center bg-[#233D4D]">
-        <div className="max-w-3xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }}>
-            <p className="section-label text-accent">We'd love to hear from you</p>
-            <h1 className="display-heading mb-6">Let's Talk.</h1>
-            <p className="text-gray-300 text-lg leading-relaxed mt-6">We're here to answer your questions, discuss your project requirements, and explore how our technology solutions can drive your business forward.</p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHeader
+        tone="dark"
+        label="We'd love to hear from you"
+        title="Let's Talk."
+        desc="We're here to answer your questions, discuss your project requirements, and explore how our technology solutions can drive your business forward."
+      />
 
       {/* Contact Form + Info */}
       <section className="py-16 sm:py-24">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="container-page">
           <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
 
             {/* Form */}
@@ -96,8 +84,12 @@ export default function Contact() {
                 </motion.div>
               )}
               {status === 'error' && (
-                <div className="bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 mb-6 text-sm flex items-center gap-2">
-                  <i className="fas fa-exclamation-circle" /> Something went wrong. Please try again or email us directly.
+                <div role="alert" className="bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 mb-6 text-sm flex items-start gap-2">
+                  <i className="fas fa-exclamation-circle mt-0.5" />
+                  <span>
+                    {errorMessage || 'Something went wrong. Please try again.'}{' '}
+                    <a href={whatsappUrl("Hi Sleek Nexus Creative! I tried the contact form but it didn't go through.")} target="_blank" rel="noopener noreferrer" className="font-semibold underline">Message us on WhatsApp instead</a>.
+                  </span>
                 </div>
               )}
 
@@ -137,11 +129,7 @@ export default function Contact() {
                   <label htmlFor="contact-service" className="block text-sm font-medium text-dark mb-1.5">Service Interested In</label>
                   <select id="contact-service" {...register('service')} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors">
                     <option value="">Select a service</option>
-                    <option value="software-dev">Software Development</option>
-                    <option value="web-mobile">Web & Mobile Apps</option>
-                    <option value="edtech">Educational Technology</option>
-                    <option value="consulting">IT Consulting</option>
-                    <option value="other">Other</option>
+                    {SERVICE_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
                   </select>
                 </div>
                 <div>
@@ -163,8 +151,8 @@ export default function Contact() {
                 <div className="space-y-4">
                   {[
                     { icon: 'fa-map-marker-alt', title: 'Office Address', lines: ['Juba, South Sudan', 'Central Equatoria State'] },
-                    { icon: 'fa-phone', title: 'Phone', lines: ['+211 925 277 700', 'Mon–Fri, 9AM–6PM'], href: 'tel:+211925277700' },
-                    { icon: 'fa-envelope', title: 'Email', lines: ['info@sleeknexuscreative.com'], href: 'mailto:info@sleeknexuscreative.com' },
+                    { icon: 'fa-phone', title: 'Phone', lines: [PHONE_DISPLAY, 'Mon–Fri, 9AM–6PM'], href: `tel:${PHONE_E164}` },
+                    { icon: 'fa-envelope', title: 'Email', lines: [EMAIL], href: `mailto:${EMAIL}` },
                     { icon: 'fa-clock', title: 'Business Hours', lines: ['Mon – Fri: 9AM – 6PM', 'Saturday: 10AM – 4PM', 'Sunday: Closed'] },
                   ].map(({ icon, title, lines, href }) => (
                     <div key={title} className="flex gap-4">
@@ -178,30 +166,40 @@ export default function Contact() {
                     </div>
                   ))}
                 </div>
+
+                {/* WhatsApp — a direct line for visitors who'd rather not fill in a form */}
+                <a
+                  href={whatsappUrl('Hi Sleek Nexus Creative! I have a question.')}
+                  target="_blank" rel="noopener noreferrer"
+                  className="group mt-6 flex items-center gap-3 bg-dark text-white rounded-xl p-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(35,61,77,0.35)]"
+                >
+                  <span className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+                    <i className="fab fa-whatsapp text-white text-lg" />
+                  </span>
+                  <span className="flex-1">
+                    <span className="block font-semibold text-sm">Chat on WhatsApp</span>
+                    <span className="block text-white/60 text-xs">Message us directly — no form needed</span>
+                  </span>
+                  <i className="fas fa-arrow-right text-accent text-xs transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
               </div>
 
               <div>
                 <p className="font-semibold text-dark mb-3">Connect With Us</p>
                 <div className="flex gap-3">
-                  {[
-                    ['fa-facebook', 'https://www.facebook.com/share/183ufB9mqx/?mibextid=wwXIfr', 'Facebook'],
-                    ['fa-twitter', 'https://twitter.com/SNC', 'Twitter'],
-                    ['fa-linkedin', 'https://www.linkedin.com/company/sleek-nexus-creative/', 'LinkedIn'],
-                    ['fa-whatsapp', 'https://wa.me/211925277700', 'WhatsApp'],
-                    ['fa-instagram', 'https://www.instagram.com/sleek_nexus_creative?igsh=bmdpanczdzcwNm04&utm_source=qr', 'Instagram'],
-                  ].map(([icon, href, label]) => (
-                    <a key={icon} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-10 h-10 rounded-xl bg-gray-100 hover:bg-primary hover:text-white text-muted flex items-center justify-center transition-all duration-200">
+                  {socials.filter(({ label }) => label !== 'WhatsApp').map(({ icon, href, label }) => (
+                    <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-10 h-10 rounded-xl bg-gray-100 hover:bg-primary/10 hover:text-primary text-muted flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5">
                       <i className={`fab ${icon} text-sm`} />
                     </a>
                   ))}
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-3">
-                {[      { icon: 'fa-headset', label: 'Quick Response' }, { icon: 'fa-comments', label: 'Free Consultation' }, { icon: 'fa-rocket', label: '24hr Response' }].map(({ icon, label }) => (
-                  <div key={label} className="card p-4 text-center">
-                    <i className={`fas ${icon} text-primary text-xl mb-2 block`} />
-                    <p className="text-xs font-semibold text-dark">{label}</p>
+              <div className="flex items-center gap-4 bg-primary/5 border border-primary/15 rounded-xl p-4">
+                {[{ icon: 'fa-rocket', label: '24hr Reply' }, { icon: 'fa-comments', label: 'Free Consultation' }, { icon: 'fa-handshake', label: 'No Obligation' }].map(({ icon, label }) => (
+                  <div key={label} className="flex flex-col items-center flex-1 text-center">
+                    <i className={`fas ${icon} text-primary text-lg mb-1`} />
+                    <p className="text-xs font-semibold text-dark leading-tight">{label}</p>
                   </div>
                 ))}
               </div>
