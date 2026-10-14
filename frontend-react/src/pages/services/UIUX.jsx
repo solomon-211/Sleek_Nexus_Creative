@@ -28,7 +28,7 @@ export default function UIUX() {
         <div className="container-page">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-              <Img src="/images/software-dev.jpg" alt="UI/UX Design" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
+              <Img src="/images/ui-ux.jpg" alt="Three mobile app screens for sales tracking, designed in dark mode with orange accents" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="eyebrow">Design That Converts</p>

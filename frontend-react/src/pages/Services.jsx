@@ -21,25 +21,25 @@ const navItems = [
 
 const services = [
   {
-    id: 'software-dev', icon: 'fa-code', title: 'Software Development', img: '/images/software-dev.jpg',
+    id: 'software-dev', icon: 'fa-code', title: 'Software Development', img: '/images/ui-ux.jpg',
     intro: 'Enterprise-grade custom software engineered with cutting-edge technologies to address complex business challenges and drive sustainable growth.',
     offers: ['Custom Application Development', 'Enterprise Software Solutions', 'API Development & Integration', 'Database Design & Management', 'Cloud-Based Solutions', 'Software Maintenance & Support'],
     process: ['Requirements Analysis', 'Design & Planning', 'Development', 'Testing & QA', 'Deployment & Support'],
   },
   {
-    id: 'web-mobile', icon: 'fa-mobile-alt', title: 'Web & Mobile Applications', img: '/images/web-mobile.jpg',
+    id: 'web-mobile', icon: 'fa-mobile-alt', title: 'Web & Mobile Applications', img: '/images/web-mobile-apps.jpg',
     intro: 'Cutting-edge responsive platforms and mobile solutions engineered to deliver exceptional user experiences across all devices.',
     offers: ['Responsive Website Development', 'Progressive Web Apps (PWA)', 'iOS & Android App Development', 'Cross-Platform Solutions', 'E-Commerce Platforms', 'UI/UX Design'],
     tech: ['React', 'Angular', 'Vue.js', 'React Native', 'Flutter', 'Node.js'],
   },
   {
-    id: 'edtech', icon: 'fa-graduation-cap', title: 'Educational Technology', img: '/images/edtech.jpg',
+    id: 'edtech', icon: 'fa-graduation-cap', title: 'Educational Technology', img: '/images/edtech-learning.jpg',
     intro: 'Revolutionary learning ecosystems and educational tools that democratize access to quality education and deliver measurable learning outcomes.',
     offers: ['Learning Management Systems (LMS)', 'Online Course Platforms', 'Student Information Systems', 'Interactive Learning Tools', 'Assessment & Analytics', 'Virtual Classroom Solutions'],
     features: [{ icon: 'fa-video', label: 'Video Learning' }, { icon: 'fa-chart-line', label: 'Progress Tracking' }, { icon: 'fa-users', label: 'Collaboration' }, { icon: 'fa-certificate', label: 'Certifications' }],
   },
   {
-    id: 'consulting', icon: 'fa-laptop-code', title: 'IT Consulting & Digital Transformation', img: '/images/consulting.jpg',
+    id: 'consulting', icon: 'fa-laptop-code', title: 'IT Consulting & Digital Transformation', img: '/images/Torward.jpg',
     intro: 'Strategic technology advisory services designed to navigate digital transformation complexities and position your organization for sustained competitive advantage.',
     offers: ['Technology Strategy & Planning', 'Digital Transformation', 'System Architecture Design', 'Security Audits & Compliance', 'Cloud Migration Services', 'Performance Optimization'],
     benefits: [

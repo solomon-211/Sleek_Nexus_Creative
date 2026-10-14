@@ -47,7 +47,7 @@ export default function Consulting() {
               <Link to="/contact" className="btn-primary">Book a Consultation</Link>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-              <Img src="/images/consulting.jpg" alt="Digital Consulting" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
+              <Img src="/images/Torward.jpg" alt="Laptop on a desk with a holographic project plan above it" className="rounded-2xl shadow-xl w-full h-[420px] object-cover" loading="lazy" />
             </motion.div>
           </div>
         </div>

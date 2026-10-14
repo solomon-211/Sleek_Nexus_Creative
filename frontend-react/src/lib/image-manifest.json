@@ -6,6 +6,14 @@
       128
     ]
   },
+  "/images/Torward.jpg": {
+    "w": 736,
+    "h": 1318,
+    "widths": [
+      128,
+      640
+    ]
+  },
   "/images/about-preview.jpg": {
     "w": 1600,
     "h": 1200,
@@ -40,12 +48,13 @@
       640
     ]
   },
-  "/images/edtech.jpg": {
-    "w": 736,
-    "h": 414,
+  "/images/edtech-learning.jpg": {
+    "w": 1456,
+    "h": 1088,
     "widths": [
       128,
-      640
+      640,
+      1280
     ]
   },
   "/images/fresh-identity.png": {
@@ -175,6 +184,14 @@
       640
     ]
   },
+  "/images/ui-ux.jpg": {
+    "w": 736,
+    "h": 552,
+    "widths": [
+      128,
+      640
+    ]
+  },
   "/images/web-development.jpg": {
     "w": 576,
     "h": 1024,
@@ -182,12 +199,13 @@
       128
     ]
   },
-  "/images/web-mobile.jpg": {
-    "w": 736,
-    "h": 1308,
+  "/images/web-mobile-apps.jpg": {
+    "w": 1456,
+    "h": 1088,
     "widths": [
       128,
-      640
+      640,
+      1280
     ]
   },
   "/images/white-hoodie-gold-print.png": {
