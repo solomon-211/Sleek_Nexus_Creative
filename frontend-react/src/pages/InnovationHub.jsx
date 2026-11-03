@@ -185,16 +185,12 @@ export default function InnovationHub() {
         {/* Navy wash: strongest behind the text, lighter on the right */}
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-dark via-dark/85 to-dark/50" />
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-dark/80 via-transparent to-dark/30" />
-        <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(254,127,45,0.18) 0%, transparent 70%)' }} />
 
         <div className="relative container-page py-20 sm:py-28 w-full">
           <div className="max-w-4xl">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.85 }}>
-              <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-6 bg-white/10 px-4 py-2 rounded-full">
-                SNC Innovation Hub
-              </span>
-              <h1 className="text-white font-heading font-black uppercase leading-[0.95] mb-6"
-                style={{ fontSize: 'clamp(2.75rem,6vw,4.25rem)', letterSpacing: '-0.02em' }}>
+              <p className="hero-eyebrow">SNC Innovation Hub</p>
+              <h1 className="display-heading text-white mb-6">
                 <span className="text-white">Technology &amp; Innovation</span><br />
                 <span className="text-accent">Hub</span>
               </h1>
@@ -207,12 +203,12 @@ export default function InnovationHub() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <MagneticButton>
-                  <Link to="/get-started" className="btn-primary text-base px-8 py-3.5">
+                  <Link to="/get-started" className="btn-primary text-base px-7 py-3.5">
                     Start a Project
                   </Link>
                 </MagneticButton>
                 <MagneticButton>
-                  <a href="#focus" className="btn-secondary border-white text-white hover:bg-white hover:text-primary text-base px-8 py-3.5">
+                  <a href="#focus" className="btn-secondary border-white text-white hover:bg-white hover:text-primary text-base px-7 py-3.5">
                     Explore the Hub
                   </a>
                 </MagneticButton>
@@ -341,7 +337,7 @@ export default function InnovationHub() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link to="/services" className="btn-primary text-base px-8 py-3.5">
+            <Link to="/services" className="btn-primary text-base px-7 py-3.5">
               <i className="fas fa-arrow-right" /> View All Services
             </Link>
           </div>

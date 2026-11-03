@@ -231,7 +231,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden fixed inset-0 bg-[#000000]/50"
+            className="lg:hidden fixed inset-0 bg-dark/60"
             style={{ top: '72px', zIndex: 9997 }}
             onClick={() => setMenuOpen(false)}
           />

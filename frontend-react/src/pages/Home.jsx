@@ -65,14 +65,12 @@ export default function Home() {
         {/* Navy wash: strongest behind the text, lighter on the right */}
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-dark via-dark/85 to-dark/50" />
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-dark/80 via-transparent to-dark/30" />
-        {/* Soft orange glow, as before */}
-        <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(254,127,45,0.18) 0%, transparent 70%)' }} />
 
         <div className="relative container-page py-20 sm:py-24 w-full">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
-              <p className="section-label text-accent">Based in Juba, South Sudan</p>
-              <h1 className="text-white mb-5 sm:mb-6 font-heading" style={{ fontWeight: 900, fontSize: 'clamp(2.5rem, 4.5vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
+              <p className="hero-eyebrow">Based in Juba, South Sudan</p>
+              <h1 className="display-heading text-white mb-6">
                 <KineticHeadline lines={[
                   ['We', 'Build', 'Digital', 'Products'],
                   ['That', 'Work', 'in'],

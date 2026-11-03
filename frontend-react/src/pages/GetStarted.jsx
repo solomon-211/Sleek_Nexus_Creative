@@ -128,9 +128,7 @@ export default function GetStarted() {
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-dark/80 via-transparent to-dark/30" />
         <div className="relative container-page w-full">
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.6 }} className="max-w-2xl">
-            <p className="text-accent text-sm font-bold uppercase tracking-widest mb-5 flex items-center gap-3">
-              <span className="w-8 h-px bg-accent" /> Free Consultation · 24hr Response
-            </p>
+            <p className="hero-eyebrow">Free Consultation · 24hr Response</p>
             <h1 className="display-heading mb-6">
               Let's Build<br />
               <span className="text-primary">Something That Works</span>

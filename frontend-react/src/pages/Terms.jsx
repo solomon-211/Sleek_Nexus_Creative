@@ -140,14 +140,14 @@ export default function Terms() {
                 <div className="space-y-4">
                   <div><h3 className="font-semibold text-dark text-sm mb-2">7.1 Our Warranties</h3>
                   <ul className="space-y-2"><Li>Services will be performed with professional skill and care</Li><Li>Deliverables will substantially conform to agreed specifications</Li><Li>We have the right to provide the services offered</Li></ul></div>
-                  <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 text-xs text-yellow-800 leading-relaxed">
+                  <div className="bg-primary/5 border-l-4 border-primary rounded-xl p-4 text-xs text-dark leading-relaxed">
                     <strong>7.2 Disclaimer:</strong> EXCEPT AS EXPRESSLY PROVIDED, SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
                   </div>
                 </div>
               </Section>
 
               <Section id="limitation" icon="fa-exclamation-triangle" title="8. Limitation of Liability">
-                <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 text-xs text-yellow-800 leading-relaxed mb-3">TO THE MAXIMUM EXTENT PERMITTED BY LAW:</div>
+                <div className="bg-primary/5 border-l-4 border-primary rounded-xl p-4 text-xs text-dark leading-relaxed mb-3">TO THE MAXIMUM EXTENT PERMITTED BY LAW:</div>
                 <ul className="space-y-2"><Li>Our total liability shall not exceed the amount paid by client for the specific service giving rise to the claim</Li><Li>We are not liable for indirect, incidental, consequential, or punitive damages</Li><Li>We are not responsible for losses resulting from client's failure to maintain backups or secure systems</Li><Li>Force majeure events excuse performance obligations</Li></ul>
               </Section>
 

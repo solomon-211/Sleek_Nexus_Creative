@@ -42,6 +42,14 @@
   .container-page {
     @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10;
   }
+  /* Label above a photo-hero headline: short orange rule, then text. */
+  .hero-eyebrow {
+    @apply text-accent text-sm font-bold uppercase tracking-widest mb-5 flex items-center gap-3;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    @apply block w-8 h-px bg-accent flex-shrink-0;
+  }
   /* Small orange label above a section heading. */
   .eyebrow {
     @apply text-primary text-sm font-bold uppercase tracking-widest mb-2;
