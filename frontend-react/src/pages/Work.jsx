@@ -7,7 +7,8 @@ import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerItem } from '../l
 import PageHeader from '../components/ui/PageHeader'
 import MagneticButton from '../components/ui/MagneticButton'
 import Img from '../components/ui/Img'
-import { featured, brandWork, brandCategories } from '../lib/work-data'
+import { liveProducts, brandWork, brandCategories } from '../lib/work-data'
+import CtaBand from '../components/ui/CtaBand'
 
 const ALL = 'All'
 
@@ -23,26 +24,32 @@ export default function Work() {
         tone="dark"
         label="Our Work"
         title="Built, Shipped, In Use"
-        desc="A live education platform serving learners across South Sudan, and the identities we've designed along the way."
+        desc="Two live platforms — one for learners, one for hospitals — and the identities we've designed along the way."
       />
 
-      {/* Featured — EduPortal */}
+      {/* Live products — one navy panel each, mirrored so the page alternates */}
       <section className="py-16 sm:py-24 bg-gray-50">
-        <div className="container-page">
-          <div className="relative overflow-hidden bg-noise bg-dark text-white rounded-2xl p-6 sm:p-10 lg:p-14 shadow-[0_20px_60px_rgba(35,61,77,0.25)] grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <span className="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3.5 py-1.5 mb-5">
+        <div className="container-page space-y-8 sm:space-y-10">
+          <div className="text-center mb-2 sm:mb-4">
+            <p className="eyebrow">Live Products</p>
+            <h2 className="section-title">Platforms in Production</h2>
+            <p className="section-subtitle">Not prototypes — products people sign in to and use today.</p>
+          </div>
+          {liveProducts.map((p, i) => (
+          <div key={p.id} id={p.id} className="scroll-mt-28 relative overflow-hidden bg-noise bg-dark text-white rounded-2xl p-6 sm:p-10 lg:p-14 shadow-[0_20px_60px_rgba(35,61,77,0.25)] grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <motion.div className={i % 2 ? 'lg:order-2' : ''} variants={i % 2 ? fadeRight : fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }}>
+              <span className="inline-flex items-center gap-2 bg-white/10 rounded-full px-3.5 py-1.5 mb-5">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
                 </span>
-                <span className="text-white/80 text-xs font-bold uppercase tracking-widest">Featured · Live Product</span>
+                <span className="text-white/80 text-xs font-bold uppercase tracking-widest">{p.sector} · Live Product</span>
               </span>
-              <h2 className="display-heading-sm mb-5">{featured.title}</h2>
-              <p className="text-white/70 leading-relaxed mb-8">{featured.summary}</p>
+              <h2 className="display-heading-sm mb-5">{p.title}</h2>
+              <p className="text-white/70 leading-relaxed mb-8">{p.summary}</p>
 
-              <div className="flex flex-wrap gap-6 mb-8">
-                {featured.facts.map(({ icon, label }) => (
+              <div className="flex flex-wrap gap-x-6 gap-y-3 mb-8">
+                {p.facts.map(({ icon, label }) => (
                   <div key={label} className="flex items-center gap-2 text-sm text-white/70">
                     <i className={`fas ${icon} text-accent`} /> {label}
                   </div>
@@ -51,33 +58,34 @@ export default function Work() {
 
               <p className="text-white/50 text-xs font-bold uppercase tracking-widest mb-3">What we delivered</p>
               <div className="flex flex-wrap gap-2 mb-8">
-                {featured.services.map((s) => (
-                  <span key={s} className="text-xs font-semibold text-white/80 bg-white/10 border border-white/15 rounded-full px-3 py-1">{s}</span>
+                {p.services.map((s) => (
+                  <span key={s} className="text-xs font-semibold text-white/80 bg-white/10 rounded-full px-3 py-1">{s}</span>
                 ))}
               </div>
 
               <MagneticButton>
-                <a href={featured.url} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
-                  Visit the Live Platform <i className="fas fa-arrow-up-right-from-square text-sm" />
+                <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
+                  {p.cta} <i className="fas fa-arrow-up-right-from-square text-sm" />
                 </a>
               </MagneticButton>
             </motion.div>
 
             {/* What the platform does */}
             <motion.div
-              className="space-y-4"
-              variants={fadeRight} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}
+              className={`space-y-4 ${i % 2 ? 'lg:order-1' : ''}`}
+              variants={i % 2 ? fadeLeft : fadeRight} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}
             >
-              <div className="flex items-center gap-2 bg-gray-900 rounded-xl px-4 py-3 border border-white/10">
+              <a href={p.url} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 bg-gray-900 rounded-xl px-4 py-3 transition-colors">
                 <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
                 <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
                 <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                 <span className="ml-3 flex-1 bg-white/5 rounded-md px-3 py-1 text-white/50 text-xs flex items-center gap-1.5 truncate">
-                  <i className="fas fa-lock text-[0.6rem]" /> {featured.displayUrl}
+                  <i className="fas fa-lock text-[0.6rem]" /> {p.displayUrl}
                 </span>
-              </div>
-              {featured.capabilities.map(({ icon, title, desc }) => (
-                <div key={title} className="flex gap-4 bg-white/5 border border-white/10 rounded-xl p-5 transition-colors duration-300 hover:border-primary/40">
+                <i className="fas fa-arrow-up-right-from-square text-white/30 text-xs group-hover:text-accent transition-colors" />
+              </a>
+              {p.capabilities.map(({ icon, title, desc }) => (
+                <div key={title} className="flex gap-4 bg-white/5 rounded-xl p-5 transition-colors duration-300">
                   <div className="w-11 h-11 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0">
                     <i className={`fas ${icon} text-accent`} />
                   </div>
@@ -89,6 +97,7 @@ export default function Work() {
               ))}
             </motion.div>
           </div>
+          ))}
         </div>
       </section>
 
@@ -180,6 +189,13 @@ export default function Work() {
           </motion.div>
         </div>
       </section>
+
+      <CtaBand
+        title="Have a Project Like These?"
+        desc="Tell us what you're building and we'll come back within 24 hours with honest next steps."
+        primary={{ to: '/get-started', label: "Start a Project" }}
+        secondary={{ to: '/contact', label: "Ask a Question" }}
+      />
     </>
   )
 }

@@ -141,7 +141,7 @@ export default function Branding() {
             {brandGallery.map(({ src, title, category, desc }) => (
               <div
                 key={title}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 w-[280px] sm:w-[320px] flex-shrink-0"
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 w-[280px] sm:w-[320px] flex-shrink-0"
               >
                 <div className="relative overflow-hidden h-56 sm:h-64">
                   <Img

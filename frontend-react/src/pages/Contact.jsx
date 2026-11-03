@@ -11,6 +11,7 @@ import FaqAccordion from '../components/ui/FaqAccordion'
 import AnimatedCheckmark from '../components/ui/AnimatedCheckmark'
 import { sendLead } from '../lib/api'
 import { whatsappUrl, socials, EMAIL, PHONE_DISPLAY, PHONE_E164 } from '../lib/site'
+import CtaBand from '../components/ui/CtaBand'
 
 const schema = z.object({
   name: z.string().min(2, 'Full name is required'),
@@ -218,6 +219,13 @@ export default function Contact() {
           <FaqAccordion items={pageSeo['/contact'].faq} />
         </div>
       </section>
+
+      <CtaBand
+        title="Ready to Start a Project?"
+        desc="Skip the back-and-forth — send a project brief and get a clear proposal with scope, timeline, and price."
+        primary={{ to: '/get-started', label: "Start a Project Brief" }}
+        secondary={{ to: '/services', label: "Our Services" }}
+      />
     </>
   )
 }

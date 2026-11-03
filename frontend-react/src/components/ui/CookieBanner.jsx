@@ -50,7 +50,7 @@ export default function CookieBanner() {
           </div>
           <div className="flex gap-2.5 flex-shrink-0">
             <button onClick={() => choose('declined')}
-              className="text-xs font-semibold text-white/70 hover:text-white border border-white/15 hover:border-white/30 px-4 py-2 rounded-lg transition-all">
+              className="text-xs font-semibold text-white/70 hover:text-white hover:border-white/30 px-4 py-2 rounded-lg transition-all">
               Decline
             </button>
             <button onClick={() => choose('accepted')}

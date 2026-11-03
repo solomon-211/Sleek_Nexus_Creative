@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import SEO from '../components/ui/SEO'
 import PageHeader from '../components/ui/PageHeader'
 import { pageSeo } from '../lib/seo-data'
+import CtaBand from '../components/ui/CtaBand'
 
 const sections = [
   { id: 'info-collect',   label: '1. Information We Collect' },
@@ -237,12 +237,11 @@ export default function Privacy() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 bg-gray-50 text-center">
-        <div className="max-w-xl mx-auto px-6">
-          <p className="text-muted text-sm mb-4">Have questions about our privacy practices?</p>
-          <Link to="/contact" className="btn-primary">Contact Us</Link>
-        </div>
-      </section>
+      <CtaBand
+        title="Questions About Your Privacy?"
+        desc="Write to us and a real person will answer within 24 hours."
+        primary={{ to: '/contact', label: "Contact Us" }}
+      />
     </>
   )
 }

@@ -8,23 +8,6 @@
   to   { transform: translateX(-50%); }
 }
 
-/* Glitch animation — two offset copies of the text flicker in opposite
-   directions, clipped to horizontal slices, for a CRT-corruption look. */
-@keyframes glitch-1 {
-  0%,100% { clip-path: inset(0 0 95% 0); transform: translate(-3px, 0); }
-  20%     { clip-path: inset(30% 0 50% 0); transform: translate(3px, 0); }
-  40%     { clip-path: inset(60% 0 20% 0); transform: translate(-2px, 0); }
-  60%     { clip-path: inset(10% 0 80% 0); transform: translate(2px, 0); }
-  80%     { clip-path: inset(80% 0 5% 0);  transform: translate(-3px, 0); }
-}
-@keyframes glitch-2 {
-  0%,100% { clip-path: inset(80% 0 5% 0);  transform: translate(3px, 0); }
-  20%     { clip-path: inset(10% 0 70% 0); transform: translate(-3px, 0); }
-  40%     { clip-path: inset(50% 0 30% 0); transform: translate(2px, 0); }
-  60%     { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 0); }
-  80%     { clip-path: inset(0 0 90% 0);   transform: translate(3px, 0); }
-}
-
 /* Diagonal wipe reveal — used for the split CTA section */
 @keyframes wipe-in {
   from { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
@@ -35,15 +18,6 @@
 @keyframes aurora-drift {
   0%, 100% { background-position: 0% 0%; }
   50%      { background-position: 100% 100%; }
-}
-
-/* Liquid button morph — asymmetric border-radius wobble, used by
-   MagneticButton's `liquid` prop for a gooey, blob-like hover feel. */
-@keyframes liquid-morph {
-  0%, 100% { border-radius: 12px; }
-  25%      { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
-  50%      { border-radius: 62% 38% 37% 63% / 59% 56% 44% 41%; }
-  75%      { border-radius: 46% 54% 40% 60% / 55% 45% 60% 40%; }
 }
 
 @layer base {
@@ -88,9 +62,9 @@
   }
 
   .neo-panel {
-    @apply rounded-[1.5rem] border border-gray-200;
+    @apply rounded-[1.5rem];
     background: #ffffff;
-    box-shadow: 0 4px 20px -8px rgba(35,61,77,0.12);
+    box-shadow: 0 1px 2px rgba(35,61,77,0.05), 0 8px 28px -10px rgba(35,61,77,0.16);
   }
 
   /* ── Gradient text — replaced with flat primary color ── */
@@ -108,45 +82,13 @@
     color: transparent;
   }
 
-  /* ── Glitch text — hover triggers the two pseudo-element animations ── */
-  .glitch-text {
-    position: relative;
-    display: inline-block;
-  }
-  .glitch-text::before,
-  .glitch-text::after {
-    content: attr(data-text);
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-  .glitch-text:hover::before {
-    color: #FE7F2D;
-    animation: glitch-1 0.4s steps(1) infinite;
-  }
-  .glitch-text:hover::after {
-    color: #233D4D;
-    animation: glitch-2 0.4s steps(1) infinite;
-  }
-
-  /* ── Liquid button morph — see MagneticButton's `liquid` prop ── */
-  .liquid-hover {
-    transition: transform 0.2s ease;
-  }
-  .liquid-hover:hover {
-    animation: liquid-morph 2.4s ease-in-out infinite;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .liquid-hover:hover { animation: none; }
-  }
-
   /* ── Bento grid cell — used in the services bento layout ── */
   .bento-cell {
-    @apply bg-white rounded-2xl border border-surface overflow-hidden transition-all duration-300;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    @apply bg-white rounded-2xl overflow-hidden transition-all duration-300;
+    box-shadow: 0 1px 2px rgba(35,61,77,0.05), 0 8px 24px -12px rgba(35,61,77,0.14);
   }
   .bento-cell:hover {
-    box-shadow: 0 20px 40px -12px rgba(254,127,45,0.2), 0 0 0 1px rgba(254,127,45,0.15);
+    box-shadow: 0 20px 40px -14px rgba(35,61,77,0.22);
     transform: translateY(-2px);
   }
 
@@ -201,7 +143,8 @@
     letter-spacing: 0.15em;
   }
   .card {
-    @apply bg-white rounded-xl shadow-sm border border-surface hover:border-primary/20 hover:shadow-[0_12px_28px_-10px_rgba(254,127,45,0.15)] transition-all duration-300;
+    /* No outline — a soft two-layer shadow separates the card from the page. */
+    @apply bg-white rounded-xl transition-all duration-300 shadow-[0_1px_2px_rgba(35,61,77,0.05),0_8px_24px_-12px_rgba(35,61,77,0.14)] hover:shadow-[0_16px_36px_-14px_rgba(35,61,77,0.24)];
   }
 }
 

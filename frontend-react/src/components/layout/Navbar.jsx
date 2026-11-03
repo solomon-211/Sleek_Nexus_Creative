@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Img from '../ui/Img'
+import SearchDialog from './SearchDialog'
 
 // ── Nav data ──────────────────────────────────────────────────────────────────
 const navLinks = [
@@ -30,7 +31,7 @@ function DropdownMenu({ items }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -6 }}
       transition={{ duration: 0.16 }}
-      className="absolute top-[calc(100%+10px)] left-0 bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.25)] border border-white/10 min-w-[220px] py-2 z-50 list-none"
+      className="absolute top-[calc(100%+10px)] left-0 bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.25)] min-w-[220px] py-2 z-50 list-none"
     >
       {items.map(({ icon, label, to }) => (
         <li key={to}>
@@ -53,6 +54,7 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null)
   const [mobileOpen,   setMobileOpen]   = useState(null)
   const [scrolled,     setScrolled]     = useState(false)
+  const [searchOpen,   setSearchOpen]   = useState(false)
   const location = useLocation()
   const navRef   = useRef(null)
 
@@ -65,6 +67,7 @@ export default function Navbar() {
     setMenuOpen(false)
     setOpenDropdown(null)
     setMobileOpen(null)
+    setSearchOpen(false)
   }
 
   // Scrolled shadow
@@ -172,8 +175,17 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* ── Get Started CTA ── */}
-          <div className="hidden lg:flex items-center flex-shrink-0">
+          {/* ── Search + Get Started ── */}
+          <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
+            <button
+              type="button"
+              onClick={() => setSearchOpen(true)}
+              aria-label="Search the site"
+              className="flex items-center gap-2 h-10 px-3 rounded-lg bg-white/[0.08] text-white/70 hover:text-white hover:bg-white/[0.14] hover:border-white/25 transition-all"
+            >
+              <i className="fas fa-magnifying-glass text-sm" />
+              <span className="text-sm hidden xl:inline">Search</span>
+            </button>
             <Link
               to="/get-started"
               className="btn-primary text-sm uppercase"
@@ -181,6 +193,16 @@ export default function Navbar() {
               Get Started
             </Link>
           </div>
+
+          {/* ── Mobile search ── */}
+          <button
+            type="button"
+            onClick={() => setSearchOpen(true)}
+            aria-label="Search the site"
+            className="lg:hidden ml-auto w-11 h-11 rounded-[10px] border-[1.5px] bg-white/10 border-white/20 text-white flex items-center justify-center touch-manipulation"
+          >
+            <i className="fas fa-magnifying-glass" />
+          </button>
 
           {/* ── Hamburger ── */}
           <button
@@ -316,6 +338,7 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+      <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
     </nav>
   )
 }

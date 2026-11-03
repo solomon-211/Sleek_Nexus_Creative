@@ -22,30 +22,29 @@ const navItems = [
 const services = [
   {
     id: 'software-dev', icon: 'fa-code', title: 'Software Development', img: '/images/ui-ux.jpg',
-    intro: 'Enterprise-grade custom software engineered with cutting-edge technologies to address complex business challenges and drive sustainable growth.',
+    intro: 'Software built around how your organization actually works — records, payments, approvals, reporting — so the system fits the process instead of the other way round.',
     offers: ['Custom Application Development', 'Enterprise Software Solutions', 'API Development & Integration', 'Database Design & Management', 'Cloud-Based Solutions', 'Software Maintenance & Support'],
     process: ['Requirements Analysis', 'Design & Planning', 'Development', 'Testing & QA', 'Deployment & Support'],
   },
   {
     id: 'web-mobile', icon: 'fa-mobile-alt', title: 'Web & Mobile Applications', img: '/images/web-mobile-apps.jpg',
-    intro: 'Cutting-edge responsive platforms and mobile solutions engineered to deliver exceptional user experiences across all devices.',
+    intro: 'Websites and apps that load fast on a mid-range phone and a patchy connection — because that is how most of your users will meet them.',
     offers: ['Responsive Website Development', 'Progressive Web Apps (PWA)', 'iOS & Android App Development', 'Cross-Platform Solutions', 'E-Commerce Platforms', 'UI/UX Design'],
-    tech: ['React', 'Angular', 'Vue.js', 'React Native', 'Flutter', 'Node.js'],
   },
   {
     id: 'edtech', icon: 'fa-graduation-cap', title: 'Educational Technology', img: '/images/edtech-learning.jpg',
-    intro: 'Revolutionary learning ecosystems and educational tools that democratize access to quality education and deliver measurable learning outcomes.',
+    intro: 'Platforms for schools, training centres, and programmes that need to reach learners online — from course delivery to student records. We built EduPortal South Sudan, which serves all 10 states.',
     offers: ['Learning Management Systems (LMS)', 'Online Course Platforms', 'Student Information Systems', 'Interactive Learning Tools', 'Assessment & Analytics', 'Virtual Classroom Solutions'],
     features: [{ icon: 'fa-video', label: 'Video Learning' }, { icon: 'fa-chart-line', label: 'Progress Tracking' }, { icon: 'fa-users', label: 'Collaboration' }, { icon: 'fa-certificate', label: 'Certifications' }],
   },
   {
     id: 'consulting', icon: 'fa-laptop-code', title: 'IT Consulting & Digital Transformation', img: '/images/Torward.jpg',
-    intro: 'Strategic technology advisory services designed to navigate digital transformation complexities and position your organization for sustained competitive advantage.',
+    intro: 'Honest advice before you spend money on technology: what to build, what to buy, what to leave alone, and how to move off paper without disrupting the work.',
     offers: ['Technology Strategy & Planning', 'Digital Transformation', 'System Architecture Design', 'Security Audits & Compliance', 'Cloud Migration Services', 'Performance Optimization'],
     benefits: [
-      { icon: 'fa-lightbulb', title: 'Expert Guidance', desc: 'Decades of combined experience across diverse industries' },
-      { icon: 'fa-shield-alt', title: 'Security First', desc: 'Enterprise-grade security and compliance best practices' },
-      { icon: 'fa-rocket', title: 'Scalable Solutions', desc: 'Built to grow with your business' },
+      { icon: 'fa-lightbulb', title: 'Built From Our Own Products', desc: 'Advice grounded in running EduPortal and HealthHub Bridge in production' },
+      { icon: 'fa-shield-alt', title: 'Security Built In', desc: 'Access control, backups, and data protection planned from day one' },
+      { icon: 'fa-rocket', title: 'Room to Grow', desc: 'Systems sized for today, with a clear path when usage grows' },
     ],
   },
 ]
@@ -78,9 +77,9 @@ export default function Services() {
 
       <PageHeader
         tone="dark"
-        label="Enterprise-Grade Technology Solutions"
+        label="What We Build"
         title="Our Services"
-        desc="We deliver comprehensive technology services designed to transform your business operations and accelerate growth — from custom software development to strategic IT consulting."
+        desc="Software, websites, apps, and learning platforms for organizations anywhere — designed for real networks, real devices, and the people who use them every day."
       />
 
       {/* Sticky anchor nav */}
@@ -109,7 +108,7 @@ export default function Services() {
       </div>
 
       {/* Services */}
-      {services.map(({ id, icon, title, img, intro, offers, process, tech, features, benefits }, idx) => (
+      {services.map(({ id, icon, title, img, intro, offers, process, features, benefits }, idx) => (
         <section key={id} id={id} className={`py-16 sm:py-24 ${idx % 2 !== 0 ? 'bg-gray-50' : ''}`}>
           <div className="container-page">
             <div className={`grid lg:grid-cols-2 gap-16 items-center ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
@@ -134,11 +133,6 @@ export default function Services() {
                         <span className="w-5 h-5 rounded-full bg-primary text-white flex items-center justify-center text-[0.6rem] font-black">{i + 1}</span> {p}
                       </span>
                     ))}
-                  </div>
-                )}
-                {tech && (
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {tech.map(t => <span key={t} className="bg-dark text-white text-xs px-3 py-1 rounded-full">{t}</span>)}
                   </div>
                 )}
                 {features && (
@@ -202,7 +196,7 @@ export default function Services() {
                   <span className="text-xs font-black uppercase tracking-widest text-muted">{tier}</span>
                   <h3 className="text-2xl font-heading font-black text-dark mt-1 mb-2">{label}</h3>
                   <p className="text-muted text-sm mb-4">{desc}</p>
-                  <div className="inline-flex items-center gap-1.5 text-xs text-muted border border-gray-200 rounded-full px-3 py-1 mb-5">
+                  <div className="inline-flex items-center gap-1.5 text-xs text-muted bg-gray-50 rounded-full px-3 py-1 mb-5">
                     <i className="fas fa-clock text-primary" /> {timeline} delivery
                   </div>
                   <ul className="space-y-2 mb-6">
@@ -230,10 +224,9 @@ export default function Services() {
 
       {/* CTA */}
       <CtaBand
-        title="Ready to Accelerate Your Digital Transformation?"
-        desc="Partner with us to unlock innovative solutions that drive growth, efficiency, and competitive advantage."
+        title="Have Something in Mind?"
+        desc="Tell us what's slowing your organization down. We'll reply within 24 hours with honest next steps."
         primary={{ to: '/contact', label: "Contact Us" }}
-        secondary={{ to: '/work', label: "View Our Work" }}
       />
     </>
   )

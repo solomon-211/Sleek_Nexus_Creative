@@ -8,6 +8,12 @@ import FaqAccordion from '../components/ui/FaqAccordion'
 import FlipCard from '../components/ui/FlipCard'
 import GlobeAccent from '../components/ui/GlobeAccent'
 import CtaBand from '../components/ui/CtaBand'
+import { liveProducts } from '../lib/work-data'
+import Img from '../components/ui/Img'
+
+// Hero background photo (a file in public/images). After adding a new one,
+// run `npm run images` so phones get a smaller WebP version.
+const HUB_HERO_IMAGE = '/images/company-story.jpg'
 
 // ── SDGs SNC directly addresses ──────────────────────────────────────────────
 const sdgs = [
@@ -51,7 +57,7 @@ const sdgs = [
     color: '#FE7F2D',
     icon: 'fa-heart-pulse',
     title: 'Good Health & Well-Being',
-    desc: 'Building health connectivity platforms like HealthHub Bridge — connecting patients and providers for appointment booking, health records, and remote consultations.',
+    desc: 'Building hospital systems like HealthHub Bridge — faster patient records and referrals for facilities working on unreliable networks.',
   },
 ]
 
@@ -88,25 +94,17 @@ const focusAreas = [
 ]
 
 // ── Innovation in action — real, live proof points, not just projections ──────
-const flagshipProjects = [
-  {
-    badge: 'Live Now',
-    icon: 'fa-graduation-cap',
-    title: 'EduPortal South Sudan',
-    desc: 'A live education platform helping learners across all 10 states discover schools, apply for scholarships, and track their progress — completely free.',
-    cta: 'Visit EduPortal Live',
-    href: 'https://eduportalss.solomonleek.tech',
-    external: true,
-  },
-  {
-    badge: 'Featured Project',
-    icon: 'fa-heart-pulse',
-    title: 'HealthHub Bridge',
-    desc: 'A health connectivity platform bridging patients and healthcare providers — enabling appointment booking, health records, and remote consultations.',
-    cta: 'Ask About This Project',
-    to: '/contact',
-  },
-]
+// Both live products come from src/lib/work-data.js, so the Hub, Home, and
+// /work always describe them the same way.
+const flagshipProjects = liveProducts.map((p) => ({
+  badge: 'Live Now',
+  icon: p.icon,
+  title: p.title,
+  desc: p.short,
+  cta: p.cta,
+  href: p.url,
+  external: true,
+}))
 
 // ── Ways to get involved — the Hub serves more than just clients ──────────────
 const engagementPaths = [
@@ -173,19 +171,34 @@ export default function InnovationHub() {
       <SEO {...pageSeo['/innovation-hub']} />
 
       {/* ── HERO ──────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-white border-b border-gray-100">
-        <div className="relative container-page py-28 w-full">
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-dark">
+        {/* Static background photo — swap HUB_HERO_IMAGE (top of this file) to change it */}
+        <Img
+          src={HUB_HERO_IMAGE}
+          alt=""
+          aria-hidden="true"
+          sizes="100vw"
+          loading="eager"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        />
+        {/* Navy wash: strongest behind the text, lighter on the right */}
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-dark via-dark/85 to-dark/50" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-dark/80 via-transparent to-dark/30" />
+        <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(254,127,45,0.18) 0%, transparent 70%)' }} />
+
+        <div className="relative container-page py-20 sm:py-28 w-full">
           <div className="max-w-4xl">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.85 }}>
-              <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-6 bg-accent/10 border border-accent/25 px-4 py-2 rounded-full">
+              <span className="inline-flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest mb-6 bg-white/10 px-4 py-2 rounded-full">
                 SNC Innovation Hub
               </span>
-              <h1 className="text-dark font-heading font-black uppercase leading-[0.95] mb-6"
+              <h1 className="text-white font-heading font-black uppercase leading-[0.95] mb-6"
                 style={{ fontSize: 'clamp(2.75rem,6vw,4.25rem)', letterSpacing: '-0.02em' }}>
-                <span className="text-dark">Technology &amp; Innovation</span><br />
+                <span className="text-white">Technology &amp; Innovation</span><br />
                 <span className="text-accent">Hub</span>
               </h1>
-              <p className="text-muted text-lg leading-relaxed mb-4 max-w-2xl">
+              <p className="text-white/75 text-lg leading-relaxed mb-4 max-w-2xl">
                 Headquartered in Juba, South Sudan — building digital products, delivering software solutions, and driving transformation for organizations at home and abroad, aligned with the UN Sustainable Development Goals.
               </p>
               <p className="text-accent font-semibold mb-8">
@@ -199,7 +212,7 @@ export default function InnovationHub() {
                   </Link>
                 </MagneticButton>
                 <MagneticButton>
-                  <a href="#focus" className="btn-secondary text-base px-8 py-3.5">
+                  <a href="#focus" className="btn-secondary border-white text-white hover:bg-white hover:text-primary text-base px-8 py-3.5">
                     Explore the Hub
                   </a>
                 </MagneticButton>
@@ -210,14 +223,14 @@ export default function InnovationHub() {
       </section>
 
       {/* ── VISION STATEMENT ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-noise bg-dark text-white py-16 sm:py-24">
+      <section className="relative overflow-hidden bg-gray-50 py-16 sm:py-24">
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8 }}>
             <p className="eyebrow">Our Vision</p>
-            <h2 className="display-heading-sm mb-6">
+            <h2 className="display-heading-sm text-dark mb-6">
               Built in Juba. Built for Anywhere.
             </h2>
-            <p className="text-white/70 text-lg leading-relaxed max-w-3xl mx-auto">
+            <p className="text-muted text-lg leading-relaxed max-w-3xl mx-auto">
               Sleek Nexus Creative is headquartered in Juba, South Sudan — and that's where our engineering discipline comes from: building for real bandwidth constraints, real device limitations, and real infrastructure gaps. But our work isn't limited to South Sudan. We design and ship digital products for organizations across the region and internationally, bringing that same reliability-first standard to every client, wherever they're based.
             </p>
           </motion.div>
@@ -233,7 +246,7 @@ export default function InnovationHub() {
             variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true }}
           >
             {visionPillars.map(({ num, icon, color, title, desc }) => (
-              <motion.div key={title} variants={fadeUp} className="rounded-2xl border border-white/10 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col">
+              <motion.div key={title} variants={fadeUp} className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col">
                 <div className="p-5 flex items-center gap-4" style={{ backgroundColor: color }}>
                   <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     <i className={`fas ${icon} text-white text-2xl`} />
@@ -266,7 +279,7 @@ export default function InnovationHub() {
             {sdgs.map(({ num, color, icon, title, desc }, i) => (
               <motion.div
                 key={num}
-                className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col"
+                className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col"
                 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}
               >
                 <div className="p-5 flex items-center gap-4" style={{ backgroundColor: color }}>
@@ -302,7 +315,7 @@ export default function InnovationHub() {
                 className="h-72"
                 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.12 }}
                 front={
-                  <div className={`h-full rounded-2xl overflow-hidden border border-gray-100 shadow-sm flex flex-col cursor-pointer ${color} p-7 text-white justify-center`}>
+                  <div className={`h-full rounded-2xl overflow-hidden shadow-sm flex flex-col cursor-pointer ${color} p-7 text-white justify-center`}>
                     <div className="flex items-center gap-4 mb-3">
                       <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
                         <i className={`fas ${icon} text-2xl`} />
@@ -313,7 +326,7 @@ export default function InnovationHub() {
                   </div>
                 }
                 back={
-                  <div className="h-full rounded-2xl overflow-hidden border border-gray-100 shadow-xl flex flex-col cursor-pointer bg-white p-6">
+                  <div className="h-full rounded-2xl overflow-hidden shadow-xl flex flex-col cursor-pointer bg-white p-6">
                     <p className="text-xs font-bold text-primary uppercase tracking-widest mb-4">What's Included</p>
                     <ul className="space-y-2.5 flex-1">
                       {features.map(f => (
@@ -370,24 +383,30 @@ export default function InnovationHub() {
         </div>
       </section>
 
-      {/* ── OUR REACH — interactive globe ─────────────────────────────────── */}
+      {/* ── WORK FROM ANYWHERE — remote collaboration, globe on desktop ──── */}
       <section className="py-16 sm:py-24 bg-white overflow-hidden">
         <div className="container-page">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <p className="eyebrow">Beyond Juba</p>
-              <h2 className="section-title">Our Reach</h2>
+              <p className="eyebrow">Work With Us From Anywhere</p>
+              <h2 className="section-title">Wherever You Are</h2>
               <p className="text-muted leading-relaxed mb-6 max-w-lg">
-                We're headquartered in Juba, South Sudan — but our work isn't limited to South Sudan. We build and support digital products for organizations across the region and beyond. The connections below reflect that reach, not physical offices.
+                Any business with a problem worth solving — whatever its size, industry, or location. Our headquarters is in Juba, but most of our work runs remotely: we scope, design, build, and support projects over video calls, shared project boards, and messaging, so distance never slows a project down.
               </p>
-              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-                {['Juba (HQ)', 'Nairobi', 'Kampala', 'Addis Ababa', 'Kinshasa', 'Cairo'].map((city, i) => (
-                  <span key={city} className="flex items-center gap-2">
-                    <span className={`w-2 h-2 rounded-full ${i === 0 ? 'bg-primary' : 'bg-accent'}`} />
-                    {city}
-                  </span>
+              <ul className="grid sm:grid-cols-2 gap-3 max-w-lg">
+                {[
+                  { icon: 'fa-video',          label: 'Remote by default — video calls & screen shares' },
+                  { icon: 'fa-comments',       label: 'Updates on WhatsApp, email, or your own tools' },
+                  { icon: 'fa-list-check',     label: 'Clear milestones you can follow from anywhere' },
+                  { icon: 'fa-building',       label: 'Any industry, any size of organization' },
+                ].map(({ icon, label }) => (
+                  <li key={label} className="flex items-start gap-3 bg-gray-50 rounded-xl px-4 py-3 text-sm text-dark">
+                    <i className={`fas ${icon} text-primary mt-0.5 flex-shrink-0`} />
+                    {label}
+                  </li>
                 ))}
-              </div>
+              </ul>
+              <Link to="/get-started" className="btn-primary mt-8">Start a Project Remotely</Link>
             </motion.div>
             <motion.div
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ delay: 0.15 }}

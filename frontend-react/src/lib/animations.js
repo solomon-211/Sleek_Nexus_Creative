@@ -31,16 +31,12 @@ export const staggerItem = {
 // Cinematic page transition — slide, zoom, fade, and a slight tilt combine into
 // one choreographed move so route changes feel like an app opening a screen
 // rather than a page reloading. Pair with transformPerspective on the wrapper.
+// Route change: a quick fade. No scale, rotation, or blur — the content is
+// the point, not the transition.
 export const pageVariants = {
-  initial: { opacity: 0, scale: 0.94, y: 48, rotate: -1.5, filter: 'blur(8px)' },
-  animate: {
-    opacity: 1, scale: 1, y: 0, rotate: 0, filter: 'blur(0px)',
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-  },
-  exit: {
-    opacity: 0, scale: 1.06, y: -32, rotate: 1.5, filter: 'blur(6px)',
-    transition: { duration: 0.45, ease: [0.7, 0, 0.84, 0] },
-  },
+  initial: { opacity: 0, y: 8 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } },
+  exit:    { opacity: 0, transition: { duration: 0.15, ease: 'easeIn' } },
 }
 
 export const scaleIn = {
@@ -66,9 +62,10 @@ export const zoomOut = {
   show:   { opacity: 1, scale: 1, transition: { duration: 0.75, ease: 'easeOut' } },
 }
 
+// Kept under its old name so existing imports still work; it no longer rotates.
 export const rotateIn = {
-  hidden: { opacity: 0, rotate: -6, scale: 0.95 },
-  show:   { opacity: 1, rotate: 0, scale: 1, transition: { duration: 0.75, ease: 'easeOut' } },
+  hidden: { opacity: 0, y: 16 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 }
 
 export const bounceIn = {
@@ -90,17 +87,13 @@ export const blurIn = {
 
 // Card Stacking reveal — cards start slightly rotated and offset as if pulled from a
 // stacked deck (alternating tilt direction by index), then settle flat into the grid.
-export const stackReveal = (i = 0) => ({
-  hidden: { opacity: 0, y: 44, scale: 0.9, rotate: i % 2 === 0 ? -7 : 7 },
-  show: {
-    opacity: 1, y: 0, scale: 1, rotate: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-  },
+// Kept for existing imports; a plain fade-up now (no tilt, no scale).
+export const stackReveal = () => ({
+  hidden: { opacity: 0, y: 16 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 })
 
 // Continuous idle float — apply via the `animate` prop (not variants) on an element
 // that has already entered, for a "premium, alive" resting state.
-export const floatAnimation = {
-  y: [0, -10, 0],
-  transition: { duration: 4.5, repeat: Infinity, ease: 'easeInOut' },
-}
+// Kept for existing imports; cards no longer bob up and down.
+export const floatAnimation = {}

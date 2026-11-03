@@ -190,7 +190,7 @@ export default function About() {
               <h2 className="text-xl md:text-2xl font-heading font-black uppercase mb-3">Our Mission</h2>
               <p className="opacity-90 leading-relaxed">To empower individuals, institutions, and communities — across South Sudan and beyond — by creating practical digital solutions, nurturing the next generation of technology leaders, and driving creative innovation that solves real problems and creates lasting opportunity.</p>
             </motion.div>
-            <motion.div className="bg-dark text-white rounded-2xl p-10 border border-white/10"
+            <motion.div className="bg-dark text-white rounded-2xl p-10"
               variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}>
               <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-5">
                 <i className="fas fa-eye text-accent text-xl" />
@@ -244,7 +244,7 @@ export default function About() {
 
                 {/* Connector to the next milestone */}
                 {i < timeline.length - 1 && (
-                  <div className="hidden sm:flex absolute top-1/2 -right-4 md:-right-5 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white shadow-md border border-gray-100 items-center justify-center">
+                  <div className="hidden sm:flex absolute top-1/2 -right-4 md:-right-5 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white shadow-md items-center justify-center">
                     <i className="fas fa-arrow-right text-primary text-xs" />
                   </div>
                 )}

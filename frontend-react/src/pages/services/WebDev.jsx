@@ -9,7 +9,6 @@ import CtaBand from '../../components/ui/CtaBand'
 
 const offers = ['Custom Website Development', 'Responsive Web Design', 'Progressive Web Apps (PWA)', 'E-Commerce Platforms', 'CMS Development (WordPress, Custom)', 'API Development & Integration', 'Landing Pages & Marketing Sites', 'Web App Dashboards & Portals']
 
-const techs = ['React.js', 'Vue.js', 'Next.js', 'Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'Tailwind CSS']
 
 const process = [
   { n: '01', icon: 'fa-search', title: 'Discovery', desc: 'We understand your goals, audience, and requirements.' },
@@ -24,7 +23,7 @@ export default function WebDev() {
   return (
     <>
       <SEO {...pageSeo['/services/web-dev']} />
-      <PageHeader label="Services" title="Web Development" desc="Custom, responsive, and high-performing websites and web applications built for South Sudan and beyond." />
+      <PageHeader label="Services" title="Web Development" desc="Fast, secure websites and web applications engineered around your goals — built to perform for every visitor, on every device, wherever they are." />
 
       <section className="py-16 sm:py-24">
         <div className="container-page">
@@ -32,7 +31,7 @@ export default function WebDev() {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="eyebrow">What We Build</p>
               <h2 className="section-title">Websites That Work — For Real Users, On Real Networks</h2>
-              <p className="text-muted leading-relaxed mb-4">We build websites and web applications optimized for South Sudan's real conditions — low bandwidth, mobile-first users, and organizations that need reliability above all else.</p>
+              <p className="text-muted leading-relaxed mb-4">We build websites and web applications that stay fast and dependable under real-world conditions — slow connections, older phones, and organizations that need reliability above all else.</p>
               <p className="text-muted leading-relaxed mb-6">Every project gets a dedicated developer, thorough QA, and a clear handover with documentation and training so your team can manage it confidently.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
               <ul className="grid sm:grid-cols-2 gap-2 mb-6">
@@ -51,19 +50,8 @@ export default function WebDev() {
         </div>
       </section>
 
-      {/* Tech Stack */}
-      <section className="py-16 sm:py-24 bg-gray-50">
-        <div className="container-page text-center">
-          <p className="text-primary text-sm font-bold uppercase tracking-widest mb-4">Our Stack</p>
-          <h2 className="section-title">Technologies We Use</h2>
-          <div className="flex flex-wrap gap-3 justify-center mt-8">
-            {techs.map(t => <span key={t} className="bg-dark text-white text-sm font-semibold px-4 py-2 rounded-full">{t}</span>)}
-          </div>
-        </div>
-      </section>
-
       {/* Process */}
-      <section className="py-16 sm:py-24">
+      <section className="py-16 sm:py-24 bg-gray-50">
         <div className="container-page">
           <div className="text-center mb-14">
             <p className="eyebrow">How We Work</p>
@@ -90,7 +78,7 @@ export default function WebDev() {
         title="Ready to Build Your Website?"
         desc="Get a free consultation and custom quote within 24 hours."
         primary={{ to: '/contact', label: "Get a Free Quote" }}
-        secondary={{ to: '/work', label: "See Our Work" }}
+        secondary={{ to: '/services', label: "All Services" }}
       />
     </>
   )

@@ -74,7 +74,7 @@ export default function SearchBar({ className = '', onNavigate }) {
 
   return (
     <div ref={wrapRef} className={`relative ${className}`}>
-      <div className={`flex items-center gap-2 bg-white/10 rounded-lg border border-white/15 px-3 py-1.5 transition-colors focus-within:border-primary/60 focus-within:bg-white/[0.14] ${open && q ? 'bg-white/[0.14]' : ''}`}>
+      <div className={`flex items-center gap-2 bg-white/10 rounded-lg px-3 py-1.5 transition-colors focus-within:border-primary/60 focus-within:bg-white/[0.14] ${open && q ? 'bg-white/[0.14]' : ''}`}>
         <i className="fas fa-magnifying-glass text-white/50 text-xs flex-shrink-0" />
         <input
           value={query}
@@ -106,7 +106,7 @@ export default function SearchBar({ className = '', onNavigate }) {
           id={resultsId}
           ref={listRef}
           role="listbox"
-          className="absolute top-[calc(100%+8px)] left-0 right-0 bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.25)] border border-gray-100 py-2 z-50 max-h-72 overflow-y-auto list-none"
+          className="absolute top-[calc(100%+8px)] left-0 right-0 bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.25)] py-2 z-50 max-h-72 overflow-y-auto list-none"
         >
           {results.length === 0 ? (
             <li className="px-4 py-3 text-sm text-muted text-center">No matches for "{query}"</li>

@@ -1,15 +1,7 @@
 /**
- * GlitchText — wraps text in a glitch effect on hover.
- * Uses CSS custom properties and ::before/::after pseudo-elements
- * painted via a data attribute so no JS runs during the animation.
+ * GlitchText — previously a hover "glitch" effect; now renders its text
+ * plainly. Kept so existing imports don't break.
  */
 export default function GlitchText({ children, className = '', tag: Tag = 'span' }) {
-  return (
-    <Tag
-      className={`glitch-text ${className}`}
-      data-text={typeof children === 'string' ? children : undefined}
-    >
-      {children}
-    </Tag>
-  )
+  return <Tag className={className}>{children}</Tag>
 }

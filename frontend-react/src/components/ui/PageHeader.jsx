@@ -57,13 +57,13 @@ export default function PageHeader({ label, title, desc, breadcrumb, actions, co
             <p className="text-accent text-xs font-bold uppercase tracking-[0.15em] mb-3">{label}</p>
           )}
 
-          {/* Title — blurs into sharp focus slightly after the rest of the block starts fading in */}
+          {/* Title */}
           <motion.h1
             className={`font-heading font-black uppercase leading-[0.95] mb-0 ${dark ? 'text-white' : 'text-dark'}`}
             style={{ fontSize: 'clamp(2.5rem, 5.5vw, 3.5rem)', letterSpacing: '-0.02em' }}
-            initial={{ opacity: 0, filter: 'blur(10px)', y: 8 }}
-            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
           >
             {title}
           </motion.h1>

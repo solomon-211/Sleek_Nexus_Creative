@@ -55,7 +55,7 @@ export default class ErrorBoundary extends Component {
 
           {/* Dev-only stack trace */}
           {this.state.stack && (
-            <details className="text-left mb-6 bg-gray-100 rounded-xl p-4 border border-gray-200">
+            <details className="text-left mb-6 bg-gray-100 rounded-xl p-4">
               <summary className="text-xs font-semibold text-muted cursor-pointer mb-2">
                 Error details (dev only)
               </summary>

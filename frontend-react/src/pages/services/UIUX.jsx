@@ -9,7 +9,6 @@ import CtaBand from '../../components/ui/CtaBand'
 
 const offers = ['User Research & Personas', 'Wireframing & Prototyping', 'High-Fidelity UI Design', 'Design Systems & Component Libraries', 'Usability Testing', 'Mobile & Web App Design', 'Branding Integration', 'Figma Handoff for Developers']
 
-const tools = ['Figma', 'Adobe XD', 'Illustrator', 'Photoshop', 'Miro', 'Maze']
 
 const principles = [
   { icon: 'fa-user', title: 'User-Centered', desc: 'Every design decision is grounded in real user research and behavior — not assumptions.' },
@@ -33,7 +32,7 @@ export default function UIUX() {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="eyebrow">Design That Converts</p>
               <h2 className="section-title">Great Design Is More Than How It Looks</h2>
-              <p className="text-muted leading-relaxed mb-4">Good UI/UX design reduces user friction, increases task completion, and builds trust. We design with South Sudan's users in mind — diverse languages, literacy levels, and device types.</p>
+              <p className="text-muted leading-relaxed mb-4">Good UI/UX design reduces user friction, increases task completion, and builds trust. We design for the people who will actually use the product — across languages, literacy levels, and device types.</p>
               <p className="text-muted leading-relaxed mb-6">Our design process is research-driven, collaborative, and delivers production-ready Figma files that your developers can implement exactly as designed.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
               <ul className="grid sm:grid-cols-2 gap-2 mb-6">
@@ -65,15 +64,6 @@ export default function UIUX() {
                 <p className="text-muted text-sm leading-relaxed">{desc}</p>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-noise py-16 sm:py-24 bg-dark text-white">
-        <div className="container-page text-center">
-          <p className="text-accent text-sm font-bold uppercase tracking-widest mb-4">Tools We Use</p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            {tools.map(t => <span key={t} className="bg-white/10 text-white text-sm font-semibold px-4 py-2 rounded-full">{t}</span>)}
           </div>
         </div>
       </section>

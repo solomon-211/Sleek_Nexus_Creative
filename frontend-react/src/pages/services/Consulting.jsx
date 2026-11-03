@@ -10,7 +10,7 @@ import CtaBand from '../../components/ui/CtaBand'
 const offers = ['Technology Strategy & Roadmapping', 'Digital Transformation Planning', 'System Architecture Design', 'Security Audits & Compliance', 'Cloud Migration Services', 'Vendor Selection & Evaluation', 'Performance Optimization', 'IT Policy & Governance']
 
 const benefits = [
-  { icon: 'fa-lightbulb', title: 'Expert Guidance', desc: 'Combined experience across software, infrastructure, and digital transformation for organizations of all sizes, in South Sudan and beyond.' },
+  { icon: 'fa-lightbulb', title: 'Expert Guidance', desc: 'Combined experience across software, infrastructure, and digital transformation for organizations of all sizes.' },
   { icon: 'fa-shield-alt', title: 'Security First', desc: 'We assess your current security posture and build a practical roadmap to enterprise-grade protection.' },
   { icon: 'fa-chart-line', title: 'Measurable ROI', desc: 'Every recommendation includes a cost-benefit analysis so you know what you are investing and what you will gain.' },
   { icon: 'fa-handshake', title: 'Vendor-Neutral', desc: 'We recommend what is best for you, not what earns us a commission. Honest, independent technology advice.' },
@@ -34,7 +34,7 @@ export default function Consulting() {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="eyebrow">Strategic Advisory</p>
               <h2 className="section-title">Technology Decisions That Move Your Organization Forward</h2>
-              <p className="text-muted leading-relaxed mb-4">Many organizations in South Sudan are navigating digital transformation without a clear map. We provide the strategic guidance to help you invest in the right technology, in the right order, with the right partners.</p>
+              <p className="text-muted leading-relaxed mb-4">Many organizations are moving from paper and spreadsheets to digital systems without a clear map. We provide the strategic guidance to help you invest in the right technology, in the right order, with the right partners.</p>
               <p className="text-muted leading-relaxed mb-6">From startups evaluating their first tech stack to established organizations modernizing legacy systems — our consulting engagements are practical, actionable, and context-aware.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
               <ul className="grid sm:grid-cols-2 gap-2 mb-6">
@@ -83,7 +83,7 @@ export default function Consulting() {
             {engagements.map(({ type, duration, desc }, i) => (
               <motion.div key={type} className="card p-8" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
                 <h3 className="font-heading font-black text-dark text-2xl mb-2">{type}</h3>
-                <div className="inline-flex items-center gap-1.5 text-xs text-muted border border-gray-200 rounded-full px-3 py-1 mb-4">
+                <div className="inline-flex items-center gap-1.5 text-xs text-muted bg-gray-50 rounded-full px-3 py-1 mb-4">
                   <i className="fas fa-clock text-primary" /> {duration}
                 </div>
                 <p className="text-muted text-sm leading-relaxed">{desc}</p>

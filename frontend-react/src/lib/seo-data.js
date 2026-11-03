@@ -88,9 +88,9 @@ export const pageSeo = {
 
   '/work': {
     title: 'Our Work — Platforms & Brand Identities',
-    description: 'See what Sleek Nexus Creative has built: EduPortal South Sudan, a live education platform covering all 10 states, plus brand identity, campaign, and merchandise design.',
+    description: 'See what Sleek Nexus Creative has built: EduPortal South Sudan, a live education platform covering all 10 states; HealthHub Bridge, a hospital records and referral system; plus brand identity and campaign design.',
     canonical: '/work',
-    keywords: 'Sleek Nexus Creative portfolio, EduPortal South Sudan, software projects South Sudan, brand identity Juba, web development portfolio Juba',
+    keywords: 'Sleek Nexus Creative portfolio, EduPortal South Sudan, HealthHub Bridge, hospital management system South Sudan, software projects South Sudan, brand identity Juba, web development portfolio Juba',
     image: 'https://sleeknexuscreative.com/images/rise-leadership-academy.png',
     imageAlt: 'Brand identity work by Sleek Nexus Creative',
     imageWidth: 800,
@@ -153,7 +153,7 @@ export const pageSeo = {
 
   '/services/web-dev': {
     title: 'Web Development — Custom Websites & Web Apps',
-    description: "Custom, responsive websites and web applications built for South Sudan's real conditions — mobile-first, low-bandwidth optimized, and production-ready. Get a free quote.",
+    description: 'Fast, secure websites and web applications engineered around your goals — mobile-first, optimized for slow connections, and production-ready. Get a free quote.',
     canonical: '/services/web-dev',
     keywords: 'web development South Sudan, website design Juba, custom web applications, responsive websites South Sudan, e-commerce websites Juba, web developer South Sudan',
     image: 'https://sleeknexuscreative.com/images/web-development.jpg',
@@ -174,9 +174,9 @@ export const pageSeo = {
 
   '/services/mobile-apps': {
     title: 'Mobile App Development — iOS, Android & Cross-Platform',
-    description: "Native and cross-platform mobile apps built for South Sudan's mobile-first users — offline-capable, lightweight, and optimized for low-end devices and slow networks.",
+    description: 'Native and cross-platform mobile apps that are lightweight, work offline, and run well on any device and any network.',
     canonical: '/services/mobile-apps',
-    keywords: 'mobile app development South Sudan, iOS app development Juba, Android app development, React Native developer South Sudan, offline mobile apps Africa',
+    keywords: 'mobile app development South Sudan, iOS app development Juba, Android app development, offline mobile apps Africa',
     image: 'https://sleeknexuscreative.com/images/mobile-development.jpg',
     imageAlt: 'Mobile app development services by Sleek Nexus Creative',
     imageWidth: 480,
@@ -195,7 +195,7 @@ export const pageSeo = {
 
   '/services/ui-ux': {
     title: 'UI/UX Design — Human-Centered Digital Design',
-    description: 'User research, wireframing, and high-fidelity UI design that makes digital products intuitive, accessible, and beautiful — built for real users in South Sudan.',
+    description: 'User research, wireframing, and high-fidelity UI design that makes digital products intuitive, accessible, and easy to use — built around your real users.',
     canonical: '/services/ui-ux',
     keywords: 'UI UX design South Sudan, user experience design Juba, product design South Sudan, Figma designer South Sudan, app design services, website design services',
     image: 'https://sleeknexuscreative.com/images/ui-ux.jpg',

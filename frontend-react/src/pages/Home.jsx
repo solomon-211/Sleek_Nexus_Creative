@@ -1,20 +1,22 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useAnimationControls } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { fadeUp, fadeLeft, fadeRight, rotateIn, staggerContainer, scaleIn, stackReveal } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import MagneticButton from '../components/ui/MagneticButton'
 import AnimatedCounter from '../components/ui/AnimatedCounter'
-import GlitchText from '../components/ui/GlitchText'
-import MarqueeTicker from '../components/ui/MarqueeTicker'
 import KineticHeadline from '../components/ui/KineticHeadline'
 import TiltCard from '../components/ui/TiltCard'
 import RevealLink from '../components/ui/RevealLink'
 import Img from '../components/ui/Img'
-import { EDUPORTAL_URL } from '../lib/work-data'
+import { liveProducts } from '../lib/work-data'
 import { companyStats } from '../lib/site'
+import CtaBand from '../components/ui/CtaBand'
 // ─── Data ────────────────────────────────────────────────────────────────────
+
+// Hero background photo (a file in public/images). After adding a new one,
+// run `npm run images` so phones get a smaller WebP version.
+const HERO_IMAGE = '/images/hero-tech.jpg'
 
 const counters = companyStats
 
@@ -33,50 +35,44 @@ const testimonials = [
 ]
 
 const whyCards = [
-  { icon: 'fa-map-marker-alt', title: 'Locally Based', desc: "We understand South Sudan's unique challenges, infrastructure, and market realities better than any foreign firm." },
-  { icon: 'fa-shield-alt', title: 'Secure & Reliable', desc: 'Every product we build follows security best practices with robust backup systems and reliable hosting.' },
-  { icon: 'fa-dollar-sign', title: 'Affordable Pricing', desc: 'World-class quality at prices designed for African markets, with flexible payment plans available.' },
+  { icon: 'fa-map-marker-alt', title: 'Locally Based', desc: "We work where our clients work — we know the networks, the devices, and the paperwork, because we deal with them too." },
+  { icon: 'fa-shield-alt', title: 'Secure & Reliable', desc: 'Access control, regular backups, and reliable hosting are part of every build — not optional extras.' },
+  { icon: 'fa-dollar-sign', title: 'Affordable Pricing', desc: 'Pricing set for organizations operating here, with payment plans that follow project milestones.' },
   { icon: 'fa-headset', title: 'Dedicated Support', desc: 'Our team is available after launch for maintenance, updates, training, and technical support.' },
   { icon: 'fa-graduation-cap', title: 'Training Included', desc: 'We train your team to use and manage every product we deliver so you stay independent.' },
-  { icon: 'fa-clock', title: 'On-Time Delivery', desc: 'We set clear milestones and consistently deliver on time without compromising quality.' },
+  { icon: 'fa-clock', title: 'On-Time Delivery', desc: 'Agreed milestones you can check progress against, and early warning if anything is going to slip.' },
 ]
 
 // ─── Home ─────────────────────────────────────────────────────────────────────
 
 export default function Home() {
-  // Float is kicked off imperatively in an effect (post-mount, post-paint) rather
-  // than left to the declarative `animate` prop on first render. On a cold load —
-  // first visit straight to "/", nothing cached yet — an `animate` prop with
-  // `repeat: Infinity` can start before layout has settled and silently never begin;
-  // it only kicks in once something (like a route change) forces a fresh mount.
-  // Starting it explicitly in useEffect sidesteps that race entirely.
-  const floatControls = useAnimationControls()
-
-  useEffect(() => {
-    floatControls.start({ y: [0, -10, 0], transition: { duration: 4.5, repeat: Infinity, ease: 'easeInOut' } })
-  }, [floatControls])
-
   return (
     <>
       <SEO {...pageSeo['/']} />
 
       {/* Hero */}
-      <section
-        className="relative min-h-screen flex items-center overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, #f8f9fb 0%, #eef0f4 50%, #f5f6f8 100%)'
-        }}
-      >
-        {/* Dot grid overlay */}
-        <div className="absolute inset-0 bg-dots opacity-30 pointer-events-none" />
-        {/* Soft radial glow top-right */}
-        <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(254,127,45,0.08) 0%, transparent 70%)' }} />
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-dark">
+        {/* Static background photo — swap HERO_IMAGE (top of this file) to change it */}
+        <Img
+          src={HERO_IMAGE}
+          alt=""
+          aria-hidden="true"
+          sizes="100vw"
+          loading="eager"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        />
+        {/* Navy wash: strongest behind the text, lighter on the right */}
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-dark via-dark/85 to-dark/50" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-dark/80 via-transparent to-dark/30" />
+        {/* Soft orange glow, as before */}
+        <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(254,127,45,0.18) 0%, transparent 70%)' }} />
 
         <div className="relative container-page py-20 sm:py-24 w-full">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.8 }}>
               <p className="section-label text-accent">Based in Juba, South Sudan</p>
-              <h1 className="text-dark mb-5 sm:mb-6 font-heading" style={{ fontWeight: 900, fontSize: 'clamp(2.5rem, 4.5vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
+              <h1 className="text-white mb-5 sm:mb-6 font-heading" style={{ fontWeight: 900, fontSize: 'clamp(2.5rem, 4.5vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
                 <KineticHeadline lines={[
                   ['We', 'Build', 'Digital', 'Products'],
                   ['That', 'Work', 'in'],
@@ -88,15 +84,15 @@ export default function Home() {
                   )],
                 ]} />
               </h1>
-              <p className="text-muted text-base sm:text-lg leading-relaxed mb-7 sm:mb-8">
+              <p className="text-white/75 text-base sm:text-lg leading-relaxed mb-7 sm:mb-8">
                 Bring us the problem slowing your organization down — paper records, customers you can't reach online, systems that fail when the network drops. We'll design, build, and launch the website, app, or platform that fixes it, train your team to run it, and stay with you after launch.
               </p>
               <div className="flex flex-wrap gap-3 mb-8 sm:mb-12">
-                <MagneticButton liquid>
+                <MagneticButton>
                   <Link to="/contact" className="btn-primary text-base px-7 py-3.5">Start Your Project</Link>
                 </MagneticButton>
-                <MagneticButton liquid>
-                  <Link to="/services" className="btn-secondary text-base px-7 py-3.5">View Our Services</Link>
+                <MagneticButton>
+                  <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-primary text-base px-7 py-3.5">View Our Services</Link>
                 </MagneticButton>
               </div>
             </motion.div>
@@ -108,10 +104,7 @@ export default function Home() {
               {/* Card glow border */}
               <div className="absolute -inset-[1px] rounded-2xl pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(254,127,45,0.35), rgba(35,61,77,0.15), rgba(254,127,45,0.2))', borderRadius: '1rem' }} />
 
-              {/* Continuous idle float */}
-              <motion.div
-                initial={{ y: 0 }}
-                animate={floatControls}
+              <div
                 className="relative bg-white/95 backdrop-blur-sm border border-white rounded-2xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(35,61,77,0.12),0_4px_16px_rgba(254,127,45,0.08)]"
               >
                 <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4">What You Get</p>
@@ -131,21 +124,11 @@ export default function Home() {
                 <Link to="/services" className="inline-flex items-center gap-2 text-accent font-semibold text-sm">
                   Explore Our Services <i className="fas fa-arrow-right" />
                 </Link>
-              </motion.div>
+              </div>
             </motion.aside>
           </div>
         </div>
       </section>
-
-      {/* ── Marquee ticker ── */}
-      <div className="bg-dark py-3 border-y border-white/5">
-        <MarqueeTicker
-          speed={18}
-          items={['Web Development', 'Mobile Apps', 'UI/UX Design', 'E-Learning', 'IT Consulting', 'Branding', 'Innovation Hub'].map(t => (
-            <GlitchText key={t} className="text-white font-heading font-black uppercase text-sm tracking-widest">{t}</GlitchText>
-          ))}
-        />
-      </div>
 
       {/* ── Orbital Stats ── */}
       <section className="py-12 sm:py-16 bg-gray-50 border-b border-gray-100 overflow-hidden">
@@ -191,7 +174,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-heading font-black text-white text-3xl sm:text-5xl uppercase leading-none mb-3" style={{ letterSpacing: '-0.02em' }}>Software<br/>Development</h3>
-                  <p className="text-white/60 text-sm leading-relaxed mb-5 max-w-sm">Custom platforms engineered for speed, reliability, and clear business outcomes.</p>
+                  <p className="text-white/60 text-sm leading-relaxed mb-5 max-w-sm">Systems shaped around how your organization actually works.</p>
                   <RevealLink to="/services#software-dev" className="inline-flex items-center gap-2 text-accent font-bold text-sm hover:gap-3 transition-all">
                     Explore <i className="fas fa-arrow-right text-xs" />
                   </RevealLink>
@@ -239,7 +222,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-heading font-black text-dark text-2xl uppercase leading-tight mb-1">IT Consulting &amp; Digital Transformation</h3>
-                  <p className="text-muted text-sm">Strategy and implementation that de-risks delivery and accelerates growth.</p>
+                  <p className="text-muted text-sm">Clear advice on what to build, what to buy, and what to leave alone.</p>
                 </div>
                 <RevealLink to="/services#consulting" className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 hover:bg-primary flex items-center justify-center text-primary hover:text-white transition-all group-hover:scale-110">
                   <i className="fas fa-arrow-right" />
@@ -318,73 +301,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Live Product Spotlight — EduPortal South Sudan */}
+      {/* Live products — proof, before the testimonials */}
       <section className="relative overflow-hidden bg-noise py-16 sm:py-24 bg-dark text-white">
         <div className="relative container-page">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <span className="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3.5 py-1.5 mb-5">
+          <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-center">
+            <motion.div className="lg:col-span-2" variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }}>
+              <span className="inline-flex items-center gap-2 bg-white/10 rounded-full px-3.5 py-1.5 mb-5">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
                 </span>
-                <span className="text-white/80 text-xs font-bold uppercase tracking-widest">Live Product</span>
+                <span className="text-white/80 text-xs font-bold uppercase tracking-widest">{liveProducts.length} Live Products</span>
               </span>
-              <h2 className="display-heading-sm mb-5">A Real Platform We Built — Live Across South Sudan</h2>
+              <h2 className="display-heading-sm mb-5">Built Here. In Use Today.</h2>
               <p className="text-white/70 leading-relaxed mb-8">
-                <strong className="text-white">EduPortal South Sudan</strong> is a full-scale education platform we designed, built, and deployed — helping learners across all 10 states discover schools, apply for scholarships, and track their progress, completely free.
+                Two platforms of our own are live today — one for learners, one for hospitals. They're built with the same discipline we bring to every client project: real networks, real devices, and the people who depend on them.
               </p>
-              <div className="flex flex-wrap gap-6 mb-8">
-                {[{ icon: 'fa-map-marker-alt', label: '10 States Covered' }, { icon: 'fa-hand-holding-heart', label: 'Free — Always' }, { icon: 'fa-signal', label: 'Live In Production' }].map(({ icon, label }) => (
-                  <div key={label} className="flex items-center gap-2 text-sm text-white/70">
-                    <i className={`fas ${icon} text-accent`} /> {label}
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <MagneticButton>
-                  <a href={EDUPORTAL_URL} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
-                    Visit EduPortal Live <i className="fas fa-arrow-up-right-from-square text-sm" />
-                  </a>
-                </MagneticButton>
-                <MagneticButton>
-                  <Link to="/work" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">See All Our Work</Link>
-                </MagneticButton>
-              </div>
+              <MagneticButton>
+                <Link to="/work" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">See All Our Work</Link>
+              </MagneticButton>
             </motion.div>
 
-            <motion.div variants={fadeRight} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}>
-              {/* Browser-chrome mockup — X-Frame-Options on the live site blocks a real
-                  iframe embed, so this is a styled preview frame linking out instead. */}
-              <a
-                href={EDUPORTAL_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.4)] hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(254,127,45,0.25)] transition-all duration-500"
-              >
-                <div className="flex items-center gap-2 bg-gray-900 px-4 py-3 border-b border-white/10">
-                  <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-                  <span className="ml-3 flex-1 bg-white/5 rounded-md px-3 py-1 text-white/50 text-xs flex items-center gap-1.5 truncate">
-                    <i className="fas fa-lock text-[0.6rem]" /> eduportalss.solomonleek.tech
-                  </span>
-                  <i className="fas fa-arrow-up-right-from-square text-white/30 text-xs group-hover:text-accent transition-colors" />
-                </div>
-                <div className="relative p-8 sm:p-10 min-h-[320px] flex flex-col items-center justify-center text-center bg-dark-soft">
-                  <div className="relative w-16 h-16 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center mb-5">
-                    <i className="fas fa-graduation-cap text-accent text-2xl" />
+            <div className="lg:col-span-3 grid sm:grid-cols-2 gap-5">
+              {liveProducts.map((p, i) => (
+                <motion.a
+                  key={p.id}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variants={fadeRight} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 + i * 0.12 }}
+                  className="group flex flex-col rounded-2xl overflow-hidden bg-dark-soft shadow-[0_20px_60px_rgba(0,0,0,0.35)] hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(254,127,45,0.2)] transition-all duration-500"
+                >
+                  {/* Browser-chrome frame — the live sites block iframe embeds,
+                      so this is a styled preview that links out instead. */}
+                  <div className="flex items-center gap-2 bg-gray-900 px-4 py-3 border-b border-white/10">
+                    <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                    <span className="ml-2 flex-1 min-w-0 bg-white/5 rounded-md px-2.5 py-1 text-white/50 text-[0.7rem] flex items-center gap-1.5">
+                      <i className="fas fa-lock text-[0.55rem]" /> <span className="truncate">{p.displayUrl}</span>
+                    </span>
                   </div>
-                  <p className="relative font-heading font-black text-white text-2xl sm:text-3xl uppercase tracking-tight mb-2">EduPortal South Sudan</p>
-                  <p className="relative text-white/60 text-sm mb-6">Empowering every learner across South Sudan</p>
-                  <div className="relative flex flex-wrap justify-center gap-2">
-                    {['School Discovery', 'Scholarships', 'Progress Tracking'].map(chip => (
-                      <span key={chip} className="text-xs font-semibold text-white/80 bg-white/10 border border-white/15 rounded-full px-3 py-1">{chip}</span>
-                    ))}
+                  <div className="flex-1 flex flex-col p-6 sm:p-7">
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="w-12 h-12 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center">
+                        <i className={`fas ${p.icon} text-accent text-lg`} />
+                      </div>
+                      <span className="text-[0.65rem] font-bold uppercase tracking-widest text-white/60 bg-white/10 rounded-full px-2.5 py-1">{p.sector}</span>
+                    </div>
+                    <h3 className="font-heading font-black text-white text-xl uppercase leading-tight mb-1" style={{ letterSpacing: '-0.01em' }}>{p.title}</h3>
+                    <p className="text-accent text-xs font-semibold mb-3">{p.tagline}</p>
+                    <p className="text-white/60 text-sm leading-relaxed mb-5 flex-1">{p.short}</p>
+                    <span className="inline-flex items-center gap-2 text-white font-semibold text-sm group-hover:text-accent transition-colors">
+                      {p.cta} <i className="fas fa-arrow-up-right-from-square text-xs" />
+                    </span>
                   </div>
-                </div>
-              </a>
-            </motion.div>
+                </motion.a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -448,77 +422,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="relative overflow-hidden bg-dark">
-        {/* Left half — dark, Right half — primary (side-by-side layout only) */}
-        <div className="absolute inset-0 hidden lg:flex">
-          <div className="w-1/2 bg-dark" />
-          <div className="w-1/2 bg-primary" />
-        </div>
-        {/* Divider — orange is a triangle-tipped pennant (point + rectangle),
-            dark has a matching V-notch cut into its right edge so the two
-            interlock with no gap. */}
-        <div className="absolute inset-0 bg-primary hidden lg:block" style={{clipPath:'polygon(64% 0%, calc(100% - 48px) 0%, 100% 48px, 100% calc(100% - 48px), calc(100% - 48px) 100%, 64% 100%, 48% 50%)'}} />
-        <div className="absolute inset-0 bg-dark hidden lg:block" style={{clipPath:'polygon(0 48px, 48px 0, 64% 0, 48% 50%, 64% 100%, 48px 100%, 0 calc(100% - 48px))'}} />
-        {/* Noise */}
-        <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none" />
-        {/* Bottom accent line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary/40" />
-
-        <div className="relative container-page py-10 sm:py-14">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-
-            {/* Left — dark side */}
-            <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{once:true}} className="text-white">
-              <p className="inline-flex items-center gap-2 text-primary text-xs font-black uppercase tracking-widest mb-3">
-                <span className="w-5 h-px bg-primary" /> Start Here
-              </p>
-              <h2
-                className="font-heading uppercase leading-[0.9] mb-4"
-                style={{
-                  fontSize: 'clamp(2.5rem,5.5vw,4.5rem)',
-                  fontWeight: 800,
-                }}
-              >
-                <span className="block text-white">Let's Build</span>
-                <span
-                  className="block text-white"
-                  style={{ fontSize: 'clamp(1.75rem, 3.5vw, 3rem)' }}
-                >Something Real.</span>
-              </h2>
-              <p className="text-white/70 text-sm mb-5 max-w-sm">Submit a project brief and hear back within 24 hours — a clear scope, a straight timeline, and pricing that makes sense.</p>
-              <MagneticButton>
-                <Link to="/get-started" className="btn-light">
-                  Start a Project <i className="fas fa-arrow-right" />
-                </Link>
-              </MagneticButton>
-            </motion.div>
-
-            {/* Right — primary side */}
-            <motion.div variants={fadeRight} initial="hidden" whileInView="show" viewport={{once:true}} className="text-white flex flex-col items-start lg:items-center">
-              <p className="text-white/70 text-xs font-black uppercase tracking-widest mb-3 lg:text-center">Before You Commit</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full lg:w-auto">
-                {[
-                  { icon: 'fa-comments', label: 'Free initial consultation' },
-                  { icon: 'fa-file-alt', label: 'Honest project scoping' },
-                  { icon: 'fa-tag',      label: 'Transparent pricing' },
-                  { icon: 'fa-handshake', label: 'No obligation to proceed' },
-                ].map(({ icon, label }, i) => (
-                  <motion.div key={label}
-                    initial={{opacity:0, y:16}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{delay: i * 0.07, duration: 0.5}}
-                    className="flex items-center gap-2.5 bg-white/10 backdrop-blur-sm border border-white/15 hover:border-white/30 rounded-lg px-3 py-2 transition-all duration-200 group">
-                    <div className="w-6 h-6 rounded-md bg-white/20 group-hover:bg-white/30 flex items-center justify-center flex-shrink-0 transition-colors">
-                      <i className={`fas ${icon} text-white text-[0.65rem]`} />
-                    </div>
-                    <span className="text-white font-medium text-xs">{label}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
+      <CtaBand
+        title="Let's Build Something Real"
+        desc="Send a project brief and hear back within 24 hours — a clear scope, a straight timeline, and pricing that makes sense."
+        primary={{ to: '/get-started', label: "Start a Project" }}
+        secondary={{ to: '/services', label: "Our Services" }}
+      />
     </>
   )
 }

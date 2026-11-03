@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import Img from '../ui/Img'
+import FooterBand from './FooterBand'
 import { GA_ID, OPEN_SETTINGS_EVENT } from '../../lib/analytics'
 import { socials, EMAIL, PHONE_DISPLAY, PHONE_E164 } from '../../lib/site'
 
@@ -49,7 +50,8 @@ export default function Footer() {
   const { pathname } = useLocation()
 
   return (
-    <footer className="bg-dark text-white border-t-4 border-primary" aria-label="Site footer">
+    <footer className="bg-dark text-white" aria-label="Site footer">
+      <FooterBand />
 
       {/* ── Main body ── */}
       <div className="container-page py-14">
