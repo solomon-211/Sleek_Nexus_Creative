@@ -157,7 +157,7 @@ export default function GetStarted() {
                 variants={staggerItem}
                 href={href}
                 {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="card group p-4 sm:p-6 flex flex-col"
+                className="card group p-4 sm:p-6 flex flex-col border border-gray-200 hover:border-primary/60"
               >
                 <div className="flex items-center justify-between mb-4 sm:mb-5">
                   <span className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-dark flex items-center justify-center">
