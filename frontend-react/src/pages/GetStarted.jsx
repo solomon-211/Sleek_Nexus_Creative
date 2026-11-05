@@ -157,13 +157,12 @@ export default function GetStarted() {
                 variants={staggerItem}
                 href={href}
                 {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="card group p-4 sm:p-6 flex flex-col border border-gray-200 hover:border-primary/60"
+                className="card group p-4 sm:p-6 flex flex-col border-2 border-primary/40 hover:border-primary"
               >
-                <div className="flex items-center justify-between mb-4 sm:mb-5">
+                <div className="mb-4 sm:mb-5">
                   <span className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-dark flex items-center justify-center">
                     <i className={`${icon} text-accent`} />
                   </span>
-                  <i className="fas fa-arrow-right text-gray-300 text-xs transition-all duration-300 group-hover:text-primary group-hover:translate-x-1" />
                 </div>
                 <p className="text-[0.65rem] sm:text-xs font-bold uppercase tracking-widest text-muted mb-1">{title}</p>
                 <p className="font-heading font-bold text-dark text-sm sm:text-base break-words">{value}</p>
