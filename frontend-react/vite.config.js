@@ -94,6 +94,8 @@ export default defineConfig({
           // (see sendLead in src/lib/api.js) — keep it out of 'vendor', which
           // every page loads.
           if (id.includes('@emailjs')) return 'email-vendor'
+          // Only the /admin dashboard uses Supabase, so keep it out of 'vendor'.
+          if (id.includes('@supabase')) return 'supabase-vendor'
           // Isolated from the generic 'vendor' bucket on purpose: three.js is only
           // ever reached via Hero3DAccent's dynamic import(), and 'vendor' also
           // carries eagerly-loaded deps (react-helmet-async, etc.) used on every

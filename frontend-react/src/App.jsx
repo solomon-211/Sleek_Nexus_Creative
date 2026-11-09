@@ -28,6 +28,24 @@ const UIUX       = lazy(() => import('./pages/services/UIUX'))
 const Branding   = lazy(() => import('./pages/services/Branding'))
 const Consulting = lazy(() => import('./pages/services/Consulting'))
 
+// Team-only leads dashboard: its own chunk (with the Supabase library), and
+// rendered without the public site's navbar, footer and contact bar.
+const Admin      = lazy(() => import('./pages/Admin'))
+
+function SiteOrAdmin() {
+  const { pathname } = useLocation()
+  if (pathname === '/admin' || pathname.startsWith('/admin/')) {
+    return <Suspense fallback={<PageLoader />}><Admin /></Suspense>
+  }
+  return (
+    <Layout>
+      <Suspense fallback={<PageLoader />}>
+        <AnimatedRoutes />
+      </Suspense>
+    </Layout>
+  )
+}
+
 function PageWrapper({ children }) {
   return (
     <motion.div
@@ -92,11 +110,7 @@ export default function App() {
       <MotionConfig reducedMotion="user">
         <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <ErrorBoundary>
-            <Layout>
-              <Suspense fallback={<PageLoader />}>
-                <AnimatedRoutes />
-              </Suspense>
-            </Layout>
+            <SiteOrAdmin />
           </ErrorBoundary>
         </BrowserRouter>
       </MotionConfig>
