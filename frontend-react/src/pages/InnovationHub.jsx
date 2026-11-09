@@ -194,12 +194,8 @@ export default function InnovationHub() {
                 <span className="text-white">Technology &amp; Innovation</span><br />
                 <span className="text-accent">Hub</span>
               </h1>
-              <p className="text-white/75 text-lg leading-relaxed mb-4 max-w-2xl">
+              <p className="text-white/75 text-lg leading-relaxed mb-8 max-w-2xl">
                 Headquartered in Juba, South Sudan — building digital products, delivering software solutions, and driving transformation for organizations at home and abroad, aligned with the UN Sustainable Development Goals.
-              </p>
-              <p className="text-accent font-semibold mb-8">
-                <i className="fas fa-globe-africa mr-2" />
-                SDG-aligned · Juba-Based · Serving Clients Worldwide
               </p>
               <div className="flex flex-wrap gap-4">
                 <MagneticButton>
@@ -220,13 +216,13 @@ export default function InnovationHub() {
 
       {/* ── VISION STATEMENT ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-gray-50 py-16 sm:py-24">
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 text-center">
+        <div className="relative container-page text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.8 }}>
             <p className="eyebrow">Our Vision</p>
             <h2 className="display-heading-sm text-dark mb-6">
               Built in Juba. Built for Anywhere.
             </h2>
-            <p className="text-muted text-lg leading-relaxed max-w-3xl mx-auto">
+            <p className="text-muted text-lg leading-relaxed">
               Sleek Nexus Creative is headquartered in Juba, South Sudan — and that's where our engineering discipline comes from: building for real bandwidth constraints, real device limitations, and real infrastructure gaps. But our work isn't limited to South Sudan. We design and ship digital products for organizations across the region and internationally, bringing that same reliability-first standard to every client, wherever they're based.
             </p>
           </motion.div>

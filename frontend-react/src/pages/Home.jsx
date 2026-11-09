@@ -294,15 +294,11 @@ export default function Home() {
                 className="relative card p-6"
                 variants={rotateIn} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <span className="text-6xl font-black text-primary/[0.08] font-heading leading-none absolute top-3 right-4 select-none">{num}</span>
                 <div className="relative w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5">
                   <i className={`fas ${icon} text-primary text-lg`} />
                 </div>
                 <h3 className="relative font-heading font-black text-dark text-lg mb-2">{title}</h3>
                 <p className="relative text-muted text-sm leading-relaxed">{desc}</p>
-                {i < processSteps.length - 1 && (
-                  <i className="fas fa-arrow-right text-primary/30 text-lg hidden lg:block absolute top-1/2 -right-3 -translate-y-1/2 z-10" />
-                )}
               </motion.div>
             ))}
           </div>
