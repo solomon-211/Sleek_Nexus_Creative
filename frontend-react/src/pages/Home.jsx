@@ -165,7 +165,16 @@ export default function Home() {
             {/* Large feature cell — spans 2 cols + 2 rows */}
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} transition={{duration:0.5}}
               className="bento-cell row-span-2 lg:col-span-2 relative overflow-hidden group cursor-pointer bg-dark">
-              <div className="absolute inset-0 bg-dots-light opacity-40" />
+              {/* Background photo under a navy wash, darkest where the text sits */}
+              <Img
+                src="/images/software-dev.jpg"
+                alt=""
+                aria-hidden="true"
+                sizes="(min-width: 1024px) 66vw, 100vw"
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/80 to-dark/40" />
               <div className="relative h-full flex flex-col justify-between p-6 sm:p-8">
                 <div className="w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center">
                   <i className="fas fa-code text-primary text-2xl" />

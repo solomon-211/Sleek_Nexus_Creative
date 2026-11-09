@@ -71,7 +71,6 @@ export default function Footer() {
                 <span className="font-heading font-extrabold text-sm whitespace-nowrap text-white">
                   Sleek Nexus Creative
                 </span>
-                <span className="text-[0.6rem] text-white/50 uppercase tracking-widest mt-0.5">Technology &amp; Innovation</span>
               </span>
             </Link>
 

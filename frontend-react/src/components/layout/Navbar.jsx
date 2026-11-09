@@ -125,7 +125,6 @@ export default function Navbar() {
                 <span className="text-primary">Nexus</span>
                 <span className="text-accent"> Creative</span>
               </span>
-              <span className="hidden sm:block text-[0.65rem] text-white/60 uppercase tracking-widest mt-0.5">Technology &amp; Innovation</span>
             </span>
           </Link>
 
