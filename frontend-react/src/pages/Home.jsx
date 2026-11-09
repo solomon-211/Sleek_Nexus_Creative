@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { fadeUp, fadeLeft, fadeRight, rotateIn, staggerContainer, scaleIn, stackReveal } from '../lib/animations'
+import { fadeUp, fadeLeft, fadeRight, rotateIn, staggerContainer, scaleIn } from '../lib/animations'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
 import MagneticButton from '../components/ui/MagneticButton'
-import AnimatedCounter from '../components/ui/AnimatedCounter'
 import KineticHeadline from '../components/ui/KineticHeadline'
-import TiltCard from '../components/ui/TiltCard'
 import RevealLink from '../components/ui/RevealLink'
 import Img from '../components/ui/Img'
 import { liveProducts } from '../lib/work-data'
@@ -28,10 +26,13 @@ const processSteps = [
 ]
 
 
+// `photo` is optional: put the file in public/images and set e.g.
+// photo: '/images/akol-mading.jpg'. Without one, the first letter of the
+// name is shown instead.
 const testimonials = [
-  { initials: 'AM', name: 'Akol Mading', role: 'Director, Juba Learning Centre', text: 'SNC built our online course platform from scratch. The team was communicative, delivered on time, and trained our staff to manage it independently. Exactly what we needed.' },
-  { initials: 'RC', name: 'Rebecca Chol', role: 'Owner, RC Retail Store', text: 'They built us a simple inventory system that actually works on our local network. No unnecessary complexity — just a clean solution that saves us hours every week.' },
-  { initials: 'PM', name: 'Peter Majok', role: 'Program Officer, Local NGO', text: 'We needed a website quickly and within a tight budget. SNC delivered a professional, mobile-friendly site and were honest about what was realistic. Great experience.' },
+  { photo: '', name: 'Akol Mading', role: 'Director, Juba Learning Centre', text: 'SNC built our online course platform from scratch. The team was communicative, delivered on time, and trained our staff to manage it independently. Exactly what we needed.' },
+  { photo: '', name: 'Rebecca Chol', role: 'Owner, RC Retail Store', text: 'They built us a simple inventory system that actually works on our local network. No unnecessary complexity, just a clean solution that saves us hours every week.' },
+  { photo: '', name: 'Peter Majok', role: 'Program Officer, Local NGO', text: 'We needed a website quickly and within a tight budget. SNC delivered a professional, mobile-friendly site and were honest about what was realistic. Great experience.' },
 ]
 
 const whyCards = [
@@ -141,7 +142,7 @@ export default function Home() {
                   <i className={`fas ${icon} text-primary text-xl`} />
                 </div>
                 <strong className="block text-3xl sm:text-4xl font-heading font-black text-dark mb-1">
-                  <AnimatedCounter value={value} suffix={suffix} />
+                  {value}{suffix}
                 </strong>
                 <span className="text-muted text-xs sm:text-sm">{label}</span>
               </motion.div>
@@ -379,26 +380,23 @@ export default function Home() {
             <p className="section-subtitle">Trusted by businesses, schools, and organizations across South Sudan.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {testimonials.map(({ initials, name, role, text }, i) => (
-              <TiltCard key={name}
-                max={6}
-                className="relative rounded-xl border border-primary/25"
-                variants={stackReveal(i)} initial="hidden" whileInView="show" viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}>
-                <div className="bg-white rounded-[10px] p-5 sm:p-6 h-full flex flex-col">
-                  <div className="flex gap-1 text-accent mb-4">
-                    {Array(5).fill(0).map((_, j) => <i key={j} className="fas fa-star text-sm" />)}
-                  </div>
-                  <p className="text-muted text-sm leading-relaxed italic mb-5 flex-1">"{text}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm shrink-0">{initials}</div>
-                    <div>
-                      <p className="font-semibold text-dark text-sm">{name}</p>
-                      <p className="text-muted text-xs">{role}</p>
-                    </div>
-                  </div>
-                </div>
-              </TiltCard>
+            {testimonials.map(({ photo, name, role, text }) => (
+              <figure key={name} className="bg-white rounded-xl p-6 sm:p-7 h-full flex flex-col border-t-4 border-primary">
+                <blockquote className="text-dark-soft leading-relaxed mb-6 flex-1">“{text}”</blockquote>
+                <figcaption className="flex items-center gap-3">
+                  {photo ? (
+                    <img src={photo} alt={name} loading="lazy" className="w-11 h-11 rounded-full object-cover flex-shrink-0" />
+                  ) : (
+                    <span className="w-11 h-11 rounded-full bg-dark text-accent font-heading font-black flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                      {name.charAt(0)}
+                    </span>
+                  )}
+                  <span>
+                    <span className="block font-semibold text-dark text-sm">{name}</span>
+                    <span className="block text-muted text-xs">{role}</span>
+                  </span>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>

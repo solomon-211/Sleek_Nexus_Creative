@@ -4,7 +4,6 @@ import { fadeUp, staggerContainer, staggerItem, revealUp } from '../lib/animatio
 import { useIntersectionObserver } from '../hooks'
 import SEO from '../components/ui/SEO'
 import { pageSeo } from '../lib/seo-data'
-import AnimatedCounter from '../components/ui/AnimatedCounter'
 import Img from '../components/ui/Img'
 import PageHeader from '../components/ui/PageHeader'
 import { companyStats } from '../lib/site'
@@ -261,7 +260,7 @@ export default function About() {
             {companyStats.map(({ value, suffix, label }) => (
               <div key={label}>
                 <div className="text-4xl font-heading font-black mb-1">
-                  <AnimatedCounter value={value} suffix={suffix} />
+                  {value}{suffix}
                 </div>
                 <div className="text-white/80 text-sm">{label}</div>
               </div>
