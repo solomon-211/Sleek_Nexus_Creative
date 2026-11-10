@@ -26,7 +26,7 @@ export const pageSeo = {
         url: 'https://sleeknexuscreative.com',
         logo: 'https://sleeknexuscreative.com/images/snc-logo.png',
         description: 'Sleek Nexus Creative is a technology and innovation company based in Juba, South Sudan, building websites, mobile apps, e-learning platforms, and digital solutions for organizations in South Sudan and beyond.',
-        foundingDate: '2024',
+        foundingDate: '2025',
         address: { '@type': 'PostalAddress', addressLocality: 'Juba', addressCountry: 'SS' },
         contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: 'info@sleeknexuscreative.com', availableLanguage: 'English' },
         sameAs: [

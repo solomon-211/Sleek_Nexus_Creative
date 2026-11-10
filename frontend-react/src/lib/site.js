@@ -19,7 +19,7 @@ export const companyStats = [
   { icon: 'fa-project-diagram', value: 10, suffix: '+', label: 'Projects Delivered' },
   { icon: 'fa-user-graduate',   value: 50, suffix: '+', label: 'Learners Supported' },
   { icon: 'fa-handshake',       value: 5,  suffix: '+', label: 'Partner Organizations' },
-  { icon: 'fa-calendar-check',  value: 2024, suffix: '', label: 'Founded in Juba' },
+  { icon: 'fa-calendar-check',  value: 2025, suffix: '', label: 'Founded in Juba' },
 ]
 
 // Social profiles, shown in the footer and on the Contact page. Only add a
