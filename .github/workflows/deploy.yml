@@ -55,7 +55,7 @@ jobs:
           # Optional. Leave unset to ship with no analytics and no cookie banner.
           VITE_GA_MEASUREMENT_ID: ${{ vars.VITE_GA_MEASUREMENT_ID }}
           # Optional. Set to "true" to publish the team section on the About page.
-          VITE_SHOW_TEAM: ${{ vars.VITE_SHOW_TEAM }}
+          VITE_SHOW_TEAM: ${{ vars.VITE_SHOW_TEAM || 'true' }}
 
       - name: Copy CNAME to dist
         run: cp CNAME frontend-react/dist/CNAME

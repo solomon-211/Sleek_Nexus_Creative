@@ -24,7 +24,7 @@ npm run dev        # http://localhost:5173
 | `VITE_API_URL` | Form API base, e.g. `https://api.sleeknexuscreative.com/api` |
 | `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_CONTACT_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY` | Fallback notification email, used only when the API didn't send one |
 | `VITE_GA_MEASUREMENT_ID` | Optional Google Analytics 4 ID. Unset = no analytics and no cookie banner. Set = banner appears and analytics loads only after a visitor accepts. |
-| `VITE_SHOW_TEAM` | Set to `true` to publish the team section on the About page. Unset = hidden on the live site, still visible in `npm run dev`. |
+| `VITE_SHOW_TEAM` | `true` (set in `frontend-react/.env.production`) publishes the team section on the About page. Set it to `false` there to hide it again; it always shows in `npm run dev`. |
 
 ## Working on the site
 
