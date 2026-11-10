@@ -37,7 +37,7 @@ export default function FooterBand() {
           </h2>
         </div>
         <Link to={v.to} className="btn-light whitespace-nowrap flex-shrink-0">
-          {v.cta} <i className="fas fa-arrow-right text-sm" />
+          {v.cta}
         </Link>
       </div>
     </section>

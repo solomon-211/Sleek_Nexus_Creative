@@ -173,14 +173,14 @@ export default function PricingEstimator() {
                   disabled={step === 0}
                   className="text-sm font-semibold text-muted hover:text-dark disabled:opacity-0 transition-colors flex items-center gap-1.5"
                 >
-                  <i className="fas fa-arrow-left text-xs" /> Back
+                  Back
                 </button>
                 <button
                   onClick={next}
                   disabled={!canAdvance}
                   className="btn-primary disabled:opacity-40 disabled:pointer-events-none"
                 >
-                  {isLast ? 'See My Recommendation' : 'Next'} <i className="fas fa-arrow-right text-xs" />
+                  {isLast ? 'See My Recommendation' : 'Next'}
                 </button>
               </div>
             </>

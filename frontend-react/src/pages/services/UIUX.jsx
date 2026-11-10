@@ -11,7 +11,7 @@ const offers = ['User Research & Personas', 'Wireframing & Prototyping', 'High-F
 
 
 const principles = [
-  { icon: 'fa-user', title: 'User-Centered', desc: 'Every design decision is grounded in real user research and behavior — not assumptions.' },
+  { icon: 'fa-user', title: 'User-Centered', desc: 'Every design decision is grounded in real user research and behavior, not assumptions.' },
   { icon: 'fa-universal-access', title: 'Accessible', desc: 'We design for all users, including those with disabilities, low literacy, or low-end devices.' },
   { icon: 'fa-feather', title: 'Simple & Clear', desc: 'Interfaces that are intuitive enough to require no instruction manual.' },
   { icon: 'fa-bolt', title: 'Performance-Aware', desc: 'Beautiful designs that don\'t sacrifice load speed or usability on slower connections.' },
@@ -21,7 +21,7 @@ export default function UIUX() {
   return (
     <>
       <SEO {...pageSeo['/services/ui-ux']} />
-      <PageHeader label="Services" title="UI/UX Design" desc="Human-centered design that makes digital products intuitive, accessible, and beautiful — built for your users, not just aesthetics." />
+      <PageHeader label="Services" title="UI/UX Design" desc="Human-centered design that makes digital products intuitive, accessible, and built for your users, not just aesthetics." />
 
       <section className="py-16 sm:py-24">
         <div className="container-page">
@@ -32,7 +32,7 @@ export default function UIUX() {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="eyebrow">Design That Converts</p>
               <h2 className="section-title">Great Design Is More Than How It Looks</h2>
-              <p className="text-muted leading-relaxed mb-4">Good UI/UX design reduces user friction, increases task completion, and builds trust. We design for the people who will actually use the product — across languages, literacy levels, and device types.</p>
+              <p className="text-muted leading-relaxed mb-4">Good UI/UX design reduces user friction, increases task completion, and builds trust. We design for the people who will actually use the product, across languages, literacy levels, and device types.</p>
               <p className="text-muted leading-relaxed mb-6">Our design process is research-driven, collaborative, and delivers production-ready Figma files that your developers can implement exactly as designed.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
               <ul className="grid sm:grid-cols-2 gap-2 mb-6">

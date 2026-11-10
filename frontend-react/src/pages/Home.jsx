@@ -36,8 +36,8 @@ const testimonials = [
 ]
 
 const whyCards = [
-  { icon: 'fa-map-marker-alt', title: 'Locally Based', desc: "We work where our clients work — we know the networks, the devices, and the paperwork, because we deal with them too." },
-  { icon: 'fa-shield-alt', title: 'Secure & Reliable', desc: 'Access control, regular backups, and reliable hosting are part of every build — not optional extras.' },
+  { icon: 'fa-map-marker-alt', title: 'Locally Based', desc: "We work where our clients work. We know the networks, the devices, and the paperwork, because we deal with them too." },
+  { icon: 'fa-shield-alt', title: 'Secure & Reliable', desc: 'Access control, regular backups, and reliable hosting are part of every build, not optional extras.' },
   { icon: 'fa-dollar-sign', title: 'Affordable Pricing', desc: 'Pricing set for organizations operating here, with payment plans that follow project milestones.' },
   { icon: 'fa-headset', title: 'Dedicated Support', desc: 'Our team is available after launch for maintenance, updates, training, and technical support.' },
   { icon: 'fa-graduation-cap', title: 'Training Included', desc: 'We train your team to use and manage every product we deliver so you stay independent.' },
@@ -84,7 +84,7 @@ export default function Home() {
                 ]} />
               </h1>
               <p className="text-white/75 text-base sm:text-lg leading-relaxed mb-7 sm:mb-8">
-                Bring us the problem slowing your organization down — paper records, customers you can't reach online, systems that fail when the network drops. We'll design, build, and launch the website, app, or platform that fixes it, train your team to run it, and stay with you after launch.
+                Bring us the problem slowing your organization down: paper records, customers you can't reach online, systems that fail when the network drops. We'll design, build, and launch the website, app, or platform that fixes it, train your team to run it, and stay with you after launch.
               </p>
               <div className="flex flex-wrap gap-3 mb-8 sm:mb-12">
                 <MagneticButton>
@@ -112,7 +112,7 @@ export default function Home() {
                     'Discovery and planning before every build',
                     'Fast, mobile-first interfaces users actually adopt',
                     'Secure architecture and post-launch support',
-                    'Dedicated team throughout the project',
+                    'The same team from first call to launch',
                     'On-time delivery with clear milestones',
                   ].map(item => (
                     <li key={item} className="flex items-start gap-3 text-dark-soft text-sm">
@@ -121,7 +121,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <Link to="/services" className="inline-flex items-center gap-2 text-accent font-semibold text-sm">
-                  Explore Our Services <i className="fas fa-arrow-right" />
+                  Explore Our Services
                 </Link>
               </div>
             </motion.aside>
@@ -184,7 +184,7 @@ export default function Home() {
                   <h3 className="font-heading font-black text-white text-3xl sm:text-5xl uppercase leading-none mb-3" style={{ letterSpacing: '-0.02em' }}>Software<br/>Development</h3>
                   <p className="text-white/60 text-sm leading-relaxed mb-5 max-w-sm">Systems shaped around how your organization actually works.</p>
                   <RevealLink to="/services#software-dev" className="inline-flex items-center gap-2 text-accent font-bold text-sm hover:gap-3 transition-all">
-                    Explore <i className="fas fa-arrow-right text-xs" />
+                    Explore
                   </RevealLink>
                 </div>
               </div>
@@ -232,8 +232,8 @@ export default function Home() {
                   <h3 className="font-heading font-black text-dark text-2xl uppercase leading-tight mb-1">IT Consulting &amp; Digital Transformation</h3>
                   <p className="text-muted text-sm">Clear advice on what to build, what to buy, and what to leave alone.</p>
                 </div>
-                <RevealLink to="/services#consulting" className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 hover:bg-primary flex items-center justify-center text-primary hover:text-white transition-all group-hover:scale-110">
-                  <i className="fas fa-arrow-right" />
+                <RevealLink to="/services#consulting" className="flex-shrink-0 inline-flex items-center rounded-full bg-primary/10 hover:bg-primary px-5 py-2.5 text-sm font-semibold text-primary hover:text-white transition-colors">
+                  Learn more
                 </RevealLink>
               </div>
             </motion.div>
@@ -263,7 +263,7 @@ export default function Home() {
                 Reliable Technology, Built in Juba
               </h2>
               <p className="text-muted leading-relaxed mb-4">
-                Headquartered in Juba, South Sudan, we partner with businesses, schools, NGOs, and organizations — locally and internationally — to design practical, scalable digital systems built for real-world conditions.
+                Based in Juba, South Sudan, and working online, we partner with businesses, schools, NGOs, and organizations, locally and internationally, to design practical, scalable digital systems built for real-world conditions.
               </p>
               <p className="text-muted leading-relaxed mb-8">
                 Our team combines product strategy, engineering, and training to help clients launch faster, operate more efficiently, and sustain long-term digital growth.
@@ -273,7 +273,7 @@ export default function Home() {
               </MagneticButton>
             </motion.div>
             <motion.div variants={fadeRight} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}>
-              <Img src="/images/about-preview.jpg" alt="Sleek Nexus Creative — Reliable Technology, Built in Juba" className="w-full rounded-xl object-cover" loading="lazy" />
+              <Img src="/images/about-preview.jpg" alt="The Sleek Nexus Creative team at work in Juba" className="w-full rounded-xl object-cover" loading="lazy" />
             </motion.div>
           </div>
         </div>
@@ -319,7 +319,7 @@ export default function Home() {
               </span>
               <h2 className="display-heading-sm mb-5">Built Here. In Use Today.</h2>
               <p className="text-white/70 leading-relaxed mb-8">
-                Two platforms of our own are live today — one for learners, one for hospitals. They're built with the same discipline we bring to every client project: real networks, real devices, and the people who depend on them.
+                Two platforms of our own are live today: one for learners, one for hospitals. They're built with the same discipline we bring to every client project: real networks, real devices, and the people who depend on them.
               </p>
               <MagneticButton>
                 <Link to="/work" className="btn-secondary border-white text-white hover:bg-white hover:text-primary">See All Our Work</Link>
@@ -357,7 +357,7 @@ export default function Home() {
                     <p className="text-accent text-xs font-semibold mb-3">{p.tagline}</p>
                     <p className="text-white/60 text-sm leading-relaxed mb-5 flex-1">{p.short}</p>
                     <span className="inline-flex items-center gap-2 text-white font-semibold text-sm group-hover:text-accent transition-colors">
-                      {p.cta} <i className="fas fa-arrow-up-right-from-square text-xs" />
+                      {p.cta}
                     </span>
                   </div>
                 </motion.a>
@@ -425,7 +425,7 @@ export default function Home() {
 
       <CtaBand
         title="Let's Build Something Real"
-        desc="Send a project brief and hear back within 24 hours — a clear scope, a straight timeline, and pricing that makes sense."
+        desc="Send a project brief and hear back within 24 hours with a clear scope, a straight timeline, and pricing that makes sense."
         primary={{ to: '/get-started', label: "Start a Project" }}
         secondary={{ to: '/services', label: "Our Services" }}
       />

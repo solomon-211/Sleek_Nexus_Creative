@@ -65,7 +65,7 @@ export default function CookieBanner() {
           <div className="mt-4 grid sm:grid-cols-2 gap-3 pt-4 border-t border-white/10">
             {[
               { icon: 'fa-cog', title: 'Essential', desc: 'Remembers this cookie choice on your device. No tracking, and required for the site to work.', always: true },
-              { icon: 'fa-chart-bar', title: 'Analytics', desc: 'Google Analytics — anonymous page-view statistics. Loaded only if you press Accept.' },
+              { icon: 'fa-chart-bar', title: 'Analytics', desc: 'Google Analytics: anonymous page-view statistics. Loaded only if you press Accept.' },
             ].map(({ icon, title, desc, always }) => (
               <div key={title} className="flex items-start gap-3 bg-white/5 rounded-lg p-3">
                 <i className={`fas ${icon} text-primary text-sm mt-0.5 flex-shrink-0`} />

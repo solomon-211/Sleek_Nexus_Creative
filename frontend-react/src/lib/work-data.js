@@ -17,15 +17,15 @@ export const liveProducts = [
     title: 'EduPortal South Sudan',
     sector: 'Education',
     icon: 'fa-graduation-cap',
-    tagline: 'Empowering every learner across South Sudan',
+    tagline: 'Learning that reaches every student in South Sudan',
     url: EDUPORTAL_URL,
     displayUrl: 'eduportalss.solomonleek.tech',
     cta: 'Visit EduPortal',
-    summary: 'A full-scale education platform we designed, built, and deployed — helping learners across all 10 states discover schools, apply for scholarships, and track their progress, completely free.',
-    short: 'Learners across all 10 states discover schools, apply for scholarships, and track their progress — completely free.',
+    summary: 'A full-scale education platform we designed, built, and deployed, helping learners across all 10 states discover schools, apply for scholarships, and track their progress, completely free.',
+    short: 'Learners across all 10 states discover schools, apply for scholarships, and track their progress, completely free.',
     facts: [
       { icon: 'fa-map-marker-alt',     label: '10 States Covered' },
-      { icon: 'fa-hand-holding-heart', label: 'Free — Always' },
+      { icon: 'fa-hand-holding-heart', label: 'Always Free' },
       { icon: 'fa-signal',             label: 'Live In Production' },
     ],
     capabilities: [
@@ -44,8 +44,8 @@ export const liveProducts = [
     url: HEALTHHUB_URL,
     displayUrl: 'healthhubbridge.com',
     cta: 'Visit HealthHub Bridge',
-    summary: "A hospital management system built for facilities where the network can't be trusted — registration, triage, consultation, laboratory, pharmacy, and billing in one place, with patient referrals at its core. Now piloting at Bor State Hospital.",
-    short: 'Hospital records and referrals in one system — registration to billing — built to keep working when the network drops. Piloting at Bor State Hospital.',
+    summary: "A hospital management system built for facilities where the network can't be trusted: registration, triage, consultation, laboratory, pharmacy, and billing in one place, with patient referrals at its core. Now piloting at Bor State Hospital.",
+    short: 'Hospital records and referrals in one system, from registration to billing, built to keep working when the network drops. Piloting at Bor State Hospital.',
     facts: [
       { icon: 'fa-hospital', label: 'Piloting at Bor State Hospital' },
       { icon: 'fa-wifi',     label: 'Built for Weak Networks' },
@@ -53,7 +53,7 @@ export const liveProducts = [
     ],
     capabilities: [
       { icon: 'fa-hospital-user',    title: 'One System, Every Desk',         desc: 'Registration, triage, consultation, lab, pharmacy, and billing share one patient record.' },
-      { icon: 'fa-share-from-square', title: 'Referrals at the Core',          desc: 'Built around the referral record — the paperwork that can take 30 to 60 minutes to prepare by hand.' },
+      { icon: 'fa-share-from-square', title: 'Referrals at the Core',          desc: 'Built around the referral record, the paperwork that can take 30 to 60 minutes to prepare by hand.' },
       { icon: 'fa-wifi',             title: 'Keeps Working Offline',          desc: 'Check-ins, viewed records, and lab orders carry on without signal and sync when the connection returns.' },
     ],
     services: ['Software Development', 'UI/UX Design', 'Health Technology'],
@@ -65,7 +65,7 @@ export const brandWork = [
     src: '/images/rise-leadership-academy.png',
     title: 'Rise Leadership Academy',
     category: 'Brand Identity',
-    desc: 'Full brand identity for Rise Leadership Academy — built to inspire and empower the next generation of leaders.',
+    desc: 'Full brand identity for Rise Leadership Academy, a school preparing the next generation of leaders.',
   },
   {
     src: '/images/building-the-future.png',
@@ -87,15 +87,15 @@ export const brandWork = [
   },
   {
     src: '/images/white-hoodie-gold-print.png',
-    title: 'White Hoodie — Gold Print',
+    title: 'White Hoodie, Gold Print',
     category: 'Brand Merchandise',
-    desc: 'Brand applied to physical merchandise — hoodies, apparel, and print materials.',
+    desc: 'Brand applied to physical merchandise: hoodies, apparel, and print materials.',
   },
   {
     src: '/images/orange-t-shirt.png',
     title: 'Orange T-Shirt',
     category: 'Brand Merchandise',
-    desc: 'Branded apparel design — vibrant orange tee with bold logo placement.',
+    desc: 'Branded apparel design: an orange tee with a bold logo placement.',
   },
 ]
 

@@ -41,7 +41,7 @@ const channels = [
   { icon: 'fas fa-phone',        title: 'Call Us',  value: PHONE_DISPLAY,        note: 'Mon–Fri, 9AM–6PM (EAT)',             href: `tel:${PHONE_E164}` },
   { icon: 'fab fa-whatsapp',     title: 'WhatsApp', value: 'Chat with our team', note: 'Talk it through before you write',   href: whatsappUrl("Hi Sleek Nexus Creative! I'd like to talk about a project."), external: true },
   { icon: 'fas fa-envelope',     title: 'Email',    value: 'Write to us',        note: EMAIL,                                href: `mailto:${EMAIL}` },
-  { icon: 'fas fa-location-dot', title: 'Visit',    value: 'Juba, South Sudan',  note: 'Our headquarters — or meet us online', href: 'https://maps.google.com/?q=Sleek+Nexus+Creative,Juba,South+Sudan', external: true },
+  { icon: 'fas fa-video',        title: 'Meet Online', value: 'Book a video call', note: 'Based in Juba, working with clients everywhere', href: whatsappUrl("Hi Sleek Nexus Creative! I'd like to book a video call about a project."), external: true },
 ]
 
 const hours = [
@@ -134,7 +134,7 @@ export default function GetStarted() {
               <span className="text-primary">Something That Works</span>
             </h1>
             <p className="text-white/75 text-lg leading-relaxed max-w-xl">
-              Tell us about your project and we'll get back to you within 24 hours with a free discovery call and a custom proposal — no commitment required.
+              Tell us about your project and we'll get back to you within 24 hours with a free discovery call and a custom proposal. No commitment required.
             </p>
           </motion.div>
         </div>
@@ -282,7 +282,7 @@ export default function GetStarted() {
               {/* Live office status, worked out in Juba time */}
               <div className="card p-6">
                 <div className="flex items-center justify-between gap-3 mb-4">
-                  <h3 className="font-heading font-bold text-dark">Office Hours</h3>
+                  <h3 className="font-heading font-bold text-dark">Working Hours</h3>
                   <span className={`inline-flex items-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-widest rounded-full px-2.5 py-1 ${office.open ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-muted'}`}>
                     <span className={`w-1.5 h-1.5 rounded-full ${office.open ? 'bg-primary animate-pulse' : 'bg-gray-400'}`} />
                     {office.open ? 'Open now' : 'Closed now'}
@@ -317,7 +317,7 @@ export default function GetStarted() {
                           <span className="flex items-center gap-2 text-sm font-semibold text-dark">{label} <span className="text-muted font-normal text-xs">· {weeks}</span></span>
                           <span className="block text-xs text-muted truncate">{bestFor}</span>
                         </span>
-                        <i className="fas fa-arrow-right text-xs text-gray-300 group-hover:text-primary transition-colors" />
+                       
                       </Link>
                     </li>
                   ))}
@@ -327,9 +327,9 @@ export default function GetStarted() {
               {/* Questions go to Contact, not here */}
               <div className="relative overflow-hidden bg-noise bg-dark text-white rounded-2xl p-6">
                 <p className="text-accent text-xs font-bold uppercase tracking-widest mb-2">Just a Quick Question?</p>
-                <p className="text-white/70 text-sm leading-relaxed mb-5">Not ready for a brief yet? Ask us anything — pricing, timelines, or whether we're the right fit.</p>
+                <p className="text-white/70 text-sm leading-relaxed mb-5">Not ready for a brief yet? Ask us anything: pricing, timelines, or whether we're the right fit.</p>
                 <Link to="/contact" className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:text-accent transition-colors">
-                  Send us a message <i className="fas fa-arrow-right text-xs" />
+                  Send us a message
                 </Link>
               </div>
             </motion.aside>
@@ -351,7 +351,7 @@ export default function GetStarted() {
                 <Link key={label} to="/innovation-hub" className="group flex items-center gap-2.5 text-sm font-semibold text-dark hover:text-primary transition-colors">
                   <i className={`fas ${icon} text-primary w-4`} />
                   {label}
-                  <i className="fas fa-arrow-right text-[0.65rem] text-gray-300 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                 
                 </Link>
               ))}
             </div>
@@ -372,7 +372,7 @@ export default function GetStarted() {
 
       <CtaBand
         title="Still Weighing It Up?"
-        desc="Browse our services and packages, or ask us anything first — no commitment either way."
+        desc="Browse our services and packages, or ask us anything first. No commitment either way."
         primary={{ to: '/services', label: "Explore Services" }}
         secondary={{ to: '/contact', label: "Ask a Question" }}
       />

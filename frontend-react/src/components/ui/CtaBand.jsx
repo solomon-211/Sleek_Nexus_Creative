@@ -48,7 +48,7 @@ export default function CtaBand({ label, title, desc, primary, secondary }) {
           {/* Actions sit under the text they follow: heading, reason, then what to do */}
           <div className="flex flex-wrap items-center gap-3 mt-8">
             <Link to={primary.to} className="btn-primary justify-center">
-              {primary.label} <i className="fas fa-arrow-right text-sm" />
+              {primary.label}
             </Link>
             {secondary && (
               <Link to={secondary.to} className="btn-secondary justify-center border-white/70 text-white hover:bg-white hover:text-primary hover:border-white">

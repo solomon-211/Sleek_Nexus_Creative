@@ -30,7 +30,7 @@ export default function MobileApps() {
               <p className="eyebrow">Cross-Platform Excellence</p>
               <h2 className="section-title">Apps Built for Africa's Fastest-Growing Mobile Market</h2>
               <p className="text-muted leading-relaxed mb-4">For most of your users, the phone is the internet. We build apps that perform well regardless of device age, network speed, or screen size.</p>
-              <p className="text-muted leading-relaxed mb-6">From payments and field data collection to learning and community tools — we build apps people can rely on every day.</p>
+              <p className="text-muted leading-relaxed mb-6">From payments and field data collection to learning and community tools, we build apps people can rely on every day.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
               <ul className="grid sm:grid-cols-2 gap-2 mb-6">
                 {offers.map(o => (
@@ -70,7 +70,7 @@ export default function MobileApps() {
 
       <CtaBand
         title="Have an App Idea?"
-        desc={"We'll help you turn it into a real product — from concept to App Store."}
+        desc={"We'll help you turn it into a real product, from concept to App Store."}
         primary={{ to: '/contact', label: "Get a Free Quote" }}
         secondary={{ to: '/services', label: "All Services" }}
       />

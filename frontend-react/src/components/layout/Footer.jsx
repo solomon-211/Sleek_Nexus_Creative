@@ -73,11 +73,19 @@ export default function Footer() {
               </span>
             </Link>
 
-            <p className="text-white/70 text-sm leading-relaxed max-w-sm">
-              We design and build websites, apps and business systems that people actually use.
-            </p>
+            {/* The company's slogan: the one line a funder or partner should
+                remember. */}
+            <div className="max-w-sm">
+              <p className="font-heading font-black text-white text-2xl leading-tight" style={{ letterSpacing: '-0.01em' }}>
+                <span className="block">Where the network ends,</span>
+                <span className="block text-primary">our work begins.</span>
+              </p>
+              <p className="mt-3 text-white/60 text-sm leading-relaxed">
+                We design and build websites, apps and business systems that people actually use.
+              </p>
+            </div>
 
-            {/* Real, shipped proof instead of a slogan. */}
+            {/* Real, shipped proof to back the slogan up. */}
             <a
               href={HEALTHHUB_URL}
               target="_blank"
@@ -91,7 +99,7 @@ export default function Footer() {
               <span className="text-sm leading-snug">
                 <span className="block text-white/50 text-xs">Live now</span>
                 <span className="font-semibold text-white group-hover:text-primary transition-colors">
-                  HealthHub Bridge <i className="fas fa-arrow-up-right-from-square text-[10px] ml-1 opacity-70" />
+                  HealthHub Bridge
                 </span>
               </span>
             </a>
@@ -143,7 +151,7 @@ export default function Footer() {
             </p>
             <p className="mt-1.5 text-sm text-white/60">
               <i className="fas fa-clock text-primary mr-2" />
-              Mon–Fri, 9AM–6PM (EAT)
+              Mon–Fri 9AM–6PM, Sat 10AM–4PM (EAT)
             </p>
           </div>
 
@@ -190,7 +198,7 @@ export default function Footer() {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-primary hover:text-white px-4 py-2 text-white/80 transition-colors"
             >
-              Back to top <i className="fas fa-arrow-up text-xs" />
+              Back to top
             </button>
           </div>
         </div>

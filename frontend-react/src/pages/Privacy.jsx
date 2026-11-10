@@ -128,7 +128,7 @@ export default function Privacy() {
               </h2>
               <p className="text-muted text-sm leading-relaxed mb-3">We keep this to a minimum. Analytics is switched on only if you choose Accept in the cookie banner, and you can change that choice at any time from the Cookies link in the footer. What we use:</p>
               <div className="grid sm:grid-cols-2 gap-3 mb-8">
-                {[['Essential Storage', 'Remembers your cookie choice on your device'], ['Analytics Cookies', 'Google Analytics, only with your consent — shows us which pages visitors find useful']].map(([title, desc]) => (
+                {[['Essential Storage', 'Remembers your cookie choice on your device'], ['Analytics Cookies', 'Google Analytics, only with your consent. Shows us which pages visitors find useful']].map(([title, desc]) => (
                   <div key={title} className="bg-gray-50 rounded-xl p-4 text-center">
                     <p className="font-semibold text-dark text-sm mb-1">{title}</p>
                     <p className="text-muted text-xs">{desc}</p>

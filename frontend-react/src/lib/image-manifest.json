@@ -1,11 +1,4 @@
 {
-  "/images/Solomon-leek.png": {
-    "w": 433,
-    "h": 577,
-    "widths": [
-      128
-    ]
-  },
   "/images/Torward.jpg": {
     "w": 736,
     "h": 1318,
@@ -21,6 +14,14 @@
       128,
       640,
       1280
+    ]
+  },
+  "/images/alier-abraham.jpg": {
+    "w": 1024,
+    "h": 1280,
+    "widths": [
+      128,
+      640
     ]
   },
   "/images/building-the-future.png": {
@@ -40,14 +41,6 @@
       1280
     ]
   },
-  "/images/consulting.jpg": {
-    "w": 736,
-    "h": 552,
-    "widths": [
-      128,
-      640
-    ]
-  },
   "/images/edtech-learning.jpg": {
     "w": 1456,
     "h": 1088,
@@ -60,6 +53,14 @@
   "/images/fresh-identity.png": {
     "w": 800,
     "h": 1067,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/genesis-goch.jpg": {
+    "w": 874,
+    "h": 1280,
     "widths": [
       128,
       640
@@ -89,6 +90,14 @@
       128
     ]
   },
+  "/images/nyayath-chol.jpg": {
+    "w": 864,
+    "h": 1080,
+    "widths": [
+      128,
+      640
+    ]
+  },
   "/images/orange-t-shirt.png": {
     "w": 800,
     "h": 1067,
@@ -97,49 +106,17 @@
       640
     ]
   },
-  "/images/project-ecommerce.jpg": {
-    "w": 736,
-    "h": 736,
-    "widths": [
-      128,
-      640
-    ]
-  },
-  "/images/project-student-system.jpg": {
-    "w": 735,
-    "h": 445,
-    "widths": [
-      128,
-      640
-    ]
-  },
-  "/images/project2.jpg": {
-    "w": 736,
-    "h": 552,
-    "widths": [
-      128,
-      640
-    ]
-  },
-  "/images/project3.jpg": {
-    "w": 685,
-    "h": 1200,
-    "widths": [
-      128,
-      640
-    ]
-  },
-  "/images/project6.jpg": {
-    "w": 736,
-    "h": 920,
-    "widths": [
-      128,
-      640
-    ]
-  },
   "/images/rise-leadership-academy.png": {
     "w": 800,
     "h": 1067,
+    "widths": [
+      128,
+      640
+    ]
+  },
+  "/images/simon-ariik.jpg": {
+    "w": 1241,
+    "h": 1268,
     "widths": [
       128,
       640
@@ -161,16 +138,9 @@
       640
     ]
   },
-  "/images/team-member2.jpg": {
-    "w": 640,
-    "h": 474,
-    "widths": [
-      128
-    ]
-  },
-  "/images/team-member3.jpg": {
-    "w": 1280,
-    "h": 1022,
+  "/images/solomon-leek.jpg": {
+    "w": 1200,
+    "h": 1200,
     "widths": [
       128,
       640

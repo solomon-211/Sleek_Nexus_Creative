@@ -23,7 +23,7 @@ const offers = [
 ]
 
 const deliverables = [
-  { icon: 'fa-paint-brush', title: 'Logo Suite', desc: 'Primary, secondary, and monochrome logo variants in all formats — SVG, PNG, PDF.' },
+  { icon: 'fa-paint-brush', title: 'Logo Suite', desc: 'Primary, secondary, and monochrome logo variants in every format you need: SVG, PNG, PDF.' },
   { icon: 'fa-palette', title: 'Color System', desc: 'Primary and secondary palettes with hex codes, CMYK, and usage guidelines.' },
   { icon: 'fa-font', title: 'Typography', desc: 'Heading and body font pairings with sizing scales and web-safe alternatives.' },
   { icon: 'fa-book', title: 'Brand Guide', desc: 'A comprehensive PDF guide your entire team can follow consistently.' },
@@ -33,8 +33,8 @@ const process = [
   { n: '01', icon: 'fa-comments',        title: 'Discovery',           desc: 'We learn your story, audience, and goals before designing anything.' },
   { n: '02', icon: 'fa-magnifying-glass', title: 'Research & Strategy', desc: 'Competitive analysis and positioning that shapes every design decision.' },
   { n: '03', icon: 'fa-pencil-ruler',    title: 'Concept & Design',     desc: 'Logo exploration and visual direction based on your discovery session.' },
-  { n: '04', icon: 'fa-arrows-rotate',   title: 'Refinement',           desc: "Focused revision rounds on your chosen direction until it's exactly right." },
-  { n: '05', icon: 'fa-box-open',        title: 'Delivery',             desc: 'Full logo suite, brand guide, and every source file — yours to keep.' },
+  { n: '04', icon: 'fa-sliders',   title: 'Refinement',           desc: "Focused revision rounds on your chosen direction until it's exactly right." },
+  { n: '05', icon: 'fa-box-open',        title: 'Delivery',             desc: 'Full logo suite, brand guide, and every source file, all yours to keep.' },
   { n: '06', icon: 'fa-headset',         title: 'Ongoing Support',      desc: 'Extended assets and brand consistency support as your organization grows.' },
 ]
 
@@ -44,21 +44,21 @@ const directions = [
     icon: 'fa-bolt',
     title: 'Bold & Modern',
     swatches: ['#000000', '#FE7F2D'],
-    blurb: 'High-contrast, confident, and unapologetic — right for brands that want to stand out immediately and lead with energy.',
+    blurb: 'High-contrast, confident, and unapologetic. Right for brands that want to stand out immediately and lead with energy.',
   },
   {
     key: 'trusted',
     icon: 'fa-shield-halved',
     title: 'Trusted & Professional',
     swatches: ['#233D4D', '#EAECF0'],
-    blurb: 'Clean, structured, and credible — right for institutions, financial services, and organizations where trust comes first.',
+    blurb: 'Clean, structured, and credible. Right for institutions, financial services, and organizations where trust comes first.',
   },
   {
     key: 'warm',
     icon: 'fa-sun',
     title: 'Warm & Approachable',
     swatches: ['#FE7F2D', '#FFFFFF'],
-    blurb: 'Friendly, human, and welcoming — right for education, community, and healthcare brands that need to feel accessible.',
+    blurb: 'Friendly, human, and welcoming. Right for education, community, and healthcare brands that need to feel accessible.',
   },
 ]
 
@@ -97,7 +97,7 @@ export default function Branding() {
               <h2 className="section-title">Your Brand Is More Than Your Logo</h2>
               <p className="text-muted leading-relaxed mb-4">
                 A strong brand builds trust before you even speak. We craft visual identities that reflect your
-                organization's mission, values, and audience — designed to work across digital and print.
+                organization's mission, values, and audience, designed to work across digital and print.
               </p>
               <p className="text-muted leading-relaxed mb-6">
                 Every branding project starts with a deep discovery session so we understand your story before
@@ -128,12 +128,12 @@ export default function Branding() {
             <p className="eyebrow">Our Work</p>
             <h2 className="section-title">Brand Showcase</h2>
             <p className="section-subtitle">
-              Real branding work delivered for real organizations — from full corporate identities
+              Real branding work delivered for real organizations, from full corporate identities
               to campaign materials and merchandise.
             </p>
           </div>
           <p className="flex items-center justify-center gap-2 text-xs font-semibold text-muted uppercase tracking-widest mb-6">
-            <i className="fas fa-arrows-left-right" /> Drag to explore
+            <i className="fas fa-hand-pointer" /> Drag to explore
           </p>
         </div>
         <div className="container-page">
@@ -227,7 +227,7 @@ export default function Branding() {
           <div className="text-center mb-14">
             <p className="eyebrow">Not Sure Where to Start?</p>
             <h2 className="section-title">Find Your Brand Direction</h2>
-            <p className="section-subtitle">Pick whichever feels closest to how you want your organization to be seen — we'll shape it from there.</p>
+            <p className="section-subtitle">Pick whichever feels closest to how you want your organization to be seen. We'll shape it from there.</p>
           </div>
           <div className="grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto mb-8">
             {directions.map(({ key, icon, title, swatches }) => (
@@ -261,7 +261,7 @@ export default function Branding() {
                 <p className="text-muted leading-relaxed mb-5">
                   {directions.find(d => d.key === selectedDirection)?.blurb}
                 </p>
-                <Link to="/contact" className="btn-primary">This Resonates — Start Your Brand Project</Link>
+                <Link to="/contact" className="btn-primary">Start Your Brand Project</Link>
               </motion.div>
             )}
           </AnimatePresence>

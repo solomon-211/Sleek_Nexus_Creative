@@ -158,7 +158,7 @@ export default function Contact() {
                 <p className="text-muted text-sm mb-6">Reach out to us through any of these channels.</p>
                 <div className="space-y-4">
                   {[
-                    { icon: 'fa-map-marker-alt', title: 'Office Address', lines: ['Juba, South Sudan', 'Central Equatoria State'] },
+                    { icon: 'fa-map-marker-alt', title: 'Location', lines: ['Based in Juba, South Sudan', 'Working online with clients everywhere'] },
                     { icon: 'fa-phone', title: 'Phone', lines: [PHONE_DISPLAY, 'Mon–Fri, 9AM–6PM'], href: `tel:${PHONE_E164}` },
                     { icon: 'fa-envelope', title: 'Email', lines: [EMAIL], href: `mailto:${EMAIL}` },
                     { icon: 'fa-clock', title: 'Business Hours', lines: ['Mon – Fri: 9AM – 6PM', 'Saturday: 10AM – 4PM', 'Sunday: Closed'] },
@@ -186,9 +186,9 @@ export default function Contact() {
                   </span>
                   <span className="flex-1">
                     <span className="block font-semibold text-sm">Chat on WhatsApp</span>
-                    <span className="block text-white/60 text-xs">Message us directly — no form needed</span>
+                    <span className="block text-white/60 text-xs">Message us directly, no form needed</span>
                   </span>
-                  <i className="fas fa-arrow-right text-accent text-xs transition-transform duration-300 group-hover:translate-x-1" />
+                 
                 </a>
               </div>
 
@@ -229,7 +229,7 @@ export default function Contact() {
 
       <CtaBand
         title="Ready to Start a Project?"
-        desc="Skip the back-and-forth — send a project brief and get a clear proposal with scope, timeline, and price."
+        desc="Skip the back-and-forth. Send a project brief and get a clear proposal with scope, timeline, and price."
         primary={{ to: '/get-started', label: "Start a Project Brief" }}
         secondary={{ to: '/services', label: "Our Services" }}
       />

@@ -22,18 +22,18 @@ const navItems = [
 const services = [
   {
     id: 'software-dev', icon: 'fa-code', title: 'Software Development', img: '/images/ui-ux.jpg',
-    intro: 'Software built around how your organization actually works — records, payments, approvals, reporting — so the system fits the process instead of the other way round.',
+    intro: 'Software built around how your organization actually works (records, payments, approvals, reporting), so the system fits the process instead of the other way round.',
     offers: ['Custom Application Development', 'Enterprise Software Solutions', 'API Development & Integration', 'Database Design & Management', 'Cloud-Based Solutions', 'Software Maintenance & Support'],
     process: ['Requirements Analysis', 'Design & Planning', 'Development', 'Testing & QA', 'Deployment & Support'],
   },
   {
     id: 'web-mobile', icon: 'fa-mobile-alt', title: 'Web & Mobile Applications', img: '/images/web-mobile-apps.jpg',
-    intro: 'Websites and apps that load fast on a mid-range phone and a patchy connection — because that is how most of your users will meet them.',
+    intro: 'Websites and apps that load fast on a mid-range phone and a patchy connection, because that is how most of your users will meet them.',
     offers: ['Responsive Website Development', 'Progressive Web Apps (PWA)', 'iOS & Android App Development', 'Cross-Platform Solutions', 'E-Commerce Platforms', 'UI/UX Design'],
   },
   {
     id: 'edtech', icon: 'fa-graduation-cap', title: 'Educational Technology', img: '/images/edtech-learning.jpg',
-    intro: 'Platforms for schools, training centres, and programmes that need to reach learners online — from course delivery to student records. We built EduPortal South Sudan, which serves all 10 states.',
+    intro: 'Platforms for schools, training centres, and programmes that need to reach learners online, from course delivery to student records. We built EduPortal South Sudan, which serves all 10 states.',
     offers: ['Learning Management Systems (LMS)', 'Online Course Platforms', 'Student Information Systems', 'Interactive Learning Tools', 'Assessment & Analytics', 'Virtual Classroom Solutions'],
     features: [{ icon: 'fa-video', label: 'Video Learning' }, { icon: 'fa-chart-line', label: 'Progress Tracking' }, { icon: 'fa-users', label: 'Collaboration' }, { icon: 'fa-certificate', label: 'Certifications' }],
   },
@@ -79,7 +79,7 @@ export default function Services() {
         tone="dark"
         label="What We Build"
         title="Our Services"
-        desc="Software, websites, apps, and learning platforms for organizations anywhere — designed for real networks, real devices, and the people who use them every day."
+        desc="Software, websites, apps, and learning platforms for organizations anywhere, designed for real networks, real devices, and the people who use them every day."
       />
 
       {/* Sticky anchor nav */}
@@ -179,7 +179,7 @@ export default function Services() {
           <div className="text-center mb-14">
             <p className="eyebrow">Service Packages</p>
             <h2 className="section-title">Or Browse Every Package</h2>
-            <p className="section-subtitle">Every project is unique. Browse our packages to understand what's included, then contact us for a tailored quote.</p>
+            <p className="section-subtitle">Every project is unique. Browse our packages to understand what's included, then contact us for a quote based on your needs.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {packages.map(({ tier, label, icon, timeline, popular, desc, features, bestFor }, i) => (
@@ -217,7 +217,7 @@ export default function Services() {
 
           <p className="text-center text-sm text-muted mt-8">
             <i className="fas fa-shield-alt text-primary mr-1" />
-            All packages include a <strong>free initial consultation</strong>. Pricing is customized to your exact requirements — <Link to="/contact" className="text-primary hover:underline">reach out</Link> and we'll build a proposal just for you.
+            All packages include a <strong>free initial consultation</strong>. Pricing depends on your exact requirements. <Link to="/contact" className="text-primary hover:underline">Get in touch</Link> and we'll build a proposal just for you.
           </p>
         </div>
       </section>

@@ -24,7 +24,7 @@ export default function Work() {
         tone="dark"
         label="Our Work"
         title="Built, Shipped, In Use"
-        desc="Two live platforms — one for learners, one for hospitals — and the identities we've designed along the way."
+        desc="Two live platforms, one for learners and one for hospitals, plus the brand identities we've designed along the way."
       />
 
       {/* Live products — one navy panel each, mirrored so the page alternates */}
@@ -33,7 +33,7 @@ export default function Work() {
           <div className="text-center mb-2 sm:mb-4">
             <p className="eyebrow">Live Products</p>
             <h2 className="section-title">Platforms in Production</h2>
-            <p className="section-subtitle">Not prototypes — products people sign in to and use today.</p>
+            <p className="section-subtitle">Not prototypes. Products people sign in to and use today.</p>
           </div>
           {liveProducts.map((p, i) => (
           <div key={p.id} id={p.id} className="scroll-mt-28 relative overflow-hidden bg-noise bg-dark text-white rounded-2xl p-6 sm:p-10 lg:p-14 shadow-[0_20px_60px_rgba(35,61,77,0.25)] grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -65,7 +65,7 @@ export default function Work() {
 
               <MagneticButton>
                 <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
-                  {p.cta} <i className="fas fa-arrow-up-right-from-square text-sm" />
+                  {p.cta}
                 </a>
               </MagneticButton>
             </motion.div>
@@ -82,7 +82,7 @@ export default function Work() {
                 <span className="ml-3 flex-1 bg-white/5 rounded-md px-3 py-1 text-white/50 text-xs flex items-center gap-1.5 truncate">
                   <i className="fas fa-lock text-[0.6rem]" /> {p.displayUrl}
                 </span>
-                <i className="fas fa-arrow-up-right-from-square text-white/30 text-xs group-hover:text-accent transition-colors" />
+               
               </a>
               {p.capabilities.map(({ icon, title, desc }) => (
                 <div key={title} className="flex gap-4 bg-white/5 rounded-xl p-5 transition-colors duration-300">
@@ -172,7 +172,7 @@ export default function Work() {
           >
             {[
               { icon: 'fa-code',        title: 'Need a platform?',  desc: 'Websites, web apps, and mobile apps built for real-world conditions.', to: '/services', cta: 'Explore services' },
-              { icon: 'fa-palette',     title: 'Need a brand?',     desc: 'Logo, identity system, and guidelines — with every source file yours to keep.', to: '/services/branding', cta: 'Branding & identity' },
+              { icon: 'fa-palette',     title: 'Need a brand?',     desc: 'Logo, identity system, and guidelines, with every source file yours to keep.', to: '/services/branding', cta: 'Branding & identity' },
               { icon: 'fa-paper-plane', title: 'Have a brief?',     desc: 'Tell us what you need and hear back from us within 24 hours.', to: '/get-started', cta: 'Start a project' },
             ].map(({ icon, title, desc, to, cta }) => (
               <motion.div key={title} variants={staggerItem} className="card p-6">
@@ -182,7 +182,7 @@ export default function Work() {
                 <h3 className="font-heading font-bold text-dark mb-2">{title}</h3>
                 <p className="text-muted text-sm leading-relaxed mb-4">{desc}</p>
                 <Link to={to} className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
-                  {cta} <i className="fas fa-arrow-right text-xs" />
+                  {cta}
                 </Link>
               </motion.div>
             ))}

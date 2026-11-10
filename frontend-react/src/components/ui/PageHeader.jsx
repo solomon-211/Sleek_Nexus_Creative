@@ -43,7 +43,7 @@ export default function PageHeader({ label, title, desc, breadcrumb, actions, co
               <Link to="/" className="hover:text-primary transition-colors">Home</Link>
               {breadcrumb.map(({ label: bl, to }, i) => (
                 <span key={bl} className="flex items-center gap-2">
-                  <i className="fas fa-chevron-right text-[0.5rem] opacity-50" />
+                  <span aria-hidden="true" className="opacity-50">/</span>
                   {to && i < breadcrumb.length - 1
                     ? <Link to={to} className="hover:text-primary transition-colors">{bl}</Link>
                     : <span className={dark ? 'text-white' : 'text-dark-soft'}>{bl}</span>}

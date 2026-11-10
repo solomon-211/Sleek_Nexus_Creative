@@ -35,7 +35,7 @@ export default function Consulting() {
               <p className="eyebrow">Strategic Advisory</p>
               <h2 className="section-title">Technology Decisions That Move Your Organization Forward</h2>
               <p className="text-muted leading-relaxed mb-4">Many organizations are moving from paper and spreadsheets to digital systems without a clear map. We provide the strategic guidance to help you invest in the right technology, in the right order, with the right partners.</p>
-              <p className="text-muted leading-relaxed mb-6">From startups evaluating their first tech stack to established organizations modernizing legacy systems — our consulting engagements are practical, actionable, and context-aware.</p>
+              <p className="text-muted leading-relaxed mb-6">From startups evaluating their first tech stack to established organizations modernizing legacy systems, our consulting engagements are practical, actionable, and context-aware.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
               <ul className="grid sm:grid-cols-2 gap-2 mb-6">
                 {offers.map(o => (
@@ -95,7 +95,7 @@ export default function Consulting() {
 
       <CtaBand
         title={"Let's Map Your Digital Future"}
-        desc="Free initial consultation — no commitment, just clarity."
+        desc="Free initial consultation. No commitment, just clear advice."
         primary={{ to: '/contact', label: "Book a Consultation" }}
         secondary={{ to: '/services', label: "All Services" }}
       />

@@ -23,15 +23,15 @@ export default function WebDev() {
   return (
     <>
       <SEO {...pageSeo['/services/web-dev']} />
-      <PageHeader label="Services" title="Web Development" desc="Fast, secure websites and web applications engineered around your goals — built to perform for every visitor, on every device, wherever they are." />
+      <PageHeader label="Services" title="Web Development" desc="Fast, secure websites and web applications engineered around your goals and built to perform for every visitor, on every device, wherever they are." />
 
       <section className="py-16 sm:py-24">
         <div className="container-page">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <p className="eyebrow">What We Build</p>
-              <h2 className="section-title">Websites That Work — For Real Users, On Real Networks</h2>
-              <p className="text-muted leading-relaxed mb-4">We build websites and web applications that stay fast and dependable under real-world conditions — slow connections, older phones, and organizations that need reliability above all else.</p>
+              <h2 className="section-title">Websites That Work for Real Users on Real Networks</h2>
+              <p className="text-muted leading-relaxed mb-4">We build websites and web applications that stay fast and dependable under real-world conditions: slow connections, older phones, and organizations that need reliability above all else.</p>
               <p className="text-muted leading-relaxed mb-6">Every project gets a dedicated developer, thorough QA, and a clear handover with documentation and training so your team can manage it confidently.</p>
               <h3 className="font-semibold text-dark mb-3">What We Offer:</h3>
               <ul className="grid sm:grid-cols-2 gap-2 mb-6">

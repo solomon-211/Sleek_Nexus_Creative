@@ -46,7 +46,7 @@ export const pageSeo = {
 
   '/innovation-hub': {
     title: 'SNC Innovation Hub — Technology & Digital Solutions for South Sudan',
-    description: 'The SNC Innovation Hub is a technology and innovation ecosystem in Juba, South Sudan — delivering custom software, digital transformation, and startup support aligned with the UN SDGs.',
+    description: 'The SNC Innovation Hub is a technology and innovation programme in Juba, South Sudan — delivering custom software, digital transformation, and startup support aligned with the UN SDGs.',
     canonical: '/innovation-hub',
     keywords: 'innovation hub South Sudan, tech hub Juba, software development South Sudan, digital transformation South Sudan, SNC hub, startup incubation South Sudan, SDGs technology',
     image: 'https://sleeknexuscreative.com/images/about-preview.jpg',
@@ -55,7 +55,7 @@ export const pageSeo = {
     imageHeight: 1200,
     breadcrumbs: [{ name: 'Innovation Hub', url: '/innovation-hub' }],
     faq: [
-      { q: 'What is the SNC Innovation Hub?', a: 'The SNC Innovation Hub is a technology and innovation ecosystem in Juba, South Sudan that delivers custom software, digital transformation, and startup support — aligned with the UN Sustainable Development Goals.' },
+      { q: 'What is the SNC Innovation Hub?', a: 'The SNC Innovation Hub is a technology and innovation programme in Juba, South Sudan that delivers custom software, digital transformation, and startup support — aligned with the UN Sustainable Development Goals.' },
       { q: 'What SDGs does SNC address?', a: 'SNC directly contributes to SDG 4 (Quality Education), SDG 8 (Decent Work & Economic Growth), SDG 9 (Industry, Innovation & Infrastructure), SDG 10 (Reduced Inequalities), and SDG 17 (Partnerships for the Goals).' },
       { q: 'What technology services does SNC offer?', a: 'SNC offers custom software development, mobile apps, UI/UX design, cloud infrastructure, cybersecurity, digital consulting, and startup incubation.' },
       { q: 'Where is the SNC Innovation Hub located?', a: 'The SNC Innovation Hub is based in Juba, Central Equatoria, South Sudan.' },
@@ -107,9 +107,9 @@ export const pageSeo = {
     breadcrumbs: [{ name: 'Contact', url: '/contact' }],
     faq: [
       { q: 'How long does a typical project take?', a: 'Project timelines vary based on complexity. Simple websites take 2–4 weeks, while complex applications may take 3–6 months. We provide detailed timelines during consultation.' },
-      { q: 'What is your pricing structure?', a: 'We offer flexible pricing based on project scope. Contact us for a free consultation and custom quote tailored to your needs and budget.' },
+      { q: 'What is your pricing structure?', a: 'We offer flexible pricing based on project scope. Contact us for a free consultation and custom quote based on your needs and budget.' },
       { q: 'Do you provide ongoing support?', a: 'Yes! We offer maintenance packages and ongoing support to ensure your solution continues to perform optimally after launch.' },
-      { q: 'Can you work with our existing systems?', a: 'Absolutely. We specialize in integrations and can work with your existing infrastructure to create seamless solutions.' },
+      { q: 'Can you work with our existing systems?', a: 'Yes. We often connect new software to systems an organization already uses, so data moves between them without double entry.' },
     ],
   },
 
