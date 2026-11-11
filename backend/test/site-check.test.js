@@ -165,7 +165,6 @@ describe('inspectSite', () => {
     const r = inspectSite(spa, { hasSitemap: true, year: 2026 })
     expect(r.weaknesses).toEqual([
       'Google has no structured business details to show (logo, contacts, hours)',
-      'No visitor analytics, so you cannot see who visits or what they do',
     ])
   })
 })

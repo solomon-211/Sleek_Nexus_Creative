@@ -48,8 +48,8 @@
   .eyebrow {
     @apply text-sm font-bold uppercase tracking-widest mb-2;
     /* A deeper orange for small labels on light backgrounds: the brand orange
-       is too light to read at this size on white (2.5:1; this is 4.9:1 on the grey sections, 5.3:1 on white). */
-    color: #B8490D;
+       is too light to read at this size on white (2.5:1; this is 5.1:1 on the grey sections, 6.1:1 on white). */
+    color: #A8420B;
   }
   /* On navy the brand orange already reads well. */
   .bg-dark .eyebrow { color: #FE7F2D; }

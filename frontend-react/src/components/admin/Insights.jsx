@@ -49,7 +49,7 @@ function timeAgo(iso, now) {
   if (hrs < 24) return `${hrs} h ago`
   return new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short' })
 }
-const scoreTone = (n) => (n == null ? 'text-muted' : n >= 90 ? 'text-green-700' : n >= 50 ? 'text-[#B8490D]' : 'text-red-700')
+const scoreTone = (n) => (n == null ? 'text-muted' : n >= 90 ? 'text-green-700' : n >= 50 ? 'text-[#A8420B]' : 'text-red-700')
 
 function Tile({ value, label, note }) {
   return (

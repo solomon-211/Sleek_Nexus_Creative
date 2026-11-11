@@ -17,7 +17,7 @@ const RATE_WINDOW_SECONDS = 60   // per IP, per window
 // Results are reused for an hour, so a site's changes show up soon after.
 // Bump the version whenever the report changes, so old results aren't served.
 const CACHE_SECONDS = 60 * 60
-const CACHE_VERSION = 'v4'
+const CACHE_VERSION = 'v5'
 const FETCH_HEADERS = {
   'User-Agent': 'Mozilla/5.0 (compatible; SNC-NetworkTest/1.0; +https://sleeknexuscreative.com)',
   // Ask like a browser: some hosts only add things (e.g. analytics) to pages
@@ -180,7 +180,11 @@ export function inspectSite(html, { hasSitemap, year = new Date().getUTCFullYear
     weaknesses.push('Google has no structured business details to show (logo, contacts, hours)')
   }
 
-  if (!has(/googletagmanager\.com|google-analytics\.com|gtag\(|fbq\(|plausible\.io|clarity\.ms|matomo|umami|cloudflareinsights/i)) {
+  // Analytics is only judged when the page's content is in the HTML. Sites
+  // built with JavaScript usually load analytics from their code bundle, and
+  // hosts like Cloudflare add it at the edge, so its absence from the raw
+  // HTML proves nothing there.
+  if (rendered && !has(/googletagmanager\.com|google-analytics\.com|gtag\(|fbq\(|plausible\.io|clarity\.ms|matomo|umami|cloudflareinsights/i)) {
     weaknesses.push('No visitor analytics, so you cannot see who visits or what they do')
   }
 

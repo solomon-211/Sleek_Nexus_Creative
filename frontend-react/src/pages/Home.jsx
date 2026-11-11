@@ -211,7 +211,7 @@ export default function Home() {
                   <h3 className="font-heading font-black text-dark text-2xl uppercase leading-tight mb-1">IT Consulting &amp; Digital Transformation</h3>
                   <p className="text-muted text-sm">Clear advice on what to build, what to buy, and what to leave alone.</p>
                 </div>
-                <RevealLink to="/services#consulting" className="flex-shrink-0 inline-flex items-center rounded-full bg-primary/10 hover:bg-primary px-5 py-2.5 text-sm font-semibold text-[#B8490D] hover:text-[#1B2F3B] transition-colors">
+                <RevealLink to="/services#consulting" className="flex-shrink-0 inline-flex items-center rounded-full bg-primary/10 hover:bg-primary px-5 py-2.5 text-sm font-semibold text-[#A8420B] hover:text-[#1B2F3B] transition-colors">
                   Explore IT Consulting
                 </RevealLink>
               </div>
@@ -321,7 +321,7 @@ export default function Home() {
                     <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
                     <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
                     <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-                    <span className="ml-2 flex-1 min-w-0 bg-white/5 rounded-md px-2.5 py-1 text-white/50 text-[0.7rem] flex items-center gap-1.5">
+                    <span className="ml-2 flex-1 min-w-0 bg-white/5 rounded-md px-2.5 py-1 text-white/75 text-[0.7rem] flex items-center gap-1.5">
                       <i className="fas fa-lock text-[0.55rem]" /> <span className="truncate">{p.displayUrl}</span>
                     </span>
                   </div>
@@ -330,10 +330,10 @@ export default function Home() {
                       <div className="w-12 h-12 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center">
                         <i className={`fas ${p.icon} text-accent text-lg`} />
                       </div>
-                      <span className="text-[0.65rem] font-bold uppercase tracking-widest text-white/60 bg-white/10 rounded-full px-2.5 py-1">{p.sector}</span>
+                      <span className="text-[0.65rem] font-bold uppercase tracking-widest text-white/85 bg-white/10 rounded-full px-2.5 py-1">{p.sector}</span>
                     </div>
                     <h3 className="font-heading font-black text-white text-xl uppercase leading-tight mb-1" style={{ letterSpacing: '-0.01em' }}>{p.title}</h3>
-                    <p className="text-accent text-xs font-semibold mb-3">{p.tagline}</p>
+                    <p className="text-[#FF8A3D] text-xs font-semibold mb-3">{p.tagline}</p>
                     <p className="text-white/60 text-sm leading-relaxed mb-5 flex-1">{p.short}</p>
                     <span className="inline-flex items-center gap-2 text-white font-semibold text-sm group-hover:text-accent transition-colors">
                       {p.cta}
