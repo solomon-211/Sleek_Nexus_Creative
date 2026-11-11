@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { normalizeUrl, summarize, countPages, inspectSite } from '../src/routes/site-check.js'
+import { normalizeUrl, summarize, countPages, inspectSite, realVisitors } from '../src/routes/site-check.js'
 
 const { default: app } = await import('../src/index.js')
 
@@ -95,6 +95,16 @@ describe('summarize', () => {
       'No description in Google search results, so fewer people click',
       'Some text is hard to read',
     ])
+  })
+
+  it('uses real-visitor data from Google when it exists', () => {
+    expect(realVisitors(psi)).toBeNull()
+    const slow = { ...psi, loadingExperience: { origin_fallback: false, metrics: { LARGEST_CONTENTFUL_PAINT_MS: { percentile: 5240, category: 'SLOW' } } } }
+    expect(realVisitors(slow)).toEqual({ visibleSeconds: 5.2, rating: 'slow', scope: 'page' })
+    expect(summarize(slow).weaknesses[0]).toBe('Real visitors wait about 5.2 seconds for the page to appear')
+    const fast = { ...psi, originLoadingExperience: { metrics: { LARGEST_CONTENTFUL_PAINT_MS: { percentile: 1800, category: 'FAST' } } } }
+    expect(realVisitors(fast)).toEqual({ visibleSeconds: 1.8, rating: 'fast', scope: 'site' })
+    expect(summarize(fast).strengths).toContain('Fast for real visitors, not just in the lab')
   })
 
   it('lists strengths: strong categories first, then passed checks', () => {

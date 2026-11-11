@@ -68,6 +68,27 @@ export async function isAdmin() {
   return Boolean(data)
 }
 
+// Analytics for the Insights tab (tables from backend/supabase/003_analytics.sql).
+// Raw rows for the chosen period; the dashboard adds them up itself.
+export async function fetchInsights(days) {
+  const since = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString()
+  const [views, checks] = await Promise.all([
+    supabase.from('page_views').select('created_at, path, referrer, country, device')
+      .gte('created_at', since).order('created_at', { ascending: false }).limit(20000),
+    supabase.from('site_checks').select('created_at, url, host, score, weaknesses, pages, country, cached')
+      .gte('created_at', since).order('created_at', { ascending: false }).limit(2000),
+  ])
+  for (const r of [views, checks]) {
+    if (r.error) {
+      // The tables don't exist until 003_analytics.sql has been run.
+      throw new Error(/does not exist|schema cache/i.test(r.error.message)
+        ? 'Analytics isn’t set up yet: run backend/supabase/003_analytics.sql in the Supabase SQL Editor.'
+        : r.error.message)
+    }
+  }
+  return { views: views.data, checks: checks.data }
+}
+
 export function toCsv(rows) {
   const cols = ['created_at', 'status', 'form_type', 'name', 'email', 'phone', 'company', 'service', 'budget', 'timeline', 'message', 'notes']
   const esc = (v) => {

@@ -167,6 +167,22 @@ which is usually used up, so visitors see "The test is busy right now".
 Results are cached for 6 hours per address, and each visitor is limited to 5
 checks a minute when `RATE_LIMIT_KV` is bound (section 5).
 
+## 8. Analytics (Insights tab in /admin)
+
+The website records anonymous page views (`POST /api/track`) and every Network
+Test run, into two tables only admins can read. They're shown in the
+**Insights** tab of the admin dashboard: page views per day, most visited pages,
+where visitors come from, devices, countries, and the websites people tested.
+
+1. Run `supabase/003_analytics.sql` in the Supabase SQL Editor (after
+   `schema.sql` and `002_admin_dashboard.sql`).
+2. Redeploy the backend: `npx wrangler deploy`.
+
+Privacy: no cookies, no IP addresses, no names. A page view is the page path,
+the referring site's domain, country and device type. Bots and `/admin` are
+never counted, and the website skips tracking in local development and when a
+browser sends Do Not Track.
+
 ## Tests
 
 ```

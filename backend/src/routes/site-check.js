@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { countryOf, afterResponse, insertRow, isBot } from '../lib/analytics.js'
 
 // GET /api/site-check?url=example.com
 //
@@ -13,8 +14,10 @@ const PSI_ENDPOINT = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed
 const CATEGORIES = ['performance', 'seo', 'accessibility', 'best-practices']
 const RATE_LIMIT = 5             // checks
 const RATE_WINDOW_SECONDS = 60   // per IP, per window
-const CACHE_SECONDS = 6 * 60 * 60
-const CACHE_VERSION = 'v3'
+// Results are reused for an hour, so a site's changes show up soon after.
+// Bump the version whenever the report changes, so old results aren't served.
+const CACHE_SECONDS = 60 * 60
+const CACHE_VERSION = 'v4'
 const FETCH_HEADERS = {
   'User-Agent': 'Mozilla/5.0 (compatible; SNC-NetworkTest/1.0; +https://sleeknexuscreative.com)',
   // Ask like a browser: some hosts only add things (e.g. analytics) to pages
@@ -248,6 +251,22 @@ export async function countPages(siteUrl, prefetchedHome) {
   return { count: paths.size, source: 'links' }
 }
 
+// How fast the page is for real visitors, from Google's Chrome data. Only
+// available for sites with enough traffic; null otherwise.
+export function realVisitors(psi) {
+  for (const exp of [psi.loadingExperience, psi.originLoadingExperience]) {
+    const lcp = exp?.metrics?.LARGEST_CONTENTFUL_PAINT_MS
+    if (lcp?.percentile) {
+      return {
+        visibleSeconds: Math.round(lcp.percentile / 100) / 10,
+        rating: { FAST: 'fast', AVERAGE: 'average', SLOW: 'slow' }[lcp.category] || null,
+        scope: exp === psi.loadingExperience && !exp.origin_fallback ? 'page' : 'site',
+      }
+    }
+  }
+  return null
+}
+
 export function summarize(psi) {
   const lh = psi.lighthouseResult
   const audits = lh.audits || {}
@@ -286,7 +305,11 @@ export function summarize(psi) {
     if (weaknesses.length === 5) break
   }
 
+  const real = realVisitors(psi)
+  if (real?.rating === 'slow') weaknesses.unshift(`Real visitors wait about ${real.visibleSeconds} seconds for the page to appear`)
+
   const strengths = []
+  if (real?.rating === 'fast') strengths.push('Fast for real visitors, not just in the lab')
   for (const [cat, label] of Object.entries(CATEGORY_STRENGTHS)) if (score(cat) >= 90) strengths.push(label)
   for (const [id, label] of STRENGTHS) {
     if (strengths.length >= 5) break
@@ -305,7 +328,24 @@ export function summarize(psi) {
     slow3gSeconds: bytes === null ? null : Math.round((bytes * 8) / SLOW_3G_BITS_PER_SECOND + SLOW_3G_SETUP_SECONDS),
     strengths: strengths.slice(0, 5),
     weaknesses,
+    realVisitors: real,
   }
+}
+
+// One row per test in site_checks (see supabase/003_analytics.sql).
+function logCheck(c, summary, cached) {
+  if (isBot(c.req.header('User-Agent'))) return Promise.resolve()
+  let host = summary.url
+  try { host = new URL(summary.url).hostname.replace(/^www\./, '') } catch { /* keep the url */ }
+  return afterResponse(c, insertRow(c.env, 'site_checks', {
+    url: summary.url,
+    host,
+    score: summary.score ?? null,
+    weaknesses: Array.isArray(summary.weaknesses) ? summary.weaknesses.length : null,
+    pages: summary.pages?.count ?? null,
+    country: countryOf(c),
+    cached,
+  }))
 }
 
 export const siteCheckRoute = new Hono()
@@ -320,9 +360,14 @@ siteCheckRoute.get('/', async (c) => {
   // 200 — cached result (Workers Cache API; absent in tests and local dev)
   const cache = typeof caches !== 'undefined' ? caches.default : null
   const cacheKey = new Request(`https://site-check.cache/${CACHE_VERSION}/${encodeURIComponent(url)}`)
-  if (cache) {
+  const fresh = c.req.query('fresh') === '1'
+  if (cache && !fresh) {
     const hit = await cache.match(cacheKey)
-    if (hit) return c.json(await hit.json(), 200)
+    if (hit) {
+      const saved = await hit.json()
+      await logCheck(c, saved, true)
+      return c.json(saved, 200)
+    }
   }
 
   // 429 — per-IP rate limit (skipped gracefully if KV isn't bound)
@@ -371,6 +416,7 @@ siteCheckRoute.get('/', async (c) => {
   const summary = {
     ...report,
     pages,
+    testedAt: new Date().toISOString(),
     // Google's findings first (worst first), then the business checks.
     strengths: [...report.strengths, ...site.strengths].slice(0, 6),
     weaknesses: [...report.weaknesses.slice(0, 4), ...site.weaknesses, ...report.weaknesses.slice(4)].slice(0, 9),
@@ -383,6 +429,7 @@ siteCheckRoute.get('/', async (c) => {
     c.executionCtx?.waitUntil?.(cache.put(cacheKey, toCache))
   }
 
+  await logCheck(c, summary, false)
   return c.json(summary, 200)
 })
 

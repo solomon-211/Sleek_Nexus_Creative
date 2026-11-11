@@ -3,6 +3,7 @@ import Footer from './Footer'
 import ScrollToTop from '../ui/ScrollToTop'
 import CookieBanner from '../ui/CookieBanner'
 import MobileActionBar from './MobileActionBar'
+import PageViewTracker from './PageViewTracker'
 import { TransitionProvider } from '../ui/TransitionOverlay'
 import { motion } from 'framer-motion'
 import { pageVariants } from '../../lib/animations'
@@ -18,6 +19,7 @@ export default function Layout({ children }) {
           Skip to main content
         </a>
         <ScrollToTop />
+        <PageViewTracker />
         <Navbar />
         <motion.main
           id="main-content"

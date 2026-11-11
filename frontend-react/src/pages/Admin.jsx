@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import Insights from '../components/admin/Insights'
 import {
   supabase, isConfigured, STATUSES, FORM_TYPES,
   signIn, signOut, fetchLeads, updateLead, isAdmin, toCsv,
@@ -34,7 +35,7 @@ function Shell({ children }) {
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
-        <title>Leads | Sleek Nexus Creative</title>
+        <title>Admin | Sleek Nexus Creative</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       {children}
@@ -201,6 +202,7 @@ function LeadDetail({ lead, onSaved, onClose }) {
 }
 
 function Dashboard({ session }) {
+  const [tab, setTab] = useState('leads') // leads | insights
   const [leads, setLeads] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -258,9 +260,15 @@ function Dashboard({ session }) {
           <Link to="/" className="flex items-center gap-3">
             <img src="/images/snc-logo.png" alt="" className="h-9 w-9" />
             <span className="font-heading font-black uppercase text-sm hidden sm:inline">Sleek Nexus Creative</span>
-            <span className="text-white/40 hidden sm:inline">/</span>
-            <span className="text-accent font-semibold text-sm">Leads</span>
           </Link>
+          <nav className="flex items-center gap-1 bg-white/10 rounded-xl p-1" aria-label="Dashboard sections">
+            {[['leads', 'Leads', 'fa-inbox'], ['insights', 'Insights', 'fa-chart-column']].map(([id, label, icon]) => (
+              <button key={id} onClick={() => setTab(id)} aria-current={tab === id ? 'page' : undefined}
+                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-colors ${tab === id ? 'bg-white text-dark' : 'text-white/80 hover:text-white'}`}>
+                <i className={`fas ${icon} text-xs`} />{label}
+              </button>
+            ))}
+          </nav>
           <div className="flex items-center gap-4 text-sm">
             <span className="text-white/60 hidden md:inline">{session.user.email}</span>
             <button onClick={signOut} className="text-white/80 hover:text-white font-semibold">Sign out</button>
@@ -269,6 +277,7 @@ function Dashboard({ session }) {
       </header>
 
       <main className="container-page py-8 sm:py-10">
+        {tab === 'insights' ? <Insights /> : (<>
         {/* Status overview — also the status filter */}
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
           {[{ id: 'all', label: 'All leads' }, ...STATUSES].map((s) => (
@@ -338,6 +347,7 @@ function Dashboard({ session }) {
             )}
           </div>
         </div>
+        </>)}
       </main>
     </Shell>
   )

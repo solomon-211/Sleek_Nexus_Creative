@@ -69,6 +69,17 @@ function normalize(data) {
   }
 }
 
+// "Tested just now" / "Tested 25 minutes ago": results can be reused for up
+// to an hour, so say how recent this one is.
+function testedAgo(iso) {
+  const t = Date.parse(iso)
+  if (!t) return null
+  const mins = Math.round((Date.now() - t) / 60000)
+  if (mins < 2) return 'Tested just now'
+  if (mins < 60) return `Tested ${mins} minutes ago`
+  return 'Tested over an hour ago'
+}
+
 const hostOf = (url) => {
   try { return new URL(url).hostname.replace(/^www\./, '') } catch { return url }
 }
@@ -90,8 +101,8 @@ export default function NetworkTest() {
 
   useEffect(() => () => controller.current?.abort(), [])
 
-  async function run(e) {
-    e.preventDefault()
+  async function run(e, { fresh = false } = {}) {
+    e?.preventDefault()
     const apiUrl = import.meta.env.VITE_API_URL
     if (!address.trim()) return
     controller.current?.abort()
@@ -101,7 +112,7 @@ export default function NetworkTest() {
     setError('')
     try {
       if (!apiUrl) throw new Error('The test is not available right now.')
-      const res = await fetch(`${apiUrl}/site-check?url=${encodeURIComponent(address.trim())}`, { signal: controller.current.signal })
+      const res = await fetch(`${apiUrl}/site-check?url=${encodeURIComponent(address.trim())}${fresh ? '&fresh=1' : ''}`, { signal: controller.current.signal })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.error || 'Something went wrong. Please try again.')
       setResult(normalize(data))
@@ -204,7 +215,7 @@ export default function NetworkTest() {
             <div className="flex items-center gap-4 mb-4">
               <ScoreRing score={result.score} color={v.ring} />
               <div className="min-w-0">
-                <p className="text-muted text-xs truncate">{host}</p>
+                <p className="text-muted text-xs truncate">{host}{result.testedAt && <> · {testedAgo(result.testedAt)}</>}</p>
                 <p className={`font-heading font-black text-xl ${v.tone}`}>{v.label}</p>
                 <p className="text-dark-soft text-sm leading-snug">{v.note}</p>
               </div>
@@ -224,6 +235,17 @@ export default function NetworkTest() {
                 </div>
               ))}
             </dl>
+
+            {/* Real visitors, from Google's Chrome data, when the site has enough traffic */}
+            {result.realVisitors && (
+              <p className="mb-3 flex items-center gap-2 rounded-xl bg-gray-50 px-3 py-2 text-xs text-dark-soft">
+                <i className={`fas fa-users flex-shrink-0 ${result.realVisitors.rating === 'slow' ? 'text-red-600' : result.realVisitors.rating === 'fast' ? 'text-green-600' : 'text-primary'}`} />
+                <span>
+                  <span className="font-semibold text-dark">Real visitors:</span> the page appears in about {result.realVisitors.visibleSeconds}s
+                  <span className="text-muted"> (Google Chrome data{result.realVisitors.scope === 'site' ? ', whole site' : ''})</span>
+                </span>
+              </p>
+            )}
 
             {/* Scores in the four areas Google checks */}
             {result.scores && (
@@ -279,6 +301,9 @@ export default function NetworkTest() {
               )}
               <button type="button" onClick={reset} className="btn-secondary justify-center">Test another site</button>
             </div>
+            <button type="button" onClick={() => run(null, { fresh: true })} className="mt-3 w-full text-center text-xs font-semibold text-muted hover:text-dark">
+              <i className="fas fa-rotate-right mr-1.5" />Run a fresh test
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
