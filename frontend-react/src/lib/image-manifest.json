@@ -131,11 +131,10 @@
     ]
   },
   "/images/software-dev.jpg": {
-    "w": 736,
-    "h": 736,
+    "w": 540,
+    "h": 360,
     "widths": [
-      128,
-      640
+      128
     ]
   },
   "/images/solomon-leek.jpg": {

@@ -19,19 +19,47 @@ import { Link } from 'react-router-dom'
  *  compact     {boolean} — reduced vertical padding (optional)
  *  tone        {'light'|'dark'} — see above (default 'light')
  *  children    {ReactNode} — extra content under the description (optional)
+ *  video       {string}  — background video (dark tone only; optional). Plays
+ *                          muted on a loop under a light navy tint.
+ *  poster      {string}  — still frame shown while the video loads, and
+ *                          instead of it for visitors who prefer reduced motion
  */
-export default function PageHeader({ label, title, desc, breadcrumb, actions, compact = false, tone = 'light', children }) {
+export default function PageHeader({ label, title, desc, breadcrumb, actions, compact = false, tone = 'light', children, video, poster }) {
   const dark = tone === 'dark'
+  const hasVideo = dark && video
   return (
     <section
-      className={`relative overflow-hidden ${dark ? 'bg-dark text-white bg-noise' : 'bg-surface border-b border-gray-200'} ${compact ? 'py-14' : 'py-20 md:py-24'}`}
+      className={`relative overflow-hidden ${dark ? 'bg-dark text-white bg-noise' : 'bg-surface border-b border-gray-200'} ${hasVideo ? 'py-28 md:py-36' : compact ? 'py-14' : 'py-20 md:py-24'}`}
       aria-label={`${title} page header`}
     >
-      {/* Tinted surface + subtle motif texture — every page below this uses a
-          plain white first section, so the hero needs its own identity
-          rather than fading straight into the content that follows. */}
-      <div className={`absolute inset-0 pointer-events-none ${dark ? 'bg-motif-light opacity-[0.06]' : 'bg-motif opacity-[0.05]'}`} />
-      <div className="relative container-page text-center">
+      {hasVideo ? (
+        <>
+          {poster && (
+            <img src={poster} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover scale-105 blur-[6px]" />
+          )}
+          <video
+            className="absolute inset-0 w-full h-full object-cover scale-105 blur-[6px] motion-reduce:hidden"
+            src={video}
+            poster={poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          />
+          {/* Heavy navy tint plus a slight blur: the video reads as movement and
+              texture behind the title, without individual people being visible. */}
+          <div className="absolute inset-0 bg-dark/[0.93] pointer-events-none" />
+        </>
+      ) : (
+        /* Subtle motif texture (the grid pattern) — every page below this uses a
+           plain white first section, so the hero needs its own identity rather
+           than fading straight into the content that follows. Left off when
+           there's a video: the footage gives the header its texture. */
+        <div className={`absolute inset-0 pointer-events-none ${dark ? 'bg-motif-light opacity-[0.06]' : 'bg-motif opacity-[0.05]'}`} />
+      )}
+      <div className={`relative container-page text-center ${hasVideo ? '[text-shadow:0_1px_14px_rgba(15,23,32,0.75)]' : ''}`}>
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,7 +98,7 @@ export default function PageHeader({ label, title, desc, breadcrumb, actions, co
 
           {/* Description */}
           {desc && (
-            <p className={`leading-relaxed max-w-2xl mx-auto mt-5 text-base md:text-lg ${dark ? 'text-white/70' : 'text-muted'}`}>
+            <p className={`leading-relaxed max-w-2xl mx-auto mt-5 text-base md:text-lg ${hasVideo ? 'text-white/95 font-medium' : dark ? 'text-white/70' : 'text-muted'}`}>
               {desc}
             </p>
           )}

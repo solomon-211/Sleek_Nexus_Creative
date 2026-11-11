@@ -7,6 +7,22 @@ import PageHeader from '../components/ui/PageHeader'
 import { companyStats } from '../lib/site'
 import CtaBand from '../components/ui/CtaBand'
 
+// The two commitments in SNC's mission statement, shown in the page header.
+const commitments = [
+  {
+    icon: 'fa-briefcase',
+    label: 'For organizations',
+    title: 'Grow, scale and reach further',
+    text: 'Digital solutions, branding and marketing that optimize and enhance businesses, organizations and institutions, helping them grow, scale their services and products, and reach a wider audience while building trust with potential customers.',
+  },
+  {
+    icon: 'fa-graduation-cap',
+    label: 'For high school graduates',
+    title: 'Ready for college',
+    text: 'Foundational digital skills for young high school graduates, preparing them for a smooth transition into college and higher education so they can avoid the difficulties many face.',
+  },
+]
+
 const timeline = [
   { year: '2025', color: 'bg-primary', border: 'border-t-primary', title: 'Founded in Juba', desc: 'Founded in Juba by three co-founders, working online from day one. Delivered our first client projects and launched the first digital skills training cohort.' },
   { year: '2026', color: 'bg-accent', border: 'border-t-accent', title: 'Growing & Delivering', desc: 'Delivering digital projects for businesses, schools, and NGOs across Juba. Launched the SNC Academy with practical courses in web development, mobile apps, UI/UX, and digital marketing.' },
@@ -80,10 +96,36 @@ export default function About() {
 
       <PageHeader
         tone="dark"
+        video="/videos/about-hero.mp4"
+        poster="/videos/about-hero-poster.jpg"
         label="Who We Are"
         title="About SNC"
-        desc="Sleek Nexus Creative is a technology startup based in Juba, South Sudan. We build digital products, brands and marketing that help organizations grow, and we prepare young school leavers with the digital skills they need for higher education."
-      />
+        desc={<>SNC is a tech startup built around <span className="text-primary font-semibold">two commitments</span>.</>}
+      >
+        {/* The two halves of the mission, side by side */}
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto mt-10 text-left [text-shadow:none]">
+          {commitments.map(({ icon, label, title, text }, i) => (
+            <motion.div
+              key={title}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.35 + i * 0.15, ease: 'easeOut' }}
+              className="rounded-[1.375rem] bg-white/[0.07] backdrop-blur-xl ring-1 ring-inset ring-white/15 p-6 md:p-7"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-11 h-11 rounded-[28%] bg-primary flex items-center justify-center flex-shrink-0 shadow-[0_6px_14px_-6px_rgba(254,127,45,0.6)]">
+                  <i className={`fas ${icon} text-white`} />
+                </span>
+                <div>
+                  <p className="text-primary text-[0.7rem] font-bold uppercase tracking-widest">{label}</p>
+                  <h2 className="font-heading font-bold text-white text-lg leading-tight">{title}</h2>
+                </div>
+              </div>
+              <p className="text-white/80 text-sm md:text-[0.95rem] leading-relaxed">{text}</p>
+            </motion.div>
+          ))}
+        </div>
+      </PageHeader>
 
       {/* Mission & Vision */}
       <section className="relative overflow-hidden py-16 sm:py-24">
