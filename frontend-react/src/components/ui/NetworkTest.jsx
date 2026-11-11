@@ -58,6 +58,17 @@ function ScoreRing({ score, color }) {
   )
 }
 
+// Accept older and newer response shapes, so a backend and website deployed
+// at different times can never crash the page: list items are always text.
+const toText = (x) => (typeof x === 'string' ? x : x && typeof x === 'object' ? String(x.issue ?? x.text ?? '') : '')
+function normalize(data) {
+  return {
+    ...data,
+    strengths: (Array.isArray(data.strengths) ? data.strengths : []).map(toText).filter(Boolean),
+    weaknesses: (Array.isArray(data.weaknesses) ? data.weaknesses : []).map(toText).filter(Boolean),
+  }
+}
+
 const hostOf = (url) => {
   try { return new URL(url).hostname.replace(/^www\./, '') } catch { return url }
 }
@@ -93,7 +104,7 @@ export default function NetworkTest() {
       const res = await fetch(`${apiUrl}/site-check?url=${encodeURIComponent(address.trim())}`, { signal: controller.current.signal })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.error || 'Something went wrong. Please try again.')
-      setResult(data)
+      setResult(normalize(data))
       setState('done')
     } catch (err) {
       if (err.name === 'AbortError') return
