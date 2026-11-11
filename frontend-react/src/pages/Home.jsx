@@ -10,6 +10,7 @@ import Img from '../components/ui/Img'
 import { liveProducts } from '../lib/work-data'
 import { companyStats } from '../lib/site'
 import CtaBand from '../components/ui/CtaBand'
+import NetworkTest from '../components/ui/NetworkTest'
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 // Hero background photo (a file in public/images). After adding a new one,
@@ -100,30 +101,8 @@ export default function Home() {
               variants={fadeRight} initial="hidden" animate="show" transition={{ duration: 0.8, delay: 0.3 }}
               className="relative"
             >
-              {/* Card glow border */}
-              <div className="absolute -inset-[1px] rounded-2xl pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(254,127,45,0.35), rgba(35,61,77,0.15), rgba(254,127,45,0.2))', borderRadius: '1rem' }} />
-
-              <div
-                className="relative bg-white/95 backdrop-blur-sm border border-white rounded-2xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(35,61,77,0.12),0_4px_16px_rgba(254,127,45,0.08)]"
-              >
-                <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4">What You Get</p>
-                <ul className="space-y-3 mb-6">
-                  {[
-                    'Discovery and planning before every build',
-                    'Fast, mobile-first interfaces users actually adopt',
-                    'Secure architecture and post-launch support',
-                    'The same team from first call to launch',
-                    'On-time delivery with clear milestones',
-                  ].map(item => (
-                    <li key={item} className="flex items-start gap-3 text-dark-soft text-sm">
-                      <i className="fas fa-check-circle text-accent mt-0.5 flex-shrink-0" />{item}
-                    </li>
-                  ))}
-                </ul>
-                <Link to="/services" className="inline-flex items-center gap-2 text-accent font-semibold text-sm">
-                  Explore Our Services
-                </Link>
-              </div>
+              {/* The free Network Test: the first thing a visitor can do here. */}
+              <NetworkTest />
             </motion.aside>
           </div>
         </div>
