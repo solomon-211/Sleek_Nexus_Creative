@@ -127,7 +127,7 @@ export default function NetworkTest() {
               How fast is your website on a mobile network?
             </h2>
             <p className="text-muted text-sm mb-5">
-              Get a free report on any website in about 30 seconds: its speed, how many pages it has, its strengths, its weaknesses, and how to fix them.
+              Get a free report on any website in about 30 seconds: its speed, how many pages it has, what it does well, and what is costing it customers.
             </p>
             <form onSubmit={run} className="flex flex-col sm:flex-row gap-2.5">
               <label htmlFor="network-test-url" className="sr-only">Your website address</label>
@@ -152,7 +152,17 @@ export default function NetworkTest() {
                 <a href={askUs} target="_blank" rel="noopener noreferrer" className="font-semibold underline">Or ask us to check it</a>.
               </p>
             )}
-            <p className="mt-4 text-[0.7rem] text-muted">Free · Tested by Google on a simulated mobile connection</p>
+            <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-dark-soft">
+              {[
+                ['fa-gift', 'Free, no sign-up'],
+                ['fa-shield-halved', 'Confidential'],
+                ['fa-mobile-screen', 'Powered by Google’s mobile test'],
+              ].map(([icon, label]) => (
+                <li key={label} className="flex items-center gap-1.5">
+                  <i className={`fas ${icon} text-primary`} />{label}
+                </li>
+              ))}
+            </ul>
           </motion.div>
         )}
 
@@ -220,7 +230,7 @@ export default function NetworkTest() {
               <div className="mb-4">
                 <p className="text-xs font-bold text-dark uppercase tracking-wide mb-1.5">Strengths</p>
                 <ul className="space-y-1">
-                  {result.strengths.slice(0, 3).map((s) => (
+                  {result.strengths.slice(0, 4).map((s) => (
                     <li key={s} className="flex items-start gap-2 text-sm text-dark-soft">
                       <i className="fas fa-circle-check text-green-600 mt-0.5 flex-shrink-0" />{s}
                     </li>
@@ -231,18 +241,20 @@ export default function NetworkTest() {
 
             {result.weaknesses?.length > 0 && (
               <div className="mb-5">
-                <p className="text-xs font-bold text-dark uppercase tracking-wide mb-1.5">Weaknesses and how SNC can fix them</p>
-                <ul className="space-y-2">
-                  {result.weaknesses.slice(0, 4).map(({ issue, fix }) => (
-                    <li key={issue} className="flex items-start gap-2 text-sm">
-                      <i className="fas fa-circle-exclamation text-primary mt-0.5 flex-shrink-0" />
-                      <span>
-                        <span className="block text-dark font-medium leading-snug">{issue}</span>
-                        <span className="block text-xs leading-snug text-muted"><span className="font-semibold text-primary">How SNC can fix it:</span> {fix}</span>
-                      </span>
+                <p className="text-xs font-bold text-dark uppercase tracking-wide mb-1.5">
+                  Weaknesses found <span className="text-primary">({result.weaknesses.length})</span>
+                </p>
+                <ul className="space-y-1.5">
+                  {result.weaknesses.map((issue) => (
+                    <li key={issue} className="flex items-start gap-2 text-sm text-dark font-medium leading-snug">
+                      <i className="fas fa-circle-exclamation text-red-600 mt-0.5 flex-shrink-0" />{issue}
                     </li>
                   ))}
                 </ul>
+                <p className="mt-3 flex items-center gap-2 rounded-xl bg-primary/10 px-3.5 py-2.5 text-sm font-semibold text-dark">
+                  <i className="fas fa-screwdriver-wrench text-primary flex-shrink-0" />
+                  SNC can fix every one of these for you.
+                </p>
               </div>
             )}
 

@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { messagesRoute } from './routes/messages.js'
+import { siteCheckRoute } from './routes/site-check.js'
 
 const app = new Hono()
 
@@ -24,6 +25,7 @@ app.get('/api/health', (c) => c.json({ ok: true }, 200))
 app.all('/api/health', (c) => c.json({ error: 'Method not allowed' }, 405))
 
 app.route('/api/messages', messagesRoute)
+app.route('/api/site-check', siteCheckRoute)
 
 // 404 — no matching route
 app.notFound((c) => c.json({ error: 'Not found' }, 404))

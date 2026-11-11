@@ -147,6 +147,26 @@ EmailJS entirely.
 
 The response's `notified` field reports whether the email went out.
 
+## 7. Network Test (homepage website speed check)
+
+The "Free Network Test" card in the homepage hero calls
+`GET /api/site-check?url=…`, which runs Google PageSpeed Insights (mobile,
+throttled network) and returns a plain-language summary. It needs a free Google
+API key (25,000 checks a day):
+
+1. Go to [console.cloud.google.com](https://console.cloud.google.com), create a
+   project (or pick one), then **APIs & Services → Library → PageSpeed Insights
+   API → Enable**.
+2. **APIs & Services → Credentials → Create credentials → API key**. Under
+   *API restrictions*, restrict it to **PageSpeed Insights API**.
+3. `npx wrangler secret put PAGESPEED_API_KEY`, and paste the key at the prompt.
+4. `npx wrangler deploy`
+
+Without the key the test falls back to Google's shared, keyless allowance,
+which is usually used up, so visitors see "The test is busy right now".
+Results are cached for 6 hours per address, and each visitor is limited to 5
+checks a minute when `RATE_LIMIT_KV` is bound (section 5).
+
 ## Tests
 
 ```
@@ -189,3 +209,9 @@ leave it blank; forms should render it visually hidden.
 | 500 | Unexpected server error |
 
 `GET /api/health` → `{ "ok": true }`
+
+`GET /api/site-check?url=example.com` → `{ url, score, scores: { speed, seo, accessibility, bestPractices }, visibleSeconds, firstPaintSeconds, pageMegabytes, slow3gSeconds, pages: { count, source: 'sitemap' | 'links', atLeast? } | null, strengths[], weaknesses[] }`.
+`pages` comes from the site's sitemap (as declared in robots.txt, or
+`/sitemap.xml`), or, failing that, the distinct pages its home page links to.
+Errors: 400 unusable address, 422 the site could not be opened, 429 too many
+checks, 503 Google busy or out of quota, 504 timed out.
