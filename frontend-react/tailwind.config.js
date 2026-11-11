@@ -30,7 +30,7 @@ export default {
         dark:         '#233D4D',        // navy — the "dark" tone
         'dark-soft':  '#233D4D',        // used on body text, nav, footers
         'near-black': '#000000',        // use sparingly — only truly dark elements
-        muted:        'rgba(35,61,77,0.65)',  // navy at reduced opacity for body text
+        muted:        'rgba(35,61,77,0.8)',   // navy at reduced opacity for body text
         surface:      '#EAECF0',        // grey — card backgrounds, section fills
         light:        '#EAECF0',        // alias
         // Neutrals. Tailwind's stock grays are a cool blue-gray unrelated to

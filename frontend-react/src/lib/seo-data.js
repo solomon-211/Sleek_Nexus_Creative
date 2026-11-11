@@ -10,6 +10,12 @@
 
 export const pageSeo = {
   '/': {
+    // The hero background, so the browser starts on it immediately.
+    preloadImage: {
+      href: '/images/hero-tech-960.webp',
+      srcset: '/images/hero-tech-128.webp 128w, /images/hero-tech-640.webp 640w, /images/hero-tech-960.webp 960w, /images/hero-tech-1280.webp 1280w, /images/hero-tech.webp 1600w',
+      sizes: '100vw',
+    },
     title: 'Sleek Nexus Creative — Technology & Innovation for South Sudan',
     description: 'Bring us the problem slowing your organization down. From Juba, Sleek Nexus Creative designs, builds, and launches the website, app, or platform that fixes it — and supports you after launch.',
     canonical: '/',

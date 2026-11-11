@@ -119,7 +119,7 @@ export default function Work() {
                 aria-pressed={filter === c}
                 className={`text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border transition-all duration-200 ${
                   filter === c
-                    ? 'bg-primary border-primary text-white shadow-[0_4px_14px_rgba(254,127,45,0.28)]'
+                    ? 'bg-primary border-primary text-[#1B2F3B] shadow-[0_4px_14px_rgba(254,127,45,0.28)]'
                     : 'border-surface text-muted hover:border-primary/40 hover:text-primary'
                 }`}
               >

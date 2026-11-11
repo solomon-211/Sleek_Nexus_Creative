@@ -43,7 +43,7 @@ const legal = [
   { label: 'Terms',   to: '/terms' },
 ]
 
-const headingClass = 'text-xs font-bold uppercase tracking-widest text-white/50 mb-5'
+const headingClass = 'text-xs font-bold uppercase tracking-widest text-white/70 mb-5'
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -60,10 +60,10 @@ export default function Footer() {
 
           {/* ── Brand ── */}
           <div className="col-span-2 lg:col-span-4 flex flex-col gap-6">
-            <Link to="/" className="inline-flex items-center gap-3 w-fit" aria-label="Home">
+            <Link to="/" className="inline-flex items-center gap-3 w-fit" aria-label="Sleek Nexus Creative, home">
               <Img
                 src="/images/snc-logo.png"
-                alt="Sleek Nexus Creative"
+                alt=""
                 sizes="44px"
                 loading="lazy"
                 className="h-11 w-auto object-contain"
@@ -97,7 +97,7 @@ export default function Footer() {
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400" />
               </span>
               <span className="text-sm leading-snug">
-                <span className="block text-white/50 text-xs">Live now</span>
+                <span className="block text-white/70 text-xs">Live now</span>
                 <span className="font-semibold text-white group-hover:text-primary transition-colors">
                   HealthHub Bridge
                 </span>
@@ -136,7 +136,7 @@ export default function Footer() {
                       <i className={`${iconSet} ${icon} text-white`} />
                     </span>
                     <span className="min-w-0">
-                      <span className="block text-xs text-white/50">{label}</span>
+                      <span className="block text-xs text-white/70">{label}</span>
                       <span className="block font-semibold text-white text-sm sm:text-base truncate group-hover:text-primary transition-colors">
                         {value}
                       </span>
@@ -178,7 +178,7 @@ export default function Footer() {
         </div>
 
         {/* ── Bottom bar ── */}
-        <div className="pt-6 flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
+        <div className="pt-6 flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-sm text-white/70">
           <p>© {year} Sleek Nexus Creative</p>
           <div className="flex items-center gap-6">
             {legal.map(({ label, to }) => (
@@ -196,7 +196,7 @@ export default function Footer() {
             )}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-primary hover:text-white px-4 py-2 text-white/80 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-primary hover:text-[#1B2F3B] px-4 py-2 text-white/80 transition-colors"
             >
               Back to top
             </button>

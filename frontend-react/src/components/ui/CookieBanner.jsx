@@ -54,7 +54,7 @@ export default function CookieBanner() {
               Decline
             </button>
             <button onClick={() => choose('accepted')}
-              className="text-xs font-semibold bg-primary hover:bg-white hover:text-dark text-white px-5 py-2 rounded-lg transition-colors shadow-lg">
+              className="text-xs font-semibold bg-primary hover:bg-white hover:text-dark text-[#1B2F3B] px-5 py-2 rounded-lg transition-colors shadow-lg">
               Accept
             </button>
           </div>

@@ -34,6 +34,8 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      // Load the service-worker registration after the page, not before it.
+      injectRegister: 'script-defer',
       includeAssets: ['favicon-32.png', 'apple-touch-icon.png'],
       manifest: {
         name: 'Sleek Nexus Creative',
@@ -89,7 +91,12 @@ export default defineConfig({
           if (!id.includes('node_modules')) return
           if (/[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom|scheduler)[\\/]/.test(id)) return 'react-vendor'
           if (id.includes('framer-motion')) return 'motion-vendor'
-          if (/(react-hook-form|@hookform|zod)/.test(id)) return 'form-vendor'
+          // Form libraries (react-hook-form, zod) are deliberately not given a
+          // chunk of their own: as a named chunk it also picked up a shared
+          // helper the homepage needs, so every page downloaded ~29 kB of form
+          // code. Left alone, they're bundled with the Contact and Get Started
+          // pages that actually use them.
+          if (/(react-hook-form|@hookform|zod)/.test(id)) return
           // Only fetched if a form has to fall back to browser-side email
           // (see sendLead in src/lib/api.js) — keep it out of 'vendor', which
           // every page loads.

@@ -55,6 +55,11 @@ function buildHeadBlock(seo) {
   if (seo.description) lines.push(`    <meta name="description" content="${escapeAttr(seo.description)}" />`)
   if (seo.keywords) lines.push(`    <meta name="keywords" content="${escapeAttr(seo.keywords)}" />`)
   lines.push(`    <link rel="canonical" href="${escapeAttr(url)}" />`)
+  // The page's largest image: fetched before the app code asks for it.
+  if (seo.preloadImage) {
+    const p = seo.preloadImage
+    lines.push(`    <link rel="preload" as="image" type="image/webp" href="${escapeAttr(p.href)}" imagesrcset="${escapeAttr(p.srcset)}" imagesizes="${escapeAttr(p.sizes)}" fetchpriority="high" />`)
+  }
 
   lines.push(
     '',

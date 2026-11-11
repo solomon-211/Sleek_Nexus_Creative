@@ -131,7 +131,7 @@ export default function Home() {
       </section>
 
       {/* ── Bento Services Grid ── */}
-      <section className="py-16 sm:py-24 aurora-bg">
+      <section className="py-16 sm:py-24 bg-gray-100">
         <div className="container-page">
           <motion.div className="text-center mb-10 sm:mb-14" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <p className="eyebrow">What We Do</p>
@@ -211,8 +211,8 @@ export default function Home() {
                   <h3 className="font-heading font-black text-dark text-2xl uppercase leading-tight mb-1">IT Consulting &amp; Digital Transformation</h3>
                   <p className="text-muted text-sm">Clear advice on what to build, what to buy, and what to leave alone.</p>
                 </div>
-                <RevealLink to="/services#consulting" className="flex-shrink-0 inline-flex items-center rounded-full bg-primary/10 hover:bg-primary px-5 py-2.5 text-sm font-semibold text-primary hover:text-white transition-colors">
-                  Learn more
+                <RevealLink to="/services#consulting" className="flex-shrink-0 inline-flex items-center rounded-full bg-primary/10 hover:bg-primary px-5 py-2.5 text-sm font-semibold text-[#B8490D] hover:text-[#1B2F3B] transition-colors">
+                  Explore IT Consulting
                 </RevealLink>
               </div>
             </motion.div>
@@ -285,7 +285,7 @@ export default function Home() {
       </section>
 
       {/* Live products — proof, before the testimonials */}
-      <section className="relative overflow-hidden bg-noise py-16 sm:py-24 bg-dark text-white">
+      <section className="relative overflow-hidden py-16 sm:py-24 bg-dark text-white">
         <div className="relative container-page">
           <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-center">
             <motion.div className="lg:col-span-2" variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }}>
@@ -313,7 +313,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   variants={fadeRight} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 + i * 0.12 }}
-                  className="group flex flex-col rounded-2xl overflow-hidden bg-dark-soft shadow-[0_20px_60px_rgba(0,0,0,0.35)] hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(254,127,45,0.2)] transition-all duration-500"
+                  className="group flex flex-col rounded-2xl overflow-hidden bg-dark-soft shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
                 >
                   {/* Browser-chrome frame — the live sites block iframe embeds,
                       so this is a styled preview that links out instead. */}

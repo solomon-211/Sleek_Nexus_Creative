@@ -25,8 +25,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const IMAGES_DIR = join(__dirname, '..', 'public', 'images')
 const MANIFEST_PATH = join(__dirname, '..', 'src', 'lib', 'image-manifest.json')
 
-const WIDTHS = [128, 640, 1280]
+const WIDTHS = [128, 640, 960, 1280]
 const WEBP_QUALITY = 78
+// Photos shown under a heavy overlay lose nothing visible at a lower quality.
+const QUALITY_OVERRIDES = { 'hero-tech': 55 }
 const SOURCE_EXTS = new Set(['.jpg', '.jpeg', '.png'])
 
 function isStale(outPath, srcMtime) {
@@ -58,7 +60,7 @@ async function run() {
       if (!isStale(out, srcStat.mtimeMs)) continue
       let pipeline = sharp(srcPath).rotate()
       if (resize) pipeline = pipeline.resize({ width: resize })
-      await pipeline.webp({ quality: WEBP_QUALITY }).toFile(out)
+      await pipeline.webp({ quality: QUALITY_OVERRIDES[stem] ?? WEBP_QUALITY }).toFile(out)
       written++
     }
 

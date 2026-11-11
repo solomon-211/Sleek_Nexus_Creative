@@ -153,7 +153,7 @@ export default function Branding() {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-                    <span className="text-white text-xs font-bold uppercase tracking-widest bg-primary px-3 py-1 rounded-full">
+                    <span className="text-[#1B2F3B] text-xs font-bold uppercase tracking-widest bg-primary px-3 py-1 rounded-full">
                       {category}
                     </span>
                   </div>

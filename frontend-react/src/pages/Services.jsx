@@ -130,7 +130,7 @@ export default function Services() {
                   <div className="flex flex-wrap gap-2 mb-6">
                     {process.map((p, i) => (
                       <span key={p} className="inline-flex items-center gap-2 border border-primary/20 text-primary text-xs font-semibold px-3 py-1.5 rounded-full">
-                        <span className="w-5 h-5 rounded-full bg-primary text-white flex items-center justify-center text-[0.6rem] font-black">{i + 1}</span> {p}
+                        <span className="w-5 h-5 rounded-full bg-primary text-[#1B2F3B] flex items-center justify-center text-[0.6rem] font-black">{i + 1}</span> {p}
                       </span>
                     ))}
                   </div>
@@ -189,7 +189,7 @@ export default function Services() {
                   animate={popular ? floatAnimation : undefined}
                   className={`card p-8 relative h-full ${popular ? 'border-2 border-primary shadow-xl scale-105' : ''}`}
                 >
-                  {popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full">Most Popular</div>}
+                  {popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-[#1B2F3B] text-xs font-bold px-4 py-1 rounded-full">Most Popular</div>}
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                     <i className={`fas ${icon} text-primary text-lg`} />
                   </div>

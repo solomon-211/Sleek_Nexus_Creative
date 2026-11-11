@@ -14,8 +14,13 @@ const CATEGORIES = ['performance', 'seo', 'accessibility', 'best-practices']
 const RATE_LIMIT = 5             // checks
 const RATE_WINDOW_SECONDS = 60   // per IP, per window
 const CACHE_SECONDS = 6 * 60 * 60
-const CACHE_VERSION = 'v2'
-const FETCH_HEADERS = { 'User-Agent': 'Mozilla/5.0 (compatible; SNC-NetworkTest/1.0; +https://sleeknexuscreative.com)' }
+const CACHE_VERSION = 'v3'
+const FETCH_HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (compatible; SNC-NetworkTest/1.0; +https://sleeknexuscreative.com)',
+  // Ask like a browser: some hosts only add things (e.g. analytics) to pages
+  // served to browsers, and missing them would report a false weakness.
+  Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+}
 
 // A slow 3G connection (~400 kbps) — the "worst common case" used for the
 // download-time estimate. Plus ~1.5 s for DNS, connection and TLS set-up.
@@ -268,6 +273,9 @@ export function summarize(psi) {
       savings: a.details?.overallSavingsMs ?? a.metricSavings?.LCP ?? a.metricSavings?.FCP ?? 0,
     }))
     .sort((x, y) => x.cat - y.cat || y.savings - x.savings)
+    // A site already scoring 90+ for speed is fast: its remaining speed
+    // findings are fine-tuning, not weaknesses worth reporting.
+    .filter((f) => !(f.cat === 0 && score('performance') >= 90))
   const seen = new Set()
   const weaknesses = []
   for (const f of failing) {

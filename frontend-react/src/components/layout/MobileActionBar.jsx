@@ -35,7 +35,7 @@ export default function MobileActionBar() {
             <i className="fab fa-whatsapp text-accent text-base" />
             WhatsApp
           </a>
-          <Link to="/get-started" className={`${item} bg-primary text-white hover:bg-white hover:text-dark`}>
+          <Link to="/get-started" className={`${item} bg-primary text-[#1B2F3B] hover:bg-white hover:text-dark`}>
             <i className="fas fa-paper-plane text-base" />
             Start a Project
           </Link>

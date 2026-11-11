@@ -129,7 +129,7 @@ export default function NetworkTest() {
 
   return (
     <div className="relative bg-white rounded-[1.375rem] p-6 sm:p-7 shadow-[0_20px_60px_rgba(15,23,32,0.35)]">
-      <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2">Free Network Test</p>
+      <p className="text-[#B8490D] text-xs font-bold uppercase tracking-widest mb-2">Free Network Test</p>
 
       <AnimatePresence mode="wait" initial={false}>
         {(state === 'idle' || state === 'error') && (

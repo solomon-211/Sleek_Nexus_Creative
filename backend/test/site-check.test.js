@@ -88,6 +88,15 @@ describe('summarize', () => {
     ])
   })
 
+  it('does not report speed fine-tuning as weaknesses on a site that is already fast', () => {
+    const fast = structuredClone(psi)
+    fast.lighthouseResult.categories.performance.score = 0.95
+    expect(summarize(fast).weaknesses).toEqual([
+      'No description in Google search results, so fewer people click',
+      'Some text is hard to read',
+    ])
+  })
+
   it('lists strengths: strong categories first, then passed checks', () => {
     expect(s.strengths).toEqual([
       'Strong basics for Google search',
