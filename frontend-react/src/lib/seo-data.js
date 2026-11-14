@@ -9,6 +9,34 @@
 // content, not a cache of it.
 
 export const pageSeo = {
+  '/products/sncinn': {
+    title: 'SNCInn — Hotel Management Platform for South Sudan',
+    description: 'SNCInn is a multi-tenant, offline-capable hotel management platform built for South Sudan — rooms, bookings, billing in USD and SSP, guest service requests, housekeeping, and manager reporting.',
+    canonical: '/products/sncinn',
+    keywords: 'hotel management system South Sudan, hotel software Juba, SNCInn, hotel booking system South Sudan, hospitality technology South Sudan, hotel PMS South Sudan',
+    image: 'https://sleeknexuscreative.com/images/hero-tech.jpg',
+    imageAlt: 'SNCInn hotel management platform by Sleek Nexus Creative',
+    imageWidth: 1600,
+    imageHeight: 1200,
+    breadcrumbs: [{ name: 'Work', url: '/work' }, { name: 'SNCInn', url: '/products/sncinn' }],
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'SNCInn',
+      applicationCategory: 'BusinessApplication',
+      description: 'Multi-tenant hotel management platform for South Sudan — rooms, bookings, billing, guest requests, and manager reporting.',
+      operatingSystem: 'Web, PWA',
+      offers: { '@type': 'Offer', price: '49', priceCurrency: 'USD' },
+      provider: { '@type': 'Organization', name: 'Sleek Nexus Creative', url: 'https://sleeknexuscreative.com' },
+    },
+    faq: [
+      { q: 'What is SNCInn?', a: 'SNCInn is a cloud-based, offline-capable hotel management platform built by Sleek Nexus Creative for hotels in South Sudan — covering rooms, bookings, billing, guest service requests, and manager reporting.' },
+      { q: 'Does SNCInn work without internet?', a: 'Yes. SNCInn is offline-first: reception can create bookings, check guests in and out, and record payments without a connection. Everything syncs automatically when the internet returns.' },
+      { q: 'What currencies does SNCInn support?', a: 'SNCInn supports both USD and SSP, with a manager-set exchange rate recorded on every bill.' },
+      { q: 'How long does it take to onboard a hotel?', a: 'A new hotel can be fully set up — profile, rooms, rates, and staff accounts — in under one day. We provide on-site training and stay on site for the first week.' },
+    ],
+  },
+
   '/': {
     // The hero background, so the browser starts on it immediately.
     preloadImage: {

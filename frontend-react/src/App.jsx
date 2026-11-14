@@ -28,6 +28,9 @@ const UIUX       = lazy(() => import('./pages/services/UIUX'))
 const Branding   = lazy(() => import('./pages/services/Branding'))
 const Consulting = lazy(() => import('./pages/services/Consulting'))
 
+// Product pages
+const SNCInn     = lazy(() => import('./pages/products/SNCInn'))
+
 // Team-only leads dashboard: its own chunk (with the Supabase library), and
 // rendered without the public site's navbar, footer and contact bar.
 const Admin      = lazy(() => import('./pages/Admin'))
@@ -83,6 +86,9 @@ function AnimatedRoutes() {
                   <Route path="/services/ui-ux" element={<PageWrapper><UIUX /></PageWrapper>} />
                   <Route path="/services/branding" element={<PageWrapper><Branding /></PageWrapper>} />
                   <Route path="/services/consulting" element={<PageWrapper><Consulting /></PageWrapper>} />
+
+                  {/* Product pages */}
+                  <Route path="/products/sncinn" element={<PageWrapper><SNCInn /></PageWrapper>} />
 
                   {/* Redirects for removed pages */}
                   <Route path="/about/our-story"        element={<Navigate to="/about" replace />} />

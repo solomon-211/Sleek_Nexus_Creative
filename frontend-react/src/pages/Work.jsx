@@ -64,9 +64,15 @@ export default function Work() {
               </div>
 
               <MagneticButton>
-                <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
-                  {p.cta}
-                </a>
+                {p.url ? (
+                  <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
+                    {p.cta}
+                  </a>
+                ) : (
+                  <Link to={`/products/${p.id}`} className="btn-primary inline-flex items-center gap-2">
+                    {p.cta}
+                  </Link>
+                )}
               </MagneticButton>
             </motion.div>
 
@@ -75,15 +81,25 @@ export default function Work() {
               className={`space-y-4 ${i % 2 ? 'lg:order-1' : ''}`}
               variants={i % 2 ? fadeLeft : fadeRight} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.75, delay: 0.15 }}
             >
-              <a href={p.url} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 bg-gray-900 rounded-xl px-4 py-3 transition-colors">
-                <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
-                <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
-                <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-                <span className="ml-3 flex-1 bg-white/5 rounded-md px-3 py-1 text-white/50 text-xs flex items-center gap-1.5 truncate">
-                  <i className="fas fa-lock text-[0.6rem]" /> {p.displayUrl}
-                </span>
-               
-              </a>
+              {p.url ? (
+                <a href={p.url} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 bg-gray-900 rounded-xl px-4 py-3 transition-colors">
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                  <span className="ml-3 flex-1 bg-white/5 rounded-md px-3 py-1 text-white/50 text-xs flex items-center gap-1.5 truncate">
+                    <i className="fas fa-lock text-[0.6rem]" /> {p.displayUrl}
+                  </span>
+                </a>
+              ) : (
+                <div className="flex items-center gap-2 bg-gray-900 rounded-xl px-4 py-3">
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
+                  <span className="ml-3 flex-1 bg-white/5 rounded-md px-3 py-1 text-white/50 text-xs flex items-center gap-1.5 truncate">
+                    <i className="fas fa-clock text-[0.6rem]" /> {p.displayUrl}
+                  </span>
+                </div>
+              )}
               {p.capabilities.map(({ icon, title, desc }) => (
                 <div key={title} className="flex gap-4 bg-white/5 rounded-xl p-5 transition-colors duration-300">
                   <div className="w-11 h-11 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0">

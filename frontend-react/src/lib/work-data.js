@@ -7,11 +7,35 @@
 
 export const EDUPORTAL_URL  = 'https://eduportalss.solomonleek.tech'
 export const HEALTHHUB_URL  = 'https://healthhubbridge.com'
+export const SNCINN_URL     = null // not yet deployed
 
 // Live products — shown on Home, on /work, and in the Innovation Hub's
 // "Innovation in Action". Everything said here should be true of the live
 // site; check it there before changing a claim.
 export const liveProducts = [
+  {
+    id: 'sncinn',
+    title: 'SNCInn',
+    sector: 'Hospitality',
+    icon: 'fa-hotel',
+    tagline: 'Hotel management built for South Sudan',
+    url: null,
+    displayUrl: 'Coming Soon',
+    cta: 'Learn More',
+    summary: 'A multi-tenant, offline-capable hotel management platform — rooms, bookings, check-in/out, billing in USD and SSP, guest service requests, housekeeping workflows, and a manager dashboard. Built for hotels from Juba to Malakal.',
+    short: 'Rooms, bookings, billing, and guest requests in one platform — designed for South Sudan\'s hotels, with offline-first support for power and internet outages.',
+    facts: [
+      { icon: 'fa-hotel',        label: 'Multi-Hotel Platform' },
+      { icon: 'fa-wifi',         label: 'Offline-First' },
+      { icon: 'fa-dollar-sign',  label: 'USD + SSP Billing' },
+    ],
+    capabilities: [
+      { icon: 'fa-calendar-check', title: 'Rooms & Bookings',      desc: 'Live room calendar, walk-in and online bookings, and transactional double-booking prevention.' },
+      { icon: 'fa-file-invoice-dollar', title: 'Billing & Payments', desc: 'Cash, mobile money, and bank transfer recording. Branded PDF invoices in USD and SSP.' },
+      { icon: 'fa-bell',         title: 'Guest Service Requests',  desc: 'Guests scan a QR code to request cleaning or report issues. Staff get instant alerts with automatic escalation.' },
+    ],
+    services: ['Software Development', 'UI/UX Design', 'Hospitality Technology'],
+  },
   {
     id: 'eduportal',
     title: 'EduPortal South Sudan',
